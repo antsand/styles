@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-Thin.woff2') format('woff2'),
+        url('Boing-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-BoldItalic.woff2') format('woff2'),
+        url('Boing-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-Light.woff2') format('woff2'),
+        url('Boing-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-ThinItalic.woff2') format('woff2'),
+        url('Boing-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-Semibold.woff2') format('woff2'),
+        url('Boing-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-SemiboldItalic.woff2') format('woff2'),
+        url('Boing-SemiboldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-MediumItalic.woff2') format('woff2'),
+        url('Boing-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-Medium.woff2') format('woff2'),
+        url('Boing-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-Bold.woff2') format('woff2'),
+        url('Boing-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-Regular.woff2') format('woff2'),
+        url('Boing-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-Italic.woff2') format('woff2'),
+        url('Boing-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Boing';
+    src: url('Boing-LightItalic.woff2') format('woff2'),
+        url('Boing-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+

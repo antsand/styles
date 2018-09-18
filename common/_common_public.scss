@@ -1,0 +1,435 @@
+.cf {
+  @include cf;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.float-right {
+    float: right;
+}
+.float-left {
+    float: left;
+}
+
+.width-full {
+ width: 100%;
+}
+
+.width-full-mobile {
+    @include breakpoint(0 $tablet) {
+        width: 100%;
+    }
+}
+
+.height-full {
+ height: 100%;
+}
+
+.width-half {
+ width: 50%;
+}
+
+.color-yellow {
+    color: #ffb400;
+}
+
+.color-white {
+    color: white;
+}
+
+.width-half-float, .gallery-2 {
+    @include gallery(1 of 2);
+}
+
+.gallery-3 {
+    @include gallery(1 of 3);
+}
+.gallery-3-inside {
+    @include gallery(1 of 3 inside);
+}
+.gallery-container {
+    @include cf;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+    // top: attr(data-top);
+    // right: attr(data-right);
+    // bottom: attr(data-bottom);
+    // left: attr(data-left);
+}
+
+.container {
+    @include cf;
+    width: 100%;
+}
+
+.width {
+    width: var(--width);
+}
+.max-width {
+    max-width: var(--max-width);
+}
+.top-0 {
+    top:0;
+}
+.center {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fixed, .display-fixed {
+  position: fixed;
+}
+
+.img {
+  width: 100%;
+  height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.margin-right-5 {
+  margin-right: 5px;
+}
+
+.margin-right-10 {
+  margin-right: 10px;
+}
+
+.margin-left-5 {
+  margin-left: 5px;
+}
+
+.margin-left-10 {
+  margin-left: 10px;
+}
+.margin-top-20 {
+    margin-top: 20px;
+}
+.margin-top-40 {
+    margin-top: 40px;
+}
+.margin-bottom-70 {
+    margin-bottom: 70px;
+}
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.padding-20 {
+    padding: 20px;
+}
+
+.padding-bottom-50 {
+    padding-bottom: 50px !important;
+}
+
+.padding-top-50 {
+    padding-top: 50px !important;
+}
+
+.padding-bottom-40 {
+    padding-bottom: 40px !important;
+}
+
+.padding-top-40 {
+    padding-top: 40px !important;
+}
+
+.padding-bottom-15 {
+    padding-bottom: 15px !important;
+}
+
+.padding-top-15 {
+    padding-top: 15px !important;
+}
+
+.padding-right-15-tablet {
+    @include breakpoint($tablet) {
+        padding-right: 15px;
+    }
+
+}
+.padding-left-15-tablet {
+    @include breakpoint($tablet) {
+        padding-left: 15px;
+    }
+}
+
+.font-size-26 {
+    font-size: 26px;
+}
+.font-size-55 {
+    font-size: 55px;
+}
+
+.display-block {
+    display: block;
+}
+
+.display-inline {
+    display: inline-block;
+}
+.display-inline-desktop {
+    @include breakpoint($desktop) {
+      display: inline-block;
+    }
+}
+.overflow-auto {
+    overflow:auto;
+}
+
+.z-index-2 {
+   z-index: 2;
+}
+
+.form {
+	h1 {
+		color: #999;
+	}
+  flex: 1 0 300px;
+  //background: powderblue;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 1em;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.2);
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0.5em;
+  }
+  //margin-right: 2em;
+  label {
+    flex: 1 0 90px;
+    max-width: 200px;
+  }
+  input, select {
+        flex: 1 0 230px;
+        box-sizing: border-box;
+        padding: 0.6em 0.8em;
+        color: #444;
+        background: #f7f7f7;
+        border: 1px solid #e1e1e1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.9em;
+        text-decoration: none;
+        line-height: normal;
+        max-height: 3em;
+  }
+  button {
+	  border-radius: 0px 2px 2px 0px;
+    box-sizing: content-box;
+    background: #00aeef;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: white;
+    padding: 0.35em 0.75em;
+    border: none;
+    font-size: 1.1em;
+    text-decoration: none;
+    cursor: pointer;
+	border-radius: 4px;
+    margin-top: 15px;
+  }
+}
+
+.no_decor {
+    @include no_decor;
+}
+
+.no_padding_margin {
+    @include no_padding_margin;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+@include breakpoint($tablet) {
+    .wrapper {
+        width: span(8 of $columns)  + gutter($columns) + gutter($columns);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .inner-wrapper {
+        width:span(8 of $columns) + gutter($wrapper) + gutter($wrapper);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@include breakpoint($desktop) {
+    .wrapper {
+        width: span(7 of $columns)  + gutter($columns) + gutter($columns);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .inner-wrapper {
+        width:span($inner_wrapper of $wrapper) + gutter($wrapper) + gutter($wrapper);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.width-one-third {
+    width: 33.33%;
+}
+.width-two-third {
+    width: calc(100%*2/3);
+}
+.span-1-of-4 {
+    @include span(1 of 4);
+}
+.span-1-of-4-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 4);
+    }
+}
+.span-1-of-2 {
+    @include span(1 of 2);
+}
+.span-1-of-2-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 2);
+    }
+}
+.span-1-of-2-desktop {
+    @include breakpoint($desktop) {
+      @include span(1 of 2);
+    }
+}
+.span-1-of-2-last {
+    @include span(1 of 2 last);
+}
+
+.span-1-of-2-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 2 last);
+    }
+}
+.span-1-of-2-last-desktop {
+    @include breakpoint($desktop) {
+      @include span(1 of 2 last);
+    }
+}
+.span-1-of-3-inside {
+    @include span(1 of 3 inside);
+}
+.span-1-of-3-inside-desktop {
+    @include breakpoint($desktop) {
+      @include span(1 of 3 inside);
+    }
+}
+.span-2-of-3-last-inside {
+    @include span(2 of 3 last inside);
+}
+.span-2-of-3-last-inside-desktop {
+    @include breakpoint($desktop) {
+      @include span(2 of 3 last inside);
+    }
+}
+.span-1-of-3 {
+    @include span(1 of 3);
+}
+.span-2-of-3-last {
+    @include span(2 of 3 last);
+}
+.span-1-of-4-last {
+    @include span(1 of 4 last);
+}
+.span-3-of-4 {
+    @include span(3 of 4);
+}
+.span-3-of-4-last {
+    @include span(3 of 4 last);
+}
+.span-3-of-4-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(3 of 4 last);
+    }
+}
+.span-1-of-6 {
+    @include span(1 of 6);
+}
+.span-5-of-6-last {
+    @include span(5 of 6 last);
+}
+.gallery-2, .gallery-2-mobile {
+    @include gallery(1 of 2);
+}
+.gallery-2-tablet {
+    @include breakpoint($tablet) {
+      @include gallery(1 of 2);
+    }
+}
+.gallery-3 {
+    @include gallery(1 of 3);
+}
+.gallery-3-tablet {
+    @include breakpoint($tablet) {
+      @include gallery(1 of 3);
+    }
+}
+.gallery-3-desktop {
+    @include breakpoint($desktop) {
+      @include gallery(1 of 3);
+    }
+}
+.gallery-4 {
+    @include gallery(1 of 4);
+}
+.gallery-4-tablet {
+    @include breakpoint($tablet) {
+      @include gallery(1 of 4);
+    }
+}
+.gallery-4-desktop {
+    @include breakpoint($desktop) {
+      @include gallery(1 of 4);
+    }
+}
+.gallery-5 {
+    @include gallery(1 of 5);
+}
+.gallery-6 {
+    @include gallery(1 of 6);
+}
+.gallery-7 {
+    @include gallery(1 of 7);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+@font-face {
+    font-family: "Bebas Neue Bold";
+    src: url(sansation_light.woff);
+}
+
