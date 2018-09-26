@@ -1,0 +1,93 @@
+$columns: 9;
+$inner-wrapper: 4;
+$event-inner-wrapper:6;
+$wrapper: 7;
+$susy: (
+    columns: $columns,
+//    container: 1140px,
+    global-box-sizing: border-box,
+//    debug: (image: show)
+);
+
+@include border-box-sizing;
+$small: 600px;
+$tablet: 600px;
+$minidesktop:1090px;
+$desktop: 1600px;
+
+@mixin cf {
+        &:after {
+            content:"";
+            display: block;
+            clear: both;
+        }
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+
+}
+h2 {
+    //margin: 0px;
+}
+.h2-margin-zero {
+    margin: 0px;
+}
+.green {
+    background-color: rgb(71,180,117);
+    color: rgb(0,0,0);
+    margin-left: 15px;
+    margin-right: 15px;
+    line-height: 40px;
+    border-bottom-color: rgba(255,255,255, 0.2);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.icon {
+    color: rgb(152,152,152);
+    font-size: 64px;
+    line-height: 64px;
+    font-family: themify;
+    margin: 16px;
+    list-style-position: outside;
+    cursor: pointer;
+    display: block;
+}
+.icon:hover, .span_icon:hover {
+    color: rgb(71,180, 117);
+}
+
+.tabs {
+    @include cf;
+    list-style-type: none;
+    list-style-image: none;
+    color: rgb(102,102,102);
+    margin-left: span(2);
+    li {
+        float:left;
+        width: span(1) + gutter();
+    }
+    li:hover {
+        .icon, .span_icon {
+            color: rgb(71,180, 117);
+        }
+    }
+}
+.span_icon {
+    font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.sub_heading {
+    display: block;
+    font-family: Raleway, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.cf {
+    @include cf;
+}
