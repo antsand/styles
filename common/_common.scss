@@ -386,15 +386,15 @@
     text-align: center;
 }
 .text-left, .align-left, .text-align-left {
-    text-align: left;
+    text-align: left !important;
 }
 .text-right, .align-right, .text-align-right {
-    text-align: right;
+    text-align: right !important;
 }
 
 .text-left-tablet, .align-left-tablet {
     @include breakpoint($tablet) {   
-      text-align: left;
+      text-align: left !important;
     }
 }
 
@@ -535,6 +535,22 @@
 
 .display-none {
     display: none;
+}
+.display-none-sm,{
+    @include breakpoint(0 $tablet) {
+      display: none;
+    }
+}
+.display-none-tablet,{
+    @include breakpoint($tablet) {
+      display: none;
+    }
+}
+
+.display-block-tablet {
+    @include breakpoint($tablet) {
+      display: block;
+    }
 }
 
 .antsand-transition {

@@ -43,6 +43,10 @@
     color: white;
 }
 
+.bg-white {
+    background-color: white;
+}
+
 .width-half-float, .gallery-2 {
     @include gallery(1 of 2);
 }
@@ -426,6 +430,17 @@ img {
 
 .uppercase {
     text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.bold {
+    font-weight: bold;
+}
+.font-400 {
+    font-weight: 400;
 }
 
 @font-face {
