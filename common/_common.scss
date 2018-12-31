@@ -361,23 +361,20 @@
 .create-btn {
     padding: 10px 12px;
 }
-.gallery-3 {
-    @include gallery(1 of 3);
-}
-.gallery-3-inside {
-    @include gallery(1 of 3 inside);
-}
-.gallery-container {
-    @include cf;
-}
-.gallery-4 {
-    @include gallery(1 of 4);
-}
-.gallery-5 {
-    @include gallery(1 of 5);
-}
 .position-absolute {
     position: absolute;
+}
+.position-absolute-imp, .position-absolute-important{
+    position: absolute !important;
+}
+.position-fixed {
+    position: fixed;
+}
+.position-50-top {
+    top: 50%;
+}
+.transform-y-50 {
+    transform: translate(0, -50%);
 }
 .position-relative {
     position: relative;
@@ -536,6 +533,9 @@
 .display-none {
     display: none;
 }
+.display-transparent, .color-transparent {
+    color: transparent;
+}
 .display-none-sm,{
     @include breakpoint(0 $tablet) {
       display: none;
@@ -547,9 +547,19 @@
     }
 }
 
+.display-block, .display-block-important{
+    display: block !important;
+}
+
 .display-block-tablet {
     @include breakpoint($tablet) {
       display: block;
+    }
+}
+
+.display-inline-desktop {
+    @include breakpoint($desktop) {
+      display: inline-block;
     }
 }
 

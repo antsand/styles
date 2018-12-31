@@ -40,23 +40,27 @@
 }
 
 .color-white {
-    color: white;
+    color: white !important;
 }
 
 .bg-white {
-    background-color: white;
+    background-color: white !important;
 }
 
 .width-half-float, .gallery-2 {
     @include gallery(1 of 2);
 }
 
-.gallery-3 {
-    @include gallery(1 of 3);
+.gallery-2-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 2);
+    }
 }
-.gallery-3-inside {
-    @include gallery(1 of 3 inside);
+
+.gallery-1 {
+    @include gallery(1 of 1);
 }
+
 .gallery-container {
     @include cf;
 }
@@ -108,6 +112,10 @@ img {
     object-fit: cover;
 }
 
+.img-contain {
+    object-fit: contain !important;
+}
+
 .margin-right-5 {
   margin-right: 5px;
 }
@@ -134,6 +142,12 @@ img {
 }
 .margin-bottom-10 {
   margin-bottom: 10px;
+}
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+.margin-bottom-40 {
+  margin-bottom: 40px;
 }
 
 .padding-20 {
@@ -179,31 +193,32 @@ img {
 .font-size-26 {
     font-size: 26px;
 }
+
 .font-size-55 {
     font-size: 55px;
-}
-
-.display-block {
-    display: block;
 }
 
 .display-inline {
     display: inline-block;
 }
-.display-inline-desktop {
-    @include breakpoint($desktop) {
-      display: inline-block;
-    }
+
+.display-flex {
+    display: flex;
 }
+
 .overflow-auto {
     overflow:auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 
 .z-index-2 {
    z-index: 2;
 }
 
-.form {
+.form-flex {
 	h1 {
 		color: #999;
 	}
@@ -241,7 +256,7 @@ img {
         max-height: 3em;
   }
   button {
-	  border-radius: 0px 2px 2px 0px;
+    border-radius: 0px 2px 2px 0px;
     box-sizing: content-box;
     background: #00aeef;
     font-weight: 300;
@@ -267,6 +282,12 @@ img {
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+@include breakpoint(0 $tablet) {
+    .wrapper {
+        padding: 0px 15px;
+    }
 }
 
 @include breakpoint($tablet) {
@@ -307,16 +328,11 @@ img {
 .width-two-third {
     width: calc(100%*2/3);
 }
-.span-1-of-4 {
-    @include span(1 of 4);
-}
-.span-1-of-4-tablet {
-    @include breakpoint($tablet) {
-      @include span(1 of 4);
-    }
-}
 .span-1-of-2 {
     @include span(1 of 2);
+}
+.span-1-of-2-inside {
+    @include span(1 of 2 inside);
 }
 .span-1-of-2-tablet {
     @include breakpoint($tablet) {
@@ -332,6 +348,9 @@ img {
     @include span(1 of 2 last);
 }
 
+.span-1-of-2-last-inside {
+    @include span(1 of 2 last inside);
+}
 .span-1-of-2-last-tablet {
     @include breakpoint($tablet) {
       @include span(1 of 2 last);
@@ -361,17 +380,76 @@ img {
 .span-1-of-3 {
     @include span(1 of 3);
 }
+.span-1-of-3-last {
+    @include span(1 of 3 last);
+}
+.span-1-of-3-last-inside {
+    @include span(1 of 3 last inside);
+}
+.span-1-of-3-last-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 3 last inside);
+    }
+}
+.span-2-of-3 {
+    @include span(2 of 3);
+}
+.span-2-of-3-inside {
+    @include span(2 of 3 inside);
+}
+.span-2-of-3-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(2 of 3 inside);
+    }
+}
 .span-2-of-3-last {
     @include span(2 of 3 last);
+}
+
+.span-1-of-4 {
+    @include span(1 of 4);
+}
+.span-1-of-4-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 4);
+    }
+}
+.span-1-of-4-inside {
+    @include span(1 of 4 inside);
+}
+.span-1-of-4-inside-last, .span-1-of-4-last-inside {
+    @include span(1 of 4 last inside);
+}
+.span-1-of-4-inside-last-tablet, .span-1-of-4-last-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 4 last inside);
+  }
 }
 .span-1-of-4-last {
     @include span(1 of 4 last);
 }
+
 .span-3-of-4 {
     @include span(3 of 4);
 }
+.span-3-of-4-inside {
+    @include span(3 of 4 inside);
+}
 .span-3-of-4-last {
     @include span(3 of 4 last);
+}
+.span-3-of-4-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(3 of 4 inside);
+  }
+}
+.span-3-of-4-last-inside, .span-3-of-4-inside-last {
+    @include span(3 of 4 last inside);
+}
+.span-3-of-4-tablet {
+    @include breakpoint($tablet) {
+      @include span(3 of 4);
+    }
 }
 .span-3-of-4-last-tablet {
     @include breakpoint($tablet) {
@@ -392,11 +470,28 @@ img {
       @include gallery(1 of 2);
     }
 }
+
+.gallery-container {
+    @include cf;
+}
 .gallery-3 {
     @include gallery(1 of 3);
 }
+.gallery-3-inside {
+    @include gallery(1 of 3 inside);
+}
+.gallery-3-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 3);
+    }
+}
 .gallery-3-tablet {
     @include breakpoint($tablet) {
+      @include gallery(1 of 3);
+    }
+}
+.gallery-3-minidesktop {
+    @include breakpoint($minidesktop) {
       @include gallery(1 of 3);
     }
 }
@@ -408,8 +503,18 @@ img {
 .gallery-4 {
     @include gallery(1 of 4);
 }
+.gallery-4-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 4);
+    }
+}
 .gallery-4-tablet {
     @include breakpoint($tablet) {
+      @include gallery(1 of 4);
+    }
+}
+.gallery-4-minidesktop {
+    @include breakpoint($minidesktop) {
       @include gallery(1 of 4);
     }
 }
@@ -421,11 +526,76 @@ img {
 .gallery-5 {
     @include gallery(1 of 5);
 }
+.gallery-5-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 5);
+    }
+}
 .gallery-6 {
     @include gallery(1 of 6);
 }
+.gallery-6-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 6);
+    }
+}
+
+.gallery-6-tablet {
+    @include breakpoint($tablet) {
+      @include gallery(1 of 6);
+    }
+}
+
+.gallery-6-minidesktop {
+    @include breakpoint($minidesktop) {
+      @include gallery(1 of 6);
+    }
+}
+.gallery-6-desktop {
+    @include breakpoint($desktop) {
+      @include gallery(1 of 6);
+    }
+}
 .gallery-7 {
     @include gallery(1 of 7);
+}
+.gallery-7-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 7);
+    }
+}
+.gallery-8 {
+    @include gallery(1 of 8);
+}
+.gallery-8-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 8);
+    }
+}
+.gallery-9 {
+    @include gallery(1 of 9);
+}
+.gallery-9-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 9);
+    }
+}
+.gallery-9-tablet {
+    @include breakpoint($tablet) {
+      @include gallery(1 of 9);
+    }
+}
+.gallery-10 {
+    @include gallery(1 of 10);
+}
+.gallery-10-sm {
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 10);
+    }
+}
+
+.gallery-roll {
+    margin-bottom: 15px;
 }
 
 .uppercase {
@@ -436,7 +606,7 @@ img {
     text-transform: capitalize;
 }
 
-.bold {
+.bold, .font-bold, .font-weight-bold {
     font-weight: bold;
 }
 .font-400 {
@@ -448,3 +618,40 @@ img {
     src: url(sansation_light.woff);
 }
 
+
+
+
+/********************FONTS **************************/
+.font-gdsherpa {
+    font-family: gdsherpa, Helvetica, Arial, sans-serif !important;
+}
+
+.font-helvetica {
+    font-family: Helvetica, Arial, sans-serif !important; 
+}
+
+.font-boing {
+    font-family: 'Boing';
+}
+
+.font-graphik {
+    font-family: 'graphik';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*************************************************/

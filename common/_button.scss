@@ -1,0 +1,43 @@
+.create-btn {
+    @include cf;
+    transition: 200ms cubic-bezier(0.08, 0.52, 0.52, 1) background-color,200ms cubic-bezier(0.08, 0.52, 0.52, 1) box-shadow,200ms cubic-bezier(0.08, 0.52, 0.52, 1) transform;
+    line-height: 16px;
+    background-image: none;
+    //height: 28px;
+    margin-right: 0;
+    padding: 10px 12px;
+    min-width: 87px;
+    font-family: Helvetica, Arial, sans-serif;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #0696d7;
+    border: 1px solid #0696d7;
+    border-radius: 2px;
+    margin: 10px 12px;
+    color:white;
+    text-transform: capitalize;
+    box-sizing: inherit;
+    font-size: 12px;
+    text-align: center;
+    font-size: 12px;
+}
+  
+.default-button {
+    border-radius: 0px 2px 2px 0px;
+    box-sizing: content-box;
+    background: #00aeef;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: white;
+    padding: 0.35em 0.75em;
+    border: none;
+    font-size: 1.1em;
+    text-decoration: none;
+    cursor: pointer;
+	border-radius: 4px;
+    margin-top: 15px;
+  }
+.create-btn:hover {
+    background: #068ac6;
+}

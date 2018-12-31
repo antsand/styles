@@ -1,0 +1,281 @@
+.funnel-btn-big {
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    //background-color: rgb(51, 142, 239);
+    background-color: #168dd9;
+    font-size: 32px;
+    text-decoration:none;
+    padding: 10px 25px 10px 25px;
+    text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 0px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    .sub-heading {
+      font-size:22px;
+        display: block;
+        opacity: 0.7;
+        font-weight: normal;
+    }
+    transition: all 0.2s ease 0s;
+    transition-property: all;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transform: translateY(-10px);
+}
+.funnel-btn-big:hover {
+        box-shadow: rgba(255, 255, 255, 0.22) 0px 2px 2px 0px inset, rgba(255, 255, 255, 0.12) 0px 233px 233px 0px inset;
+}
+
+.funnel-learn-more {
+    color: white;
+    text-shadow: none;
+    font-size: 18px;
+    border-radius: 4px;
+    display: block;
+    padding: 10px;
+    width: auto;
+    transform: translateY(0px);
+    font-size: 22px; 
+    display: inline-block;
+}
+
+.funnel-heading {
+    font-size: 20px;
+    @include breakpoint($tablet) {
+      text-align: center;
+      color: rgb(255, 255, 255);
+      font-size: 40px;
+      font-weight:700;
+  }
+}
+
+.funnel-headline-h1 {
+    font-size: 40px;
+    @include breakpoint($tablet) {
+      color: rgb(52, 80, 110);
+      text-align: center;
+      font-size: 90px;
+      color: rgb(29, 43, 58);
+      line-height:1;
+    }
+}
+.funnel-headline-h3 {
+    font-size: 22px;
+    @include breakpoint($tablet) {
+      text-align: center;
+      font-size: 45px;
+      color: rgb(29, 43, 58);
+  }
+}
+
+.funnel-heading-sub-para {
+  text-align: left; 
+  font-size: 24px; 
+  line-height: 1;
+}
+
+.funnel-white {
+    color: white;
+}
+
+.funnel-para-heading {
+    text-align: center;
+    font-size: 36px;
+    color: rgb(55, 75, 96);
+}
+
+.funnel-para {
+    text-align: left;
+    font-size: 18px;
+    color: rgb(29, 43, 58);
+    font-family: Roboto, Helvetica, sans-serif;
+}
+.funnel-bullet-points-white, .funnel-bullet-check-blue {
+    font-size:20px;
+    position: relative;
+    padding-left: 41px;
+}
+.funnel-bullet-points-white:before {
+    content: "";
+    background-image: url('/builds/production/images/icons/font-icons/check-white.svg');
+    position:absolute;
+    left: 0px;
+    top: 8px;
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+}
+
+.funnel-bullet-check-blue:before {
+    content: "";
+    background-image: url('/builds/production/images/icons/font-icons/check-funnel-blue.svg');
+    position:absolute;
+    left: 0px;
+    top: 8px;
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+}
+
+.bgCover-black {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    line-height: 1.42857;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+}
+
+.funnel-row {
+    padding: 10px;
+}
+
+.funnel-glow-box {
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border-radius: 5px !important;
+    display: block;
+    width: 100%;
+    @include breakpoint($minidesktop) {
+      width:300px;
+    }
+    min-height:140px;
+    cursor:pointer;
+}
+
+.funnel-glow-box-style {
+  margin:25px 0px;
+  font-style: italic;
+  background-color: white;
+  .iwant {
+    color: rgb(190, 63, 63); 
+    font-weight: bold;
+  }
+  .desc {
+    font-size: 22px; 
+    display: block;
+  }
+  .funnel-learn-more {
+    margin:5px 0px;
+  }
+}
+
+.funnel-glow-box-4 {
+    img {
+      display: none;
+      @include breakpoint ($minidesktop) {
+        width: 650px;
+        text-align: center; 
+        position: relative; 
+        margin:75px auto; 
+        margin-left: auto; 
+        display: block; 
+        margin-right: auto;
+      }
+    }
+    .funnel-glow-box-1 {
+      @include breakpoint ($minidesktop) {
+          position: absolute;
+          top: 0px;
+          transform: translate(0, -50%);
+          left: 24px;
+      }
+    }
+    .funnel-glow-box-2 {
+      @include breakpoint ($minidesktop) {
+        position: absolute;
+        top: 0px;
+        right: 24px;
+        transform: translate(0,-50%);
+      }
+    }
+    .funnel-glow-box-3 {
+      @include breakpoint ($minidesktop) {
+        position: absolute;
+        bottom: 0px;
+        left: 24px;
+        transform: translate(0,50%);
+      }
+    }
+    .funnel-glow-box-4 {
+      @include breakpoint ($minidesktop) {
+        position: absolute;
+        bottom: 0px;
+        right: 24px;
+        transform: translate(0,50%);
+      }
+    }
+}
+
+.funnel-glow-box-6 {
+    img {
+      display: none;
+      @include breakpoint ($minidesktop) {
+        width: 650px;
+        text-align: center; 
+        position: relative; 
+        margin:75px auto; 
+        margin-left: auto; 
+        display: block; 
+        margin-right: auto;
+      }
+    }
+    .funnel-glow-box-1 {
+      @include breakpoint ($minidesktop) {
+          position: absolute;
+          top: 0px;
+          transform: translate(0, -50%);
+          left: 24px;
+      }
+    }
+    .funnel-glow-box-2 {
+      @include breakpoint ($minidesktop) {
+        position: absolute;
+        top: 0px;
+        right: 24px;
+        transform: translate(0,-50%);
+      }
+    }
+    .funnel-glow-box-3 {
+      @include breakpoint ($minidesktop) {
+        position: absolute;
+        bottom: 0px;
+        left: 24px;
+        transform: translate(0,50%);
+      }
+    }
+    .funnel-glow-box-4 {
+      @include breakpoint ($minidesktop) {
+        position: absolute;
+        bottom: 0px;
+        right: 24px;
+        transform: translate(0,50%);
+      }
+    }
+    .funnel-glow-box-5 {
+      @include breakpoint ($minidesktop) {
+        position: absolute;
+        bottom: 0px;
+        right: 24px;
+        transform: translate(0,50%);
+      }
+    }
+    .funnel-glow-box-6 {
+      @include breakpoint ($minidesktop) {
+        position: absolute;
+        bottom: 0px;
+        right: 24px;
+        transform: translate(0,50%);
+      }
+    }
+}
+.funnel-glow-box:hover {
+    box-shadow: 0 0 45px rgba(57,156,214,0.75);
+
+.funnel-glow-box:hover {
+    box-shadow: 0 0 45px rgba(57,156,214,0.75);
+}

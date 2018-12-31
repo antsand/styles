@@ -1,0 +1,14 @@
+.menu-mobile {
+    transition: visibility 0s linear 0s, opacity 500ms;
+    display: inline-block;
+    float: left;
+}
+.menu-mobile .three-bars {
+    background-image: url(/builds/production/img/menu/antsand-bars.svg);
+    background-repeat: no-repeat;
+    height: 80px;
+    width: 40px;
+    cursor: pointer;
+    display: inline-block;
+    background-position-y: 50%;
+}
