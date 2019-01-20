@@ -1,9 +1,17 @@
 @import "compass/typography/lists/bullets";
 @import "susy";
 @import "breakpoint";
-@import "/home/antsand/Programs/html/sass_common/mixin/mixin.scss";
-@import "/home/antsand/Programs/html/sass_common/susydefault.scss";
-@import "/home/antsand/Programs/html/sass_common/common/common.scss";
-@import "/home/antsand/Programs/html/sass_common/common/common_public.scss";
-@import "/home/antsand/Programs/html/sass_common/common/funnel.scss";
+@import "mixin/mixin.scss";
+@import "susydefault.scss";
+@import "sass/common.scss";
+@import "sass/common_public.scss";
+@import "sass/button.scss";
+@import "sass/padding.scss";
+@import "sass/margin.scss";
+@import "sass/list.scss";
+@import "sass/border.scss";
+@import "sass/funnel.scss";
+@import "sass/mason.scss";
+@import "sass/nav.scss";
+@import "sass/navthemes.scss";
 
