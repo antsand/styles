@@ -3,15 +3,16 @@
 @import "breakpoint";
 @import "mixin/mixin.scss";
 @import "susydefault.scss";
-@import "sass/common.scss";
-@import "sass/common_public.scss";
-@import "sass/button.scss";
-@import "sass/padding.scss";
-@import "sass/margin.scss";
-@import "sass/list.scss";
-@import "sass/border.scss";
-@import "sass/funnel.scss";
-@import "sass/mason.scss";
-@import "sass/nav.scss";
-@import "sass/navthemes.scss";
+@import "common/common.scss";
+@import "common/common_public.scss";
+@import "common/flex.scss";
+@import "common/button.scss";
+@import "common/padding.scss";
+@import "common/margin.scss";
+@import "common/list.scss";
+@import "common/border.scss";
+@import "common/funnel.scss";
+@import "common/mason.scss";
+@import "common/nav.scss";
+@import "common/navthemes.scss";
 

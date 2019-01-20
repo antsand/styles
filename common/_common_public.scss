@@ -630,6 +630,9 @@ img {
 .span-2-of-8-last {
     @include span(2 of 8 last);
 }
+.span-2-of-8-last-inside {
+    @include span(2 of 8 last inside);
+}
 .span-2-of-8-last-tablet {
     @include breakpoint($tablet) {
       @include span(2 of 8 last);
@@ -672,6 +675,25 @@ img {
       @include gallery(1 of 2);
     }
 }
+.gallery-2-square {
+    position:relative;
+    @include gallery(1 of 2);
+    padding-top: span(1 of 2);
+}
+.gallery-2-square-sm, .gallery-2-square-mobile {
+    position:relative;
+    @include breakpoint(0 $tablet) {
+      @include gallery(1 of 2);
+      padding-top: span(1 of 2);
+  }
+}
+.gallery-2-square-tablet {
+    position:relative;
+    @include breakpoint($tablet) {
+      @include gallery(1 of 2);
+      padding-top: span(1 of 2);
+  }
+}
 
 .gallery-container {
     @include cf;
@@ -703,12 +725,13 @@ img {
     }
 }
 .gallery-3-square {
+    position:relative;
     @include gallery(1 of 3);
     padding-top: span(1 of 3);
 }
 .gallery-3-square-tablet {
+    position:relative;
     @include breakpoint($tablet) {
-      position:relative;
       @include gallery(1 of 3);
       padding-top: span(1 of 3);
   }
@@ -737,12 +760,13 @@ img {
     }
 }
 .gallery-4-square {
+    position:relative;
     @include gallery(1 of 4);
     padding-top: span(1 of 4);
 }
 .gallery-4-square-tablet {
+    position:relative;
     @include breakpoint($tablet) {
-      position:relative;
       @include gallery(1 of 4);
       padding-top: span(1 of 4);
   }
@@ -771,8 +795,8 @@ img {
 }
 
 .gallery-6-square-tablet {
+    position:relative;
     @include breakpoint($tablet) {
-      position:relative;
       @include gallery(1 of 6);
       padding-top: span(1 of 6);
     }
@@ -805,8 +829,8 @@ img {
     }
 }
 .gallery-8-square-tablet {
+    position:relative;
     @include breakpoint($tablet) {
-      position:relative;
       @include gallery(1 of 8);
       padding-top: span(1 of 8);
     }

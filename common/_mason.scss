@@ -15,6 +15,13 @@
   }
 }
 
+.mason-item-2-sm, .mason-item-2-mobile {
+   @include breakpoint(0 $tablet){
+    width:50%;
+    position:absolute;
+  }
+}
+
 .mason-item-3 {
     width:33%;
     position:absolute;
