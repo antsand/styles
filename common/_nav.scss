@@ -1,3 +1,124 @@
+.nav {
+    display:block;
+}
+
+.nav-mobile {
+   display:none;
+   @include breakpoint(0 $tablet) {
+      display:block;
+   }
+}
+.nav-fixed {
+    position:fixed;
+}
+.nav-tablet {
+   display:none;
+   @include breakpoint($tablet) {
+      display:block;
+   }
+}
+.nav-minidesktop {
+   display:none;
+   @include breakpoint($minidesktop) {
+      display:block;
+   }
+}
+.nav-desktop {
+   display:none;
+   @include breakpoint($desktop) {
+      display:block;
+   }
+}
+
+/* Requires additional styling - height and width for proper positioning*/
+.nav-logo {
+    position:relative;
+    top:50%;
+    transform:translate(0, -50%);
+}
+
+.nav-menu-align-left-right, .nav-menu-item-container-align-left-right, .ul-float-left {
+    @include no_decor;
+    @include no_padding_margin;
+    float:left;
+    .nav-item {
+        float:left;
+    }
+    .nav-menu-subitem-container , .nav-menu-dropdown-contaner{
+        left:0;
+    }
+}
+.nav-menu-align-right-left, .nav-menu-item-container-align-right-left, .ul-float-right {
+    @include no_decor;
+    @include no_padding_margin;
+    float:right;
+    .nav-item {
+        float:left;
+    }
+    .nav-menu-subitem-container , .nav-menu-dropdown-contaner{
+        right:0;
+    }
+}
+
+.nav-menu-align-center {
+    @include no_decor;
+    @include no_padding_margin;
+    display:inline-block;
+    position:absolute !important;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    .nav-item {
+        float:left;
+    }
+}
+
+.nav-menu-container, .nav-item-container {
+    height:100%;
+}
+
+.nav-menu, .nav, .nav-menu-container {
+    position:relative;
+    img {
+        position:relative;
+        top:50%;
+        transform:translate(0, -50%);
+    }
+}
+
+.nav-item { 
+    position:relative;
+    @include no_decor;
+    @include no_padding-margin;
+    cursor:pointer;
+  .nav-menu-subitem-container, .nav-menu-dropdown-contaner {
+      @include no_decor;
+      @include no_padding-margin;
+      position:absolute;
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      width:150%;
+      z-index: 99;
+      -webkit-transition: opacity .15s ease-in-out;
+      -moz-transition: opacity .15s ease-in-out;
+      -ms-transition: opacity .15s ease-in-out;
+      -o-transition: opacity .15s ease-in-out;
+      transition: opacity .15s ease-in-out;
+      .nav-item {
+          width:100%;
+      }
+  }
+}
+
+.nav-item:hover {
+  .nav-menu-subitem-container, .nav-menu-dropdown-contaner {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+  }
+}
+
 .menu-mobile {
     transition: visibility 0s linear 0s, opacity 500ms;
     display: inline-block;

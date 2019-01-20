@@ -1,0 +1,89 @@
+.no_padding {
+    @include no_padding;
+}
+.no_padding_left {
+    padding-left: 0 !important;
+}
+.no_padding_right {
+    padding-right: 0 !important;
+}
+.no_padding_top {
+    padding-top: 0 !important;
+}
+.no_padding_bottom {
+    padding-bottom: 0 !important;
+}
+.padding-5, .padding5 {
+    padding:5px !important;
+}
+.padding-6, .padding6 {
+    padding:6px !important;
+}
+.padding-7, .padding7 {
+    padding:7px !important;
+}
+.padding-8, .padding8 {
+    padding:8px !important;
+}
+.padding-9, .padding9 {
+    padding:9px !important;
+}
+.padding-10, .padding10 {
+    padding:10px !important;
+}
+.padding-15, .padding15 {
+    padding:15px !important;
+}
+.padding-20, .padding20 {
+    padding: 20px !important;
+}
+
+.padding-bottom-50 {
+    padding-bottom: 50px !important;
+}
+
+.padding-top-50 {
+    padding-top: 50px !important;
+}
+
+.padding-bottom-40 {
+    padding-bottom: 40px !important;
+}
+
+.padding-top-40 {
+    padding-top: 40px !important;
+}
+
+.padding-bottom-15 {
+    padding-bottom: 15px !important;
+}
+
+.padding-top-15 {
+    padding-top: 15px !important;
+}
+
+.padding-right-15-tablet {
+    @include breakpoint($tablet) {
+        padding-right: 15px;
+    }
+}
+.padding-right-30-tablet {
+    @include breakpoint($tablet) {
+        padding-right: 30px;
+    }
+}
+.padding-right-40-tablet {
+    @include breakpoint($tablet) {
+        padding-right: 40px;
+    }
+}
+.padding-right-50-tablet {
+    @include breakpoint($tablet) {
+        padding-right: 50px;
+    }
+}
+.padding-left-15-tablet {
+    @include breakpoint($tablet) {
+        padding-left: 15px;
+    }
+}

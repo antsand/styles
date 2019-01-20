@@ -1,0 +1,55 @@
+.antsand-aws-header-title {
+    margin-top: 24px;
+    font-size: 28px;
+    line-height: 1.21;
+    margin-bottom: 12px;
+}
+
+.antsand-awsui {
+    font-size: 14px;
+    line-height: 18px;
+    font-family: Helvetica Neue,Roboto,Arial,sans-serif;
+    color: #303232;
+    background-color: #fff;
+}
+
+.antsand-marketing-layout-awsui {
+    height: calc(100% - 40px);
+    width: 100%;
+    align-items: center;
+    background-color: #f7f7f7;
+    color: #444;
+    overflow-y: auto;
+}
+
+.antsand-aws-body-title{
+    font-size: 24px;
+    line-height: 1.08;
+    text-align: center;
+    margin-top: 41px;
+    margin-bottom: 24px;
+    color:#444;
+}
+
+.antsand-aws-block {
+    color: #666;
+    cursor: pointer;
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 7px 0 rgba(0,0,0,.1);
+    transition: color .2s,border-color .2s,color .2s;
+}
+
+.antsand-aws-block:hover {
+    border-color: #329ad6;
+}
+
+.antsand-aws-card-body {
+    text-align: left;
+    color: #444;
+    padding: 10px 24px 5px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}

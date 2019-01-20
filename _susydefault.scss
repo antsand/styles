@@ -91,3 +91,17 @@ h2 {
 .cf {
     @include cf;
 }
+.no_padding_margin {
+    @include no_padding_margin;
+}
+.no_decor {
+    @include no_decor;
+}
+
+.no_decor_all {
+    @include no_decor;
+    ul, li, a {
+      @include no_decor;
+    }
+}
+

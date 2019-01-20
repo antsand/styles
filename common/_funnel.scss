@@ -21,7 +21,7 @@
     transition-duration: 0.2s;
     transition-timing-function: ease;
     transition-delay: 0s;
-    transform: translateY(-10px);
+    //transform: translateY(-10px);
 }
 .funnel-btn-big:hover {
         box-shadow: rgba(255, 255, 255, 0.22) 0px 2px 2px 0px inset, rgba(255, 255, 255, 0.12) 0px 233px 233px 0px inset;
@@ -40,43 +40,38 @@
     display: inline-block;
 }
 
-.funnel-heading {
-    font-size: 20px;
-    @include breakpoint($tablet) {
-      text-align: center;
-      color: rgb(255, 255, 255);
-      font-size: 40px;
-      font-weight:700;
-  }
-}
-
-.funnel-headline-h1 {
-    font-size: 40px;
-    @include breakpoint($tablet) {
-      color: rgb(52, 80, 110);
-      text-align: center;
-      font-size: 90px;
-      color: rgb(29, 43, 58);
-      line-height:1;
-    }
-}
-.funnel-headline-h3 {
-    font-size: 22px;
-    @include breakpoint($tablet) {
-      text-align: center;
-      font-size: 45px;
-      color: rgb(29, 43, 58);
-  }
-}
-
-.funnel-heading-sub-para {
-  text-align: left; 
-  font-size: 24px; 
-  line-height: 1;
-}
-
 .funnel-white {
     color: white;
+}
+
+.funnel-testimonial-banner {
+    border: 3px dashed rgba(33, 49, 66, 0.71);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+    margin-top: 20px;
+    outline: none;
+    .testimonial-image {
+        float:left;
+        text-align:left;
+        width:20%;
+        .img {
+            border-radius: 50% !important;
+        }
+    }
+    .testimonial-desc {
+        float:right;
+        text-align:left;
+        width:80%;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 19px;
+    }
+    .testimonial-right-text {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 19px;
+        padding-left: 50px;
+        line-height: 1.4;
+  }
 }
 
 .funnel-para-heading {
@@ -91,7 +86,7 @@
     color: rgb(29, 43, 58);
     font-family: Roboto, Helvetica, sans-serif;
 }
-.funnel-bullet-points-white, .funnel-bullet-check-blue {
+.funnel-bullet-points-white, .funnel-bullet-check-blue, .funnel-bullet-points-blue, .funnel-bullet-points-blue-light {
     font-size:20px;
     position: relative;
     padding-left: 41px;
@@ -102,6 +97,26 @@
     position:absolute;
     left: 0px;
     top: 8px;
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+}
+.funnel-bullet-points-blue:before {
+    content: "";
+    background-image: url('/builds/production/images/icons/font-icons/right-arrow-blue.svg');
+    position:absolute;
+    left: 0px;
+    top: 8px;
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+}
+.funnel-bullet-points-blue-light:before {
+    content: "";
+    background-image: url('/builds/production/images/icons/font-icons/right-arrow-blue-light.svg');
+    position:absolute;
+    left: 0px;
+    top: 0px;
     width: 25px;
     height: 25px;
     background-repeat: no-repeat;
@@ -259,23 +274,129 @@
     .funnel-glow-box-5 {
       @include breakpoint ($minidesktop) {
         position: absolute;
-        bottom: 0px;
-        right: 24px;
-        transform: translate(0,50%);
+        top: 50%;
+        left: 24px;
+        transform: translate(0,-50%);
       }
     }
     .funnel-glow-box-6 {
       @include breakpoint ($minidesktop) {
         position: absolute;
-        bottom: 0px;
+        top: 50%;
         right: 24px;
-        transform: translate(0,50%);
+        transform: translate(0,-50%);
       }
     }
 }
 .funnel-glow-box:hover {
     box-shadow: 0 0 45px rgba(57,156,214,0.75);
-
+}
 .funnel-glow-box:hover {
     box-shadow: 0 0 45px rgba(57,156,214,0.75);
+}
+
+.funnel-heading {
+    font-size: 20px;
+    @include breakpoint($tablet) {
+      text-align: center;
+      color: rgb(255, 255, 255);
+      font-size: 40px;
+      font-weight:700;
+  }
+}
+
+.funnel-headline-h1 {
+    font-size: 40px;
+    @include breakpoint($tablet) {
+      color: rgb(52, 80, 110);
+      text-align: center;
+      font-size: 90px;
+      color: rgb(29, 43, 58);
+      line-height:1;
+    }
+}
+.funnel-headline-h3 {
+    font-size: 22px;
+    @include breakpoint($tablet) {
+      text-align: center;
+      font-size: 45px;
+      color: rgb(29, 43, 58);
+  }
+}
+
+.funnel-survey-headline {
+    font-size: 21px;
+}
+
+.funnel-heading-sub-para {
+  text-align: left; 
+  font-size: 24px; 
+  line-height: 1;
+}
+
+.funnel-color-black {
+    color:rgb(47, 47, 47);
+}
+
+.funnel-survey-bar {
+    height: 2px;
+    width: 100%;
+    max-width: 100% !important;
+    background-color: #DDD;
+    position: relative;
+    border-radius: 10px;
+    height: 10px;
+}
+.funnel-survey-step-progressbar {
+    height: 10px;
+    position: relative;
+    border-radius: 10px;
+    background-color: #0e8dc7;
+    width: 10%;
+}
+
+.funnel-survey-question {
+    padding: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1.2;
+}
+.funnel-survey-question:hover {
+    transform: scale(1.03);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.14),inset 0 0 0 2px rgba(255,255,255,0.16) !important;
+    color: #FFF;
+    background-color: #0e8dc7;
+    
+}
+
+.funnel-banner-heading-red {
+    text-align: center;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(229, 80, 63);
+}
+.funnel-banner-heading-red:before {
+    content: '';
+    position: absolute;
+    left: 35px;
+    bottom: -8px;
+    width: 15px;
+    height: 15px;
+    background-color: inherit;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.funnel-quiz {
+   padding: 0px 0px 25px;
+   margin-top: 15px;
+    .container {
+      padding: 10px 20px;
+      font-family: Roboto;
+    }
+  .blue-container {
+    border: 5px solid rgb(60, 155, 214);
+    background-color: rgb(245, 249, 252);
+ }
+
+
 }

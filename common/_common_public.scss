@@ -2,14 +2,6 @@
   @include cf;
 }
 
-.position-relative {
-    position: relative;
-}
-
-.position-absolute {
-    position: absolute;
-}
-
 .float-right {
     float: right;
 }
@@ -17,7 +9,7 @@
     float: left;
 }
 
-.width-full {
+.width-full, .full-width {
  width: 100%;
 }
 
@@ -27,7 +19,7 @@
     }
 }
 
-.height-full {
+.height-full, .full-height {
  height: 100%;
 }
 
@@ -41,6 +33,9 @@
 
 .color-white {
     color: white !important;
+}
+.color-black {
+    color: black !important;
 }
 
 .bg-white {
@@ -65,41 +60,11 @@
     @include cf;
 }
 
-.position-relative {
-    position: relative;
-}
-
-.position-absolute {
-    position: absolute;
-    // top: attr(data-top);
-    // right: attr(data-right);
-    // bottom: attr(data-bottom);
-    // left: attr(data-left);
-}
-
 .container {
     @include cf;
     width: 100%;
 }
 
-.width {
-    width: var(--width);
-}
-.max-width {
-    max-width: var(--max-width);
-}
-.top-0 {
-    top:0;
-}
-.center {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.fixed, .display-fixed {
-  position: fixed;
-}
 
 .img {
   width: 100%;
@@ -116,78 +81,23 @@ img {
     object-fit: contain !important;
 }
 
-.margin-right-5 {
-  margin-right: 5px;
+.font-size-10, .font-10 {
+    font-size: 10px;
 }
-
-.margin-right-10 {
-  margin-right: 10px;
+.font-size-12, .font-12 {
+    font-size: 12px;
 }
-
-.margin-left-5 {
-  margin-left: 5px;
+.font-size-14, .font-14 {
+    font-size: 14px;
 }
-
-.margin-left-10 {
-  margin-left: 10px;
+.font-size-15, .font-15 {
+    font-size: 15px;
 }
-.margin-top-20 {
-    margin-top: 20px;
+.font-size-18, .font-18 {
+    font-size: 18px;
 }
-.margin-top-40 {
-    margin-top: 40px;
-}
-.margin-bottom-70 {
-    margin-bottom: 70px;
-}
-.margin-bottom-10 {
-  margin-bottom: 10px;
-}
-.margin-bottom-20 {
-  margin-bottom: 20px;
-}
-.margin-bottom-40 {
-  margin-bottom: 40px;
-}
-
-.padding-20 {
-    padding: 20px;
-}
-
-.padding-bottom-50 {
-    padding-bottom: 50px !important;
-}
-
-.padding-top-50 {
-    padding-top: 50px !important;
-}
-
-.padding-bottom-40 {
-    padding-bottom: 40px !important;
-}
-
-.padding-top-40 {
-    padding-top: 40px !important;
-}
-
-.padding-bottom-15 {
-    padding-bottom: 15px !important;
-}
-
-.padding-top-15 {
-    padding-top: 15px !important;
-}
-
-.padding-right-15-tablet {
-    @include breakpoint($tablet) {
-        padding-right: 15px;
-    }
-
-}
-.padding-left-15-tablet {
-    @include breakpoint($tablet) {
-        padding-left: 15px;
-    }
+.font-size-20, .font-20 {
+    font-size: 20px;
 }
 
 .font-size-26 {
@@ -196,6 +106,13 @@ img {
 
 .font-size-55 {
     font-size: 55px;
+}
+
+.font-size-inherit {
+    font-size: inherit !important;
+}
+.font-family-inherit {
+    font-family: inherit !important;
 }
 
 .display-inline {
@@ -212,6 +129,40 @@ img {
 
 .overflow-hidden {
     overflow: hidden;
+}
+
+.line-height-1 {
+    line-height: 1 !important;
+}
+.line-height-1-1 {
+    line-height: 1.1 !important;
+}
+.line-height-1-2 {
+    line-height: 1.2 !important;
+}
+.line-height-1-3 {
+    line-height: 1.3 !important;
+}
+.line-height-1-4 {
+    line-height: 1.4 !important;
+}
+.line-height-1-5 {
+    line-height: 1.5 !important;
+}
+.line-height-1-6 {
+    line-height: 1.6 !important;
+}
+.line-height-1-7 {
+    line-height: 1.7 !important;
+}
+.line-height-1-8 {
+    line-height: 1.8 !important;
+}
+.line-height-1-9 {
+    line-height: 1.9 !important;
+}
+.line-height-2 {
+    line-height: 2 !important;
 }
 
 .z-index-2 {
@@ -280,6 +231,14 @@ img {
     @include no_padding_margin;
 }
 
+.no_padding {
+    padding:0px !important;
+}
+
+.no_margin {
+    margin:0px !important;
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
@@ -334,6 +293,11 @@ img {
 .span-1-of-2-inside {
     @include span(1 of 2 inside);
 }
+.span-1-of-2-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 2 inside);
+    }
+}
 .span-1-of-2-tablet {
     @include breakpoint($tablet) {
       @include span(1 of 2);
@@ -351,6 +315,11 @@ img {
 .span-1-of-2-last-inside {
     @include span(1 of 2 last inside);
 }
+.span-1-of-2-last-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 2 last inside);
+  }
+}
 .span-1-of-2-last-tablet {
     @include breakpoint($tablet) {
       @include span(1 of 2 last);
@@ -361,13 +330,80 @@ img {
       @include span(1 of 2 last);
     }
 }
+.span-1-of-3 {
+    @include span(1 of 3);
+}
+.span-1-of-3 {
+    @include breakpoint(0 $tablet) {
+      @include span(1 of 3);
+  }
+}
+.span-1-of-3-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 3);
+  }
+}
 .span-1-of-3-inside {
     @include span(1 of 3 inside);
+}
+.span-1-of-3-inside-sm {
+    @include breakpoint(0 $tablet) {
+      @include span(1 of 3 inside);
+  }
+}
+.span-1-of-3-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 3 inside);
+    }
+}
+.span-1-of-3-inside-minidesktop {
+    @include breakpoint($minidesktop) {
+      @include span(1 of 3 inside);
+    }
 }
 .span-1-of-3-inside-desktop {
     @include breakpoint($desktop) {
       @include span(1 of 3 inside);
     }
+}
+.span-1-of-3-last {
+    @include span(1 of 3 last);
+}
+.span-1-of-3-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 3 last);
+  }
+}
+.span-1-of-3-last-inside {
+    @include span(1 of 3 last inside);
+}
+.span-1-of-3-last-inside-sm, .span-1-of-3-inside-last-sm {
+    @include breakpoint(0 $tablet) {
+      @include span(1 of 3 last inside);
+    }
+}
+.span-1-of-3-last-inside-tablet, .span-1-of-3-inside-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 3 last inside);
+    }
+}
+.span-1-of-3-last-inside-minidesktop, .span-1-of-3-inside-last-minidesktop {
+    @include breakpoint($minidesktop) {
+      @include span(1 of 3 last inside);
+    }
+}
+.span-1-of-3-last-inside-desktop, .span-1-of-3-inside-last-desktop {
+    @include breakpoint($desktop) {
+      @include span(1 of 3 last inside);
+    }
+}
+.span-2-of-3 {
+    @include span(2 of 3);
+}
+.span-2-of-3-tablet {
+    @include breakpoint($tablet) {
+      @include span(2 of 3);
+  }
 }
 .span-2-of-3-last-inside {
     @include span(2 of 3 last inside);
@@ -376,23 +412,6 @@ img {
     @include breakpoint($desktop) {
       @include span(2 of 3 last inside);
     }
-}
-.span-1-of-3 {
-    @include span(1 of 3);
-}
-.span-1-of-3-last {
-    @include span(1 of 3 last);
-}
-.span-1-of-3-last-inside {
-    @include span(1 of 3 last inside);
-}
-.span-1-of-3-last-inside-tablet {
-    @include breakpoint($tablet) {
-      @include span(1 of 3 last inside);
-    }
-}
-.span-2-of-3 {
-    @include span(2 of 3);
 }
 .span-2-of-3-inside {
     @include span(2 of 3 inside);
@@ -404,6 +423,11 @@ img {
 }
 .span-2-of-3-last {
     @include span(2 of 3 last);
+}
+.span-2-of-3-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(2 of 3 last);
+  }
 }
 
 .span-1-of-4 {
@@ -417,6 +441,11 @@ img {
 .span-1-of-4-inside {
     @include span(1 of 4 inside);
 }
+.span-1-of-4-inside-tablet {
+    @include breakpoint($tablet) {
+        @include span(1 of 4 inside);
+    }
+}
 .span-1-of-4-inside-last, .span-1-of-4-last-inside {
     @include span(1 of 4 last inside);
 }
@@ -427,6 +456,38 @@ img {
 }
 .span-1-of-4-last {
     @include span(1 of 4 last);
+}
+.span-1-of-5 {
+    @include span(1 of 5);
+}
+.span-1-of-5-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 5);
+    }
+}
+.span-1-of-5-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 5 inside);
+    }
+}
+.span-1-of-5-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 5 last);
+    }
+}
+.span-1-of-5-inside-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 5 last inside);
+    }
+}
+.span-1-of-5-inside {
+    @include span(1 of 5 inside);
+}
+.span-1-of-5-last {
+    @include span(1 of 5 last);
+}
+.span-1-of-5-inside-last {
+    @include span(1 of 5 inside last);
 }
 
 .span-3-of-4 {
@@ -446,6 +507,11 @@ img {
 .span-3-of-4-last-inside, .span-3-of-4-inside-last {
     @include span(3 of 4 last inside);
 }
+.span-3-of-4-last-inside-tablet, .span-3-of-4-inside-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(3 of 4 last inside);
+    }
+}
 .span-3-of-4-tablet {
     @include breakpoint($tablet) {
       @include span(3 of 4);
@@ -456,11 +522,147 @@ img {
       @include span(3 of 4 last);
     }
 }
+.span-3-of-5 {
+    @include span(3 of 5);
+}
+.span-3-of-5-inside {
+    @include span(3 of 5 inside);
+}
+.span-3-of-5-last {
+    @include span(3 of 5 last);
+}
+.span-3-of-5-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(3 of 5 inside);
+  }
+}
+.span-3-of-5-last-inside, .span-3-of-5-inside-last {
+    @include span(3 of 5 last inside);
+}
+.span-3-of-5-last-inside-tablet, .span-3-of-5-inside-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(3 of 5 last inside);
+    }
+}
+.span-3-of-5-tablet {
+    @include breakpoint($tablet) {
+      @include span(3 of 5);
+    }
+}
+.span-3-of-5-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(3 of 5 last);
+    }
+}
+.span-4-of-5-last {
+    @include span(4 of 5 last);
+}
 .span-1-of-6 {
     @include span(1 of 6);
 }
+.span-1-of-6-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 6);
+  }
+}
+.span-1-of-6-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(1 of 6 inside);
+  }
+}
 .span-5-of-6-last {
     @include span(5 of 6 last);
+}
+.span-5-of-6-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(5 of 6 last);
+  }
+}
+.span-2-of-6 {
+      @include span(2 of 6);
+}
+.span-2-of-6-inside {
+      @include span(2 of 6 inside);
+}
+.span-2-of-6-tablet {
+    @include breakpoint($tablet) {
+      @include span(2 of 6);
+  }
+}
+.span-2-of-6-last {
+    @include span(2 of 6 last);
+}
+.span-2-of-6-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(2 of 6 last);
+  }
+}
+.span-4-of-6 {
+      @include span(4 of 6);
+}
+.span-4-of-6-inside {
+      @include span(4 of 6 inside);
+}
+.span-4-of-6-tablet {
+    @include breakpoint($tablet) {
+      @include span(4 of 6);
+  }
+}
+.span-4-of-6-last {
+    @include span(4 of 6 last);
+}
+.span-4-of-6-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(4 of 6 last);
+  }
+}
+.span-2-of-8 {
+      @include span(2 of 8);
+}
+.span-2-of-8-inside {
+      @include span(2 of 8 inside);
+}
+.span-2-of-8-tablet {
+    @include breakpoint($tablet) {
+      @include span(2 of 8);
+  }
+}
+.span-2-of-8-last {
+    @include span(2 of 8 last);
+}
+.span-2-of-8-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(2 of 8 last);
+  }
+}
+.span-2-of-8-last-inside-tablet, .span-2-of-8-inside-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(2 of 8 last inside);
+  }
+}
+.span-6-of-8 {
+    @include span(6 of 8);
+}
+.span-6-of-8-inside {
+    @include span(6 of 8 inside);
+}
+.span-6-of-8-inside-tablet {
+    @include breakpoint($tablet) {
+      @include span(6 of 8 inside);
+  }
+}
+.span-6-of-8-last {
+    @include span(6 of 8 last);
+}
+.span-6-of-8-tablet {
+    @include breakpoint($tablet) {
+      @include span(6 of 8);
+  }
+}
+.span-6-of-8-last-tablet {
+    @include breakpoint($tablet) {
+      @include span(6 of 8 last);
+  }
 }
 .gallery-2, .gallery-2-mobile {
     @include gallery(1 of 2);
@@ -500,6 +702,17 @@ img {
       @include gallery(1 of 3);
     }
 }
+.gallery-3-square {
+    @include gallery(1 of 3);
+    padding-top: span(1 of 3);
+}
+.gallery-3-square-tablet {
+    @include breakpoint($tablet) {
+      position:relative;
+      @include gallery(1 of 3);
+      padding-top: span(1 of 3);
+  }
+}
 .gallery-4 {
     @include gallery(1 of 4);
 }
@@ -523,6 +736,17 @@ img {
       @include gallery(1 of 4);
     }
 }
+.gallery-4-square {
+    @include gallery(1 of 4);
+    padding-top: span(1 of 4);
+}
+.gallery-4-square-tablet {
+    @include breakpoint($tablet) {
+      position:relative;
+      @include gallery(1 of 4);
+      padding-top: span(1 of 4);
+  }
+}
 .gallery-5 {
     @include gallery(1 of 5);
 }
@@ -543,6 +767,14 @@ img {
 .gallery-6-tablet {
     @include breakpoint($tablet) {
       @include gallery(1 of 6);
+    }
+}
+
+.gallery-6-square-tablet {
+    @include breakpoint($tablet) {
+      position:relative;
+      @include gallery(1 of 6);
+      padding-top: span(1 of 6);
     }
 }
 
@@ -572,6 +804,13 @@ img {
       @include gallery(1 of 8);
     }
 }
+.gallery-8-square-tablet {
+    @include breakpoint($tablet) {
+      position:relative;
+      @include gallery(1 of 8);
+      padding-top: span(1 of 8);
+    }
+}
 .gallery-9 {
     @include gallery(1 of 9);
 }
@@ -594,6 +833,23 @@ img {
     }
 }
 
+.gallery-square-content-top {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    padding:15px;
+}
+.gallery-square-content-middle {
+    position:absolute;
+    top:50%;
+    transform:translate(0, -50%);
+    left:0px;
+    width:100%;
+    max-height:100%;
+    padding:15px;
+}
 .gallery-roll {
     margin-bottom: 15px;
 }

@@ -1,3 +1,70 @@
+.fb-h2, .fbh2, .facebook-h2, .facebookh2 {
+    line-height: 20px;
+    min-height: 20px;
+    padding-bottom: 2px;
+    vertical-align: bottom;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+.fb-settings-border-top-bottom {
+      border-top: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+}
+
+.fb-settings-ul-li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    border-color: #ebedf0;
+    border-style: solid;
+    border-top: solid 1px #ebedf0;
+    .settings-header {
+      color: #333;
+      float: left;
+      font-size: 12px;
+      width: 165px;
+    } 
+    .settings-value {
+        color: #90949c;
+        margin-left: 175px;
+    }
+    .settings-edit {
+        color: #0696d7;
+    }
+}
+.fb-settings-ul-li:hover {
+    background: #f5f6f7;
+    text-decoration: none;
+
+}
+
+.fb-label {
+    color: #666;
+    cursor: default;
+    font-weight: 600;
+    vertical-align: middle;
+}
+.fb-input-container {
+    padding: 10px 0px;
+}
+.fb-input {
+        border: 1px solid #bdc7d8;
+    margin: 0;
+    padding: 3px;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+.fb-hr {
+    background: #d9d9d9;
+    border-width: 0;
+    color: #d9d9d9;
+    height: 1px;
+}
+
 .fb-header {
     background: #f5f6f7;
     border-bottom: 1px solid #d3d6db;
@@ -187,4 +254,56 @@
         z-index: 2;
     }
 }
+
+.fb-button {
+    @include no_decor;
+    background-color:#0696d7;
+    border-color:#0696d7;
+    color: #fff; 
+    transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 26px;
+    border: 1px solid;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.fb-icons {
+  background-image:url(/builds/production/images/fbicon/fb-icons.png);                            
+  width:12px;
+  height: 12px;
+  background-repeat: no-repeat;                                                                   
+  display: inline-block;
+}
+
+.fb-profile-icons {
+  background-image:url(/builds/production/images/fbicon/fb_profile_about.png);
+  width:12px;
+  height: 12px;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.fb-p-add {
+    width: 12px;
+    height: 12px;
+    background-position: 0 -170px;
+}
+
+.fb-edit {
+    width: 21px;
+    height: 21px;
+    background-position: 0 -303px;
+    margin-right: 4px;
+    position: relative;
+}
+.edit-button {
+    position: relative;
+    top: -1px;
+    color: #0696d7;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
 

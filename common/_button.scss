@@ -23,7 +23,7 @@
     font-size: 12px;
 }
   
-.default-button {
+.default-button, .default-btn {
     border-radius: 0px 2px 2px 0px;
     box-sizing: content-box;
     background: #00aeef;
@@ -37,7 +37,39 @@
     cursor: pointer;
 	border-radius: 4px;
     margin-top: 15px;
+    transition: background 300ms ease-out;
   }
 .create-btn:hover {
     background: #068ac6;
+}
+
+.btn-black, .button-black {
+    outline: none;
+    border: 0px;
+    background: rgb(10,10,10);
+    border: 1px solid black;
+    color: white;
+    border-radius: 5px;
+    max-width: 100%;
+    padding: 15px;
+    cursor:pointer;
+    -webkit-transition: opacity .15s ease-in-out, background .15s ease-in-out ;
+    -moz-transition: opacity .15s ease-in-out, background .15s ease-in-out ;
+    -ms-transition: opacity .15s ease-in-out, background .15s ease-in-out ;
+    -o-transition: opacity .15s ease-in-out, background .15s ease-in-out ;
+    transition: opacity .15s ease-in-out, background .15s ease-in-out ; 
+    transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
+}
+
+.btn-black:hover, .button-black:hover {
+    background:rgba(12,12,12,0.9);
+
+}
+
+.btn-black:focus {
+    outline: none;
+    -webkit-box-shadow: 0 0 0.46875rem #3578a7;
+    -moz-box-shadow: 0 0 0.46875rem #3578a7;
+    box-shadow: 0 0 0.46875rem #3578a7;
+    border: 0.0625rem solid #39588f;
 }
