@@ -15,12 +15,21 @@ $tablet: 600px;
 $minidesktop:1090px;
 $desktop: 1600px;
 
+$breakpoint-map: (
+  small: 600px,
+  tablet: 600px,
+  minidesktop:1090px,
+  desktop: 1600px,
+);
+
+$max-combination: 20;
+
 @mixin cf {
-        &:after {
-            content:"";
-            display: block;
-            clear: both;
-        }
+    &:after {
+        content:"";
+        display: block;
+        clear: both;
+    }
 }
 
 body {

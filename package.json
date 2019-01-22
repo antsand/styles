@@ -20,12 +20,6 @@
     "gulp-notify": "^2.2.0",
     "gulp-browserify": "^0.5.1",
     "susy": "^3.0.3",
-    "vue": "^2.5.16",
-    "vue-loader": "^13.7.1",
-    "vue-resource": "^1.5.0",
-    "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.2",
-    "vue-template-compiler": "^2.5.16"
   },
   "devDependencies": {},
   "scripts": {
