@@ -4,3 +4,9 @@
 .font-italic {
     font-style: italic;
 }
+
+.font-size-12-mobile {
+    @include breakpoint(0 $tablet) {
+        font-size:12px !important;
+    }
+}

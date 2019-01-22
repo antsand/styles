@@ -1,0 +1,32 @@
+.code-box {
+    p {
+        line-height:1.5em;
+    }
+    .line {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+    }
+    .title {
+        display: block;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 10px;
+        color: rgb(68, 68, 68);
+        text-shadow: rgba(255, 255, 255, 0.5) 0px 1px 0px;
+        background-color: rgb(247, 247, 247);
+        background-image: -webkit-linear-gradient(top, rgb(247, 247, 247) 0%, rgb(207, 207, 207) 7%, rgb(170, 170, 170) 100%);
+        margin: 0px 0px;
+        padding: 5px 0px;
+        border-radius: 5px 5px 0px 0px;
+        font: 400 16px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        border-bottom: 1px solid rgb(17, 17, 17);
+    }
+    .editor {
+        text-shadow: none;
+        background-color: rgb(23, 23, 23);
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 30px;
+        padding: 20px;
+        margin: 0px 0px;
+        border-radius: 0px 0px 5px 5px;
+    }
+}

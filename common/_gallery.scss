@@ -1,0 +1,61 @@
+@for $i from 1 through 10 {
+  @if ($i > 1) {
+    .gallery-#{$i} {
+        @include gallery(1 of $i);
+    }
+    .gallery-#{$i}-square {
+        position:relative;
+        @include gallery(1 of $i);
+        padding-top: span(1 of $i);
+    }
+    .gallery-#{$i}-sm {
+      @include breakpoint(0 $tablet) {
+        @include gallery(1 of $i);
+      }
+    }
+    .gallery-#{$i}-square-sm,
+    .gallery-#{$i}-square-mobile {
+        position:relative;
+        @include breakpoint(0 $tablet) {
+          @include gallery(1 of $i);
+          padding-top: span(1 of $i);
+      }
+    }
+    .gallery-#{$i}-tablet {
+      @include breakpoint($tablet) {
+        @include gallery(1 of $i);
+      }
+    }
+    .gallery-#{$i}-square-tablet {
+        position:relative;
+        @include breakpoint($tablet) {
+          @include gallery(1 of $i);
+          padding-top: span(1 of $i);
+      }
+    }
+    .gallery-#{$i}-minidesktop {
+      @include breakpoint($minidesktop) {
+        @include gallery(1 of $i);
+      }
+    }
+    .gallery-#{$i}-square-minidesktop {
+        position:relative;
+        @include breakpoint($minidesktop) {
+          @include gallery(1 of $i);
+          padding-top: span(1 of $i);
+      }
+    }
+    .gallery-#{$i}-desktop {
+      @include breakpoint($desktop) {
+        @include gallery(1 of $i);
+      }
+    }
+    .gallery-#{$i}-square-desktop {
+        position:relative;
+        @include breakpoint($desktop) {
+          @include gallery(1 of $i);
+          padding-top: span(1 of $i);
+      }
+    }
+  }
+}

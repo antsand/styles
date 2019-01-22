@@ -150,6 +150,14 @@
     padding: 10px;
 }
 
+.funnel-glow-box-properties {
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    display: block;
+    min-height:140px;
+    cursor:pointer;
+}
+
 .funnel-glow-box {
     box-shadow: 0 0 30px rgba(0,0,0,0.1);
     border-radius: 5px !important;
@@ -288,10 +296,7 @@
       }
     }
 }
-.funnel-glow-box:hover {
-    box-shadow: 0 0 45px rgba(57,156,214,0.75);
-}
-.funnel-glow-box:hover {
+.funnel-glow-box:hover, .funnel-glow-box-properties:hover {
     box-shadow: 0 0 45px rgba(57,156,214,0.75);
 }
 

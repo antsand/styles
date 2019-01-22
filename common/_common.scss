@@ -520,8 +520,8 @@
       display: none;
     }
 }
-.display-none-tablet,{
-    @include breakpoint($tablet) {
+.display-none-tablet {
+    @include breakpoint(0 $minidesktop) {
       display: none;
     }
 }

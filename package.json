@@ -1,0 +1,49 @@
+{
+  "name": "antsand-styles",
+  "version": "1.0.0",
+  "description": "A CSS library to design beautiful webpages using wireframes, styles and classes",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "babel-loader": "^7.1.4",
+    "breakpoint": "^0.1.6",
+    "breakpoint-sass": "^2.7.1",
+    "build": "^0.1.4",
+    "compass": "^0.1.1",
+    "compass-mixins": "^0.12.10",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "gulp": "^3.9.1",
+    "gulp-bower-normalize": "^1.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-delete-file": "^1.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-browserify": "^0.5.1",
+    "susy": "^3.0.3",
+    "vue": "^2.5.16",
+    "vue-loader": "^13.7.1",
+    "vue-resource": "^1.5.0",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2",
+    "vue-template-compiler": "^2.5.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antsand/styles.git"
+  },
+  "keywords": [
+    "CSS",
+    "Bootstrap",
+    "HTML"
+  ],
+  "author": "Anthony Shivakumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antsand/styles/issues"
+  },
+  "homepage": "https://github.com/antsand/styles#readme"
+}
