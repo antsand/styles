@@ -137,6 +137,9 @@
 .nav .header-menubars-container  {
     color: #fff;
     cursor: pointer;
+    @include breakpoint($tablet) {
+        display: none;
+    }
     display: block;
     height: 40px;
     right: 0px;
