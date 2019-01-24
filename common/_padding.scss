@@ -1,3 +1,17 @@
+@for $i from 1 through $max-padding {
+  @each $key, $value in $breakpoint-map {
+      .padding-#{$i}-#{$key}, .padding#{$i}-#{$key}  {
+      @if ($value) {
+        @include breakpoint($value) {
+          padding: $i+px;
+        }
+      } @else {
+          padding: $i+px;
+      }
+    }
+  }
+}
+
 .no_padding {
     @include no_padding;
 }

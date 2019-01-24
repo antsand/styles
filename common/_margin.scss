@@ -1,3 +1,17 @@
+@for $i from 1 through $max-margin {
+  @each $key, $value in $breakpoint-map {
+      .margin-#{$i}-#{$key}, .margin#{$i}-#{$key}  {
+      @if ($value) {
+        @include breakpoint($value) {
+          margin: $i+px;
+        }
+      } @else {
+          margin: $i+px;
+      }
+    }
+  }
+}
+
 .no_margin {
     @include no_margin;
 }

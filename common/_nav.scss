@@ -79,7 +79,7 @@
 
 .nav-menu, .nav, .nav-menu-container {
     position:relative;
-    img {
+    .img-align-center, .img-align-middle {
         position:relative;
         top:50%;
         transform:translate(0, -50%);
@@ -132,4 +132,34 @@
     cursor: pointer;
     display: inline-block;
     background-position-y: 50%;
+}
+
+.nav .header-menubars-container  {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    right: 0px;
+    //top: 14px;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: 0 auto;
+    position: relative;
+    float: right;
+    width: 40px;
+    background: #1a1a1a;
+    border-radius: 5px;
+    border: solid 1px #555;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.header-menubars-container .header-menu-line, .nav .header-menubars-container .header-menu-line, .header-menu-line {
+    background: #aaa;
+    height: 1px;
+    position: absolute;
+    top: 19px;
+    left: 50%;
+    margin-left: -11px;
+    width: 22px;
+    transition: transform .1s ease-in-out,top .1s .1s ease-in-out,opacity .1s .2s ease-in-out;
 }

@@ -46,19 +46,6 @@
     @include gallery(1 of 2);
 }
 
-.gallery-2-sm {
-    @include breakpoint(0 $tablet) {
-      @include gallery(1 of 2);
-    }
-}
-
-.gallery-1 {
-    @include gallery(1 of 1);
-}
-
-.gallery-container {
-    @include cf;
-}
 
 .container {
     @include cf;
@@ -288,30 +275,6 @@ img {
     width: calc(100%*2/3);
 }
 
-.gallery-container {
-    @include cf;
-}
-
-.gallery-square-content-top {
-    position:absolute;
-    top:0px;
-    left:0px;
-    width:100%;
-    height:100%;
-    padding:15px;
-}
-.gallery-square-content-middle {
-    position:absolute;
-    top:50%;
-    transform:translate(0, -50%);
-    left:0px;
-    width:100%;
-    max-height:100%;
-    padding:15px;
-}
-.gallery-roll {
-    margin-bottom: 15px;
-}
 
 .uppercase {
     text-transform: uppercase;

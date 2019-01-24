@@ -1,0 +1,17 @@
+.plans .recommended {
+font-weight: 600;
+    text-transform: uppercase;
+    font-size: .75rem;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    position: absolute;
+    width: 300px;
+    padding: 9px 0;
+    -ms-transform: rotate(37deg);
+    transform: rotate(37deg);
+    right: -95px;
+    top: 31px;
+    text-align: center;
+    background-color: dodgerblue;
+    color: white;
+}

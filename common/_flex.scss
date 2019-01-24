@@ -1,8 +1,23 @@
-.display-flex {
-    display: flex;
+@each $key, $i in $breakpoint-map {
+  .display-flex-#{$key} {
+    @if ($i) {
+      @include breakpoint($i) {
+        display: flex;
+        }
+    } @else {
+      display: flex;
+    }
+  }
+  .flex-align-middle-#{$key} {
+    @if ($i) {
+    @include breakpoint($i) {
+        display: flex;
+        align-items: center;
+      }
+    } @else {
+      display: flex;
+      align-items: center;
+    }
+  }
 }
 
-.flex-align-middle {
-    display: flex;
-    align-items: center;
-}

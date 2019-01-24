@@ -515,13 +515,39 @@
 .display-transparent, .color-transparent {
     color: transparent;
 }
-.display-none-sm,{
+.display-none-sm-tablet,{
     @include breakpoint(0 $tablet) {
       display: none;
     }
 }
+.display-block-sm-tablet,{
+    @include breakpoint(0 $tablet) {
+      display: block;
+    }
+}
 .display-none-tablet {
-    @include breakpoint(0 $minidesktop) {
+    @include breakpoint($tablet) {
+      display: none;
+    }
+}
+.display-none-tablet-minidesktop {
+    @include breakpoint($tablet $minidesktop) {
+      display: none;
+    }
+}
+.display-none-minidesktop {
+    @include breakpoint($minidesktop) {
+      display: none;
+    }
+}
+.display-none-minidesktop-desktop {
+    @include breakpoint($minidesktop $desktop) {
+      display: none;
+    }
+}
+
+.display-none-desktop {
+    @include breakpoint($desktop) {
       display: none;
     }
 }

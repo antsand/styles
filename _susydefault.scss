@@ -15,11 +15,32 @@ $tablet: 600px;
 $minidesktop:1090px;
 $desktop: 1600px;
 
+$max-span: 10;
+$max-gallery: 10;
+$max-mason: 10;
+$max-margin: 50;
+$max-padding: 50;
+
+//color:
+$black: #000000;
+$white: #ffffff;
+
+$color-map: (
+    black: $black,
+    white: $white,
+);
+
+$antsand-color-map:(
+   black: #151515,
+
+);
+
 $breakpoint-map: (
-  small: 600px,
-  tablet: 600px,
-  minidesktop:1090px,
-  desktop: 1600px,
+  all:  0,
+  sm: 0 $tablet,
+  tablet: $tablet,
+  minidesktop:$minidesktop,
+  desktop:$desktop,
 );
 
 $max-combination: 20;
