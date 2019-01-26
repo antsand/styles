@@ -33,10 +33,9 @@ Within the download you'll find the following directories and files, logically g
 
 ```text
 styles/
-└── dist/
-    ├── css/
-    │   ├── styles.css
-    │   ├── styles-basic.css
-    |   ├── styles-mason.css
-    └── js/
-        ├── styles.js
+├── css/
+    ├── styles.css
+    ├── styles-basic.css
+    ├── styles-mason.css
+└── js/
+    ├── styles.js
