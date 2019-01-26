@@ -17,6 +17,15 @@ Launching Soon
 
 https://styles.antsand.com/
 
+## Quick start
+
+Several quick start options are available:
+
+- [Download the latest release.](https://github.com/antsand/styles/raw/master/archive/style.zip)
+- Clone the repo: `git clone https://github.com/antsand/styles.git`
+- Install with [npm](https://www.npmjs.com/): `npm install antsand-styles `
+
+
 
 ## What's included
 
