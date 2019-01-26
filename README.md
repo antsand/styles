@@ -21,7 +21,7 @@ https://styles.antsand.com/
 
 Several quick start options are available:
 
-- [Download the latest release.](https://github.com/antsand/styles/raw/master/archive/style.zip)
+- [Download the latest release.](https://github.com/antsand/styles/raw/master/archive/styles.zip)
 - Clone the repo: `git clone https://github.com/antsand/styles.git`
 - Install with [npm](https://www.npmjs.com/): `npm install antsand-styles `
 
@@ -33,10 +33,9 @@ Within the download you'll find the following directories and files, logically g
 
 ```text
 styles/
-└── dist/
-    ├── css/
-    │   ├── styles.css
-    │   ├── styles-basic.css
-    |   ├── styles-mason.css
-    └── js/
-        ├── styles.js
+├── css/
+|   ├── styles.css
+|   ├── styles-basic.css
+|   └── styles-mason.css
+└── js/
+    ├── styles.js
