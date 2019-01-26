@@ -1,0 +1,35 @@
+.info-box {
+    -moz-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+    box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+    background: #202020;
+    background-color: rgba(0, 0, 0, 0.3);
+   .h4 {
+        font-size: 1.5em;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+        padding-left: 40px;
+        text-indent: -18px;
+        line-height: 1.333em;
+        -webkit-box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0;
+        box-shadow: rgba(255, 255, 255, 0.07) 0 1px 0;
+        border-bottom: 1px solid #121212;
+        color: white;
+    }
+    p, .overview, ol, ul {
+        line-height: 1.8em;
+        font-size: .95em;
+        color: #c6c6c6;
+    }
+    ol, ul {
+        @include no_padding_margin;
+        padding-left: 18px;
+        text-indent: -18px;
+        list-style: inside decimal;
+        margin-bottom: 0;
+    }   
+    a {
+        color: #84bcde;
+    }
+}
+
