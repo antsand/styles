@@ -520,8 +520,18 @@
       display: none;
     }
 }
+.display-none-sm-minidesktop,{
+    @include breakpoint(0$minidesktop) {
+      display: none;
+    }
+}
 .display-block-sm-tablet,{
     @include breakpoint(0 $tablet) {
+      display: block;
+    }
+}
+.display-block-sm-minidesktop,{
+    @include breakpoint(0 $minidesktop) {
       display: block;
     }
 }
@@ -592,4 +602,23 @@
 
 .show-transition {
 
+}
+
+.content-plaintext {
+     -webkit-user-modify: read-write-plaintext-only;
+    outline: none;
+    user-select: text;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.placeholder {
+    color: #90949c;
+    position: absolute;
+    z-index: 1;
+    white-space: pre-wrap;
+}
+
+.placeholder-active {
+    color: #bec3c9; 
 }

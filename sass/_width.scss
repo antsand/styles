@@ -1,0 +1,36 @@
+@for $i from 1 through 100 {
+    $width: $i * 1%; 
+    .width-#{$i}-all {
+        width: $width;
+    }
+    .width-#{$i}-sm-tablet {
+        @include breakpoint(0 $tablet) {
+            width:$width;
+        }
+    }
+    .width-#{$i}-sm-minidesktop {
+        @include breakpoint(0 $minidesktop) {
+            width:$width;
+        }
+    }
+    .width-#{$i}-sm-desktop {
+        @include breakpoint(0 $desktop) {
+            width:$width;
+        }
+    }
+    .width-#{$i}-tablet {
+        @include breakpoint($tablet) {
+            width:$width;
+        }
+    }
+    .width-#{$i}-minidesktop {
+        @include breakpoint($minidesktop) {
+            width:$width;
+        }
+    }
+    .width-#{$i}-desktop {
+        @include breakpoint($desktop) {
+            width:$width;
+        }
+    }
+}

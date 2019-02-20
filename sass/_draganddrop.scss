@@ -1,0 +1,18 @@
+.drag {
+    cursor:grab !important; 
+}
+.drag:hover {
+    cursor:grab !important; 
+}
+.drag:active, .drag:focus {
+    cursor: grabbing;
+}
+
+.drag.dragElem {
+  opacity: 0.4;
+}
+
+.drag.over {
+  //border: 2px dashed #000;
+  border-top: 2px solid blue;
+}

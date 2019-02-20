@@ -43,3 +43,7 @@
 @mixin facebook_transition {
     transition: 200ms cubic-bezier(0.08, 0.52, 0.52, 1) background-color, 200ms cubic-bezier(0.08, 0.52, 0.52, 1) box-shadow, 200ms cubic-bezier(0.08, 0.52, 0.52, 1) transform;
 }
+
+@mixin facebook_transition_all {
+    transition: 200ms cubic-bezier(0.08, 0.52, 0.52, 1) all; 
+}
