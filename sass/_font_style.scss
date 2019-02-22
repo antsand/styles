@@ -5,6 +5,42 @@
     font-style: italic;
 }
 
+@for $i from 5 through 100 {
+    $font-size: $i * 1px;
+    .font-size-#{$i}-all {
+        font-size: $font-size;
+    }
+    .font-size-#{$i}-sm-tablet {
+        @include breakpoint(0 $tablet) {
+            font-size:$font-size;
+        }
+    }
+    .font-size-#{$i}-sm-minidesktop {
+        @include breakpoint(0 $minidesktop) {
+            font-size:$font-size;
+        }
+    }
+    .font-size-#{$i}-sm-desktop {
+        @include breakpoint(0 $desktop) {
+            font-size:$font-size;
+        }
+    }
+    .font-size-#{$i}-tablet {
+        @include breakpoint($tablet) {
+            font-size:$font-size;
+        }
+    }
+    .font-size-#{$i}-minidesktop {
+        @include breakpoint($minidesktop) {
+            font-size:$font-size;
+        }
+    }
+    .font-size-#{$i}-desktop {
+        @include breakpoint($desktop) {
+            font-size:$font-size;
+        }
+    }
+}
 .font-size-12-mobile {
     @include breakpoint(0 $tablet) {
         font-size:12px !important;
