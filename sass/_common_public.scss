@@ -46,12 +46,10 @@
     @include gallery(1 of 2);
 }
 
-
 .container {
     @include cf;
     width: 100%;
 }
-
 
 .img {
   width: 100%;
@@ -68,46 +66,9 @@ img {
     object-fit: contain !important;
 }
 
-.font-size-10, .font-10 {
-    font-size: 10px;
-}
-.font-size-12, .font-12 {
-    font-size: 12px;
-}
-.font-size-14, .font-14 {
-    font-size: 14px;
-}
-.font-size-15, .font-15 {
-    font-size: 15px;
-}
-.font-size-18, .font-18 {
-    font-size: 18px;
-}
-.font-size-20, .font-20 {
-    font-size: 20px;
-}
-
-.font-size-26 {
-    font-size: 26px;
-}
-
-.font-size-55 {
-    font-size: 55px;
-}
-
-.font-size-inherit {
-    font-size: inherit !important;
-}
-.font-family-inherit {
-    font-family: inherit !important;
-}
 
 .display-inline {
     display: inline-block;
-}
-
-.display-flex {
-    display: flex;
 }
 
 .overflow-auto {
