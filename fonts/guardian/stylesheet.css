@@ -1,0 +1,176 @@
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-Medium.woff2') format('woff2'),
+        url('GHGuardianHeadline-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-MediumItalic.woff2') format('woff2'),
+        url('GHGuardianHeadline-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GuardianTextSans';
+    src: url('GuardianTextSans-Regular.woff2') format('woff2'),
+        url('GuardianTextSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp';
+    src: url('GuardianTextEgyptian-Bold.woff2') format('woff2'),
+        url('GuardianTextEgyptian-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-MediumItalic.woff2') format('woff2'),
+        url('GHGuardianHeadline-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-Medium.woff2') format('woff2'),
+        url('GHGuardianHeadline-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp  Reg';
+    src: url('GuardianTextEgyptian-RegIt.woff2') format('woff2'),
+        url('GuardianTextEgyptian-RegIt.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GuardianTextSans';
+    src: url('GuardianTextSans-Regular.woff2') format('woff2'),
+        url('GuardianTextSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-Light.woff2') format('woff2'),
+        url('GHGuardianHeadline-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-Light.woff2') format('woff2'),
+        url('GHGuardianHeadline-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GT Guardian Titlepiece';
+    src: url('GTGuardianTitlepiece-Bold.woff2') format('woff2'),
+        url('GTGuardianTitlepiece-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GuardianTextSans';
+    src: url('GuardianTextSans-Bold.woff2') format('woff2'),
+        url('GuardianTextSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-Bold.woff2') format('woff2'),
+        url('GHGuardianHeadline-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-Bold.woff2') format('woff2'),
+        url('GHGuardianHeadline-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-Light.woff2') format('woff2'),
+        url('GHGuardianHeadline-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-LightItalic.woff2') format('woff2'),
+        url('GHGuardianHeadline-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp  Reg';
+    src: url('GuardianTextEgyptian-Reg.woff2') format('woff2'),
+        url('GuardianTextEgyptian-Reg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp  Reg';
+    src: url('GuardianTextEgyptian-RegIt.woff2') format('woff2'),
+        url('GuardianTextEgyptian-RegIt.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('GHGuardianHeadline-LightItalic.woff2') format('woff2'),
+        url('GHGuardianHeadline-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp  Reg';
+    src: url('GuardianTextEgyptian-Reg.woff2') format('woff2'),
+        url('GuardianTextEgyptian-Reg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp';
+    src: url('GuardianTextEgyptian-Bold.woff2') format('woff2'),
+        url('GuardianTextEgyptian-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GuardianTextSans';
+    src: url('GuardianTextSans-Bold.woff2') format('woff2'),
+        url('GuardianTextSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+

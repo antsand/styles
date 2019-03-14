@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Freddicons 20';
+    src: url('Freddicons-20.woff2') format('woff2'),
+        url('Freddicons-20.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '.';
+    src: url('21502d0d0ea8b650aaa8b71ee284f2cb.woff2') format('woff2'),
+        url('21502d0d0ea8b650aaa8b71ee284f2cb.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CooperBTW03';
+    src: url('CooperBTW03-Light.woff2') format('woff2'),
+        url('CooperBTW03-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '.';
+    src: url('5f123d0e60dfb1521baa9fe658be92d2.woff2') format('woff2'),
+        url('5f123d0e60dfb1521baa9fe658be92d2.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

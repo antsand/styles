@@ -1,0 +1,29 @@
+.form-default {
+   input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
+      padding: .6em .7em .5em .7em;
+      font-size: .9em;
+      color: #666;
+      box-shadow: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      border: 1px solid #ccc;
+      border-color: #c4c4c4 #d8d8d8 #e2e2e2;
+      outline: none;
+      margin: 0;
+      line-height: 1.5em;
+      width: 100%;
+      border-radius: 4px;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      font-family: Helvetica,Arial;
+      vertical-align: top;
+      margin: 6px 0 9px 0;
+   }
+    .form-text {
+        display: block;
+        margin-top: .25rem;    
+    }   
+ }
