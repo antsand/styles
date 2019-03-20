@@ -21,6 +21,18 @@
       font-family: Helvetica,Arial;
       vertical-align: top;
       margin: 6px 0 9px 0;
+      a {
+          @include no_decor;
+          text-decoration: underline;
+          color: #007AB8;
+          outline:none;
+      }
+      hr {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        border: 0;
+        border-top: 1px solid rgba(0,0,0,.1);
+      }
    }
     .form-text {
         display: block;

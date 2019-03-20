@@ -16,3 +16,37 @@
   //border: 2px dashed #000;
   border-top: 2px solid blue;
 }
+
+.movable-object {
+    border-radius: 3px;
+    border: 1px solid #cbd6e2;
+    font-size: 16px;
+    transition: all .15s ease-out;
+    background-color: #f5f8fa;
+    color: #33475b;
+    display: block;
+    height: 40px;
+    line-height: 22px;
+    text-align: left;
+    vertical-align: middle;
+    //width: 100%;
+    padding: 9px 30px 9px 26px;
+    font-size: 14px;
+    background-color: #eaf0f6;
+    position: relative;
+}
+
+.is-draggable {
+    background-image: url(../images/movable-object.svg);
+    background-repeat: no-repeat;
+    background-position: 9px calc(50% + 1px);
+    cursor:grab;
+}
+
+.drop-zone {
+    background-color: #f5f8fa;
+    border: 1px dashed #516f90;
+    border-radius: 4px;
+    color: #7c98b6;
+    position: relative;
+}

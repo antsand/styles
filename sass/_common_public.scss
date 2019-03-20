@@ -252,6 +252,16 @@ img {
     font-weight: 400;
 }
 
+small {
+  font-size: 80%;
+  font-weight: 400;
+}
+
+label {
+  display: inline-block;
+  line-height:1.2;
+}
+
 @font-face {
     font-family: "Bebas Neue Bold";
     src: url(sansation_light.woff);

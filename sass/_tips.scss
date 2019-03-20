@@ -1,5 +1,23 @@
+.tip, .notes {
+    display: block;
+    padding: 12px 18px 12px 65px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px;
+    border-style: solid;
+    line-height: 1.5rem;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    position: relative;
+}
+
 .tip-primary {
-    
+   border-color: #2D9EE0;
+   background-color: #F0F7FB;    
 }
 
 .tip-success {

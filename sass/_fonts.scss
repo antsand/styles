@@ -94,6 +94,8 @@
     font-style: italic;
 }
 
+/******** GD SHERPA *******************/
+
 @font-face {
     font-family: 'gdsherpa';
     src: url('../fonts/gdsherpa/gdsherpa-regular.woff2') format('woff2');
@@ -108,35 +110,35 @@
     font-style: normal;
 }
 
+/************** GRAPHIK ****************/
+
 @font-face {
-    font-family: 'graphik';
+    font-family: 'Graphik';
     src: url('../fonts/graphik/Graphik-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'graphik';
+    font-family: 'Graphik';
     src: url('../fonts/graphik/Graphik-RegularItalic.woff2') format('woff2');
     font-weight: normal;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'graphik';
+    font-family: 'Graphik';
     src: url('../fonts/graphik/Graphik-Semibold.woff2') format('woff2');
-    font-weight: bold;
+    font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'graphik';
+    font-family: 'Graphik';
     src: url('../fonts/graphik/Graphik-SemiboldItalic.woff2') format('woff2');
-    font-weight: bold;
+    font-weight: 600;
     font-style: italic;
 }
-
-
 
 /***** Fright Text Pro  *********/
 @font-face {
@@ -236,4 +238,338 @@
 }
 /*****************************/
 
-  
+@font-face {
+    font-family: 'GT Guardian Titlepiece';
+    src: url('../fonts/guardian/GTGuardianTitlepiece-Bold.woff2') format('woff2'),
+        url('../fonts/guardian/GTGuardianTitlepiece-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('../fonts/guardian/GHGuardianHeadline-Medium.woff2') format('woff2'),
+        url('../fonts/guardian/GHGuardianHeadline-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GuardianTextSans';
+    src: url('../fonts/guardian/GuardianTextSans-Regular.woff2') format('woff2'),
+        url('../fonts/guardian/GuardianTextSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('../fonts/guardian/GHGuardianHeadline-MediumItalic.woff2') format('woff2'),
+        url('../fonts/guardian/GHGuardianHeadline-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp  Reg';
+    src: url('../fonts/guardian/GuardianTextEgyptian-RegIt.woff2') format('woff2'),
+        url('../fonts/guardian/GuardianTextEgyptian-RegIt.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('../fonts/guardian/GHGuardianHeadline-Light.woff2') format('woff2'),
+        url('../fonts/guardian/GHGuardianHeadline-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('../fonts/guardian/GHGuardianHeadline-Light.woff2') format('woff2'),
+        url('../fonts/guardian/GHGuardianHeadline-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GuardianTextSans';
+    src: url('../fonts/guardian/GuardianTextSans-Bold.woff2') format('woff2'),
+        url('../fonts/guardian/GuardianTextSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('../fonts/guardian/GHGuardianHeadline-Bold.woff2') format('woff2'),
+        url('../fonts/guardian/GHGuardianHeadline-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp  Reg';
+    src: url('../fonts/guardian/GuardianTextEgyptian-Reg.woff2') format('woff2'),
+        url('../fonts/guardian/GuardianTextEgyptian-Reg.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GH Guardian Headline';
+    src: url('../fonts/guardian/GHGuardianHeadline-LightItalic.woff2') format('woff2'),
+        url('../fonts/guardian/GHGuardianHeadline-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Guardian Text Egyp';
+    src: url('../fonts/guardian/GuardianTextEgyptian-Bold.woff2') format('woff2'),
+        url('../fonts/guardian/GuardianTextEgyptian-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/********** CHIMP *************/
+
+@font-face {
+    font-family: 'Freddicons 20';
+    src: url('../fonts/chimp/Freddicons-20.woff2') format('woff2'),
+        url('../fonts/chimp/Freddicons-20.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../fonts/chimp/21502d0d0ea8b650aaa8b71ee284f2cb.woff2') format('woff2'),
+        url('../fonts/chimp/21502d0d0ea8b650aaa8b71ee284f2cb.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cooper Light';
+    src: url('../fonts/chimp/CooperBTW03-Light.woff2') format('woff2'),
+        url('../fonts/chimp/CooperBTW03-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('../fonts/chimp/5f123d0e60dfb1521baa9fe658be92d2.woff2') format('woff2'),
+        url('../fonts/chimp/5f123d0e60dfb1521baa9fe658be92d2.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/************* Futura **********************/
+
+@font-face {
+    font-family: 'Futura PT Cond Extra';
+    src: url('../fonts/futura/FuturaPTCond-ExtraBoldObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPTCond-ExtraBoldObl.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT Cond';
+    src: url('../fonts/futura/FuturaPTCond-Bold.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPTCond-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Book';
+    src: url('../fonts/futura/FuturaPT-Book.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/futura/FuturaPT-LightObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-LightObl.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT Cond';
+    src: url('../fonts/futura/FuturaPTCond-MediumObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPTCond-MediumObl.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT Extra';
+    src: url('../fonts/futura/FuturaPT-ExtraBoldObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-ExtraBoldObl.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT Cond';
+    src: url('../fonts/futura/FuturaPTCond-BoldObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPTCond-BoldObl.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/futura/FuturaPT-Bold.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Cond';
+    src: url('../fonts/futura/FuturaPTCond-Medium.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPTCond-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Cond Extra';
+    src: url('../fonts/futura/FuturaPTCond-ExtraBold.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPTCond-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/futura/FuturaPT-Light.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/futura/FuturaPT-BoldObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-BoldObl.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/futura/FuturaPT-MediumObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-MediumObl.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT Extra';
+    src: url('../fonts/futura/FuturaPT-ExtraBold.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/futura/FuturaPT-HeavyObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-HeavyObl.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT Book';
+    src: url('../fonts/futura/FuturaPT-BookObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-BookObl.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT Cond Book';
+    src: url('../fonts/futura/FuturaPTCond-Book.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPTCond-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/futura/FuturaPT-Medium.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Demi';
+    src: url('../fonts/futura/FuturaPT-DemiObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-DemiObl.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT';
+    src: url('../fonts/futura/FuturaPT-Heavy.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura PT Cond Book';
+    src: url('../fonts/futura/FuturaPTCond-BookObl.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPTCond-BookObl.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Futura PT Demi';
+    src: url('../fonts/futura/FuturaPT-Demi.woff2') format('woff2'),
+        url('../fonts/futura/FuturaPT-Demi.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+/********************** SALVO SANS **********************************/
+@font-face {
+    font-family: 'Salvo Sans';
+    src: url('../fonts/salvosans/SalvoSansRegular.woff2') format('woff2'),
+        url('../fonts/salvosans/SalvoSansRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Salvo Sans';
+    src: url('../fonts/salvosans/SalvoSansBlack.woff2') format('woff2'),
+        url('../fonts/salvosans/SalvoSansBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/********************************************************************/
+
+
+
+
+
+
+
+
+
+
+

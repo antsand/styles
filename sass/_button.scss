@@ -43,13 +43,11 @@
     background: #068ac6;
 }
 
-.btn-black, .button-black {
+.button {
     outline: none;
     border: 0px;
-    background: rgb(10,10,10);
-    border: 1px solid black;
-    color: white;
     border-radius: 5px;
+    border: 1px solid black;
     max-width: 100%;
     padding: 15px;
     cursor:pointer;
@@ -59,14 +57,123 @@
     -o-transition: opacity .15s ease-in-out, background .15s ease-in-out ;
     transition: opacity .15s ease-in-out, background .15s ease-in-out ; 
     transition: 200ms cubic-bezier(.08,.52,.52,1) background-color, 200ms cubic-bezier(.08,.52,.52,1) box-shadow, 200ms cubic-bezier(.08,.52,.52,1) transform;
+
+}
+
+.button-shadow {
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+}
+
+.btn-black, .button-black {
+    border: 1px solid black;
+    background: rgb(10,10,10);
+    color: white;
 }
 
 .btn-black:hover, .button-black:hover {
     background:rgba(12,12,12,0.9);
-
 }
 
-.btn-black:focus {
+.btn-blue, .button-blue {
+    border: 1px solid #07adf8;
+    background-color: #07adf8;
+    color: white;
+}
+
+.btn-blue:hover, .button-blue:hover {
+    border: 1px solid #0696d7;
+    background-color: #0696d7;
+}
+.btn-yellow, .button-yellow {
+    border: 1px solid #ffb400;
+    background-color: #ffb400;
+    color: black;
+}
+
+.btn-yellow:hover, .button-yellow:hover {
+    background-color: #ffe400;
+    border-color: #ffe400;
+}
+
+.btn-white, .button-white {
+    background: white;
+    border: 1px solid rgb(7, 173, 248);
+    color: rgb(7, 173, 248);
+}
+
+.btn-white:hover, .button-white:hover {
+    background-color: #e2e6ea;
+    color: #168dd9;
+}
+
+.btn-orange, .button-orange {
+   background: #f15b2a;
+   border: solid 1px #f15b2a;
+   color: white;
+}
+.btn-orange:hover {
+    background: #fd7346;
+    border: solid 1px #fd7346;
+}
+
+.btn-green {
+    background-color: #42b72a;
+    border-color: #42b72a;
+    color: white;
+}
+
+.btn-green:hover {
+    background-color: #36a420;
+    border-color: #36a420;
+}
+
+.btn-purple, .button-purple {
+    border: 1px solid #5e6ebf;
+    background-color: #5e6ebf;
+    color:white;
+}
+.btn-purple:hover, .button-purple:hover {
+    border: 1px solid #223274;
+    background-color: #223274;
+    color: #fff;
+}
+
+.btn-outline-purple {
+    background-color: white;
+    color: #5e6ebf;
+    border: 1px solid #5e6ebf;
+}
+.btn-outline-purple:hover {
+    background-color: #5e6ebf;
+    color: #fff;
+}
+
+.btn-outline-lightblue {
+    user-select: none;
+    background-color: #fff;
+    border: 1px solid #7fd1de;
+    cursor: pointer;
+    font-family: Avenir Next W02,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #33475b;
+    line-height: 24px;
+    border-radius: 3px;
+    transition: all .15s ease-out;
+}
+
+.btn-outline-lightblue-active {
+    border-color: #00a4bd;
+    box-shadow: 0 0 0 1px #00a4bd, 0 0 12px 0 rgba(0,163,189,.3);
+    background-color: #e5f5f8;
+}
+
+.btn-outline-lightblue:hover {
+     box-shadow: 0 0 0 1px #7fd1de, 0 0 12px 0 rgba(0,163,189,.3); 
+}
+
+.button:focus {
     outline: none;
     -webkit-box-shadow: 0 0 0.46875rem #3578a7;
     -moz-box-shadow: 0 0 0.46875rem #3578a7;
@@ -124,4 +231,41 @@
 
 .btn-bubble-grey:hover {
     background-color: #ebedf0;
+}
+
+.private-btn {
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    font-smoothing: auto;
+    text-shadow: 0 0 1px transparent;
+    font-family: Avenir Next W02,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: all .15s ease-out;
+    cursor: pointer;
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 6px 12px;
+    background-color: #eaf0f6;
+    border-color: #cbd6e2;
+    color: #506e91;
+    text-decoration: none;
+}
+
+.private-btn:hover {
+    background-color: #f5f8fa;
+    color: #506e91;
 }
