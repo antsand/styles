@@ -561,15 +561,102 @@
     font-style: normal;
 }
 
-/********************************************************************/
+/*********************************RETINA FONT ***************************/
 
+@font-face {
+    font-family: 'Retina';
+    src: url('../fonts/retina/Retina-Regular.woff2') format('woff2'),
+        url('../fonts/retina/Retina-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Retina';
+    src: url('../fonts/retina/Retina-Bold.woff2') format('woff2'),
+        url('../fonts/retina/Retina-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Retina';
+    src: url('../fonts/retina/RetinaMedium.woff2') format('woff2'),
+        url('../fonts/retina/RetinaMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Retina';
+    src: url('../fonts/retina/RetinaBlack.woff2') format('woff2'),
+        url('../fonts/retina/RetinaBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
 
+/*****************************************************************/
 
+@font-face {
+    font-family: 'pictos';
+    src: url('../fonts/pictos-web.woff2') format('woff2'),
+        url('../fonts/pictos-web.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'pictos-web';
+    src: url('../fonts/pictos-web.woff2') format('woff2'),
+        url('../fonts/pictos-web.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/******************** BOX OUT **********************************/
+@font-face {
+    font-family: 'Boxout';
+    src: url('../fonts/boxout/Boxout-ExtraBold.woff2') format('woff2'),
+        url('../fonts/boxout/Boxout-ExtraBold.woff') format('woff'),
+        url('../fonts/boxout/Boxout-ExtraBold.ttf') format('truetype'),
+        url('../fonts/boxout/Boxout-ExtraBold.svg#Boxout-ExtraBold') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+/******************** AKKURAT **********************************/
+@font-face {
+    font-family: 'Akkurat';
+    src: url('../fonts/akkurat/akkurat-pro-bold.woff2') format('woff2'),
+        url('../fonts/akkurat/akkurat-pro-bold.woff') format('woff'),
+        url('../fonts/akkurat/akkurat-pro-bold.ttf') format('truetype'),
+        url('../fonts/akkurat/akkurat-pro-bold.svg#akkurat-pro-bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Akkurat';
+    src: url('../fonts/akkurat/akkurat-pro-regular.woff2') format('woff2'),
+        url('../fonts/akkurat/akkurat-pro-regular.woff') format('woff'),
+        url('../fonts/akkurat/akkurat-pro-reular.ttf') format('truetype'),
+        url('../fonts/akkurat/akkurat-pro-regular.svg#akkurat-pro-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
+/*****************************************************************/
 
+@font-face {
+    font-family: 'oswald';
+    src: url('../fonts/oswald.woff2') format('woff2'),
+        url('../fonts/oswald.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
-
+@font-face {
+    font-family: 'oswald';
+    src: url('../fonts/oswald_bold.woff2') format('woff2'),
+        url('../fonts/oswald_bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+/******************** BOX OUT **********************************/

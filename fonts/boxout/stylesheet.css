@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Boxout';
+    src: url('Boxout-ExtraBold.woff2') format('woff2'),
+        url('Boxout-ExtraBold.woff') format('woff'),
+        url('Boxout-ExtraBold.ttf') format('truetype'),
+        url('Boxout-ExtraBold.svg#Boxout-ExtraBold') format('svg');
+    font-weight: 800;
+    font-style: normal;
+}
+
