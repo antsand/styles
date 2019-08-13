@@ -1,16 +1,24 @@
 @for $i from 1 through $max-gallery {
-  @if ($i > 1) {
     .gallery-#{$i} {
         @include gallery(1 of $i);
+        @if ($i == 1) {
+            float: none;
+        }
     }
     .gallery-#{$i}-square {
         position:relative;
         @include gallery(1 of $i);
+        @if ($i == 1) {
+            float: none;
+        }
         padding-top: span(1 of $i);
     }
     .gallery-#{$i}-sm {
       @include breakpoint(0 $tablet) {
         @include gallery(1 of $i);
+        @if ($i == 1) {
+            float: none;
+        }
       }
     }
     .gallery-#{$i}-square-sm,
@@ -18,46 +26,66 @@
         position:relative;
         @include breakpoint(0 $tablet) {
           @include gallery(1 of $i);
+          @if ($i == 1) {
+              float: none;
+          }
           padding-top: span(1 of $i);
       }
     }
     .gallery-#{$i}-tablet {
       @include breakpoint($tablet) {
         @include gallery(1 of $i);
+        @if ($i == 1) {
+            float: none;
+        }
       }
     }
     .gallery-#{$i}-square-tablet {
         position:relative;
         @include breakpoint($tablet) {
           @include gallery(1 of $i);
+          @if ($i == 1) {
+              float: none;
+          }
           padding-top: span(1 of $i);
       }
     }
     .gallery-#{$i}-minidesktop {
       @include breakpoint($minidesktop) {
         @include gallery(1 of $i);
+        @if ($i == 1) {
+            float: none;
+        }
       }
     }
     .gallery-#{$i}-square-minidesktop {
         position:relative;
         @include breakpoint($minidesktop) {
           @include gallery(1 of $i);
+          @if ($i == 1) {
+              float: none;
+          }
           padding-top: span(1 of $i);
       }
     }
     .gallery-#{$i}-desktop {
       @include breakpoint($desktop) {
         @include gallery(1 of $i);
+        @if ($i == 1) {
+            float: none;
+        }
       }
     }
     .gallery-#{$i}-square-desktop {
         position:relative;
         @include breakpoint($desktop) {
           @include gallery(1 of $i);
+          @if ($i == 1) {
+              float: none;
+          }
           padding-top: span(1 of $i);
       }
     }
-  }
 }
 
 .gallery-container {
@@ -85,6 +113,3 @@
     margin-bottom: 15px;
 }
 
-.gallery-1 {
-    @include gallery(1 of 1);
-}

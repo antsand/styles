@@ -1,5 +1,5 @@
 @for $i from 1 through $max-span {
-  @for $j from -11 through -2 {
+  @for $j from -$max-span through -2 {
     @if ($i == abs($j)) {
 
     } @else {

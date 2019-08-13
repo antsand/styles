@@ -23,8 +23,18 @@
             width:$width;
         }
     }
+    .width-#{$i}-tablet-minidesktop {
+        @include breakpoint($tablet $minidesktop) {
+            width:$width;
+        }
+    }
     .width-#{$i}-minidesktop {
         @include breakpoint($minidesktop) {
+            width:$width;
+        }
+    }
+    .width-#{$i}-minidesktop-desktop {
+        @include breakpoint($minidesktop $desktop) {
             width:$width;
         }
     }

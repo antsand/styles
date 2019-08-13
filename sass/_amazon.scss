@@ -41,7 +41,7 @@
     transition: color .2s,border-color .2s,color .2s;
 }
 
-.antsand-aws-block:hover {
+.antsand-aws-block:hover,  .antsand-aws-block-active{
     border-color: #329ad6;
 }
 

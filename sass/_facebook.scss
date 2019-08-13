@@ -188,6 +188,9 @@
                 font: 400 15px "Montserrat", sans-serif;
                 margin-bottom: .4rem;
                 display: block;
+                @include breakpoint($tablet) {
+                  font: 400 1.3rem "Montserrat", sans-serif;
+                }    
             }
             input, option, select {
                 height: 25px;
@@ -197,6 +200,11 @@
                 border-radius: 0;
                 width: 100%;
                 border: 1px solid rgb(155,155,155);
+                @include breakpoint($tablet) {
+                    height:2.8rem;
+                    font-size: 1.2rem;
+                    line-height: 2.8rem;
+                }
             }
             button {
                 @include no_decor;
@@ -212,6 +220,11 @@
                 width: 90%;
                 text-transform: uppercase;
                 cursor: pointer;
+                @include breakpoint($tablet) {
+                    height:3.8rem;
+                    font-size: 1.4rem;
+                    line-height: 3.8rem;
+                }
             }
         }
     }
@@ -253,6 +266,35 @@
         right: 20px;
         z-index: 2;
     }
+
+}
+
+.fb-close {
+    background-image: url(../images/closeicon_fb.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: -106px -172px;
+    background-color: transparent;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: 200ms cubic-bezier(0.08, 0.52, 0.52, 1) background-color,200ms cubic-bezier(0.08, 0.52, 0.52, 1) box-shadow,200ms cubic-bezier(0.08, 0.52, 0.52, 1) transform;
+    a {
+        border: 0 none;
+        cursor: pointer;
+        font-size: 0 !important;
+        overflow: hidden;
+        padding: 0;
+        vertical-align: middle;
+    }
+}
+
+.fb-close:hover {
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: -132px -172px;
 }
 
 .fb-button {

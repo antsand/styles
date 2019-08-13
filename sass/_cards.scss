@@ -31,3 +31,65 @@
         overflow:auto;
     }
 }
+
+.service-box {
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.14), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.14), 0 1px 2px rgba(0,0,0,0.24);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    font-family: 'Gotham';
+    .bg-image {
+        background: #4c6379;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height:176px;
+        .span-info {
+            font-size: 10px;;
+            font-family: 'Gotham';
+            text-transform: uppercase;
+            text-align: center;
+            padding: 4px 4px;
+            background: white;
+            position: absolute;
+            top: 145px;
+            right: 25px;
+        }
+    }
+    .card-block {
+      height: 185px;
+      padding:20px;
+      .header {
+        display: flex;
+        justify-content: space-between;
+        .card-title {
+            color: #090e12;
+            font-family: 'Gotham';
+            font-weight: normal;
+            letter-spacing: -.25px; 
+            font-size:14px;
+            margin-top:0px;
+            line-height:23.625px;
+        }
+        .card-text {
+            color: #848688;
+            font-size: 13px;
+            line-height: 1.75;
+            margin-bottom:13px;
+            margin-top:0px;
+            line-height:22.75px;
+            font-family: 'Gotham Book';
+        }
+      }
+      .text {
+            color: #848688;
+            font-size: 13px;
+            line-height: 1.75;
+      }
+    }
+}

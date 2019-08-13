@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-Md';
+    src: url('AvenirNextforINTUITW05-Md.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-Md.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextLTW04';
+    src: url('AvenirNextLTW04-Regular.woff2') format('woff2'),
+        url('AvenirNextLTW04-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextLTW04-Demi';
+    src: url('AvenirNextLTW04-Demi.woff2') format('woff2'),
+        url('AvenirNextLTW04-Demi.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05';
+    src: url('AvenirNextforINTUITW05-Bold.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+

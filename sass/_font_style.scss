@@ -5,7 +5,7 @@
     font-style: italic;
 }
 
-@for $i from 5 through 100 {
+@for $i from 5 through 200 {
     $font-size: $i * 1px;
     .font-size-#{$i}-all, .font-size-#{$i}, .font-#{$i} {
         font-size: $font-size;
@@ -89,7 +89,7 @@
 .pictos-check:before {
     content:'2';
     //color: #fb292d;
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -98,7 +98,7 @@
 .pictos-love:before {
     content:'k';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -108,7 +108,7 @@
 .pictos-anchor:before {
     content:'a';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -118,7 +118,7 @@
 .pictos-prev:before {
     content:'8';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -127,7 +127,7 @@
 .pictos-next:before {
     content:'7';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -136,7 +136,25 @@
 .pictos-play:before {
     content:'9';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-play-block:before {
+    content:'4';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-pause:before {
+    content:'5';
+    //color: #fb292d; 
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -145,7 +163,7 @@
 .pictos-left:before {
     content:'[';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -154,7 +172,7 @@
 .pictos-right:before {
     content:']';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -163,7 +181,7 @@
 .pictos-up:before {
     content:'{';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -172,7 +190,7 @@
 .pictos-down:before {
     content:'}';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -181,7 +199,7 @@
 .pictos-question:before {
     content:'?';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -190,7 +208,7 @@
 .pictos-home:before {
     content:'H';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -199,7 +217,7 @@
 .pictos-globe:before {
     content:'G';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -208,7 +226,7 @@
 .pictos-add:before {
     content:'+';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;
@@ -217,7 +235,70 @@
 .pictos-minus:before {
     content:'-';
     //color: #fb292d; 
-    color: #f15b2a;
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-info:before {
+    content:'i';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-mail:before {
+    content:'M';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-profile:before {
+    content:'U';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-gear:before {
+    content:'y';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-tools:before {
+    content:'x';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-shopping:before {
+    content:'$';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-search:before {
+    content:'s';
+    //color: #fb292d; 
+    color: inherit;
     display: inline-block;
     font-size: 1.2em;
     padding-right: .3em;

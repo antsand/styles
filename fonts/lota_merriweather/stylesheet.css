@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Lota Grotesque';
+    src: url('LotaGrotesque-Bold.woff2') format('woff2'),
+        url('LotaGrotesque-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lota Grotesque';
+    src: url('LotaGrotesque-SemiBold.woff2') format('woff2'),
+        url('LotaGrotesque-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url('Merriweather-Regular.woff2') format('woff2'),
+        url('Merriweather-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lota Grotesque';
+    src: url('LotaGrotesque-Black.woff2') format('woff2'),
+        url('LotaGrotesque-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lota Grotesque';
+    src: url('LotaGrotesque-Regular.woff2') format('woff2'),
+        url('LotaGrotesque-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

@@ -1,0 +1,69 @@
+.accordian-component {
+  margin-top: 30px;
+  .accordian-container {
+    height: 31px;
+    .heading {
+      height: inherit;
+      a {
+      text-transform: uppercase;
+      font-weight: 400;
+      margin: 0 5px 0 0;
+      font-weight: 600;
+      line-height: 20px;
+      font-size: 14px;
+      color: #7d7d7d;
+      text-decoration: none;
+      border: 1px solid #d1d1d1;
+      border-bottom: none;
+      height: 20px;
+      padding: 5px 20px 5px 20px;
+      background: #fcfcfc;
+      box-sizing: content-box;
+      display: block;
+      background: #e1f4ff;
+      }
+    }
+    .heading:hover {
+        a {
+        background: #f0f0f0;
+        }
+    }
+    .heading-active {
+      a {
+      background: #fff;
+      color: #333;
+      padding-bottom: 6px;
+      }
+    }
+  }
+  .item-content {
+    background: #fff;
+    //margin-top: 31px;
+    padding: 20px 20px 20px 20px;
+    border: 0;
+    border-top: 1px solid #d1d1d1;
+    .sub-heading {
+        margin-bottom: 30px;
+    }
+  }
+}
+
+.accordian-description {
+    display: none;
+}
+
+.accordian-description-tablet {
+    @include breakpoint($tablet) {
+      display: none;
+  }
+}
+
+.accordian-active {
+    display: block;
+}
+
+.accordian-active-tablet {
+    @include breakpoint($tablet) {
+        display: block;
+    }
+}

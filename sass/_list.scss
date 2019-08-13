@@ -17,3 +17,43 @@
     cursor: pointer;
     transition: background 0.10s ease-in;
 }
+
+.orange-bullet, .orange-list {
+    @include no_decor;    
+    padding-left: 0;
+    text-indent: -15px;
+    //margin-left: 1em;
+    padding: 3px 0;
+    line-height: 1.8;
+    position:relative;
+    padding-left:26px;
+}
+
+.orange-bullet:before, .orange-list:before {
+    content: "■ ";
+    //padding-right: 10px;
+    color: #f16639;
+    //padding-left:26px;
+    position:absolute;
+    left:0px;
+}
+
+.blue-bullet, .blue-list {
+    @include no_decor;    
+    padding-left: 0;
+    text-indent: -15px;
+    //margin-left: 1em;
+    padding: 3px 0;
+    line-height: 1.8;
+    position:relative;
+    padding-left:26px;
+}
+
+.blue-bullet:before, .blue-list:before {
+    content: "■ ";
+    //padding-right: 10px;
+    color: rgb(68, 138, 255);
+    //padding-left:26px;
+    position:absolute;
+    left:0px;
+}

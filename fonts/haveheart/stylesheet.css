@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Have Heart Two';
+    src: url('HaveHeartTwo.woff2') format('woff2'),
+        url('HaveHeartTwo.woff') format('woff'),
+        url('HaveHeartTwo.ttf') format('truetype'),
+        url('HaveHeartTwo.svg#HaveHeartTwo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
