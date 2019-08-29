@@ -771,24 +771,76 @@
 
 @font-face {
     font-family: 'Avenir';
-    src: url('../fonts/avenir/AvenirNextforINTUITW05-Bold.woff2') format('woff2'),
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Bold.woff2') format('woff1'),
         url('../fonts/avenir/AvenirNextforINTUITW05-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Avenir-Cond';
+    src: url('../fonts/avenir/cond-bold/AvenirNextLTPro-BoldCn.woff2') format('woff2'),
+        url('../fonts/avenir/cond-bold/AvenirNextLTPro-BoldCn.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir-Cond';
+    src: url('../fonts/avenir/cond-demi/AvenirNextLTPro-DemiCn.woff2') format('woff2'),
+        url('../fonts/avenir/cond-demi/AvenirNextLTPro-DemiCn.woff') format('woff'),
+        url('../fonts/avenir/cond-demi/AvenirNextLTPro-DemiCn.svg#AvenirNextLTPro-DemiCn') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 /****************************************/
 
 
 @font-face {
     font-family: 'Have Heart Two';
-    src: url('../haveheart/fonts/HaveHeartTwo.woff2') format('woff2'),
-        url('../haveheart/fonts/HaveHeartTwo.woff') format('woff'),
-        url('../haveheart/fonts/HaveHeartTwo.ttf') format('truetype'),
-        url('../haveheart/fonts/HaveHeartTwo.svg#HaveHeartTwo') format('svg');
+    src: url('../fonts/haveheart/HaveHeartTwo.woff2') format('woff2'),
+        url('../fonts/haveheart/HaveHeartTwo.woff') format('woff'),
+        url('../fonts/haveheart/HaveHeartTwo.ttf') format('truetype'),
+        url('../fonts/haveheart/HaveHeartTwo.svg#HaveHeartTwo') format('svg');
     font-weight: normal;
     font-style: normal;
 }
+
+
+/************* Equitity B **********************/
+/*
+
+@font-face {
+    font-family: 'EquityB';
+    src: url('../fonts/equity_b/equity_text_b_italic-webfont-webfont.woff2') format('woff2'),
+         url('../fonts/equity_b/equity_text_b_italic-webfont-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'EquityB';
+    src: url('../fonts/equity_b/equity_text_b_bold-webfont-webfont.woff2') format('woff2'),
+         url('../fonts/equity_b/equity_text_b_bold-webfont-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'EquityB';
+    src: url('../fonts/equity_b/text_b_regular-webfont-webfont.woff2') format('woff2'),
+         url('../fonts/equity_b/equity_text_b_regular-webfont-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*/
+
+/*************************************************/
 
 
 

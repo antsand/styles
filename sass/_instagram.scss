@@ -1,0 +1,200 @@
+.social-media-container {
+        @include cf;
+        background-color: black;
+        //margin: 80px 0 0 0;
+        padding: 80px 0;
+        .wrapper {
+            background: #fff no-repeat center top;
+            background-image: url(../../images/social-bg.jpg);
+            background-size: cover;
+        }
+        .social-media-feed-holder {
+            @include cf;
+            //background: #fff no-repeat center top;
+            //background-image: url(../../images/social-bg.jpg);
+            //background-size: cover;
+            padding: 30px 30px;
+            position: relative;
+            border: 0;
+            font: inherit;
+            font-size: 100%;
+            vertical-align: baseline;
+            color:white;
+            display: flex;
+            h3 {
+                font-family: Lato;
+                font-weight: 900;
+                text-transform: uppercase;
+                position: absolute;
+
+            }
+            .feed-container {
+                @include cf;
+                margin-top: 64px;
+                position: relative;
+                width:100%;
+                .social-feed {
+                    //    @include gallery($wrapper/2 of $wrapper);
+                    //    @include breakpoint($desktop) {
+                    //      @include gallery($wrapper/4 of $wrapper);
+                    //    }
+                    @include breakpoint($desktop) {
+                      min-height: 700px;
+                    }
+                    overflow: hidden;
+                    padding: 10px 15px 0px;
+                    @include breakpoint($desktop) {
+                      padding: 10px 15px 135px;
+                    }
+                    color: #fff;
+                    line-height: 1.2;
+                    border-top: solid 4px #fff;
+                    background: rgba(0,0,0,.6);
+                    position: relative;
+                    //height: 50%;
+                    @include breakpoint($desktop) {
+                      height: 100%;
+                    }
+                    transition: opacity .3s;
+                    margin-bottom: 15px;
+                    .social-header {
+                        @include cf;
+                        i {
+                            font-size: 24px;
+                        }
+                        margin-bottom: 10px;
+                        .float-right {
+                            a {
+                                text-transform: uppercase;
+                            }
+                            text-transform: uppercase;
+                            cursor: pointer;
+                            letter-spacing: .125rem;
+                            font-size: 12px;
+                            line-height: 25px;
+                        }
+                    }
+                    .body {
+                        p {
+                            //display: none;
+                            height: 250px;
+                            overflow: auto;
+                            @include breakpoint($desktop) {
+                              display: block;
+                              //height:450px;
+                            }
+                            font-size: 14px;
+                            letter-spacing: 1px;
+                            line-height: 19.6px;
+                        }
+                        img {
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                        //padding-bottom: 125px;
+                        transition: opacity .3s;
+                    }
+                    .footer {
+                        display: none;
+                        @include breakpoint($desktop) {
+                          display: block;
+                        }
+                        @include cf;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        border-top: 1px solid #333;
+                        margin: 0;
+                        font-size: .875rem;
+                        .footer-body {
+                            @include cf;
+                            border-bottom: 1px solid #333;
+                            padding: 10px 10px 10px 10px;
+                            .avatar {
+                                width: 25%;
+                                vertical-align: middle;
+                                float: left;
+                                img {
+                                    max-width: 100%;
+                                    max-height: 100%;
+                                }
+                            }
+                            .info {
+                                padding-left: 10px;
+                                float: left;
+                                width: 75%;
+                                .heading {
+                                    text-transform: uppercase;
+                                    letter-spacing: .125rem;
+                                    padding-bottom: 6px;
+                                }
+                                .channel {
+                                        letter-spacing: .0625rem;
+                                        color: #999;
+                                }
+                            }
+                        }
+                        .footer-footer {
+                            .btn {
+                                text-align: center;
+                                width: 33.333%;
+                                float: left;
+                                padding: 10px 10px;
+                                text-transform: uppercase;
+                                font-weight: bold;
+                                font-size: 12px;
+                                cursor: pointer;
+                                a {
+                                    text-transform: uppercase;
+                                }
+                                i {
+                                    margin-right: 3px;
+                                }
+                            }
+                            .comment {
+                                padding-left: 2px !important;
+                                padding-right: 2px !important;
+                            }
+                            .border-right {
+                                border-right: 1px solid #333;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .social-media-navigator {
+            color: white;
+            width:100%;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding-bottom: 30px;
+            i {
+                font-size: 18px;
+                letter-spacing: 0.4992px;
+                cursor: pointer;
+            }
+            .nav-bars {
+                display: inline-block;
+                height: 5px;
+                width: 30px;
+                margin: 0 8px;
+                text-indent: -999px;
+                overflow: hidden;
+                //display: block;
+                margin-bottom: 3.7px;
+                cursor: pointer;
+                box-shadow: 0 0 5px rgba(0,0,0,.6);
+                //background-color: white;
+                background-color: #999;
+                line-height: 19px;
+            }
+            .active {
+                background-color: white;
+            }
+        }
+    }
+
