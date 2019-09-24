@@ -1,6 +1,6 @@
 {
   "name": "antsand-styles",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CSS library to design beautiful webpages using wireframes, styles and classes",
   "main": "gulpfile.js",
   "dependencies": {
@@ -19,7 +19,7 @@
     "gulp-delete-file": "^1.0.2",
     "gulp-notify": "^2.2.0",
     "gulp-browserify": "^0.5.1",
-    "susy": "^3.0.3",
+    "susy": "^3.0.3"
   },
   "devDependencies": {},
   "scripts": {

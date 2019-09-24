@@ -304,3 +304,13 @@
     padding-right: .3em;
     font-family:pictos;
 }
+
+.pictos-location:before {
+    content:'@';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
