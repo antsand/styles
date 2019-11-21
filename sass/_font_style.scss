@@ -1,8 +1,27 @@
-.font-bold {
-    font-weight: bold;
-}
 .font-italic {
     font-style: italic;
+}
+
+.text-center, .text-align-center, .align-center {
+    text-align: center;
+}
+.text-left, .align-left, .text-align-left {
+    text-align: left !important;
+}
+.text-right, .align-right, .text-align-right {
+    text-align: right !important;
+}
+
+.bold, .font-bold, .font-weight-bold {
+    font-weight: bold;
+}
+.font-400 {
+    font-weight: 400;
+}
+
+small {
+  font-size: 80%;
+  font-weight: 400;
 }
 
 @for $i from 5 through 200 {
@@ -10,36 +29,47 @@
     .font-size-#{$i}-all, .font-size-#{$i}, .font-#{$i} {
         font-size: $font-size;
     }
-    .font-size-#{$i}-sm-tablet {
-        @include breakpoint(0 $tablet) {
-            font-size:$font-size;
-        }
+    @each $width_profile, $width in $breakpoint-map {
+      .font-size-#{$width_profile} {
+          @include breakpoint($width) {
+            font-size: $font-size;
+          }
+      }
     }
-    .font-size-#{$i}-sm-minidesktop {
-        @include breakpoint(0 $minidesktop) {
-            font-size:$font-size;
-        }
-    }
-    .font-size-#{$i}-sm-desktop {
-        @include breakpoint(0 $desktop) {
-            font-size:$font-size;
-        }
-    }
-    .font-size-#{$i}-tablet {
-        @include breakpoint($tablet) {
-            font-size:$font-size;
-        }
-    }
-    .font-size-#{$i}-minidesktop {
-        @include breakpoint($minidesktop) {
-            font-size:$font-size;
-        }
-    }
-    .font-size-#{$i}-desktop {
-        @include breakpoint($desktop) {
-            font-size:$font-size;
-        }
-    }
+}
+
+.line-height-1 {
+    line-height: 1 !important;
+}
+.line-height-1-1 {
+    line-height: 1.1 !important;
+}
+.line-height-1-2 {
+    line-height: 1.2 !important;
+}
+.line-height-1-3 {
+    line-height: 1.3 !important;
+}
+.line-height-1-4 {
+    line-height: 1.4 !important;
+}
+.line-height-1-5 {
+    line-height: 1.5 !important;
+}
+.line-height-1-6 {
+    line-height: 1.6 !important;
+}
+.line-height-1-7 {
+    line-height: 1.7 !important;
+}
+.line-height-1-8 {
+    line-height: 1.8 !important;
+}
+.line-height-1-9 {
+    line-height: 1.9 !important;
+}
+.line-height-2 {
+    line-height: 2 !important;
 }
 
 @for $i from 1 through 30 {
@@ -47,36 +77,37 @@
     .line-height-#{$i}-all, .line-height-#{$i}, .line-height-#{$i} {
         line-height: $line-height;
     }
-    .line-height-#{$i}-sm-tablet {
-        @include breakpoint(0 $tablet) {
-            line-height:$line-height;
-        }
+    @each $width_profile, $width in $breakpoint-map {
+      .line-height-#{$width_profile} {
+          @include breakpoint($width) {
+            line-height: $line-height;
+          }
+      }
     }
-    .line-height-#{$i}-sm-minidesktop {
-        @include breakpoint(0 $minidesktop) {
-            line-height:$line-height;
-        }
+}
+
+@for $i from 1 through 9 {
+    $font-weight: $i * 100;
+    @each $width_profile, $width in $breakpoint-map {
+      .font-weight-#{$width_profile} {
+          @include breakpoint($width) {
+            font-weight: $font-weight;
+          }
+      }
     }
-    .line-height-#{$i}-sm-desktop {
-        @include breakpoint(0 $desktop) {
-            line-height:$line-height;
-        }
-    }
-    .line-height-#{$i}-tablet {
-        @include breakpoint($tablet) {
-            line-height:$line-height;
-        }
-    }
-    .line-height-#{$i}-minidesktop {
-        @include breakpoint($minidesktop) {
-            line-height:$line-height;
-        }
-    }
-    .line-height-#{$i}-desktop {
-        @include breakpoint($desktop) {
-            line-height:$line-height;
-        }
-    }
+}
+
+@each $width_profile, $width in $breakpoint-map {
+  .text-left-#{$width_profile}, .align-left-#{$width_profile}  {
+      @include breakpoint($width) {
+        text-align: left;
+      }
+  }
+  .text-right-#{$width_profile}, .align-right-#{$width_profile}  {
+      @include breakpoint($width) {
+        text-align: right;
+      }
+  }
 }
 
 .font-size-inherit {
@@ -84,6 +115,126 @@
 }
 .font-family-inherit {
     font-family: inherit !important;
+}
+
+.font-Graphik {
+    font-family: 'Graphik';
+}
+
+.font-freighttext {
+    font-family: 'FreightTextPro';
+}
+
+.font-Guardian {
+    font-family: 'GH Guardian Headline';
+}
+
+.font-GuardianEgyp {
+    font-family: 'Guardian Text Egyp';
+}
+
+.font-GuardianTile {
+    font-family: 'GT Guardian Titlepiece';
+}
+
+.font-GuardianSans {
+    font-family: 'GuardianTextSans';
+}
+
+.font-Cooper {
+    font-family: 'Cooper Light';
+}
+
+.font-Freddicons {
+    font-family: 'Freddicons 20';
+}
+
+.font-Futura {
+    font-family: 'Futura PT';
+}
+
+.font-FuturaCond {
+    font-family: 'Futura PT Cond';
+}
+
+.font-Salvo, .font-salvo {
+    font-family: 'Salvo Sans';
+}
+
+.font-Retina {
+    font-family: 'Retina';
+}
+
+.font-Boxout {
+    font-family: 'Boxout';
+}
+
+.font-Akkurat {
+    font-family: 'Akkurat';
+}
+
+.font-Oswald {
+    font-family: 'oswald';
+}
+
+.font-Bdicons {
+    font-family: 'bdicons';
+}
+
+.font-Gotham {
+    font-family: 'Gotham';
+}
+
+.font-Lota {
+    font-family: 'Lota Grotesque';
+}
+
+.font-Caveat {
+    font-family: 'Caveat';
+}
+
+.font-Avenir {
+    font-family: 'Avenir';
+}
+
+.font-AvenirCond {
+    font-family: 'Avenir-Cond';
+}
+
+.font-Havehearttwo {
+    font-family: 'Have Heart Two';
+}
+
+.font-Montserrat {
+    font-family: 'Montserrat';
+}
+
+.font-MaterialIconExtended {
+    font-family: 'Material Icons Extended';
+}
+
+.font-Coluna {
+    font-family: 'Coluna';
+}
+
+.font-Colunarounded {
+    font-family: 'Coluna Rounded';
+}
+
+.font-Brandon {
+    font-family: 'BrandonGrotW01';
+}
+
+.font-Cinzel {
+    font-family: 'Cinzel';
+}
+
+.font-Sacramento {
+    font-family: 'Sacramento';
+}
+
+.font-Playfair {
+    font-family: 'Playfair Display';
 }
 
 .pictos-check:before {
@@ -307,6 +458,16 @@
 
 .pictos-location:before {
     content:'@';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+
+.pictos-calendar:before {
+    content:"\\";
     //color: #fb292d; 
     color: inherit;
     display: inline-block;

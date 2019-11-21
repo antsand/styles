@@ -140,9 +140,17 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'Graphik';
+    src: url('../fonts/graphik/graphik-bold.woff2') format('woff2'),
+         url('../fonts/graphik/graphik-bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
 /***** Fright Text Pro  *********/
 @font-face {
-    font-family: 'FreightTextProMedium';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProMedium-Regular.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProMedium-Regular.woff') format('woff');
     font-weight: 500;
@@ -150,7 +158,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProBold';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProBold-Italic.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProBold-Italic.woff') format('woff');
     font-weight: bold;
@@ -158,7 +166,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProBlack';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProBlack-Italic.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProBlack-Italic.woff') format('woff');
     font-weight: 900;
@@ -166,7 +174,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProSemibold';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProSemibold-Regular.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProSemibold-Regular.woff') format('woff');
     font-weight: 600;
@@ -174,7 +182,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProBlack';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProBlack-Regular.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProBlack-Regular.woff') format('woff');
     font-weight: 900;
@@ -182,7 +190,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProMedium';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProMedium-Italic.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProMedium-Italic.woff') format('woff');
     font-weight: 500;
@@ -190,7 +198,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProBook';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProBook-Regular.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProBook-Regular.woff') format('woff');
     font-weight: normal;
@@ -198,7 +206,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProLight';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProLight-Italic.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProLight-Italic.woff') format('woff');
     font-weight: 300;
@@ -206,7 +214,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProBook';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProBook-Italic.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProBook-Italic.woff') format('woff');
     font-weight: normal;
@@ -214,7 +222,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProBold';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProBold-Regular.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProBold-Regular.woff') format('woff');
     font-weight: bold;
@@ -222,7 +230,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProSemibold';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProSemibold-Italic.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProSemibold-Italic.woff') format('woff');
     font-weight: 600;
@@ -230,7 +238,7 @@
 }
 
 @font-face {
-    font-family: 'FreightTextProLight';
+    font-family: 'FreightTextPro';
     src: url('../fonts/freighttextpro/FreightTextProLight-Regular.woff2') format('woff2'),
         url('../fonts/freighttextpro/FreightTextProLight-Regular.woff') format('woff');
     font-weight: 300;
@@ -310,7 +318,7 @@
 }
 
 @font-face {
-    font-family: 'Guardian Text Egyp Reg';
+    font-family: 'Guardian Text Egyp';
     src: url('../fonts/guardian/GuardianTextEgyptian-Reg.woff2') format('woff2'),
         url('../fonts/guardian/GuardianTextEgyptian-Reg.woff') format('woff');
     font-weight: normal;
@@ -370,7 +378,7 @@
 /************* Futura **********************/
 
 @font-face {
-    font-family: 'Futura PT Cond Extra';
+    font-family: 'Futura PT';
     src: url('../fonts/futura/FuturaPTCond-ExtraBoldObl.woff2') format('woff2'),
         url('../fonts/futura/FuturaPTCond-ExtraBoldObl.woff') format('woff');
     font-weight: 800;
@@ -386,7 +394,7 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Book';
+    font-family: 'Futura PT';
     src: url('../fonts/futura/FuturaPT-Book.woff2') format('woff2'),
         url('../fonts/futura/FuturaPT-Book.woff') format('woff');
     font-weight: normal;
@@ -402,18 +410,10 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Cond';
+    font-family: 'Futura PT';
     src: url('../fonts/futura/FuturaPTCond-MediumObl.woff2') format('woff2'),
         url('../fonts/futura/FuturaPTCond-MediumObl.woff') format('woff');
     font-weight: 500;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Futura PT Extra';
-    src: url('../fonts/futura/FuturaPT-ExtraBoldObl.woff2') format('woff2'),
-        url('../fonts/futura/FuturaPT-ExtraBoldObl.woff') format('woff');
-    font-weight: 800;
     font-style: italic;
 }
 
@@ -442,7 +442,7 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Cond Extra';
+    font-family: 'Futura PT Cond';
     src: url('../fonts/futura/FuturaPTCond-ExtraBold.woff2') format('woff2'),
         url('../fonts/futura/FuturaPTCond-ExtraBold.woff') format('woff');
     font-weight: 800;
@@ -474,7 +474,7 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Extra';
+    font-family: 'Futura PT';
     src: url('../fonts/futura/FuturaPT-ExtraBold.woff2') format('woff2'),
         url('../fonts/futura/FuturaPT-ExtraBold.woff') format('woff');
     font-weight: 800;
@@ -490,7 +490,7 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Book';
+    font-family: 'Futura PT';
     src: url('../fonts/futura/FuturaPT-BookObl.woff2') format('woff2'),
         url('../fonts/futura/FuturaPT-BookObl.woff') format('woff');
     font-weight: normal;
@@ -498,7 +498,7 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Cond Book';
+    font-family: 'Futura PT Cond';
     src: url('../fonts/futura/FuturaPTCond-Book.woff2') format('woff2'),
         url('../fonts/futura/FuturaPTCond-Book.woff') format('woff');
     font-weight: normal;
@@ -514,7 +514,7 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Demi';
+    font-family: 'Futura PT';
     src: url('../fonts/futura/FuturaPT-DemiObl.woff2') format('woff2'),
         url('../fonts/futura/FuturaPT-DemiObl.woff') format('woff');
     font-weight: 600;
@@ -530,7 +530,7 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Cond Book';
+    font-family: 'Futura PT Cond';
     src: url('../fonts/futura/FuturaPTCond-BookObl.woff2') format('woff2'),
         url('../fonts/futura/FuturaPTCond-BookObl.woff') format('woff');
     font-weight: normal;
@@ -538,7 +538,7 @@
 }
 
 @font-face {
-    font-family: 'Futura PT Demi';
+    font-family: 'Futura PT';
     src: url('../fonts/futura/FuturaPT-Demi.woff2') format('woff2'),
         url('../fonts/futura/FuturaPT-Demi.woff') format('woff');
     font-weight: 600;
@@ -659,7 +659,7 @@
     font-weight: bold;
     font-style: normal;
 }
-/******************** BOX OUT **********************************/
+/******************** BDI ICONS **********************************/
 @font-face {
     font-family: 'bdicons';
     src: url('../fonts/bdicons/bdicons.woff2') format('woff2'),
@@ -670,7 +670,7 @@
 
 /************************** GOTHAM ****************************/
 @font-face {
-    font-family: 'Gotham Book';
+    font-family: 'Gotham';
     src: url('../fonts/gotham/Gotham-Book.woff2') format('woff2'),
         url('../fonts/gotham/Gotham-Book.woff') format('woff');
     font-weight: normal;
@@ -746,7 +746,7 @@
 
 /********** AVENIR ************************/
 @font-face {
-    font-family: 'Avenir-Md';
+    font-family: 'Avenir';
     src: url('../fonts/avenir/AvenirNextforINTUITW05-Md.woff2') format('woff2'),
         url('../fonts/avenir/AvenirNextforINTUITW05-Md.woff') format('woff');
     font-weight: 500;
@@ -762,7 +762,7 @@
 }
 
 @font-face {
-    font-family: 'Avenir-Demi';
+    font-family: 'Avenir';
     src: url('../fonts/avenir/AvenirNextLTW04-Demi.woff2') format('woff2'),
         url('../fonts/avenir/AvenirNextLTW04-Demi.woff') format('woff');
     font-weight: bold;
@@ -808,40 +808,164 @@
     font-style: normal;
 }
 
-
-/************* Equitity B **********************/
-/*
-
+/******************* FONT MONTSERRAT ************************/
 @font-face {
-    font-family: 'EquityB';
-    src: url('../fonts/equity_b/equity_text_b_italic-webfont-webfont.woff2') format('woff2'),
-         url('../fonts/equity_b/equity_text_b_italic-webfont-webfont.woff') format('woff');
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat/Montserrat-Regular.woff2') format('woff2'),
+        url('../fonts/montserrat/Montserrat-Regular.woff') format('woff'),
+        url('../fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
     font-weight: normal;
-    font-style: italic;
-
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'EquityB';
-    src: url('../fonts/equity_b/equity_text_b_bold-webfont-webfont.woff2') format('woff2'),
-         url('../fonts/equity_b/equity_text_b_bold-webfont-webfont.woff') format('woff');
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat/Montserrat-Bold.woff2') format('woff2'),
+        url('../fonts/montserrat/Montserrat-Bold.woff') format('woff'),
+        url('../fonts/montserrat/Montserrat-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
+}
 
+/***********************************************************/
+
+
+/************* Equitity B (because we do not want this font on our blog )  **********************/
+/* 
+    @font-face {
+        font-family: 'EquityB';
+        src: url('../fonts/equity_b/equity_text_b_italic-webfont-webfont.woff2') format('woff2'),
+             url('../fonts/equity_b/equity_text_b_italic-webfont-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: italic;
+    }
+    @font-face {
+        font-family: 'EquityB';
+        src: url('../fonts/equity_b/equity_text_b_bold-webfont-webfont.woff2') format('woff2'),
+             url('../fonts/equity_b/equity_text_b_bold-webfont-webfont.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'EquityB';
+        src: url('../fonts/equity_b/text_b_regular-webfont-webfont.woff2') format('woff2'),
+             url('../fonts/equity_b/equity_text_b_regular-webfont-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+  */
+
+  /******************************* Material ICON EXTENDED Google******************/
+
+   @font-face {
+    font-family: 'Material Icons Extended';
+    src: url('../fonts/material_icon_Extended/MaterialIconsExtended-Regular.woff2') format('woff2'),
+        url('../fonts/material_icon_Extended/MaterialIconsExtended-Regular.woff') format('woff'),
+        url('../fonts/material_icon_Extended/MaterialIconsExtended-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/**********************************COLUNA ****************************/
+
+@font-face {
+    font-family: 'Coluna';
+    src: url('../fonts/coluna/Coluna-CondensedBold.woff2') format('woff2'),
+        url('../fonts/coluna/Coluna-CondensedBold.woff') format('woff'),
+        url('../fonts/coluna/Coluna-CondensedBold.svg#Coluna-CondensedBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: 'EquityB';
-    src: url('../fonts/equity_b/text_b_regular-webfont-webfont.woff2') format('woff2'),
-         url('../fonts/equity_b/equity_text_b_regular-webfont-webfont.woff') format('woff');
+    font-family: 'Coluna Rounded';
+    src: url('../fonts/coluna/ColunaRounded-CondensedBold.woff2') format('woff2'),
+        url('../fonts/coluna/ColunaRounded-CondensedBold.woff') format('woff'),
+        url('../fonts/coluna/ColunaRounded-CondensedBold.svg#ColunaRounded-CondensedBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/**********************************************************************************************/
+
+@font-face {
+  font-family: 'Bebas Neue Regular';
+    src: url("webfonts/BebasNeueRegular/bebasneue-webfont.eot");
+      src: url("webfonts/BebasNeueRegular/bebasneue-webfont.eot") format("embedded-opentype"), url("/webfonts/BebasNeueRegular/bebasneue-webfont.woff2") format("woff2"), url("/webfonts/BebasNeueRegular/bebasneue-webfont.woff") format("woff"), url("/webfonts/BebasNeueRegular/bebasneue-webfont.ttf") format("truetype"), url("/webfonts/BebasNeueRegular/bebasneue-webfont.svg") format("svg");
+        font-weight: normal;
+          font-style: normal; }
+
+/*************************************************************************************************/
+
+@font-face {
+    font-family: 'FuturaLTW01-Book';
+    src: url('../fonts/wix/FuturaLTW01-Book.woff2') format('woff2'),
+        url('../fonts/wix/FuturaLTW01-Book.woff') format('woff'),
+        url('../fonts/wix/FuturaLTW01-Book.ttf') format('truetype'),
+        url('../fonts/wix/FuturaLTW01-Book.svg#FuturaLTW01-Book') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
-*/
 
-/*************************************************/
+@font-face {
+    font-family: 'BrandonGrotW01';
+    src: url('../fonts/wix/BrandonGrotW01-Light.woff2') format('woff2'),
+        url('../fonts/wix/BrandonGrotW01-Light.woff') format('woff'),
+        url('../fonts/wix/BrandonGrotW01-Light.ttf') format('truetype'),
+        url('../fonts/wix/BrandonGrotW01-Light.svg#BrandonGrotW01-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../fonts/wix/Cinzel-Bold.woff2') format('woff2'),
+        url('../fonts/wix/Cinzel-Bold.woff') format('woff'),
+        url('../fonts/wix/Cinzel-Bold.ttf') format('truetype'),
+        url('../fonts/wix/Cinzel-Bold.svg#Cinzel-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sacramento';
+    src: url('../fonts/wix/Sacramento-Regular.woff2') format('woff2'),
+        url('../fonts/wix/Sacramento-Regular.woff') format('woff'),
+        url('../fonts/wix/Sacramento-Regular.ttf') format('truetype'),
+        url('../fonts/wix/Sacramento-Regular.svg#Sacramento-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../fonts/wix/Cinzel-Regular.woff2') format('woff2'),
+        url('../fonts/wix/Cinzel-Regular.woff') format('woff'),
+        url('../fonts/wix/Cinzel-Regular.ttf') format('truetype'),
+        url('../fonts/wix/Cinzel-Regular.svg#Cinzel-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/wix/PlayfairDisplay-Bold.woff2') format('woff2'),
+        url('../fonts/wix/PlayfairDisplay-Bold.woff') format('woff'),
+        url('../fonts/wix/PlayfairDisplay-Bold.ttf') format('truetype'),
+        url('../fonts/wix/PlayfairDisplay-Bold.svg#PlayfairDisplay-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../fonts/wix/PlayfairDisplay-Regular.woff2') format('woff2'),
+        url('../fonts/wix/PlayfairDisplay-Regular.woff') format('woff'),
+        url('../fonts/wix/PlayfairDisplay-Regular.ttf') format('truetype'),
+        url('../fonts/wix/PlayfairDisplay-Regular.svg#PlayfairDisplay-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 

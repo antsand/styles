@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Coluna';
+    src: url('Coluna-CondensedBold.woff2') format('woff2'),
+        url('Coluna-CondensedBold.woff') format('woff'),
+        url('Coluna-CondensedBold.svg#Coluna-CondensedBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Coluna Rounded';
+    src: url('ColunaRounded-CondensedBold.woff2') format('woff2'),
+        url('ColunaRounded-CondensedBold.woff') format('woff'),
+        url('ColunaRounded-CondensedBold.svg#ColunaRounded-CondensedBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+

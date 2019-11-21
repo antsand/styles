@@ -1,40 +1,27 @@
 .position-absolute {
     position: absolute !important;
 }
-
-.position-absolute-sm-tablet {
-    @include breakpoint(0 $tablet) {
-      position: absolute;
-    }
+.fixed, .display-fixed {
+  position: fixed;
+}
+.position-relative {
+    position: relative !important;
 }
 
-.position-absolute-tablet {
-    @include breakpoint($tablet) {
-      position: absolute;
-    }
-}
-
-.position-absolute-tablet-minidesktop {
-    @include breakpoint($tablet $minidesktop) {
-      position: absolute;
-    }
-}
-
-
-.position-absolute-minidesktop {
-    @include breakpoint($minidesktop) {
-      position: absolute;
-    }
-}
-
-.position-absolute-minidesktop-desktop {
-    @include breakpoint($minidesktop $desktop) {
-      position: absolute;
-    }
-}
-
-.position-absolute-desktop {
-    @include breakpoint($desktop) {
-      position: absolute;
-    }
+@each $width_profile, $width in $breakpoint-map {
+  .position-absolute-#{$width_profile} {
+      @include breakpoint($width) {
+        position: absolute;
+      }
+  }
+  .position-relative-#{$width_profile} {
+      @include breakpoint($width) {
+        position: relative;
+      }
+  }
+  .position-fixed-#{$width_profile} {
+      @include breakpoint($width) {
+        position: fixed;
+      }
+  }
 }

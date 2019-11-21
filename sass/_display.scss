@@ -1,0 +1,43 @@
+.display-none, .display-none-all {
+    display: none;
+}
+.display-transparent, .color-transparent {
+    color: transparent;
+}
+.display-inline, .inline-block {
+    display: inline-block;
+}
+.block {
+    display: block;
+}
+.display-block, .display-block-important{
+    display: block !important;
+}
+.display-inline-desktop {
+    @include breakpoint($desktop) {
+      display: inline-block;
+    }
+}
+
+@each $width_profile, $width in $breakpoint-map {
+  .display-none-#{$width_profile} {
+      @include breakpoint($width) {
+        display: none;
+      }
+  }
+  .display-flex-#{$width_profile} {
+      @include breakpoint($width) {
+        display: flex;
+      }
+  }
+  .display-block-#{$width_profile} {
+      @include breakpoint($width) {
+        display: block;
+      }
+  }
+  .display-inline-block-#{$width_profile} {
+      @include breakpoint($width) {
+        display: inline-block;
+      }
+  }
+}

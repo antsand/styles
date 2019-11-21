@@ -134,13 +134,14 @@
     background-position-y: 50%;
 }
 
+/* Use display-block to customize for which screens you want to show the nav bar */
 .nav .header-menubars-container  {
     color: #fff;
     cursor: pointer;
-    @include breakpoint($tablet) {
-        display: none;
-    }
-    display: block;
+    //@include breakpoint($tablet) {
+    //    display: none;
+    // }
+    //display: block;
     height: 40px;
     right: 0px;
     //top: 14px;
@@ -165,4 +166,40 @@
     margin-left: -11px;
     width: 22px;
     transition: transform .1s ease-in-out,top .1s .1s ease-in-out,opacity .1s .2s ease-in-out;
+}
+
+#mobile_nav_menu {
+    display: none;
+    position:relative;
+    z-index:99999;
+li {
+    margin: 0px;
+    padding: 7px 15px;
+    line-height: 1.2;
+    min-height: 50px;
+    width: 100%;
+    overflow: hidden;
+    border-top:1px solid #eef2f5;
+    a, .div-submenu {
+      align-items: center;
+      display: flex;
+      width:100%;
+      height: 100%;    
+    }
+    .dropmenu {
+        li {
+          align-items: center;
+          display: flex;
+        }
+  }
+} 
+li:first-child {
+    border-top:none;
+}
+li:hover {
+    background-color: #eef2f5;
+}
+    .submenu-container:hover {
+        background-color: white;
+    }
 }

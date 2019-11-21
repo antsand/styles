@@ -11,7 +11,7 @@
       display: flex;
     }
   }
-  .flex-align-middle-#{$key} {
+  .flex-align-middle-#{$key}, .align-items-center-#{$key} {
     @if ($i) {
     @include breakpoint($i) {
         display: flex;
