@@ -745,6 +745,130 @@
 }
 
 /********** AVENIR ************************/
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-Md';
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Md.eot');
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Md.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Md.woff2') format('woff2'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Md.woff') format('woff'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Md.ttf') format('truetype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Md.svg#AvenirNextforINTUITW05-Md') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05';
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Bold.eot');
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Bold.woff2') format('woff2'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Bold.woff') format('woff'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Bold.ttf') format('truetype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Bold.svg#AvenirNextforINTUITW05-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-DmIt';
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-DmIt.eot');
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-DmIt.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-DmIt.woff2') format('woff2'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-DmIt.woff') format('woff'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-DmIt.ttf') format('truetype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-DmIt.svg#AvenirNextforINTUITW05-DmIt') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-MdIt';
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-MdIt.eot');
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-MdIt.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-MdIt.woff2') format('woff2'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-MdIt.woff') format('woff'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-MdIt.ttf') format('truetype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-MdIt.svg#AvenirNextforINTUITW05-MdIt') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-Demi';
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Demi.eot');
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Demi.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Demi.woff2') format('woff2'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Demi.woff') format('woff'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Demi.ttf') format('truetype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Demi.svg#AvenirNextforINTUITW05-Demi') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-It';
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-It.eot');
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-It.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-It.woff2') format('woff2'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-It.woff') format('woff'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-It.ttf') format('truetype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-It.svg#AvenirNextforINTUITW05-It') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-BdIt';
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-BdIt.eot');
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-BdIt.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-BdIt.woff2') format('woff2'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-BdIt.woff') format('woff'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-BdIt.ttf') format('truetype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-BdIt.svg#AvenirNextforINTUITW05-BdIt') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-Rg';
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Rg.eot');
+    src: url('../fonts/avenir/AvenirNextforINTUITW05-Rg.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Rg.woff2') format('woff2'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Rg.woff') format('woff'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Rg.ttf') format('truetype'),
+        url('../fonts/avenir/AvenirNextforINTUITW05-Rg.svg#AvenirNextforINTUITW05-Rg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @font-face {
     font-family: 'Avenir';
     src: url('../fonts/avenir/AvenirNextforINTUITW05-Md.woff2') format('woff2'),
@@ -762,7 +886,7 @@
 }
 
 @font-face {
-    font-family: 'Avenir';
+    font-family: 'Avenir-Demi';
     src: url('../fonts/avenir/AvenirNextLTW04-Demi.woff2') format('woff2'),
         url('../fonts/avenir/AvenirNextLTW04-Demi.woff') format('woff');
     font-weight: bold;
@@ -967,7 +1091,110 @@
     font-style: normal;
 }
 
+/***************** ICON FONTS ******************/
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon/icomoon.woff2') format('woff2'),
+        url('../fonts/icomoon/icomoon.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
+@font-face {
+    font-family: 'SchmalfetteCP';
+    src: url('../fonts/SchmalfetteCP/SchmalfetteCP.woff2') format('woff2'),
+        url('../fonts/SchmalfetteCP/SchmalfetteCP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+/******************** Artifakt ***************************/
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('../fonts/ArtifaktElement/ArtifaktElement-Medium.woff2') format('woff2'),
+        url('../fonts/ArtifaktElement/ArtifaktElement-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('../fonts/ArtifaktElement/ArtifaktElement-Black.woff2') format('woff2'),
+        url('../fonts/ArtifaktElement/ArtifaktElement-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('../fonts/ArtifaktElement/ArtifaktElement-Bold.woff2') format('woff2'),
+        url('../fonts/ArtifaktElement/ArtifaktElement-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('../fonts/ArtifaktElement/ArtifaktElement-Regular.woff2') format('woff2'),
+        url('../fonts/ArtifaktElement/ArtifaktElement-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('../fonts/ArtifaktElement/ArtifaktElement-Bold.woff2') format('woff2'),
+        url('../fonts/ArtifaktElement/ArtifaktElement-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('../fonts/ArtifaktElement/ArtifaktElement-Regular.woff2') format('woff2'),
+        url('../fonts/ArtifaktElement/ArtifaktElement-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('../fonts/ArtifaktElement/ArtifaktElement-Regular.woff2') format('woff2'),
+        url('../fonts/ArtifaktElement/ArtifaktElement-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Novecento';
+    src: url('../fonts/avenir-novecento/Novecento-LightWide.woff2') format('woff2'),
+        url('../fonts/avenir-novecento/Novecento-LightWide.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('../fonts/avenir-novecento/AvenirLTStd-Book.woff2') format('woff2'),
+        url('../fonts/avenir-novecento/AvenirLTStd-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Novecento wide';
+    src: url('../fonts/avenir-novecento/Novecentowide-DemiBold.woff2') format('woff2'),
+        url('../fonts/avenir-novecento/Novecentowide-DemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Nova';
+    src: url('/fonts/Proxima/ProximaNova-Extrabld.woff2') format('woff2'),
+        url('/fonts/Proxima/ProximaNova-Extrabld.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
 

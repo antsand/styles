@@ -54,7 +54,7 @@ gulp.task('icons', function() { 
     .pipe(gulp.dest('./public/fonts')); 
 });
 
-gulp.task('compass', function() {
+gulp.task('compass', function(done) {
   gulp.src(sassSources)
     .pipe(compass({
       sass: '',
@@ -66,7 +66,8 @@ gulp.task('compass', function() {
     })
     .on('error', gutil.log))
 //    .pipe(gulp.dest( outputDir + 'css'))
-    .pipe(connect.reload())
+    .pipe(connect.reload());
+    done();
 });
 
 gulp.task('watch', function() {
@@ -76,4 +77,4 @@ gulp.task('watch', function() {
   gulp.watch('public/builds/development/*.html', ['html']);
 });
 
-gulp.task('default', ['watch', 'html', 'js', 'compass', 'move', 'connect']);
+gulp.task('default', gulp.parallel('watch', 'js', 'compass'));

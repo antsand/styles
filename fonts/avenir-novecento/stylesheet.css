@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Novecento';
+    src: url('Novecento-LightWide.woff2') format('woff2'),
+        url('Novecento-LightWide.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('AvenirLTStd-Book.woff2') format('woff2'),
+        url('AvenirLTStd-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Novecento wide';
+    src: url('Novecentowide-DemiBold.woff2') format('woff2'),
+        url('Novecentowide-DemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+

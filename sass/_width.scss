@@ -1,4 +1,20 @@
 @for $i from 1 through 100 {
+  @each $key, $value in $breakpoint-map {
+      $width: $i * 1%; 
+      .width-#{$i}-#{$key}  {
+      @if ($value) {
+        @include breakpoint($value) {
+          width:$width;
+        }
+      } @else {
+          width:$width;
+      }
+    }
+  }
+}
+
+/*
+@for $i from 1 through 100 {
     $width: $i * 1%; 
     .width-#{$i}-all {
         width: $width;
@@ -44,3 +60,4 @@
         }
     }
 }
+*/

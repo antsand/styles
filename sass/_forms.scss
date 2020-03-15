@@ -1,4 +1,9 @@
+.color-red {
+    color: #d52b1e;
+}
+
 .form-default {
+   padding: 45px 0px;
    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
       padding: .6em .7em .5em .7em;
       font-size: .9em;
@@ -20,7 +25,6 @@
       -webkit-box-sizing: border-box;
       font-family: Helvetica,Arial;
       vertical-align: top;
-      margin: 6px 0 9px 0;
       a {
           @include no_decor;
           text-decoration: underline;
@@ -34,8 +38,50 @@
         border-top: 1px solid rgba(0,0,0,.1);
       }
    }
+    .error {
+        border: #ff8181 2px solid !important;
+    }
+    .input-container {
+        position:relative;
+        margin: 6px 0 9px 0;
+    }
+    .error-notification {
+        position: absolute;
+        z-index: 100;
+        width: auto;
+        line-height: 1;
+        top: -10%;
+        font-size: 11px;
+        right: 32px;
+        display: block;
+        margin: auto auto;
+        text-align: center;
+        background: white;
+        color: #ec2222;
+    }
     .form-text {
         display: block;
         margin-top: .25rem;    
-    }   
+    }  
+    .label-container {
+        margin-bottom:6px;
+    }
+
+    .required {
+        position:relative;
+    }
+    .required:after {
+        content: '*';
+        color: red;
+        position: absolute;
+        top: -0.32em;
+        z-index: 10;
+        left: -0.17em;
+        right: -0.15em;
+        font-size: 1.6em;
+        font-family: Helvetica;
+        font-weight: bold;
+        width: 10px;
+    }
+ 
  }

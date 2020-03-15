@@ -1,32 +1,96 @@
 @font-face {
     font-family: 'AvenirNextforINTUITW05-Md';
-    src: url('AvenirNextforINTUITW05-Md.woff2') format('woff2'),
-        url('AvenirNextforINTUITW05-Md.woff') format('woff');
+    src: url('AvenirNextforINTUITW05-Md.eot');
+    src: url('AvenirNextforINTUITW05-Md.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextforINTUITW05-Md.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-Md.woff') format('woff'),
+        url('AvenirNextforINTUITW05-Md.ttf') format('truetype'),
+        url('AvenirNextforINTUITW05-Md.svg#AvenirNextforINTUITW05-Md') format('svg');
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'AvenirNextLTW04';
-    src: url('AvenirNextLTW04-Regular.woff2') format('woff2'),
-        url('AvenirNextLTW04-Regular.woff') format('woff');
+    font-family: 'AvenirNextforINTUITW05';
+    src: url('AvenirNextforINTUITW05-Bold.eot');
+    src: url('AvenirNextforINTUITW05-Bold.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextforINTUITW05-Bold.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-Bold.woff') format('woff'),
+        url('AvenirNextforINTUITW05-Bold.ttf') format('truetype'),
+        url('AvenirNextforINTUITW05-Bold.svg#AvenirNextforINTUITW05-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-DmIt';
+    src: url('AvenirNextforINTUITW05-DmIt.eot');
+    src: url('AvenirNextforINTUITW05-DmIt.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextforINTUITW05-DmIt.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-DmIt.woff') format('woff'),
+        url('AvenirNextforINTUITW05-DmIt.ttf') format('truetype'),
+        url('AvenirNextforINTUITW05-DmIt.svg#AvenirNextforINTUITW05-DmIt') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-MdIt';
+    src: url('AvenirNextforINTUITW05-MdIt.eot');
+    src: url('AvenirNextforINTUITW05-MdIt.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextforINTUITW05-MdIt.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-MdIt.woff') format('woff'),
+        url('AvenirNextforINTUITW05-MdIt.ttf') format('truetype'),
+        url('AvenirNextforINTUITW05-MdIt.svg#AvenirNextforINTUITW05-MdIt') format('svg');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-Demi';
+    src: url('AvenirNextforINTUITW05-Demi.eot');
+    src: url('AvenirNextforINTUITW05-Demi.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextforINTUITW05-Demi.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-Demi.woff') format('woff'),
+        url('AvenirNextforINTUITW05-Demi.ttf') format('truetype'),
+        url('AvenirNextforINTUITW05-Demi.svg#AvenirNextforINTUITW05-Demi') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'AvenirNextLTW04-Demi';
-    src: url('AvenirNextLTW04-Demi.woff2') format('woff2'),
-        url('AvenirNextLTW04-Demi.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+    font-family: 'AvenirNextforINTUITW05-It';
+    src: url('AvenirNextforINTUITW05-It.eot');
+    src: url('AvenirNextforINTUITW05-It.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextforINTUITW05-It.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-It.woff') format('woff'),
+        url('AvenirNextforINTUITW05-It.ttf') format('truetype'),
+        url('AvenirNextforINTUITW05-It.svg#AvenirNextforINTUITW05-It') format('svg');
+    font-weight: normal;
+    font-style: italic;
 }
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05';
-    src: url('AvenirNextforINTUITW05-Bold.woff2') format('woff2'),
-        url('AvenirNextforINTUITW05-Bold.woff') format('woff');
+    font-family: 'AvenirNextforINTUITW05-BdIt';
+    src: url('AvenirNextforINTUITW05-BdIt.eot');
+    src: url('AvenirNextforINTUITW05-BdIt.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextforINTUITW05-BdIt.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-BdIt.woff') format('woff'),
+        url('AvenirNextforINTUITW05-BdIt.ttf') format('truetype'),
+        url('AvenirNextforINTUITW05-BdIt.svg#AvenirNextforINTUITW05-BdIt') format('svg');
     font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'AvenirNextforINTUITW05-Rg';
+    src: url('AvenirNextforINTUITW05-Rg.eot');
+    src: url('AvenirNextforINTUITW05-Rg.eot?#iefix') format('embedded-opentype'),
+        url('AvenirNextforINTUITW05-Rg.woff2') format('woff2'),
+        url('AvenirNextforINTUITW05-Rg.woff') format('woff'),
+        url('AvenirNextforINTUITW05-Rg.ttf') format('truetype'),
+        url('AvenirNextforINTUITW05-Rg.svg#AvenirNextforINTUITW05-Rg') format('svg');
+    font-weight: normal;
     font-style: normal;
 }
 

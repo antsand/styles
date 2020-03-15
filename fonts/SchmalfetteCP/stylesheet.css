@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'SchmalfetteCP';
+    src: url('SchmalfetteCP.woff2') format('woff2'),
+        url('SchmalfetteCP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

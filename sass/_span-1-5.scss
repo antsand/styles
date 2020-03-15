@@ -1,0 +1,50 @@
+$max-span:5;
+
+@for $i from 1 through $max-span {
+  @for $j from -$max-span through -2 {
+    @if ($i == abs($j)) {
+
+    } @else {
+      @if ($i < abs($j)) {
+        .span-#{$i}-of-#{abs($j)} {
+          @include span($i of abs($j)); 
+        }
+        .span-#{$i}-of-#{abs($j)}-inside {
+          @include span($i of abs($j) inside); 
+        }
+        .span-#{$i}-of-#{abs($j)}-inside-last,
+        .span-#{$i}-of-#{abs($j)}-last-inside {
+          @include span($i of abs($j) inside last); 
+        }
+        .span-#{$i}-of-#{abs($j)}-last {
+          @include span($i of abs($j) last); 
+        }
+
+        @each $width_profile, $width in $breakpoint-map {
+          .span-#{$i}-of-#{abs($j)}-inside-last-#{$width_profile},
+          .span-#{$i}-of-#{abs($j)}-last-inside-#{$width_profile}{
+              @include breakpoint($width) {
+                @include span($i of abs($j) last inside);
+              }
+          }
+        
+          .span-#{$i}-of-#{abs($j)}-inside-#{$width_profile} {
+            @include breakpoint($width) {
+              @include span($i of abs($j) inside);
+            }
+          }
+          .span-#{$i}-of-#{abs($j)}-last-#{$width_profile} {
+            @include breakpoint($width) {
+              @include span($i of abs($j) last); 
+            }
+          }
+          .span-#{$i}-of-#{abs($j)}-#{$width_profile} {
+              @include breakpoint($width) {
+                @include span($i of abs($j) );
+              }
+          }
+        }
+      }
+    }
+  }
+}

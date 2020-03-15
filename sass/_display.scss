@@ -19,6 +19,7 @@
     }
 }
 
+
 @each $width_profile, $width in $breakpoint-map {
   .display-none-#{$width_profile} {
       @include breakpoint($width) {
@@ -38,6 +39,11 @@
   .display-inline-block-#{$width_profile} {
       @include breakpoint($width) {
         display: inline-block;
+      }
+  }
+  .min-height-100-vh-#{$width_profile} {
+      @include breakpoint($width) {
+        min-height: 100vh;
       }
   }
 }

@@ -1,0 +1,12 @@
+@each $width_profile, $width in $breakpoint-map {
+  .float-left-#{$width_profile} {
+      @include breakpoint($width) {
+        float: left;
+      }
+  }
+  .float-right-#{$width_profile} {
+      @include breakpoint($width) {
+        float: right;
+      }
+  }
+}

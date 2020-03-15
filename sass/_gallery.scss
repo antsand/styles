@@ -13,77 +13,24 @@
         }
         padding-top: span(1 of $i);
     }
-    .gallery-#{$i}-sm {
-      @include breakpoint(0 $tablet) {
-        @include gallery(1 of $i);
-        @if ($i == 1) {
-            float: none;
-        }
-      }
-    }
-    .gallery-#{$i}-square-sm,
-    .gallery-#{$i}-square-mobile {
-        position:relative;
-        @include breakpoint(0 $tablet) {
+    @each $width_profile, $width in $breakpoint-map {
+      .gallery-#{$i}-#{$width_profile} {
+        @include breakpoint($width) {
           @include gallery(1 of $i);
           @if ($i == 1) {
               float: none;
           }
-          padding-top: span(1 of $i);
-      }
-    }
-    .gallery-#{$i}-tablet {
-      @include breakpoint($tablet) {
-        @include gallery(1 of $i);
-        @if ($i == 1) {
-            float: none;
         }
       }
-    }
-    .gallery-#{$i}-square-tablet {
-        position:relative;
-        @include breakpoint($tablet) {
-          @include gallery(1 of $i);
-          @if ($i == 1) {
-              float: none;
-          }
-          padding-top: span(1 of $i);
-      }
-    }
-    .gallery-#{$i}-minidesktop {
-      @include breakpoint($minidesktop) {
-        @include gallery(1 of $i);
-        @if ($i == 1) {
-            float: none;
+      .gallery-#{$i}-square-#{$width_profile} {
+          position:relative;
+          @include breakpoint($tablet) {
+            @include gallery(1 of $i);
+            @if ($i == 1) {
+                float: none;
+            }
+            padding-top: span(1 of $i);
         }
-      }
-    }
-    .gallery-#{$i}-square-minidesktop {
-        position:relative;
-        @include breakpoint($minidesktop) {
-          @include gallery(1 of $i);
-          @if ($i == 1) {
-              float: none;
-          }
-          padding-top: span(1 of $i);
-      }
-    }
-    .gallery-#{$i}-desktop {
-      @include breakpoint($desktop) {
-        @include gallery(1 of $i);
-        @if ($i == 1) {
-            float: none;
-        }
-      }
-    }
-    .gallery-#{$i}-square-desktop {
-        position:relative;
-        @include breakpoint($desktop) {
-          @include gallery(1 of $i);
-          @if ($i == 1) {
-              float: none;
-          }
-          padding-top: span(1 of $i);
       }
     }
 }

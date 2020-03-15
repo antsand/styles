@@ -17,83 +17,29 @@
         .span-#{$i}-of-#{abs($j)}-last {
           @include span($i of abs($j) last); 
         }
-        .span-#{$i}-of-#{abs($j)}-inside-last-sm,
-        .span-#{$i}-of-#{abs($j)}-last-inside-sm {
-            @include breakpoint(0 $tablet) {
-              @include span($i of abs($j) last inside);
-            }
-        }
-        .span-#{$i}-of-#{abs($j)}-inside-sm {
-            @include breakpoint(0 $tablet) {
+
+        @each $width_profile, $width in $breakpoint-map {
+          .span-#{$i}-of-#{abs($j)}-inside-last-#{$width_profile},
+          .span-#{$i}-of-#{abs($j)}-last-inside-#{$width_profile}{
+              @include breakpoint($width) {
+                @include span($i of abs($j) last inside);
+              }
+          }
+        
+          .span-#{$i}-of-#{abs($j)}-inside-#{$width_profile} {
+            @include breakpoint($width) {
               @include span($i of abs($j) inside);
             }
-        }
-        .span-#{$i}-of-#{abs($j)}-sm {
-            @include breakpoint(0 $tablet) {
-              @include span($i of abs($j) );
-            }
-        }
-          .span-#{$i}-of-#{abs($j)}-tablet {
-            @include breakpoint($tablet) {
-              @include span($i of abs($j)); 
-            }
           }
-          .span-#{$i}-of-#{abs($j)}-inside-tablet {
-            @include breakpoint($tablet) {
-              @include span($i of abs($j) inside); 
-            }
-          }
-          .span-#{$i}-of-#{abs($j)}-inside-last-tablet,  
-          .span-#{$i}-of-#{abs($j)}-last-inside-tablet {
-            @include breakpoint($tablet) {
-              @include span($i of abs($j) inside last); 
-            }
-          }
-          .span-#{$i}-of-#{abs($j)}-last-tablet {
-            @include breakpoint($tablet) {
+          .span-#{$i}-of-#{abs($j)}-last-#{$width_profile} {
+            @include breakpoint($width) {
               @include span($i of abs($j) last); 
             }
           }
-        .span-#{$i}-of-#{abs($j)}-minidesktop {
-          @include breakpoint($minidesktop) {
-            @include span($i of abs($j)); 
-          }
-        }
-        .span-#{$i}-of-#{abs($j)}-inside-minidesktop {
-          @include breakpoint($minidesktop) {
-            @include span($i of abs($j) inside); 
-          }
-        }
-        .span-#{$i}-of-#{abs($j)}-inside-last-minidesktop,
-        .span-#{$i}-of-#{abs($j)}-last-inside-minidesktop {
-          @include breakpoint($minidesktop) {
-            @include span($i of abs($j) inside last); 
-          }
-        }
-        .span-#{$i}-of-#{abs($j)}-last-minidesktop {
-          @include breakpoint($minidesktop) {
-            @include span($i of abs($j) last); 
-          }
-        }
-        .span-#{$i}-of-#{abs($j)}-desktop {
-          @include breakpoint($desktop) {
-            @include span($i of abs($j) ); 
-          }
-        }
-        .span-#{$i}-of-#{abs($j)}-inside-desktop {
-          @include breakpoint($desktop) {
-            @include span($i of abs($j) inside); 
-          }
-        }
-        .span-#{$i}-of-#{abs($j)}-inside-last-desktop,
-        .span-#{$i}-of-#{abs($j)}-last-inside-desktop {
-          @include breakpoint($desktop) {
-            @include span($i of abs($j) inside last); 
-          }
-        }
-        .span-#{$i}-of-#{abs($j)}-last-desktop {
-          @include breakpoint($desktop) {
-            @include span($i of abs($j) last); 
+          .span-#{$i}-of-#{abs($j)}-#{$width_profile} {
+              @include breakpoint($width) {
+                @include span($i of abs($j) );
+              }
           }
         }
       }

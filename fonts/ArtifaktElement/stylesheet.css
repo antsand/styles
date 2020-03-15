@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('ArtifaktElement-Medium.woff2') format('woff2'),
+        url('ArtifaktElement-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('ArtifaktElement-Black.woff2') format('woff2'),
+        url('ArtifaktElement-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('ArtifaktElement-Bold.woff2') format('woff2'),
+        url('ArtifaktElement-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('ArtifaktElement-Regular.woff2') format('woff2'),
+        url('ArtifaktElement-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('ArtifaktElement-Bold.woff2') format('woff2'),
+        url('ArtifaktElement-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('ArtifaktElement-Regular.woff2') format('woff2'),
+        url('ArtifaktElement-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Artifakt Element';
+    src: url('ArtifaktElement-Regular.woff2') format('woff2'),
+        url('ArtifaktElement-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+

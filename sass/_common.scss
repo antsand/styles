@@ -577,6 +577,12 @@ img {
 @include breakpoint(0 $tablet) {
     .wrapper {
         padding: 0px 15px;
+        .inner-wrapper {
+            padding: 0px 0px;
+        }
+    }
+    .inner-wrapper {
+        padding: 0px 15px;
     }
 }
 
@@ -607,7 +613,7 @@ img {
         padding-right: 0px;
     }
     .inner-wrapper {
-        width:span($inner_wrapper of $columns) + gutter($wrapper) + gutter($wrapper);
+        width:span($inner_wrapper of $wrapper) + gutter($wrapper) + gutter($wrapper);
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -624,7 +630,7 @@ img {
         padding-right: 0px;
     }
     .inner-wrapper {
-        width:span($inner_wrapper of $columns) + gutter($wrapper) + gutter($wrapper);
+        width:span($inner_wrapper of $wrapper) + gutter($wrapper) + gutter($wrapper);
         display: block;
         margin-left: auto;
         margin-right: auto;

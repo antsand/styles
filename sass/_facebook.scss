@@ -8,8 +8,8 @@
 }
 
 .fb-settings-border-top-bottom {
-      border-top: 1px solid #aaa;
-      border-bottom: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
 }
 
 .fb-settings-ul-li {
@@ -51,7 +51,7 @@
     padding: 10px 0px;
 }
 .fb-input {
-        border: 1px solid #bdc7d8;
+    border: 1px solid #bdc7d8;
     margin: 0;
     padding: 3px;
     -webkit-appearance: none;
@@ -65,6 +65,52 @@
     height: 1px;
 }
 
+.fb-settings-icon {
+    background-image: url(../styles_images/fb_settings.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.fb-settings-group-icon {
+    width: 20px;
+    height: 20px;
+    background-position: 0 -207px;
+}
+
+.fb-settings-databoard-icon {
+    width: 20px;
+    height: 20px;
+    background-position: 0 -644px;
+}
+
+.fb-color-black {
+    color: #1c1e21;
+}
+
+.fb-color-darkgrey {
+    color:grey;
+}
+
+.fb-container {
+    border: 1px solid #dddfe2;
+    border-radius: 3px;
+    background:white;
+    margin-top:12px;
+    .fb-container-heading {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom: 1px solid #e5e5e5;
+        background: #f5f6f7;
+        color: #1d2129;
+        padding: 12px; 
+    }
+    .fb-container-body {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+}
+
 .fb-header {
     background: #f5f6f7;
     border-bottom: 1px solid #d3d6db;
@@ -73,13 +119,13 @@
     //min-height: 66px;
     padding-top: 16px;
     padding-bottom:16px;
-    .link {
+    .link, .fb-link {
         @include no_decor;
         text-decoration: none;
         color: #4b4f56; 
 
     }
-    .heading {
+    .fb-heading, .heading {
       font-size: 20px;
       font-weight: bold;
       height: 24px;

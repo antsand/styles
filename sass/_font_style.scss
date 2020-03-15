@@ -12,11 +12,16 @@
     text-align: right !important;
 }
 
-.bold, .font-bold, .font-weight-bold {
-    font-weight: bold;
-}
 .font-400 {
     font-weight: 400;
+}
+
+.font-underline, .text-underline, .text-decoration-underline {
+    text-decoration: underline;
+}
+
+.bold, .font-bold, .font-weight-bold {
+    font-weight: bold;
 }
 
 small {
@@ -30,7 +35,7 @@ small {
         font-size: $font-size;
     }
     @each $width_profile, $width in $breakpoint-map {
-      .font-size-#{$width_profile} {
+      .font-size-#{$i}-#{$width_profile} {
           @include breakpoint($width) {
             font-size: $font-size;
           }
@@ -74,11 +79,11 @@ small {
 
 @for $i from 1 through 30 {
     $line-height: $i * 0.1;
-    .line-height-#{$i}-all, .line-height-#{$i}, .line-height-#{$i} {
+    .line-height-#{$i} {
         line-height: $line-height;
     }
     @each $width_profile, $width in $breakpoint-map {
-      .line-height-#{$width_profile} {
+      .line-height-#{$i}-#{$width_profile} {
           @include breakpoint($width) {
             line-height: $line-height;
           }
@@ -89,7 +94,7 @@ small {
 @for $i from 1 through 9 {
     $font-weight: $i * 100;
     @each $width_profile, $width in $breakpoint-map {
-      .font-weight-#{$width_profile} {
+      .font-weight-#{$font-weight}-#{$width_profile} {
           @include breakpoint($width) {
             font-weight: $font-weight;
           }
@@ -108,6 +113,13 @@ small {
         text-align: right;
       }
   }
+  .font-underline-#{$width_profile}, .text-underline-#{$width_profile}, .text-decoration-underline-#{$width_profile} {
+      text-decoration: underline;
+  }
+
+  .bold-#{$width_profile}, .font-bold-#{$width_profile}, .font-weight-bold-#{$width_profile} {
+      font-weight: bold;
+  }
 }
 
 .font-size-inherit {
@@ -115,6 +127,10 @@ small {
 }
 .font-family-inherit {
     font-family: inherit !important;
+}
+
+.font-default {
+    font-family: $font-family; 
 }
 
 .font-Graphik {
@@ -201,6 +217,40 @@ small {
     font-family: 'Avenir-Cond';
 }
 
+.font-AvenirLT {
+    font-family: 'Avenir LT Std';
+}
+
+.font-AvenirMd {
+    font-family: 'AvenirNextforINTUITW05-Md';
+}
+.font-AvenirBold {
+    font-family: 'AvenirNextforINTUITW05';
+}
+.font-AvenirDemiIt {
+    font-family: 'AvenirNextforINTUITW05-DmIt';
+}
+
+.font-AvenirMedIt {
+    font-family: 'AvenirNextforINTUITW05-MdIt';
+}
+
+.font-AvenirDemi {
+    font-family: 'AvenirNextforINTUITW05-Demi';
+}
+
+.font-AvenirIt {
+    font-family: 'AvenirNextforINTUITW05-It';
+}
+
+.font-AvenirBoldIt {
+    font-family: 'AvenirNextforINTUITW05-BdIt';
+}
+
+.font-AvenirRg {
+    font-family: 'AvenirNextforINTUITW05-Rg';
+}
+
 .font-Havehearttwo {
     font-family: 'Have Heart Two';
 }
@@ -235,6 +285,30 @@ small {
 
 .font-Playfair {
     font-family: 'Playfair Display';
+}
+
+.font-Icomoon {
+    font-family: 'icomoon';
+}
+
+.font-Schmalfette {
+  font-family: 'SchmalfetteCP';
+}
+
+.font-Artifakt {
+  font-family: 'Artifakt Element';
+}
+
+.font-Novecento {
+  font-family: 'Novecento';
+}
+
+.font-NovecentoWide {
+  font-family: 'Novecento wide';
+}
+
+.font-Proxima {
+  font-family: 'Proxima Nova';
 }
 
 .pictos-check:before {
