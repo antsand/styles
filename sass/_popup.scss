@@ -4,20 +4,19 @@
     right: 0px;
     bottom: 0px;
     position: fixed;
-    display: block;
+    display: none;
     height: 100%;
     width: 100%;
     z-index: 999999999;
+    overflow: auto;
     background-color: transparent;
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(22,23,26,0.95) 75%, rgba(22,23,26,0.95) 100%);
-}
-
-.overlay {
+    
     .close {
         position: absolute;
         width: 20px;
         height: 20px;
-        background-image: url(../images/overlay@2x.png);
+        background-image: url(https://www.antsand.com/builds/production/images/overlay@2x.png);
         background-position: 0px 0px;
         background-size: 44px 152px;
         width: 36px;
@@ -27,6 +26,18 @@
         right: 20px;
         z-index: 2;
     }
+    
+    .close-popup {
+        position: absolute;
+        cursor: pointer;
+        top: 20px;
+        right: 20px;
+    }
+    
+    .close-popup:after {
+        content: "X";
+    }    
+
     .container {
         position: relative;
         margin-left: auto;
@@ -35,10 +46,31 @@
         transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
         background-color: #000;
         box-shadow: 0 4px 80px 6px rgba(0,0,0,0.85);
+        width: 100%;
         max-width: 1024px;
-        margin-left: 15px;
-        margin-right: 15px;
         margin-top: 50vh;
         transform: translate(0, -50%);
     }
 }
+
+.overlay-white {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    position: fixed;
+    display: none;
+    height: 100%;
+    width: 100%;
+    z-index: 999999999;
+    background-color: hsla(0,0%,100%,.98);
+    background-image: none;
+    overflow: auto; 
+    .container {
+        background-color: #fff;
+        box-shadow: none;
+        margin-top: 0px;
+        transform: translate(0, 0%);
+    }
+}
+

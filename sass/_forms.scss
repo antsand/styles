@@ -4,6 +4,9 @@
 
 .form-default {
    padding: 45px 0px;
+   .form-elements {
+        margin:15px 0px;
+   }
    input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select, textarea {
       padding: .6em .7em .5em .7em;
       font-size: .9em;
@@ -66,6 +69,29 @@
     .label-container {
         margin-bottom:6px;
     }
+    .label {
+        line-height: 1.42857143;
+        color: #333;
+        font-weight: bold;
+        font-size: 15.6px;
+        display: block;
+        flex: none;
+        max-width: none;
+        margin: 0;
+        padding: 0 0 3px 0;
+        border: none;
+        display: block;
+        white-space: normal;
+        width: 100%;
+        min-height:20px;
+    }
+
+    .sub-label {
+      color: rgba(15, 15, 15, 0.7);
+      line-height: 1.2;
+      min-height: 15px;
+      font-size:12px;
+    }
 
     .required {
         position:relative;
@@ -83,5 +109,13 @@
         font-weight: bold;
         width: 10px;
     }
- 
+ }
+
+.popup-form-white {
+   background-color: hsla(0,0%,100%,.98); 
+}
+
+ .popup-form-black {
+
+
  }

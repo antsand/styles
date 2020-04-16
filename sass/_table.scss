@@ -9,6 +9,11 @@
         padding: 12px;
         color: #122239;
     }
+    thead th:nth-child(even) {
+      width: 15%;
+      //background-color: #405585;
+      background-color: #0573a5;
+    }
     thead th:nth-child(1) {
         width: 55%;
         // background-color: #4c74b9;
@@ -35,6 +40,17 @@
       width: 15%;
       //background-color: #405585;
       background-color: #0573a5;
+    }
+    
+    thead th:nth-child(5) {
+      width: 15%;
+      //background-color: #405585;
+      background-color: #056895;
+    }
+    thead th:nth-child(6) {
+      width: 15%;
+      //background-color: #405585;
+      background-color: #045c84;
     }
 
     thead th {

@@ -85,7 +85,7 @@
 }
 
 
-.button-shadow {
+.button-shadow, .button-shadow-hover:hover {
     -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
 }
