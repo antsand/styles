@@ -1,0 +1,152 @@
+.product-list-container {
+    @include cf;
+    position: relative;
+    overflow: hidden;
+    .img-item {
+        height: 140px;
+        max-width: 150px;
+        position: relative;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+    .product-list-elements {
+        @include cf;
+        padding: 5px 0px;
+        display: table;
+        transition: transform 1s ease 0s; 
+    }
+    .prev-btn, .next-btn {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 35px;
+        font-size: 40px;
+        line-height: 320px;
+        background: rgba(255,255,255,0.8);
+        color: #333;
+        cursor: pointer;
+        text-decoration: none;
+        z-index: 2;
+    }
+    .next-btn {
+        right: 0;
+        text-align: right;
+    }
+    .prev-btn {
+        left:0;
+        text-align: left;
+    }
+}
+.product-list {
+    //@include gallery (1 of 7 inside);
+    //display: table-cell;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding: 0 10px;
+    vertical-align: top;
+    .item-border-shadow :after{
+        opacity:.0625;
+        -webkit-box-shadow: 0 2px 0 0 #000;
+        box-shadow: 0 2px 0 0 #000;
+        -webkit-transition: -webkit-box-shadow .7s cubic-bezier(.19,1,.22,1) .01s;
+        transition: -webkit-box-shadow .7s cubic-bezier(.19,1,.22,1) .01s;
+        transition: box-shadow .7s cubic-bezier(.19,1,.22,1) .01s;
+        transition: box-shadow .7s cubic-bezier(.19,1,.22,1) .01s,-webkit-box-shadow .7s cubic-bezier(.19,1,.22,1) .01s;
+        border-radius: inherit;
+        z-index: -1;
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+    }
+    h3 {
+        line-height: 20px;
+        padding-top: 5px;
+        height: 40px;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        box-sizing: content-box;
+        font-size: 14px;
+        font-weight: 700;
+    }
+    .author {
+        color: #4d4d4d;
+        text-decoration: none;
+        a {
+            @include no_decor;
+            @include no_padding_margin;
+            font-size: 14px;
+            line-height: 20px;
+            color: inherit;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+    .ratings {
+        max-height: 14px;
+        line-height: 14px;
+        font-size: 14px;
+    }
+    .cost {
+        //width: 140px;
+        text-transform: uppercase;
+        .is {
+            //font-size: 17px;
+            line-height: 17px;
+            padding-top: 05px;
+            color: #ff0072;
+            display: inline-block;
+        }
+        .was {
+            display: inline-block;
+            //font-size: 11px;
+            color: #999;
+            text-decoration: line-through;
+            line-height: 17px;
+        }
+        .save {
+            display: block;
+            color: #333;
+            padding-top: 0;
+            font-style: italic;
+            //font-size: 12px;
+        }
+    }
+    .basket-btn {
+        text-align: center;
+        margin-top: 5px;
+    }
+    .saving-splat {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80px;
+        padding: 3px;
+        z-index: 1;
+        color: white;
+        font-weight: bold;
+        pointer-events: none;
+        font-size: 12px;
+        text-align: left;
+    }
+    .saving-splat::before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-style: solid;
+        border-width: 60px 60px 0 0;
+        border-color: #ff0072 transparent transparent transparent;
+        z-index: -1;
+    }
+}

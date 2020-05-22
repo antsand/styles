@@ -1192,9 +1192,29 @@
 
 @font-face {
     font-family: 'Proxima Nova';
-    src: url('/fonts/Proxima/ProximaNova-Extrabld.woff2') format('woff2'),
-        url('/fonts/Proxima/ProximaNova-Extrabld.woff') format('woff');
+    src: url('../fonts/Proxima/ProximaNova-Extrabld.woff2') format('woff2'),
+        url('../fonts/Proxima/ProximaNova-Extrabld.woff') format('woff');
     font-weight: 800;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Toga-icons';
+    src: url('../fonts/toga-icons.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Toga-product-icons';
+    src: url('../fonts/toga-product-icons.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fontawesome';
+    src: url('../fonts/fontawesome-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -311,6 +311,141 @@ small {
   font-family: 'Proxima Nova';
 }
 
+.font-Toga-icons {
+    font-family: 'Toga-icons'; 
+}
+
+.font-Toga-icons:before {
+    font-family: toga-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    vertical-align: top;
+}
+
+.font-Toga-icon-content-text:before {
+    content: "\f132";
+}
+
+.font-Toga-icon-trash-can:before {
+    content: "\f16d";
+}
+
+.font-Toga-icon-handle-drag:before {
+    content: "\f146";
+}
+
+.font-Toga-product-icons {
+    font-family: 'Toga-product-icons'; 
+}
+
+.font-Toga-product-icons:before {
+    font-style: normal;
+    font-weight: normal !important;
+    vertical-align: top;
+}
+
+.font-Toga-product-icon-manage:before {
+    content: "\f112";
+}
+
+.font-Fa {
+    font: normal normal normal 14px/1 Fontawesome;
+    font-family: 'Fontawesome'; 
+}
+
+.font-Fa-paragraph:before {
+    content: "\f1dd";
+}
+
+.font-Fa-expand:before {
+    content: "\f065";
+}
+
+.font-Fa-code:before {
+    content: "\f121";
+}
+
+.font-Fa-rotate-right:before {
+    content: "\f01e";
+}
+
+.font-Fa-rotate-left:before {
+    content: "\f0e2";
+}
+.font-Fa-eraser:before {
+    content: "\f12d";
+}
+.font-Fa-minus:before {
+    content: "\f068";
+}
+.font-Fa-table:before {
+    content: "\f0ce";
+}
+.font-Fa-link:before {
+    content: "\f0c1";
+}
+.font-Fa-quote-left:before {
+    content: "\f10d";
+}
+.font-Fa-file-o:before {
+    content: "\f016";
+}
+.font-Fa-volume-down:before {
+    content: "\f027";
+}
+.font-Fa-video-camera:before {
+    content: "\f03d";
+}
+.font-Fa-image:before {
+    content: "\f03e";
+}
+.font-Fa-indent:before {
+    content: "\f03c";
+}
+.font-Fa-outdent:before {
+    content: "\f03b";
+}
+.font-Fa-align-center:before {
+    content: "\f037";
+}
+.font-Fa-align-left:before {
+    content: "\f036";
+}
+.font-Fa-align-right:before {
+    content: "\f038";
+}
+.font-Fa-align-justify:before {
+    content: "\f039";
+}
+.font-Fa-list-ol:before {
+    content: "\f0cb";
+}
+.font-Fa-list-ul:before {
+    content: "\f0ca";
+}
+.font-Fa-underline:before {
+    content: "\f0cd";
+}
+.font-Fa-italic:before {
+    content: "\f033";
+}
+.font-Fa-bold:before {
+    content: "\f032";
+}
+.font-Fa-tint:before {
+    content: "\f043";
+}
+.font-Fa-font:before {
+    content: "\f031";
+}
+.font-Fa-text-height:before {
+    content: "\f034";
+}
+.font-Fa-th:before {
+    content: "\f00a";
+}
+
+
 .pictos-check:before {
     content:'2';
     //color: #fb292d;
