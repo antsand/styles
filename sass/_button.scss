@@ -67,7 +67,9 @@
     border: none;
     box-sizing: border-box;
     cursor: pointer;
-    display: inline-block;
+    display: inline-flex;
+    align-items:center;
+    justify-content:center;
     font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-weight: 500;
     position: relative;
@@ -78,8 +80,8 @@
     box-shadow: 0 10px 20px rgba(32,34,37,.3);
     font-size:14px;
     padding: 0 20px;
-    height:44px;
-    line-height: 44px;
+    min-height:44px;
+    line-height: 1.5;
     border-radius: 3px;
     min-width: 165px;
 }

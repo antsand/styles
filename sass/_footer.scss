@@ -1,0 +1,254 @@
+#default-footer {
+    color: rgb(153,153,153);
+      //font-size:11px;
+      font-weight:500;
+      font-family: sans-serif;
+      display:block;
+      background-color: black;
+      //height: 75px;
+      width: 100%;
+    p,li,ul {
+        color:rgb(153,153,153);
+        //font-size: 11px;
+        font-weight: 500;
+        font-family: sans-serif;
+    }
+    .wrapper {
+        @include cf; 
+        //padding: 25px 20px 25px 20px;
+        ul, li {
+            @include no_decor;
+            @include no_padding_margin;
+        }
+        li {
+            padding-top: 3px;
+            padding-bottom: 3px;
+        }
+    }
+    .footer-copyright {
+        margin-top: 30px;
+        li {
+            float: left;
+            padding-right: 10px;
+        }
+        a {
+            @include no_decor;
+            color: inherit;
+        }
+        .footer-slash-break {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+    @include breakpoint(0 $tablet) {
+      section {
+          h5 {
+              position: relative;
+              height: 55px;
+              padding: 0 35px 0 20px;
+              display: flex;
+              align-items: center;
+              font-size: 15px;
+              font-weight: 500;
+              color: #fff;
+              margin:0px;
+              cursor:pointer;
+          }
+          .h5:before {
+              top:0px;  
+              position: absolute;
+              right: 0;
+              left: 0;
+              margin: 0 20px;
+              border-top: 1px solid #333;
+              content: "";
+          }
+          .h5:after {
+              position: absolute;
+              right: 20px;
+              top: 50%;
+              margin-top: -1.33px;
+              border-width: 5px 5px 0;
+              border-style: solid;
+              border-color: #fff transparent transparent;
+              transition: -webkit-transform .1s ease;
+              transition: transform .1s ease;
+              transition: transform .1s ease,-webkit-transform .1s ease;
+              -webkit-transform-origin: 50% 33%;
+              transform-origin: 50% 33%;
+              content: "";
+          }
+          .ul-mobile-padding {
+            padding: 0 35px 0 20px;
+            li {
+                min-height: 30px;
+            }
+              //display:none;
+          }
+      }
+    }
+    @include breakpoint($tablet) {
+      color: rgb(153,153,153);
+      p,li,ul {
+          color:rgb(153,153,153);
+          font-size: 11px;
+          font-weight: 500;
+          font-family: sans-serif;
+          display: block;
+      }
+      .wrapper {
+          @include cf;
+          padding: 25px 0px 25px 0px;
+          .footer-span-small {
+              @include span(1.5 of 7);
+          }
+          ul, li {
+              @include no_decor;
+              @include no_padding_margin;
+          }
+          li {
+              padding-top: 3px;
+              padding-bottom: 3px;
+          }
+          .footer-product-container {
+              @include cf;
+              //padding: 20px 20px 20px 20px;
+              //display: none;
+          }
+          .footer-span-big {
+              @include span(2.5 of 7);
+          }
+          .footer-products {
+              //padding:5px 30px 5px 0px;
+          }
+          .footer-support {
+              //border-left: 1px solid rgb(51,51,51);
+              //padding:5px 30px 5px 30px;
+          }
+          .footer-antsand {
+              @include span(1.5 of 7 last);
+              border-left: 1px solid rgb(51,51,51);
+              padding:5px 30px 5px 30px;
+          }
+          .footer-blogs-community {
+              border-left: 1px solid rgb(51,51,51);
+              border-right: 1px solid rgb(51,51,51);
+              padding:5px 30px 5px 30px;
+          }
+          .border-left {
+              border-left: 1px solid rgb(51,51,51);
+          }
+          .border-right {
+              border-right: 1px solid rgb(51,51,51);
+          }
+          .no-border {
+              border-right:0px;
+              border-left: 0px;
+          }
+          .footer-copyright {
+              margin-top: 30px;
+              li {
+                  float: left;
+                  padding-right: 10px;
+              }
+              a {
+                  @include no_decor;
+                  color: inherit;
+              }
+              .footer-slash-break {
+                  padding-left: 5px;
+                  padding-right: 5px;
+              }
+//                display: inline-flex;
+          }
+          .footer-social-media {
+              border-top: 1px solid rgb(51,51,51);
+              padding-top: 20px;
+              padding-bottom: 20px;
+              margin-top: 20px;
+              width: 100%;
+              .facebook {
+              }
+          }
+          h5 {
+              height: auto;
+              color:white;
+              font-size: 12px;
+              font-weight: bold;
+              min-height: 19px;
+              margin-bottom:12px;
+          }
+          a {
+              @include no_decor;
+              color: inherit;
+
+          }
+          a:hover {
+              li {
+                  color:white;
+              }
+              color:white;
+              transition-duration:0.15s, 0.15s, 0.15s, 0.15s;
+          }
+          i {
+              font-size: 16px;
+              margin-right: 10px;
+              background-color: rgb(157, 157, 157);
+              color: black;
+              padding: 3px 3px 3px 3px;
+              border-radius: 4px;
+          }
+          i:hover {
+              background-color: white;
+              transition-duration:0.15s, 0.15s, 0.15s, 0.15s;
+          }
+          .comodo-trust {
+              float: right;
+
+              a {
+                  background-image: url('img/comodo_secure.png');
+                  width: 113px !important;
+                  height: 59px !important;
+                  background-size: cover;
+                  display:inline-block;
+              }
+          }
+      }
+  }
+
+  @include breakpoint($tablet) {
+      #default-footer {
+          color: rgb(153,153,153);
+          p,li,ul {
+              color:rgb(153,153,153) !important;
+              font-size: 11px;
+              font-weight: 500;
+              font-family: sans-serif;
+              transition-duration: 0.15s, 0.15s, 0.15s, 0.15s;
+          }
+          a:hover {
+            li {  
+              color: white !important;
+            }
+          }
+          .wrapper {
+              .footer-product-container {
+                  display: flex;
+              }
+          }
+      }
+  }
+}
+  
+  @include breakpoint($desktop) {
+      .heading_footer {
+          ul {
+              li {
+                  p {
+                      display: block;
+                  }
+              }
+          }
+      }
+  }
+

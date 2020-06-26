@@ -407,20 +407,6 @@ h2 {
  width: 50%;
 }
 
-.color-yellow {
-    color: #ffb400;
-}
-
-.color-white {
-    color: white !important;
-}
-.color-black {
-    color: black !important;
-}
-
-.bg-white {
-    background-color: white !important;
-}
 
 .width-half-float, .gallery-2 {
     @include gallery(1 of 2);
@@ -630,4 +616,17 @@ img {
 label {
   display: inline-block;
   line-height:1.2;
+}
+
+@for $i from 1 through 4 {
+    .column-count-#{$i}-all, .column-count-#{$i}, .column-#{$i} {
+        column-count: $i;
+    }
+    @each $width_profile, $width in $breakpoint-map {
+      .column-count-#{$i}-#{$width_profile} {
+          @include breakpoint($width) {
+            column-count: $i;
+          }
+      }
+    }
 }
