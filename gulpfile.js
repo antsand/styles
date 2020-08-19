@@ -37,6 +37,7 @@ if (env==='development') {
 jsSources = [
 ];
 sassSources = ['*.scss'];
+FasassSources = ['fontawesome-free-5.14.0-web/scss/*.scss'];
 htmlSources = [outputDir + '*.html'];
 
 gulp.task('js', function() {
@@ -63,6 +64,22 @@ gulp.task('compass', function(done) {
       style: sassStyle,
       cache: true,
       require: ['susy', 'breakpoint']
+    })
+    .on('error', gutil.log))
+//    .pipe(gulp.dest( outputDir + 'css'))
+    .pipe(connect.reload());
+    done();
+});
+
+gulp.task('fontawesome', function(done) {
+  gulp.src(FasassSources)
+    .pipe(compass({
+      sass: '',
+      css: outputDir + 'css/font-awesome',
+      image: outputDir + 'images',
+      style: sassStyle,
+      cache: true,
+      //require: ['susy', 'breakpoint']
     })
     .on('error', gutil.log))
 //    .pipe(gulp.dest( outputDir + 'css'))

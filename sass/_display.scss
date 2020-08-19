@@ -31,6 +31,11 @@
         display: flex;
       }
   }
+  .display-flex-imp-#{$width_profile} {
+      @include breakpoint($width) {
+        display: flex !important;
+      }
+  }
   .display-block-#{$width_profile} {
       @include breakpoint($width) {
         display: block;

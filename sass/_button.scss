@@ -92,6 +92,15 @@
     box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
 }
 
+@each $width_profile, $width in $breakpoint-map {
+  .button-shadow-#{$width_profile}, .align-left-#{$width_profile}  {
+      @include breakpoint($width) {
+        -webkit-box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+        box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+      }
+  }
+}
+
 .btn-black, .button-black {
     border: 1px solid black;
     background: rgb(10,10,10);

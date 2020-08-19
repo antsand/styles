@@ -461,6 +461,9 @@ small {
     font-family: 'CD-Project-Icons';
 }
 
+.font-Goudy {
+  font-family: 'Goudy Old Style';
+}
 
 .pictos-check:before {
     content:'2';
@@ -536,6 +539,22 @@ small {
     padding-right: .3em;
     font-family:pictos;
 }
+.pictos-x:before {
+    content:'*';
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-delete:before {
+    content:'#';
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
 .pictos-left:before {
     content:'[';
     //color: #fb292d; 
@@ -599,8 +618,17 @@ small {
     padding-right: .3em;
     font-family:pictos;
 }
-.pictos-add:before {
+.pictos-add-dark:before {
     content:'+';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-add-light:before, .pictos-add:before {
+    content:'&';
     //color: #fb292d; 
     color: inherit;
     display: inline-block;
@@ -662,9 +690,74 @@ small {
     padding-right: .3em;
     font-family:pictos;
 }
+.pictos-notes:before {
+    content:'N';
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-write:before {
+    content:'W';
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-eye:before {
+    content:'E';
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-fullscreen:before {
+    content:'`';
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-copy:before {
+    content:'|';
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-pen:before {
+    content:'p';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
 .pictos-shopping:before {
     content:'$';
     //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-page:before, .pictos-file:before {
+    content:'F';
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-media:before, .pictos-picture:before {
+    content:'P';
     color: inherit;
     display: inline-block;
     font-size: 1.2em;

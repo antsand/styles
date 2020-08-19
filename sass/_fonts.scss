@@ -747,7 +747,7 @@
 /********** AVENIR ************************/
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05-Md';
+    font-family: 'AvenirNext-Md';
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Md.eot');
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Md.eot?#iefix') format('embedded-opentype'),
         url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Md.woff2') format('woff2'),
@@ -759,7 +759,7 @@
 }
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05';
+    font-family: 'AvenirNext';
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Bold.eot');
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Bold.eot?#iefix') format('embedded-opentype'),
         url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Bold.woff2') format('woff2'),
@@ -771,7 +771,7 @@
 }
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05-DmIt';
+    font-family: 'AvenirNext-Demi';
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-DmIt.eot');
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-DmIt.eot?#iefix') format('embedded-opentype'),
         url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-DmIt.woff2') format('woff2'),
@@ -783,7 +783,7 @@
 }
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05-MdIt';
+    font-family: 'AvenirNext';
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-MdIt.eot');
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-MdIt.eot?#iefix') format('embedded-opentype'),
         url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-MdIt.woff2') format('woff2'),
@@ -795,7 +795,7 @@
 }
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05-Demi';
+    font-family: 'AvenirNext-Demi';
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Demi.eot');
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Demi.eot?#iefix') format('embedded-opentype'),
         url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Demi.woff2') format('woff2'),
@@ -807,7 +807,7 @@
 }
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05-It';
+    font-family: 'AvenirNext';
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-It.eot');
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-It.eot?#iefix') format('embedded-opentype'),
         url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-It.woff2') format('woff2'),
@@ -819,7 +819,7 @@
 }
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05-BdIt';
+    font-family: 'AvenirNext';
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-BdIt.eot');
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-BdIt.eot?#iefix') format('embedded-opentype'),
         url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-BdIt.woff2') format('woff2'),
@@ -831,7 +831,7 @@
 }
 
 @font-face {
-    font-family: 'AvenirNextforINTUITW05-Rg';
+    font-family: 'AvenirNext';
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Rg.eot');
     src: url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Rg.eot?#iefix') format('embedded-opentype'),
         url('https://styles.antsand.com/builds/production/fonts/avenir/AvenirNextforINTUITW05-Rg.woff2') format('woff2'),
@@ -841,33 +841,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @font-face {
     font-family: 'Avenir';
@@ -1329,3 +1302,11 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Goudy Old Style';
+    src: url('https://styles.antsand.com/builds/production/fonts/goudy/GoudyOldStyleT-Regular.woff2') format('woff2'),
+        url('https://styles.antsand.com/builds/production/fonts/goudy/GoudyOldStyleT-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
