@@ -113,6 +113,11 @@ small {
         text-align: right;
       }
   }
+  .text-center-#{$width_profile}, .align-center-#{$width_profile}  {
+      @include breakpoint($width) {
+        text-align: center;
+      }
+  }
   .font-underline-#{$width_profile}, .text-underline-#{$width_profile}, .text-decoration-underline-#{$width_profile} {
       text-decoration: underline;
   }
@@ -494,6 +499,24 @@ small {
     font-family:pictos;
 }
 
+.pictos-redo:before {
+    content:'1';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
+.pictos-refresh:before {
+    content:'0';
+    //color: #fb292d; 
+    color: inherit;
+    display: inline-block;
+    font-size: 1.2em;
+    padding-right: .3em;
+    font-family:pictos;
+}
 .pictos-prev:before {
     content:'8';
     //color: #fb292d; 
