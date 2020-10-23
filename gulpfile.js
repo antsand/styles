@@ -36,7 +36,7 @@ if (env==='development') {
 
 jsSources = [
 ];
-sassSources = ['*.scss'];
+sassSources = ['sass/*.scss'];
 FasassSources = ['fontawesome-free-5.14.0-web/scss/*.scss'];
 htmlSources = [outputDir + '*.html'];
 
@@ -58,7 +58,7 @@ gulp.task('icons', function() { 
 gulp.task('compass', function(done) {
   gulp.src(sassSources)
     .pipe(compass({
-      sass: '',
+      sass: 'sass/',
       css: outputDir + 'css',
       image: outputDir + 'images',
       style: sassStyle,
