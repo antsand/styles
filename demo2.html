@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTSAND Styles v2 - Modern Demo</title>
+    <link rel="stylesheet" href="../public/builds/production/css/antsand-v2/antsand.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #212529;
+            background-color: #f4f7f9;
+        }
+        .demo-section {
+            border: 1px solid #dee2e6;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            background: white;
+        }
+        .demo-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .demo-description {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+        .demo-code {
+            background: #2d2d2d;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        .demo-preview {
+            padding: 2rem;
+            border-radius: 4px;
+        }
+        .class-name {
+            background: #e9ecef;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #e74c3c;
+        }
+        .content-area {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-area">
+
+    <div class="hero-banner">
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">ANTSAND Modern Theme</h1>
+        <p style="font-size: 1.25rem;">Gradients, Glassmorphism, and other visual effects.</p>
+    </div>
+
+    <!-- ========================================
+         GRADIENT BACKGROUNDS
+    ========================================= -->
+    <section class="demo-section">
+        <h2 class="demo-title">Gradient Backgrounds</h2>
+        <p class="demo-description">
+            Apply beautiful gradients to any element, like sections or cards. Use classes like <span class="class-name">.antsand-bg-gradient-sunset</span>.
+        </p>
+        <div class="demo-preview">
+            <div class="antsand-grid antsand-grid-2 antsand-gap-4">
+                <div class="antsand-card antsand-bg-gradient-sunset antsand-text-white">
+                    <h3 class="antsand-card-title">Sunset</h3>
+                    <p class="antsand-card-text">This card uses the sunset gradient.</p>
+                </div>
+                <div class="antsand-card antsand-bg-gradient-ocean antsand-text-white">
+                    <h3 class="antsand-card-title">Ocean</h3>
+                    <p class="antsand-card-text">This card uses the ocean gradient.</p>
+                </div>
+                <div class="antsand-card antsand-bg-gradient-forest antsand-text-white">
+                    <h3 class="antsand-card-title">Forest</h3>
+                    <p class="antsand-card-text">This card uses the forest gradient.</p>
+                </div>
+                <div class="antsand-card antsand-bg-gradient-purple antsand-text-white">
+                    <h3 class="antsand-card-title">Purple</h3>
+                    <p class="antsand-card-text">This card uses the purple gradient.</p>
+                </div>
+            </div>
+        </div>
+        <div class="demo-code">&lt;div class="antsand-card antsand-bg-gradient-sunset"&gt;...&lt;/div&gt;</div>
+    </section>
+
+    <!-- ========================================
+         GRADIENT TEXT
+    ========================================= -->
+    <section class="demo-section">
+        <h2 class="demo-title">Gradient Text</h2>
+        <p class="demo-description">
+            Apply gradients to text for impactful headlines. Combine a gradient background class like <span class="class-name">.antsand-bg-gradient-ocean</span> with <span class="class-name">.antsand-text-gradient</span>.
+        </p>
+        <div class="demo-preview">
+            <h1 class="antsand-text-4xl antsand-text-bold antsand-bg-gradient-ocean antsand-text-gradient">
+                This is Gradient Text
+            </h1>
+            <h1 class="antsand-text-4xl antsand-text-bold antsand-bg-gradient-sunset antsand-text-gradient">
+                Isn't it cool?
+            </h1>
+        </div>
+        <div class="demo-code">&lt;h1 class="antsand-bg-gradient-ocean antsand-text-gradient"&gt;...&lt;/h1&gt;</div>
+    </section>
+
+    <!-- ========================================
+         GRADIENT BORDER CARDS
+    ========================================= -->
+    <section class="demo-section">
+        <h2 class="demo-title">Gradient Border Cards</h2>
+        <p class="demo-description">
+            A subtle but modern effect where only the border has a gradient. Use <span class="class-name">.antsand-card-gradient-border</span> and an optional border color class like <span class="class-name">.border-ocean</span>.
+        </p>
+        <div class="demo-preview">
+            <div class="antsand-grid antsand-grid-3 antsand-gap-4">
+                <div class="antsand-card antsand-card-gradient-border">
+                    <h3 class="antsand-card-title">Default Border</h3>
+                    <p class="antsand-card-text">Uses the primary gradient by default.</p>
+                </div>
+                <div class="antsand-card antsand-card-gradient-border border-ocean">
+                    <h3 class="antsand-card-title">Ocean Border</h3>
+                    <p class="antsand-card-text">A cool blue border.</p>
+                </div>
+                <div class="antsand-card antsand-card-gradient-border border-sunset">
+                    <h3 class="antsand-card-title">Sunset Border</h3>
+                    <p class="antsand-card-text">A warm, vibrant border.</p>
+                </div>
+            </div>
+        </div>
+        <div class="demo-code">&lt;div class="antsand-card antsand-card-gradient-border border-ocean"&gt;...&lt;/div&gt;</div>
+    </section>
+
+    <!-- ========================================
+         GLASSMORPHISM
+    ========================================= -->
+    <section class="demo-section">
+        <h2 class="demo-title">Glassmorphism</h2>
+        <p class="demo-description">
+            A frosted-glass effect that works best on a colorful background. Use the <span class="class-name">.antsand-card-glass</span> class.
+        </p>
+        <div class="demo-preview antsand-bg-gradient-purple" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+            <div class="antsand-card antsand-card-glass" style="width: 70%;">
+                <h3 class="antsand-card-title">Glass Card</h3>
+                <p class="antsand-card-text">This card has a semi-transparent, blurred background, creating a "glass" effect.</p>
+                <button class="antsand-btn antsand-btn-light" style="margin-top: 1rem;">Button</button>
+            </div>
+        </div>
+        <div class="demo-code">&lt;div class="antsand-card antsand-card-glass"&gt;...&lt;/div&gt;</div>
+    </section>
+
+    <!-- ========================================
+         ANIMATED GRADIENTS
+    ========================================= -->
+    <section class="demo-section">
+        <h2 class="demo-title">Animated Gradients</h2>
+        <p class="demo-description">
+            Add a subtle animation to gradient backgrounds by adding the <span class="class-name">.antsand-bg-gradient-animated</span> class.
+        </p>
+        <div class="demo-preview">
+            <div class="antsand-section-sm antsand-bg-gradient-ocean antsand-bg-gradient-animated antsand-text-white" style="border-radius: 8px; text-align: center;">
+                <h3>This background is alive!</h3>
+            </div>
+        </div>
+        <div class="demo-code">&lt;div class="antsand-bg-gradient-ocean antsand-bg-gradient-animated"&gt;...&lt;/div&gt;</div>
+    </section>
+
+</div>
+
+</body>
+</html>

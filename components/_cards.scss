@@ -1,0 +1,44 @@
+// ============================================
+// ANTSAND Styles v2 - Cards
+// Card component (consistent)
+// ============================================
+
+.antsand-card {
+    @include antsand-card;
+
+    &-shadow {
+        @include antsand-shadow(md);
+    }
+
+    &-header {
+        padding: $antsand-space-4;
+        border-bottom: 1px solid $antsand-gray-200;
+        font-weight: $antsand-font-weight-semibold;
+    }
+
+    &-body {
+        padding: $antsand-space-4;
+    }
+
+    &-footer {
+        padding: $antsand-space-4;
+        border-top: 1px solid $antsand-gray-200;
+        background-color: $antsand-gray-100;
+    }
+
+    &-img {
+        width: 100%;
+        border-radius: $antsand-radius-md $antsand-radius-md 0 0;
+    }
+
+    &-title {
+        font-size: $antsand-font-size-lg;
+        font-weight: $antsand-font-weight-bold;
+        margin-bottom: $antsand-space-2;
+    }
+
+    &-text {
+        color: $antsand-gray-700;
+        line-height: $antsand-line-height-relaxed;
+    }
+}

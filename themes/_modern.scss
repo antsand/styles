@@ -1,0 +1,85 @@
+// ============================================
+// ANTSAND Styles v2 - Modern Theme Extension
+// Gradients, glassmorphism, and more.
+// ============================================
+
+// 1. GRADIENT PALETTE
+// ============================================
+$antsand-gradient-sunset: linear-gradient(45deg, #ff8c00, #ff0080);
+$antsand-gradient-ocean: linear-gradient(45deg, #1e90ff, #00ced1);
+$antsand-gradient-forest: linear-gradient(45deg, #228b22, #8fbc8f);
+$antsand-gradient-purple: linear-gradient(45deg, #8a2be2, #da70d6);
+$antsand-gradient-primary: linear-gradient(45deg, $antsand-primary, lighten($antsand-primary, 20%));
+
+
+// 2. GRADIENT BACKGROUNDS & TEXT
+// ============================================
+.antsand-bg-gradient-sunset { background-image: $antsand-gradient-sunset; }
+.antsand-bg-gradient-ocean { background-image: $antsand-gradient-ocean; }
+.antsand-bg-gradient-forest { background-image: $antsand-gradient-forest; }
+.antsand-bg-gradient-purple { background-image: $antsand-gradient-purple; }
+.antsand-bg-gradient-primary { background-image: $antsand-gradient-primary; }
+
+.antsand-text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+// 3. GRADIENT BORDER CARD
+// ============================================
+.antsand-card-gradient-border {
+    position: relative;
+    background-clip: padding-box; // Important for border-radius to work with the inner background
+    border: 2px solid transparent;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -1;
+        margin: -2px; // Negative margin to overlap the border area
+        border-radius: inherit; // Inherit the border-radius from the card
+        background: $antsand-gradient-primary; // Default gradient
+    }
+
+    // Specific border gradients
+    &.border-sunset::before { background: $antsand-gradient-sunset; }
+    &.border-ocean::before { background: $antsand-gradient-ocean; }
+    &.border-forest::before { background: $antsand-gradient-forest; }
+    &.border-purple::before { background: $antsand-gradient-purple; }
+}
+
+
+// 4. GLASSMORPHISM CARD
+// ============================================
+.antsand-card-glass {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white; // Assuming it's on a dark/colored background
+
+    .antsand-card-title, .antsand-card-text {
+        color: white;
+    }
+     .antsand-card-title{
+        color: white;
+    }
+    .antsand-card-text{
+        color: #e5e5e5;
+    }
+}
+
+// 5. ANIMATED GRADIENT
+// ============================================
+.antsand-bg-gradient-animated {
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}

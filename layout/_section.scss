@@ -1,0 +1,43 @@
+// ============================================
+// ANTSAND Styles v2 - Section
+// Page section wrappers
+// ============================================
+
+.antsand-section {
+    padding: $antsand-space-6 0;
+
+    @include antsand-md {
+        padding: $antsand-space-7 0;
+    }
+}
+
+.antsand-section-sm {
+    padding: $antsand-space-4 0;
+
+    @include antsand-md {
+        padding: $antsand-space-5 0;
+    }
+}
+
+.antsand-section-lg {
+    padding: $antsand-space-7 0;
+
+    @include antsand-md {
+        padding: $antsand-space-8 0;
+    }
+}
+
+// Background variants
+.antsand-section-light {
+    background-color: $antsand-gray-100;
+}
+
+.antsand-section-dark {
+    background-color: $antsand-gray-900;
+    color: white;
+}
+
+.antsand-section-primary {
+    background-color: $antsand-primary;
+    color: white;
+}

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTSAND Styles v2 - Documentation Hub</title>
+    <link rel="stylesheet" href="/builds/production/css/antsand-v2/antsand.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 0 0 1rem 0;
+            font-size: 3rem;
+        }
+
+        .hero p {
+            margin: 0;
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin: 0 0 1rem 0;
+            color: #2c3e50;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin: 0 0 1.5rem 0;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .card a:hover {
+            background: #2980b9;
+        }
+
+        .philosophy {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .philosophy h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-item {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .philosophy-item h3 {
+            color: #3498db;
+            margin: 1rem 0;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>ANTSAND Styles v2</h1>
+        <p>Property-Driven Design System for Federated Platforms</p>
+    </div>
+
+    <div class="container">
+
+        <div class="philosophy">
+            <h2>🎯 The ANTSAND Philosophy</h2>
+            <p style="font-size: 1.125rem; color: #7f8c8d; margin-bottom: 2rem;">
+                Every section is just <strong>Header + Body + Footer</strong>.
+                Same HTML structure + Different CSS = Infinite designs.
+            </p>
+
+            <div class="philosophy-grid">
+                <div class="philosophy-item">
+                    <div style="font-size: 2.5rem;">📐</div>
+                    <h3>One Structure</h3>
+                    <p>Same Volt template for all sections</p>
+                </div>
+                <div class="philosophy-item">
+                    <div style="font-size: 2.5rem;">🎨</div>
+                    <h3>Different CSS</h3>
+                    <p>Apply classes to transform layouts</p>
+                </div>
+                <div class="philosophy-item">
+                    <div style="font-size: 2.5rem;">♾️</div>
+                    <h3>Infinite Designs</h3>
+                    <p>200+ utility classes to combine</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="margin: 3rem 0 1rem 0; color: #2c3e50;">📚 Documentation & Resources</h2>
+
+        <div class="grid">
+
+            <!-- Quick Start -->
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Quick Start</h3>
+                <p>Everything you need to get started with ANTSAND v2 - installation, basic usage, and core concepts.</p>
+                <a href="WHATS_NEW.md">Get Started →</a>
+            </div>
+
+            <!-- Complete Component Docs -->
+            <div class="card">
+                <div class="card-icon">📖</div>
+                <h3>Complete Component Docs</h3>
+                <p>Comprehensive documentation of all 12+ components, utilities, and layout patterns with code examples.</p>
+                <a href="README_COMPLETE.md">Read Docs →</a>
+            </div>
+
+            <!-- Template Guide -->
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Template-to-CSS Mapping</h3>
+                <p>Visual guide showing how SVG templates map to CSS classes. Perfect for understanding the system.</p>
+                <a href="TEMPLATE_GUIDE.md">View Mapping →</a>
+            </div>
+
+            <!-- Databoard Integration -->
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>Databoard Integration</h3>
+                <p>How to use ANTSAND v2 with the databoard - SVG templates, CSS configs, and workflow examples.</p>
+                <a href="DATABOARD_INTEGRATION.md">Integration Guide →</a>
+            </div>
+
+            <!-- Interactive Demos -->
+            <div class="card">
+                <div class="card-icon">🎬</div>
+                <h3>Interactive Layout Demo</h3>
+                <p>Side-by-side visual examples showing SVG templates and their CSS configurations in action.</p>
+                <a href="demo_layouts.html">Live Layouts →</a>
+            </div>
+
+            <!-- Component Demo -->
+            <div class="card">
+                <div class="card-icon">🧩</div>
+                <h3>Component Showcase</h3>
+                <p>Comprehensive demo of all components - buttons, cards, modals, accordions, tabs, and more.</p>
+                <a href="demo_v2.html">All Components →</a>
+            </div>
+
+        </div>
+
+        <h2 style="margin: 3rem 0 1rem 0; color: #2c3e50;">🎯 Key Features</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>12+ Components</h3>
+                <p>Accordion, Tabs, Modal, Navbar, Dropdown, Alert, Badge, Breadcrumb, Hero, Features, Pricing, Footer</p>
+            </div>
+
+            <div class="card">
+                <h3>200+ Utility Classes</h3>
+                <p>Text, spacing, display, width/height, background, border, shadow utilities for rapid development</p>
+            </div>
+
+            <div class="card">
+                <h3>JavaScript Library</h3>
+                <p>Auto-initialization for interactive components with simple API: Antsand.init()</p>
+            </div>
+
+            <div class="card">
+                <h3>Bootstrap Philosophy</h3>
+                <p>Semantic classes, consistent spacing, color variants - without the bloat</p>
+            </div>
+
+            <div class="card">
+                <h3>Modern CSS</h3>
+                <p>CSS Grid, Flexbox, custom properties - no float-based layouts</p>
+            </div>
+
+            <div class="card">
+                <h3>Databoard Ready</h3>
+                <p>Designed to work seamlessly with ANTSAND's template system and property-driven architecture</p>
+            </div>
+
+        </div>
+
+        <h2 style="margin: 3rem 0 1rem 0; color: #2c3e50;">🔗 Quick Links</h2>
+
+        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: #3498db;">CSS Files</h4>
+                    <ul style="margin: 0; padding-left: 1.5rem; color: #7f8c8d;">
+                        <li><a href="/builds/production/css/antsand-v2/antsand.css" style="color: #3498db;">antsand.css</a> - Full library</li>
+                        <li><a href="/builds/production/css/antsand-v2/antsand-core.css" style="color: #3498db;">antsand-core.css</a> - Core only</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: #3498db;">JavaScript</h4>
+                    <ul style="margin: 0; padding-left: 1.5rem; color: #7f8c8d;">
+                        <li><a href="/builds/production/css/antsand-v2/antsand.js" style="color: #3498db;">antsand.js</a> - Interactive components</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: #3498db;">Additional Demos</h4>
+                    <ul style="margin: 0; padding-left: 1.5rem; color: #7f8c8d;">
+                        <li><a href="demo.html" style="color: #3498db;">Basic Demo</a></li>
+                        <li><a href="demo_comprehensive.html" style="color: #3498db;">Compact Reference</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div style="background: #e8f4f8; border-left: 4px solid #3498db; border-radius: 8px; padding: 2rem; margin: 3rem 0;">
+            <h3 style="margin: 0 0 1rem 0; color: #2c3e50;">💡 Pro Tip</h3>
+            <p style="margin: 0; color: #34495e; line-height: 1.6;">
+                Start with the <strong>Interactive Layout Demo</strong> to see how SVG templates map to CSS classes.
+                Then check the <strong>Databoard Integration Guide</strong> to understand how to use these patterns
+                in your projects. The philosophy is simple: <em>same structure + different CSS = different designs</em>.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p style="margin: 0;">Built with ❤️ for ANTSAND Projects</p>
+        <p style="margin: 0.5rem 0 0 0; opacity: 0.8; font-size: 0.875rem;">
+            "Semantic classes + utility helpers = Consistent, lightweight styling"
+        </p>
+    </div>
+
+</body>
+</html>

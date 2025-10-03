@@ -1,0 +1,123 @@
+// ============================================
+// ANTSAND Styles v2 - Grid System
+// Modern CSS Grid + Flexbox (no float!)
+// ============================================
+
+// Container
+.antsand-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $antsand-space-3;
+    padding-right: $antsand-space-3;
+
+    @include antsand-sm {
+        max-width: $antsand-container-sm;
+    }
+
+    @include antsand-md {
+        max-width: $antsand-container-md;
+    }
+
+    @include antsand-lg {
+        max-width: $antsand-container-lg;
+    }
+
+    @include antsand-xl {
+        max-width: $antsand-container-xl;
+    }
+}
+
+.antsand-container-fluid {
+    width: 100%;
+    padding-left: $antsand-space-3;
+    padding-right: $antsand-space-3;
+}
+
+// CSS Grid
+.antsand-grid {
+    display: grid;
+    gap: $antsand-grid-gap;
+}
+
+// Auto-responsive grid (no media queries needed!)
+.antsand-grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+// Fixed columns
+.antsand-grid-1 { grid-template-columns: repeat(1, 1fr); }
+.antsand-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.antsand-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.antsand-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.antsand-grid-5 { grid-template-columns: repeat(5, 1fr); }
+.antsand-grid-6 { grid-template-columns: repeat(6, 1fr); }
+
+// Responsive grid (collapse on mobile)
+@media (max-width: $antsand-breakpoint-md) {
+    .antsand-grid-3,
+    .antsand-grid-4,
+    .antsand-grid-5,
+    .antsand-grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: $antsand-breakpoint-sm) {
+    .antsand-grid-2,
+    .antsand-grid-3,
+    .antsand-grid-4,
+    .antsand-grid-5,
+    .antsand-grid-6 {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Gap variations
+.antsand-gap-1 { gap: $antsand-space-1; }
+.antsand-gap-2 { gap: $antsand-space-2; }
+.antsand-gap-3 { gap: $antsand-space-3; }
+.antsand-gap-4 { gap: $antsand-space-4; }
+.antsand-gap-5 { gap: $antsand-space-5; }
+
+// Flexbox
+.antsand-flex {
+    display: flex;
+}
+
+.antsand-flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.antsand-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.antsand-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.antsand-flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.antsand-flex-start {
+    display: flex;
+    align-items: flex-start;
+}
+
+.antsand-flex-end {
+    display: flex;
+    align-items: flex-end;
+}
+
+// Flex gap
+.antsand-flex-gap-1 { gap: $antsand-space-1; }
+.antsand-flex-gap-2 { gap: $antsand-space-2; }
+.antsand-flex-gap-3 { gap: $antsand-space-3; }
+.antsand-flex-gap-4 { gap: $antsand-space-4; }

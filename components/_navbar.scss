@@ -1,0 +1,197 @@
+// ============================================
+// ANTSAND Styles v2 - Navbar
+// Navigation bar component
+// ============================================
+
+.antsand-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $antsand-space-3 $antsand-space-4;
+    background-color: white;
+    border-bottom: 1px solid $antsand-gray-200;
+    position: relative;
+}
+
+.antsand-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    font-size: $antsand-font-size-xl;
+    font-weight: $antsand-font-weight-bold;
+    color: $antsand-gray-900;
+    text-decoration: none;
+
+    img {
+        height: 2rem;
+    }
+}
+
+.antsand-navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @media (max-width: $antsand-breakpoint-md) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: white;
+        border-bottom: 1px solid $antsand-gray-200;
+        box-shadow: $antsand-shadow-md;
+        padding: $antsand-space-2 0;
+
+        &.active {
+            display: flex;
+        }
+    }
+}
+
+.antsand-navbar-item {
+    padding: $antsand-space-2 $antsand-space-3;
+    color: $antsand-gray-700;
+    text-decoration: none;
+    border-radius: $antsand-radius-sm;
+    transition: all $antsand-transition-base;
+
+    &:hover {
+        background-color: $antsand-gray-100;
+        color: $antsand-primary;
+    }
+
+    &.active {
+        color: $antsand-primary;
+        font-weight: $antsand-font-weight-semibold;
+    }
+}
+
+.antsand-navbar-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    @media (max-width: $antsand-breakpoint-md) {
+        display: flex;
+    }
+}
+
+.antsand-navbar-toggle-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+        display: block;
+        width: 1.5rem;
+        height: 2px;
+        background-color: $antsand-gray-900;
+        transition: all $antsand-transition-base;
+    }
+
+    &.active {
+        span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        span:nth-child(2) {
+            opacity: 0;
+        }
+        span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+    }
+}
+
+// Dropdown in navbar
+.antsand-navbar-dropdown {
+    position: relative;
+
+    &:hover .antsand-dropdown-menu {
+        display: block;
+    }
+}
+
+// Navbar variants
+.antsand-navbar-dark {
+    background-color: $antsand-gray-900;
+    border-bottom-color: $antsand-gray-800;
+
+    .antsand-navbar-brand {
+        color: white;
+    }
+
+    .antsand-navbar-item {
+        color: $antsand-gray-300;
+
+        &:hover {
+            background-color: $antsand-gray-800;
+            color: white;
+        }
+
+        &.active {
+            color: white;
+        }
+    }
+
+    .antsand-navbar-toggle-icon span {
+        background-color: white;
+    }
+
+    @media (max-width: $antsand-breakpoint-md) {
+        .antsand-navbar-nav {
+            background-color: $antsand-gray-900;
+        }
+    }
+}
+
+.antsand-navbar-primary {
+    background-color: $antsand-primary;
+    border-bottom-color: darken($antsand-primary, 10%);
+
+    .antsand-navbar-brand {
+        color: white;
+    }
+
+    .antsand-navbar-item {
+        color: rgba(255, 255, 255, 0.85);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        &.active {
+            color: white;
+        }
+    }
+
+    .antsand-navbar-toggle-icon span {
+        background-color: white;
+    }
+
+    @media (max-width: $antsand-breakpoint-md) {
+        .antsand-navbar-nav {
+            background-color: $antsand-primary;
+        }
+    }
+}
+
+// Fixed navbar
+.antsand-navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $antsand-z-fixed;
+}

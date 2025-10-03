@@ -1,0 +1,101 @@
+// ============================================
+// ANTSAND Styles v2 - Badge
+// Small label/count indicator
+// ============================================
+
+.antsand-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: $antsand-space-1 $antsand-space-2;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-semibold;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: $antsand-radius-sm;
+}
+
+// Variants
+.antsand-badge-primary {
+    background-color: $antsand-primary;
+}
+
+.antsand-badge-secondary {
+    background-color: $antsand-secondary;
+}
+
+.antsand-badge-success {
+    background-color: $antsand-success;
+}
+
+.antsand-badge-danger {
+    background-color: $antsand-danger;
+}
+
+.antsand-badge-warning {
+    background-color: $antsand-warning;
+    color: $antsand-gray-900;
+}
+
+.antsand-badge-info {
+    background-color: $antsand-info;
+}
+
+.antsand-badge-light {
+    background-color: $antsand-light;
+    color: $antsand-gray-900;
+}
+
+.antsand-badge-dark {
+    background-color: $antsand-dark;
+}
+
+// Pill shape
+.antsand-badge-pill {
+    border-radius: $antsand-radius-full;
+}
+
+// Dot badge (notification indicator)
+.antsand-badge-dot {
+    position: relative;
+    padding: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+
+    &.antsand-badge-notification {
+        position: absolute;
+        top: -0.25rem;
+        right: -0.25rem;
+        width: 0.75rem;
+        height: 0.75rem;
+    }
+}
+
+// Outline variants
+.antsand-badge-outline-primary {
+    background-color: transparent;
+    color: $antsand-primary;
+    border: 1px solid $antsand-primary;
+}
+
+.antsand-badge-outline-secondary {
+    background-color: transparent;
+    color: $antsand-secondary;
+    border: 1px solid $antsand-secondary;
+}
+
+.antsand-badge-outline-success {
+    background-color: transparent;
+    color: $antsand-success;
+    border: 1px solid $antsand-success;
+}
+
+.antsand-badge-outline-danger {
+    background-color: transparent;
+    color: $antsand-danger;
+    border: 1px solid $antsand-danger;
+}

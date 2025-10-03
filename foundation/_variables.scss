@@ -1,0 +1,98 @@
+// ============================================
+// ANTSAND Styles v2 - Variables
+// Bootstrap philosophy: semantic, consistent
+// ============================================
+
+// Colors - Semantic naming (not arbitrary)
+$antsand-primary: #3498db !default;
+$antsand-secondary: #2c3e50 !default;
+$antsand-success: #27ae60 !default;
+$antsand-danger: #e74c3c !default;
+$antsand-warning: #f39c12 !default;
+$antsand-info: #16a085 !default;
+$antsand-light: #ecf0f1 !default;
+$antsand-dark: #34495e !default;
+
+// Grays (consistent scale)
+$antsand-gray-50: #f9fafb !default;
+$antsand-gray-100: #f8f9fa !default;
+$antsand-gray-200: #e9ecef !default;
+$antsand-gray-300: #dee2e6 !default;
+$antsand-gray-400: #ced4da !default;
+$antsand-gray-500: #adb5bd !default;
+$antsand-gray-600: #6c757d !default;
+$antsand-gray-700: #495057 !default;
+$antsand-gray-800: #343a40 !default;
+$antsand-gray-900: #212529 !default;
+
+// Spacing scale (8px base - consistent everywhere)
+$antsand-space-0: 0 !default;
+$antsand-space-1: 0.25rem !default;  // 4px
+$antsand-space-2: 0.5rem !default;   // 8px
+$antsand-space-3: 1rem !default;     // 16px
+$antsand-space-4: 1.5rem !default;   // 24px
+$antsand-space-5: 2rem !default;     // 32px
+$antsand-space-6: 3rem !default;     // 48px
+$antsand-space-7: 4rem !default;     // 64px
+$antsand-space-8: 6rem !default;     // 96px
+
+// Typography
+$antsand-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$antsand-font-family-mono: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$antsand-font-size-sm: 0.875rem !default;   // 14px
+$antsand-font-size-base: 1rem !default;     // 16px
+$antsand-font-size-lg: 1.125rem !default;   // 18px
+$antsand-font-size-xl: 1.25rem !default;    // 20px
+$antsand-font-size-2xl: 1.5rem !default;    // 24px
+$antsand-font-size-3xl: 2rem !default;      // 32px
+$antsand-font-size-4xl: 2.5rem !default;    // 40px
+$antsand-font-size-5xl: 3rem !default;      // 48px
+
+$antsand-font-weight-normal: 400 !default;
+$antsand-font-weight-medium: 500 !default;
+$antsand-font-weight-semibold: 600 !default;
+$antsand-font-weight-bold: 700 !default;
+
+$antsand-line-height-tight: 1.25 !default;
+$antsand-line-height-normal: 1.5 !default;
+$antsand-line-height-relaxed: 1.75 !default;
+
+// Border radius (consistent)
+$antsand-radius-sm: 0.25rem !default;   // 4px
+$antsand-radius-md: 0.5rem !default;    // 8px
+$antsand-radius-lg: 0.75rem !default;   // 12px
+$antsand-radius-full: 9999px !default;  // Pill
+
+// Shadows (subtle, consistent)
+$antsand-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05) !default;
+$antsand-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1) !default;
+$antsand-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1) !default;
+$antsand-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15) !default;
+
+// Breakpoints (mobile-first)
+$antsand-breakpoint-sm: 640px !default;   // Phone
+$antsand-breakpoint-md: 768px !default;   // Tablet
+$antsand-breakpoint-lg: 1024px !default;  // Desktop
+$antsand-breakpoint-xl: 1280px !default;  // Large desktop
+
+// Container widths
+$antsand-container-sm: 640px !default;
+$antsand-container-md: 768px !default;
+$antsand-container-lg: 1024px !default;
+$antsand-container-xl: 1280px !default;
+
+// Grid
+$antsand-grid-columns: 12 !default;
+$antsand-grid-gap: $antsand-space-3 !default;
+
+// Transitions
+$antsand-transition-fast: 150ms ease !default;
+$antsand-transition-base: 250ms ease !default;
+$antsand-transition-slow: 350ms ease !default;
+
+// Z-index
+$antsand-z-dropdown: 1000 !default;
+$antsand-z-sticky: 1020 !default;
+$antsand-z-fixed: 1030 !default;
+$antsand-z-modal: 1050 !default;

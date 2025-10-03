@@ -1,0 +1,135 @@
+// ============================================
+// ANTSAND Styles v2 - Dropdown
+// Dropdown menu component
+// ============================================
+
+.antsand-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.antsand-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    padding: $antsand-space-2 $antsand-space-3;
+    background-color: white;
+    border: 1px solid $antsand-gray-300;
+    border-radius: $antsand-radius-md;
+    cursor: pointer;
+    transition: all $antsand-transition-base;
+
+    &:hover {
+        background-color: $antsand-gray-50;
+        border-color: $antsand-gray-400;
+    }
+
+    &::after {
+        content: '▼';
+        font-size: 0.75rem;
+        margin-left: auto;
+        transition: transform $antsand-transition-base;
+    }
+
+    &.active::after {
+        transform: rotate(180deg);
+    }
+}
+
+.antsand-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: $antsand-z-dropdown;
+    min-width: 10rem;
+    margin-top: $antsand-space-1;
+    padding: $antsand-space-2 0;
+    background-color: white;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-md;
+    box-shadow: $antsand-shadow-lg;
+    display: none;
+
+    &.active {
+        display: block;
+        animation: dropdownSlide $antsand-transition-base ease-out;
+    }
+}
+
+.antsand-dropdown-item {
+    display: block;
+    width: 100%;
+    padding: $antsand-space-2 $antsand-space-4;
+    color: $antsand-gray-700;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: all $antsand-transition-fast;
+
+    &:hover {
+        background-color: $antsand-gray-100;
+        color: $antsand-primary;
+    }
+
+    &.active {
+        background-color: $antsand-primary;
+        color: white;
+    }
+
+    &:disabled {
+        color: $antsand-gray-400;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: transparent;
+            color: $antsand-gray-400;
+        }
+    }
+}
+
+.antsand-dropdown-divider {
+    height: 1px;
+    margin: $antsand-space-2 0;
+    background-color: $antsand-gray-200;
+}
+
+.antsand-dropdown-header {
+    padding: $antsand-space-2 $antsand-space-4;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-semibold;
+    color: $antsand-gray-600;
+    text-transform: uppercase;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Right aligned
+.antsand-dropdown-menu-right {
+    left: auto;
+    right: 0;
+}
+
+// Dropup variant
+.antsand-dropup {
+    .antsand-dropdown-menu {
+        top: auto;
+        bottom: 100%;
+        margin-top: 0;
+        margin-bottom: $antsand-space-1;
+    }
+
+    .antsand-dropdown-toggle::after {
+        content: '▲';
+    }
+}

@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTSAND Styles v2 - Complete Demo</title>
+    <link rel="stylesheet" href="/builds/production/css/antsand-v2/antsand.css">
+    <style>
+        /* Demo page specific styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .demo-section {
+            border: 2px dashed #dee2e6;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .demo-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #3498db;
+        }
+
+        .demo-description {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .demo-code {
+            background: #2d2d2d;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        .demo-preview {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+
+        .nav-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: #2c3e50;
+            padding: 2rem 0;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .nav-sidebar h2 {
+            color: white;
+            padding: 0 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-sidebar .nav-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-sidebar .nav-section-title {
+            color: #95a5a6;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .nav-sidebar a {
+            display: block;
+            color: #ecf0f1;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .nav-sidebar a:hover {
+            background: #34495e;
+            color: #3498db;
+        }
+
+        .content-area {
+            margin-left: 300px;
+            padding: 2rem;
+            max-width: 1400px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .component-category {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 3px solid #3498db;
+        }
+
+        .component-category h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .nav-sidebar {
+                transform: translateX(-280px);
+                transition: transform 0.3s;
+            }
+
+            .nav-sidebar.active {
+                transform: translateX(0);
+            }
+
+            .content-area {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Sidebar -->
+<nav class="nav-sidebar">
+    <h2>ANTSAND v2</h2>
+
+    <div class="nav-section">
+        <div class="nav-section-title">Components</div>
+        <a href="#buttons">Buttons</a>
+        <a href="#forms">Forms</a>
+        <a href="#cards">Cards</a>
+        <a href="#accordion">Accordion</a>
+        <a href="#tabs">Tabs</a>
+        <a href="#modal">Modal</a>
+        <a href="#navbar">Navbar</a>
+        <a href="#dropdown">Dropdown</a>
+        <a href="#alert">Alert</a>
+        <a href="#badge">Badge</a>
+        <a href="#breadcrumb">Breadcrumb</a>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">Layout</div>
+        <a href="#grid">Grid System</a>
+        <a href="#container">Container</a>
+        <a href="#sections">Sections</a>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">Patterns</div>
+        <a href="#hero">Hero</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#footer">Footer</a>
+    </div>
+
+    <div class="nav-section">
+        <div class="nav-section-title">Utilities</div>
+        <a href="#utilities">Utilities</a>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="content-area">
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">ANTSAND Styles v2</h1>
+        <p style="font-size: 1.25rem; margin-bottom: 2rem;">Modern CSS library with Bootstrap philosophy, not Tailwind chaos</p>
+        <p style="font-size: 1rem; opacity: 0.9;">Complete component library with semantic classes and utility helpers</p>
+    </div>
+
+    <!-- COMPONENTS SECTION -->
+    <div class="component-category" id="buttons">
+        <h2>🔘 Buttons</h2>
+
+        <!-- Button Variants -->
+        <div class="demo-section">
+            <div class="demo-title">Button Variants</div>
+            <div class="demo-description">Semantic color variants for different actions</div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-gap-2" style="flex-wrap: wrap;">
+                    <button class="antsand-btn antsand-btn-primary">Primary</button>
+                    <button class="antsand-btn antsand-btn-secondary">Secondary</button>
+                    <button class="antsand-btn antsand-btn-success">Success</button>
+                    <button class="antsand-btn antsand-btn-danger">Danger</button>
+                    <button class="antsand-btn antsand-btn-warning">Warning</button>
+                    <button class="antsand-btn antsand-btn-info">Info</button>
+                    <button class="antsand-btn antsand-btn-light">Light</button>
+                    <button class="antsand-btn antsand-btn-dark">Dark</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;button class="antsand-btn antsand-btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-success"&gt;Success&lt;/button&gt;</div>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="demo-section">
+            <div class="demo-title">Button Sizes</div>
+            <div class="demo-description">Small, default, and large sizes</div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-gap-2" style="align-items: center;">
+                    <button class="antsand-btn antsand-btn-primary antsand-btn-sm">Small</button>
+                    <button class="antsand-btn antsand-btn-primary">Default</button>
+                    <button class="antsand-btn antsand-btn-primary antsand-btn-lg">Large</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;button class="antsand-btn antsand-btn-primary antsand-btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-primary antsand-btn-lg"&gt;Large&lt;/button&gt;</div>
+        </div>
+
+        <!-- Outline & Special Buttons -->
+        <div class="demo-section">
+            <div class="demo-title">Outline, Block & Pill Buttons</div>
+            <div class="demo-description">Additional button styles</div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-gap-2 antsand-mb-3" style="flex-wrap: wrap;">
+                    <button class="antsand-btn antsand-btn-outline-primary">Outline Primary</button>
+                    <button class="antsand-btn antsand-btn-outline-secondary">Outline Secondary</button>
+                    <button class="antsand-btn antsand-btn-primary antsand-btn-pill">Pill Shape</button>
+                </div>
+                <button class="antsand-btn antsand-btn-primary antsand-btn-block">Full Width Block Button</button>
+            </div>
+            <div class="demo-code">&lt;button class="antsand-btn antsand-btn-outline-primary"&gt;Outline&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-primary antsand-btn-pill"&gt;Pill&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-primary antsand-btn-block"&gt;Block&lt;/button&gt;</div>
+        </div>
+    </div>
+
+    <!-- FORMS SECTION -->
+    <div class="component-category" id="forms">
+        <h2>📝 Forms</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Form Controls</div>
+            <div class="demo-description">Consistent form styling with validation states</div>
+            <div class="demo-preview">
+                <form>
+                    <div class="antsand-form-group">
+                        <label class="antsand-form-label">Email Address</label>
+                        <input type="email" class="antsand-form-control" placeholder="you@example.com">
+                        <small class="antsand-form-text">We'll never share your email.</small>
+                    </div>
+
+                    <div class="antsand-form-group">
+                        <label class="antsand-form-label">Password</label>
+                        <input type="password" class="antsand-form-control" placeholder="Password">
+                    </div>
+
+                    <div class="antsand-form-group">
+                        <label class="antsand-form-label">Message</label>
+                        <textarea class="antsand-form-control" rows="4" placeholder="Your message..."></textarea>
+                    </div>
+
+                    <div class="antsand-form-group">
+                        <label class="antsand-form-label">Valid Input</label>
+                        <input type="text" class="antsand-form-control is-valid" value="Correct input">
+                        <div class="antsand-valid-feedback">Looks good!</div>
+                    </div>
+
+                    <div class="antsand-form-group">
+                        <label class="antsand-form-label">Invalid Input</label>
+                        <input type="text" class="antsand-form-control is-invalid" value="Wrong input">
+                        <div class="antsand-invalid-feedback">Please provide a valid input.</div>
+                    </div>
+
+                    <div class="antsand-form-check">
+                        <input type="checkbox" id="agree">
+                        <label for="agree">I agree to terms and conditions</label>
+                    </div>
+
+                    <button type="submit" class="antsand-btn antsand-btn-primary antsand-mt-3">Submit Form</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARDS SECTION -->
+    <div class="component-category" id="cards">
+        <h2>🃏 Cards</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Card Components</div>
+            <div class="demo-description">Content containers with consistent styling</div>
+            <div class="demo-preview">
+                <div class="antsand-grid antsand-grid-3 antsand-gap-4">
+                    <div class="antsand-card antsand-card-shadow">
+                        <h3 class="antsand-card-title">Basic Card</h3>
+                        <p class="antsand-card-text">This is a simple card with shadow.</p>
+                        <button class="antsand-btn antsand-btn-primary">Action</button>
+                    </div>
+
+                    <div class="antsand-card antsand-card-shadow">
+                        <div class="antsand-card-header">
+                            <h4>Card with Header</h4>
+                        </div>
+                        <div class="antsand-card-body">
+                            <p class="antsand-card-text">Card with header and footer.</p>
+                        </div>
+                        <div class="antsand-card-footer">
+                            <button class="antsand-btn antsand-btn-secondary antsand-btn-sm">Footer Action</button>
+                        </div>
+                    </div>
+
+                    <div class="antsand-card antsand-card-shadow">
+                        <img src="https://via.placeholder.com/400x200" class="antsand-card-img" alt="Card">
+                        <div class="antsand-card-body">
+                            <h3 class="antsand-card-title">Card with Image</h3>
+                            <p class="antsand-card-text">Card with image at the top.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACCORDION SECTION -->
+    <div class="component-category" id="accordion">
+        <h2>📂 Accordion</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Accordion Component</div>
+            <div class="demo-description">Collapsible content panels (auto-initialized with JavaScript)</div>
+            <div class="demo-preview">
+                <div class="antsand-accordion">
+                    <div class="antsand-accordion-item">
+                        <button class="antsand-accordion-header">
+                            <span>What is ANTSAND Styles v2?</span>
+                            <span class="antsand-accordion-icon"></span>
+                        </button>
+                        <div class="antsand-accordion-body">
+                            <div class="antsand-accordion-content">
+                                <p>ANTSAND Styles v2 is a modern CSS library with a Bootstrap-like philosophy, providing semantic classes for consistent design.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="antsand-accordion-item">
+                        <button class="antsand-accordion-header">
+                            <span>How is it different from Tailwind?</span>
+                            <span class="antsand-accordion-icon"></span>
+                        </button>
+                        <div class="antsand-accordion-body">
+                            <div class="antsand-accordion-content">
+                                <p>Unlike Tailwind's utility-first approach, ANTSAND uses semantic classes that describe purpose, not pixels. This creates more consistent and maintainable code.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="antsand-accordion-item">
+                        <button class="antsand-accordion-header">
+                            <span>Does it require JavaScript?</span>
+                            <span class="antsand-accordion-icon"></span>
+                        </button>
+                        <div class="antsand-accordion-body">
+                            <div class="antsand-accordion-content">
+                                <p>Interactive components like accordion, tabs, and modal require the included JavaScript file. Include antsand.js and components auto-initialize.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="antsand-accordion"&gt;
+  &lt;div class="antsand-accordion-item"&gt;
+    &lt;button class="antsand-accordion-header"&gt;
+      &lt;span&gt;Question&lt;/span&gt;
+      &lt;span class="antsand-accordion-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="antsand-accordion-body"&gt;
+      &lt;div class="antsand-accordion-content"&gt;Answer&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+    </div>
+
+    <!-- TABS SECTION -->
+    <div class="component-category" id="tabs">
+        <h2>📑 Tabs</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Tab Navigation</div>
+            <div class="demo-description">Tab component with default, pills, and vertical variants</div>
+            <div class="demo-preview">
+                <!-- Default Tabs -->
+                <h4 class="antsand-mb-3">Default Tabs</h4>
+                <div class="antsand-tabs antsand-mb-5">
+                    <div class="antsand-tab-nav">
+                        <button class="antsand-tab-item active">Home</button>
+                        <button class="antsand-tab-item">Profile</button>
+                        <button class="antsand-tab-item">Settings</button>
+                    </div>
+                    <div class="antsand-tab-content">
+                        <div class="antsand-tab-pane active">
+                            <h3>Home Content</h3>
+                            <p>This is the home tab content with useful information.</p>
+                        </div>
+                        <div class="antsand-tab-pane">
+                            <h3>Profile Content</h3>
+                            <p>This is the profile tab showing user information.</p>
+                        </div>
+                        <div class="antsand-tab-pane">
+                            <h3>Settings Content</h3>
+                            <p>This is the settings tab for configuration options.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pills Tabs -->
+                <h4 class="antsand-mb-3">Pills Variant</h4>
+                <div class="antsand-tabs">
+                    <div class="antsand-tab-nav antsand-tab-nav-pills">
+                        <button class="antsand-tab-item active">Dashboard</button>
+                        <button class="antsand-tab-item">Analytics</button>
+                        <button class="antsand-tab-item">Reports</button>
+                    </div>
+                    <div class="antsand-tab-content">
+                        <div class="antsand-tab-pane active">
+                            <p>Dashboard metrics and overview.</p>
+                        </div>
+                        <div class="antsand-tab-pane">
+                            <p>Analytics and insights data.</p>
+                        </div>
+                        <div class="antsand-tab-pane">
+                            <p>Generated reports and exports.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SECTION -->
+    <div class="component-category" id="modal">
+        <h2>🪟 Modal</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Modal Dialog</div>
+            <div class="demo-description">Overlay dialog component (opens with data-modal-open)</div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-gap-2">
+                    <button data-modal-open="demoModal" class="antsand-btn antsand-btn-primary">Open Modal</button>
+                    <button data-modal-open="smallModal" class="antsand-btn antsand-btn-secondary">Small Modal</button>
+                    <button data-modal-open="largeModal" class="antsand-btn antsand-btn-success">Large Modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR SECTION -->
+    <div class="component-category" id="navbar">
+        <h2>🧭 Navbar</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Navigation Bar</div>
+            <div class="demo-description">Navigation bar with mobile toggle (responsive)</div>
+            <div class="demo-preview">
+                <nav class="antsand-navbar antsand-mb-3">
+                    <a href="#" class="antsand-navbar-brand">
+                        Brand
+                    </a>
+                    <ul class="antsand-navbar-nav">
+                        <li><a href="#" class="antsand-navbar-item active">Home</a></li>
+                        <li><a href="#" class="antsand-navbar-item">About</a></li>
+                        <li><a href="#" class="antsand-navbar-item">Services</a></li>
+                        <li><a href="#" class="antsand-navbar-item">Contact</a></li>
+                    </ul>
+                    <button class="antsand-navbar-toggle">
+                        <span class="antsand-navbar-toggle-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </nav>
+
+                <nav class="antsand-navbar antsand-navbar-dark antsand-mb-3">
+                    <a href="#" class="antsand-navbar-brand">Dark Nav</a>
+                    <ul class="antsand-navbar-nav">
+                        <li><a href="#" class="antsand-navbar-item active">Home</a></li>
+                        <li><a href="#" class="antsand-navbar-item">Features</a></li>
+                    </ul>
+                </nav>
+
+                <nav class="antsand-navbar antsand-navbar-primary">
+                    <a href="#" class="antsand-navbar-brand">Primary Nav</a>
+                    <ul class="antsand-navbar-nav">
+                        <li><a href="#" class="antsand-navbar-item">Dashboard</a></li>
+                        <li><a href="#" class="antsand-navbar-item">Settings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- DROPDOWN SECTION -->
+    <div class="component-category" id="dropdown">
+        <h2>📋 Dropdown</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Dropdown Menu</div>
+            <div class="demo-description">Dropdown component with auto-close</div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-gap-3">
+                    <div class="antsand-dropdown">
+                        <button class="antsand-dropdown-toggle">
+                            Actions Menu
+                        </button>
+                        <div class="antsand-dropdown-menu">
+                            <div class="antsand-dropdown-header">Quick Actions</div>
+                            <a href="#" class="antsand-dropdown-item">Edit</a>
+                            <a href="#" class="antsand-dropdown-item active">Share</a>
+                            <a href="#" class="antsand-dropdown-item">Download</a>
+                            <div class="antsand-dropdown-divider"></div>
+                            <a href="#" class="antsand-dropdown-item">Delete</a>
+                        </div>
+                    </div>
+
+                    <div class="antsand-dropdown">
+                        <button class="antsand-dropdown-toggle">
+                            Right Aligned
+                        </button>
+                        <div class="antsand-dropdown-menu antsand-dropdown-menu-right">
+                            <a href="#" class="antsand-dropdown-item">Option 1</a>
+                            <a href="#" class="antsand-dropdown-item">Option 2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ALERT SECTION -->
+    <div class="component-category" id="alert">
+        <h2>⚠️ Alert</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Alert Messages</div>
+            <div class="demo-description">Notification alerts with dismissible option</div>
+            <div class="demo-preview">
+                <div class="antsand-alert antsand-alert-primary">
+                    <span class="antsand-alert-icon">ℹ</span>
+                    <div class="antsand-alert-content">
+                        <strong>Info!</strong> This is a primary alert message.
+                    </div>
+                </div>
+
+                <div class="antsand-alert antsand-alert-success">
+                    <span class="antsand-alert-icon">✓</span>
+                    <div class="antsand-alert-content">
+                        <strong>Success!</strong> Your action was completed successfully.
+                    </div>
+                    <button class="antsand-alert-close">&times;</button>
+                </div>
+
+                <div class="antsand-alert antsand-alert-warning">
+                    <span class="antsand-alert-icon">⚠</span>
+                    <div class="antsand-alert-content">
+                        <strong>Warning!</strong> Please review this important message.
+                    </div>
+                    <button class="antsand-alert-close">&times;</button>
+                </div>
+
+                <div class="antsand-alert antsand-alert-danger">
+                    <span class="antsand-alert-icon">✕</span>
+                    <div class="antsand-alert-content">
+                        <strong>Error!</strong> Something went wrong. Please try again.
+                    </div>
+                    <button class="antsand-alert-close">&times;</button>
+                </div>
+
+                <div class="antsand-alert antsand-alert-info">
+                    <span class="antsand-alert-icon">💡</span>
+                    <div class="antsand-alert-content">
+                        Did you know? Click the × button to dismiss alerts.
+                    </div>
+                    <button class="antsand-alert-close">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BADGE SECTION -->
+    <div class="component-category" id="badge">
+        <h2>🏷️ Badge</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Badge Labels</div>
+            <div class="demo-description">Small labels and count indicators</div>
+            <div class="demo-preview">
+                <div class="antsand-mb-4">
+                    <h4>Basic Badges</h4>
+                    <div class="antsand-flex antsand-flex-gap-2 antsand-mt-2" style="flex-wrap: wrap;">
+                        <span class="antsand-badge antsand-badge-primary">Primary</span>
+                        <span class="antsand-badge antsand-badge-secondary">Secondary</span>
+                        <span class="antsand-badge antsand-badge-success">Success</span>
+                        <span class="antsand-badge antsand-badge-danger">Danger</span>
+                        <span class="antsand-badge antsand-badge-warning">Warning</span>
+                        <span class="antsand-badge antsand-badge-info">Info</span>
+                    </div>
+                </div>
+
+                <div class="antsand-mb-4">
+                    <h4>Pill Badges</h4>
+                    <div class="antsand-flex antsand-flex-gap-2 antsand-mt-2" style="flex-wrap: wrap;">
+                        <span class="antsand-badge antsand-badge-primary antsand-badge-pill">New</span>
+                        <span class="antsand-badge antsand-badge-success antsand-badge-pill">Active</span>
+                        <span class="antsand-badge antsand-badge-danger antsand-badge-pill">5</span>
+                    </div>
+                </div>
+
+                <div class="antsand-mb-4">
+                    <h4>Outline Badges</h4>
+                    <div class="antsand-flex antsand-flex-gap-2 antsand-mt-2" style="flex-wrap: wrap;">
+                        <span class="antsand-badge antsand-badge-outline-primary">Outline</span>
+                        <span class="antsand-badge antsand-badge-outline-success">Outline</span>
+                        <span class="antsand-badge antsand-badge-outline-danger">Outline</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4>Notification Badge</h4>
+                    <button class="antsand-btn antsand-btn-primary antsand-mt-2" style="position: relative;">
+                        Notifications
+                        <span class="antsand-badge antsand-badge-dot antsand-badge-danger antsand-badge-notification"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BREADCRUMB SECTION -->
+    <div class="component-category" id="breadcrumb">
+        <h2>🍞 Breadcrumb</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Breadcrumb Navigation</div>
+            <div class="demo-description">Navigation breadcrumb trail with custom separators</div>
+            <div class="demo-preview">
+                <div class="antsand-mb-4">
+                    <h4>Default Separator (/)</h4>
+                    <nav class="antsand-breadcrumb">
+                        <div class="antsand-breadcrumb-item">
+                            <a href="#">Home</a>
+                        </div>
+                        <div class="antsand-breadcrumb-item">
+                            <a href="#">Library</a>
+                        </div>
+                        <div class="antsand-breadcrumb-item active">
+                            Data
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="antsand-mb-4">
+                    <h4>Arrow Separator (›)</h4>
+                    <nav class="antsand-breadcrumb antsand-breadcrumb-separator-arrow">
+                        <div class="antsand-breadcrumb-item">
+                            <a href="#">Dashboard</a>
+                        </div>
+                        <div class="antsand-breadcrumb-item">
+                            <a href="#">Projects</a>
+                        </div>
+                        <div class="antsand-breadcrumb-item active">
+                            Settings
+                        </div>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4>Chevron Separator (»)</h4>
+                    <nav class="antsand-breadcrumb antsand-breadcrumb-separator-chevron">
+                        <div class="antsand-breadcrumb-item">
+                            <a href="#">App</a>
+                        </div>
+                        <div class="antsand-breadcrumb-item">
+                            <a href="#">Components</a>
+                        </div>
+                        <div class="antsand-breadcrumb-item active">
+                            Breadcrumb
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID SECTION -->
+    <div class="component-category" id="grid">
+        <h2>📐 Grid System</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">CSS Grid Layout</div>
+            <div class="demo-description">Modern CSS Grid (no float!)</div>
+            <div class="demo-preview">
+                <h4 class="antsand-mb-3">Fixed Column Grid</h4>
+                <div class="antsand-grid antsand-grid-3 antsand-gap-3 antsand-mb-5">
+                    <div style="background: #3498db; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Column 1</div>
+                    <div style="background: #3498db; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Column 2</div>
+                    <div style="background: #3498db; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Column 3</div>
+                </div>
+
+                <h4 class="antsand-mb-3">Auto-Responsive Grid (no media queries!)</h4>
+                <div class="antsand-grid antsand-grid-auto antsand-gap-3">
+                    <div style="background: #27ae60; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Auto 1</div>
+                    <div style="background: #27ae60; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Auto 2</div>
+                    <div style="background: #27ae60; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Auto 3</div>
+                    <div style="background: #27ae60; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Auto 4</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Flexbox Utilities</div>
+            <div class="demo-description">Flexible box layouts</div>
+            <div class="demo-preview">
+                <h4 class="antsand-mb-2">Space Between</h4>
+                <div class="antsand-flex antsand-flex-between antsand-mb-4" style="background: #ecf0f1; padding: 1rem; border-radius: 4px;">
+                    <div>Left Content</div>
+                    <div>Right Content</div>
+                </div>
+
+                <h4 class="antsand-mb-2">Centered</h4>
+                <div class="antsand-flex antsand-flex-center" style="background: #ecf0f1; padding: 2rem; border-radius: 4px; min-height: 100px;">
+                    <div>Centered Content</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTAINER & SECTIONS -->
+    <div class="component-category" id="container">
+        <h2>📦 Container & Sections</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Container</div>
+            <div class="demo-description">Responsive container with max-width breakpoints</div>
+            <div class="demo-preview">
+                <div class="antsand-container" style="background: #e9ecef; padding: 2rem; border-radius: 4px;">
+                    <p>This content is in a responsive container with max-width breakpoints.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section" id="sections">
+            <div class="demo-title">Section Wrappers</div>
+            <div class="demo-description">Vertical spacing wrappers with background variants</div>
+            <div class="demo-preview">
+                <section class="antsand-section antsand-section-light antsand-mb-3">
+                    <div class="antsand-container">
+                        <h3>Light Section</h3>
+                        <p>Section with light background and standard padding.</p>
+                    </div>
+                </section>
+
+                <section class="antsand-section antsand-section-dark antsand-mb-3">
+                    <div class="antsand-container">
+                        <h3>Dark Section</h3>
+                        <p>Section with dark background and white text.</p>
+                    </div>
+                </section>
+
+                <section class="antsand-section antsand-section-primary">
+                    <div class="antsand-container">
+                        <h3>Primary Section</h3>
+                        <p>Section with primary color background.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO PATTERN -->
+    <div class="component-category" id="hero">
+        <h2>🦸 Hero Patterns</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Hero Sections</div>
+            <div class="demo-description">Large banner sections for landing pages</div>
+            <div class="demo-preview">
+                <section class="antsand-hero antsand-hero-gradient antsand-mb-5">
+                    <div class="antsand-container">
+                        <h1 class="antsand-hero-title">Welcome to ANTSAND</h1>
+                        <p class="antsand-hero-subtitle">Build amazing websites with modern CSS and semantic classes</p>
+                        <div class="antsand-hero-cta">
+                            <button class="antsand-btn antsand-btn-light antsand-btn-lg">Get Started</button>
+                            <button class="antsand-btn antsand-btn-outline-primary antsand-btn-lg" style="background: transparent; color: white; border-color: white;">Learn More</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="antsand-hero-split">
+                    <div class="antsand-container">
+                        <div class="antsand-hero-content">
+                            <h1 class="antsand-hero-title" style="color: #2c3e50;">Split Hero Layout</h1>
+                            <p class="antsand-hero-subtitle" style="color: #6c757d;">Image and text side by side for better visual impact</p>
+                            <div class="antsand-hero-cta">
+                                <button class="antsand-btn antsand-btn-primary antsand-btn-lg">Try It Now</button>
+                            </div>
+                        </div>
+                        <div class="antsand-hero-image">
+                            <img src="https://via.placeholder.com/600x400" alt="Hero" style="width: 100%; border-radius: 8px;">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES PATTERN -->
+    <div class="component-category" id="features">
+        <h2>⭐ Features Pattern</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Feature Grids</div>
+            <div class="demo-description">Showcase product features with icons</div>
+            <div class="demo-preview">
+                <h3 class="antsand-text-center antsand-mb-5">Our Amazing Features</h3>
+                <section class="antsand-features antsand-features-cards">
+                    <div class="antsand-feature-item">
+                        <div class="antsand-feature-icon antsand-feature-icon-circle antsand-feature-icon-primary">🚀</div>
+                        <h3 class="antsand-feature-title">Fast Performance</h3>
+                        <p class="antsand-feature-desc">Lightning-fast load times with optimized CSS and minimal JavaScript.</p>
+                    </div>
+
+                    <div class="antsand-feature-item">
+                        <div class="antsand-feature-icon antsand-feature-icon-circle antsand-feature-icon-success">🔒</div>
+                        <h3 class="antsand-feature-title">Secure by Default</h3>
+                        <p class="antsand-feature-desc">Built with security best practices and regular updates.</p>
+                    </div>
+
+                    <div class="antsand-feature-item">
+                        <div class="antsand-feature-icon antsand-feature-icon-circle antsand-feature-icon-warning">📱</div>
+                        <h3 class="antsand-feature-title">Fully Responsive</h3>
+                        <p class="antsand-feature-desc">Works perfectly on all devices from mobile to desktop.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRICING PATTERN -->
+    <div class="component-category" id="pricing">
+        <h2>💰 Pricing Pattern</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Pricing Tables</div>
+            <div class="demo-description">Pricing plans with highlighted option</div>
+            <div class="demo-preview">
+                <h3 class="antsand-text-center antsand-mb-5">Choose Your Plan</h3>
+                <section class="antsand-pricing">
+                    <div class="antsand-pricing-card">
+                        <div class="antsand-pricing-header">
+                            <h3>Basic</h3>
+                            <p>For individuals</p>
+                        </div>
+                        <div class="antsand-pricing-price">
+                            <div class="price">
+                                <span class="currency">$</span>9<span class="period">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="antsand-pricing-features">
+                            <li>5 Projects</li>
+                            <li>10GB Storage</li>
+                            <li>Basic Support</li>
+                            <li class="disabled">Advanced Analytics</li>
+                            <li class="disabled">Priority Support</li>
+                        </ul>
+                        <button class="antsand-btn antsand-btn-outline-primary antsand-pricing-cta">Choose Plan</button>
+                    </div>
+
+                    <div class="antsand-pricing-card antsand-pricing-highlight">
+                        <span class="antsand-pricing-badge">Popular</span>
+                        <div class="antsand-pricing-header">
+                            <h3>Pro</h3>
+                            <p>For professionals</p>
+                        </div>
+                        <div class="antsand-pricing-price">
+                            <div class="price">
+                                <span class="currency">$</span>29<span class="period">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="antsand-pricing-features">
+                            <li>Unlimited Projects</li>
+                            <li>100GB Storage</li>
+                            <li>Priority Support</li>
+                            <li>Advanced Analytics</li>
+                            <li>Custom Domain</li>
+                        </ul>
+                        <button class="antsand-btn antsand-btn-primary antsand-pricing-cta">Choose Plan</button>
+                    </div>
+
+                    <div class="antsand-pricing-card">
+                        <div class="antsand-pricing-header">
+                            <h3>Enterprise</h3>
+                            <p>For organizations</p>
+                        </div>
+                        <div class="antsand-pricing-price">
+                            <div class="price">
+                                <span class="currency">$</span>99<span class="period">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="antsand-pricing-features">
+                            <li>Unlimited Everything</li>
+                            <li>1TB Storage</li>
+                            <li>24/7 Support</li>
+                            <li>Advanced Analytics</li>
+                            <li>API Access</li>
+                        </ul>
+                        <button class="antsand-btn antsand-btn-outline-primary antsand-pricing-cta">Contact Sales</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER PATTERN -->
+    <div class="component-category" id="footer">
+        <h2>🦶 Footer Pattern</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Footer Layout</div>
+            <div class="demo-description">Multi-column footer with social links</div>
+            <div class="demo-preview">
+                <footer class="antsand-footer">
+                    <div class="antsand-container">
+                        <div class="antsand-footer-grid">
+                            <div class="antsand-footer-column">
+                                <h4>ANTSAND</h4>
+                                <p>Building amazing products with modern CSS and semantic design principles.</p>
+                                <div class="antsand-footer-social">
+                                    <a href="#">FB</a>
+                                    <a href="#">TW</a>
+                                    <a href="#">IG</a>
+                                    <a href="#">GH</a>
+                                </div>
+                            </div>
+
+                            <div class="antsand-footer-column">
+                                <h4>Product</h4>
+                                <ul class="antsand-footer-links">
+                                    <li><a href="#">Features</a></li>
+                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Updates</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="antsand-footer-column">
+                                <h4>Company</h4>
+                                <ul class="antsand-footer-links">
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="antsand-footer-column">
+                                <h4>Resources</h4>
+                                <ul class="antsand-footer-links">
+                                    <li><a href="#">Community</a></li>
+                                    <li><a href="#">Support</a></li>
+                                    <li><a href="#">API</a></li>
+                                    <li><a href="#">Status</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="antsand-footer-bottom">
+                            <p class="antsand-footer-copyright">© 2024 ANTSAND. All rights reserved.</p>
+                            <ul class="antsand-footer-bottom-links">
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Cookies</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!-- UTILITIES SECTION -->
+    <div class="component-category" id="utilities">
+        <h2>🛠️ Utility Classes</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Text Utilities</div>
+            <div class="demo-description">Text alignment, colors, sizes, and weights</div>
+            <div class="demo-preview">
+                <div class="antsand-mb-4">
+                    <p class="antsand-text-left">Left aligned text</p>
+                    <p class="antsand-text-center">Center aligned text</p>
+                    <p class="antsand-text-right">Right aligned text</p>
+                </div>
+
+                <div class="antsand-mb-4">
+                    <p class="antsand-text-primary">Primary color text</p>
+                    <p class="antsand-text-success">Success color text</p>
+                    <p class="antsand-text-danger">Danger color text</p>
+                    <p class="antsand-text-muted">Muted text</p>
+                </div>
+
+                <div class="antsand-mb-4">
+                    <p class="antsand-text-sm">Small text</p>
+                    <p class="antsand-text-base">Base text</p>
+                    <p class="antsand-text-lg">Large text</p>
+                    <p class="antsand-text-2xl">2XL text</p>
+                </div>
+
+                <div>
+                    <p class="antsand-text-normal">Normal weight</p>
+                    <p class="antsand-text-semibold">Semibold weight</p>
+                    <p class="antsand-text-bold">Bold weight</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Spacing Utilities</div>
+            <div class="demo-description">Margin and padding utilities (0-8 scale)</div>
+            <div class="demo-preview">
+                <div style="background: #ecf0f1; padding: 1rem; margin-bottom: 1rem;">
+                    <div class="antsand-m-3" style="background: #3498db; color: white; padding: 1rem;">
+                        Margin 3 (1rem) all sides
+                    </div>
+                </div>
+
+                <div style="background: #ecf0f1; padding: 1rem; margin-bottom: 1rem;">
+                    <div class="antsand-mt-4 antsand-mb-2" style="background: #27ae60; color: white; padding: 1rem;">
+                        Margin top 4, Margin bottom 2
+                    </div>
+                </div>
+
+                <div style="background: #ecf0f1;">
+                    <div class="antsand-p-5" style="background: #e74c3c; color: white;">
+                        Padding 5 (2rem) all sides
+                    </div>
+                </div>
+            </div>
+            <div class="demo-code"><!-- Margin -->
+&lt;div class="antsand-m-3"&gt;Margin all sides&lt;/div&gt;
+&lt;div class="antsand-mt-4"&gt;Margin top&lt;/div&gt;
+&lt;div class="antsand-mb-2"&gt;Margin bottom&lt;/div&gt;
+
+<!-- Padding -->
+&lt;div class="antsand-p-5"&gt;Padding all sides&lt;/div&gt;
+&lt;div class="antsand-pt-3"&gt;Padding top&lt;/div&gt;</div>
+        </div>
+
+        <div class="demo-section">
+            <div class="demo-title">Display, Width, Background Utilities</div>
+            <div class="demo-description">Display types, widths, backgrounds, borders, shadows</div>
+            <div class="demo-preview">
+                <div class="antsand-mb-4">
+                    <div class="antsand-d-block antsand-bg-primary antsand-text-white antsand-p-2 antsand-mb-2 antsand-rounded">Block display with primary background</div>
+                    <div class="antsand-d-flex antsand-bg-success antsand-text-white antsand-p-2 antsand-rounded">Flex display with success background</div>
+                </div>
+
+                <div class="antsand-mb-4">
+                    <div class="antsand-w-25 antsand-bg-secondary antsand-p-2 antsand-mb-2 antsand-rounded" style="color: white;">25% width</div>
+                    <div class="antsand-w-50 antsand-bg-secondary antsand-p-2 antsand-mb-2 antsand-rounded" style="color: white;">50% width</div>
+                    <div class="antsand-w-100 antsand-bg-secondary antsand-p-2 antsand-rounded" style="color: white;">100% width</div>
+                </div>
+
+                <div>
+                    <div class="antsand-border antsand-rounded antsand-p-3 antsand-mb-2">Border with rounded corners</div>
+                    <div class="antsand-shadow-lg antsand-rounded antsand-p-3 antsand-bg-white">Large shadow</div>
+                </div>
+            </div>
+            <div class="demo-code"><!-- Display & Background -->
+&lt;div class="antsand-d-block antsand-bg-primary"&gt;Block&lt;/div&gt;
+&lt;div class="antsand-d-flex antsand-bg-success"&gt;Flex&lt;/div&gt;
+
+<!-- Width -->
+&lt;div class="antsand-w-50"&gt;50% width&lt;/div&gt;
+
+<!-- Border & Shadow -->
+&lt;div class="antsand-border antsand-rounded"&gt;Bordered&lt;/div&gt;
+&lt;div class="antsand-shadow-lg"&gt;Shadow&lt;/div&gt;</div>
+        </div>
+    </div>
+
+    <!-- JavaScript Info -->
+    <div class="component-category" style="margin-bottom: 4rem;">
+        <h2>⚡ JavaScript Integration</h2>
+
+        <div class="demo-section">
+            <div class="demo-title">Auto-Initialization</div>
+            <div class="demo-description">All interactive components work automatically when you include antsand.js</div>
+            <div class="demo-preview">
+                <div class="antsand-alert antsand-alert-info">
+                    <span class="antsand-alert-icon">💡</span>
+                    <div class="antsand-alert-content">
+                        <strong>Quick Start:</strong>
+                        <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                            <li>Include the CSS: <code>&lt;link rel="stylesheet" href="/builds/production/css/antsand-v2/antsand.css"&gt;</code></li>
+                            <li>Include the JS: <code>&lt;script src="/path/to/antsand.js"&gt;&lt;/script&gt;</code></li>
+                            <li>Components auto-initialize on page load!</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="antsand-card antsand-card-shadow antsand-mt-4">
+                    <h4 class="antsand-mb-3">Manual Initialization (Optional)</h4>
+                    <pre style="background: #2d2d2d; color: #f8f9fa; padding: 1rem; border-radius: 4px; overflow-x: auto;"><code>// Initialize all components
+Antsand.init();
+
+// Or initialize specific components
+Antsand.accordion.init();
+Antsand.tabs.init();
+Antsand.modal.init();
+Antsand.navbar.init();
+Antsand.dropdown.init();
+Antsand.alert.init();
+
+// With custom selectors
+Antsand.accordion.init('.my-custom-accordion');</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modals (referenced above) -->
+<div class="antsand-modal" id="demoModal">
+    <div class="antsand-modal-dialog">
+        <div class="antsand-modal-header">
+            <h3>Demo Modal</h3>
+            <button class="antsand-modal-close" data-modal-close>&times;</button>
+        </div>
+        <div class="antsand-modal-body">
+            <p>This is a demo modal dialog. You can put any content here including forms, images, or text.</p>
+            <p>Click outside the modal, press ESC, or click the close button to dismiss.</p>
+        </div>
+        <div class="antsand-modal-footer">
+            <button class="antsand-btn antsand-btn-secondary" data-modal-close>Close</button>
+            <button class="antsand-btn antsand-btn-primary">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+<div class="antsand-modal antsand-modal-sm" id="smallModal">
+    <div class="antsand-modal-dialog">
+        <div class="antsand-modal-header">
+            <h3>Small Modal</h3>
+            <button class="antsand-modal-close" data-modal-close>&times;</button>
+        </div>
+        <div class="antsand-modal-body">
+            <p>This is a small modal (400px max-width).</p>
+        </div>
+        <div class="antsand-modal-footer">
+            <button class="antsand-btn antsand-btn-primary" data-modal-close>OK</button>
+        </div>
+    </div>
+</div>
+
+<div class="antsand-modal antsand-modal-lg" id="largeModal">
+    <div class="antsand-modal-dialog">
+        <div class="antsand-modal-header">
+            <h3>Large Modal</h3>
+            <button class="antsand-modal-close" data-modal-close>&times;</button>
+        </div>
+        <div class="antsand-modal-body">
+            <p>This is a large modal (800px max-width). Perfect for forms or detailed content.</p>
+            <form>
+                <div class="antsand-form-group">
+                    <label class="antsand-form-label">Name</label>
+                    <input type="text" class="antsand-form-control">
+                </div>
+                <div class="antsand-form-group">
+                    <label class="antsand-form-label">Email</label>
+                    <input type="email" class="antsand-form-control">
+                </div>
+                <div class="antsand-form-group">
+                    <label class="antsand-form-label">Message</label>
+                    <textarea class="antsand-form-control" rows="4"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="antsand-modal-footer">
+            <button class="antsand-btn antsand-btn-secondary" data-modal-close>Cancel</button>
+            <button class="antsand-btn antsand-btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- Include JavaScript -->
+<script src="/builds/production/css/antsand-v2/antsand.js"></script>
+
+</body>
+</html>

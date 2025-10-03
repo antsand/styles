@@ -1,0 +1,85 @@
+// ============================================
+// ANTSAND Styles v2 - Buttons
+// Consistent button styles (NOT Tailwind chaos)
+// ============================================
+
+.antsand-btn {
+    @include antsand-btn-base;
+    padding: $antsand-space-2 $antsand-space-4;
+    font-size: $antsand-font-size-base;
+    border-radius: $antsand-radius-md;
+
+    // Sizes (consistent, not arbitrary!)
+    &-sm {
+        padding: $antsand-space-1 $antsand-space-3;
+        font-size: $antsand-font-size-sm;
+    }
+
+    &-lg {
+        padding: $antsand-space-3 $antsand-space-5;
+        font-size: $antsand-font-size-lg;
+    }
+
+    // Variants
+    &-primary {
+        @include antsand-btn-variant($antsand-primary);
+    }
+
+    &-secondary {
+        @include antsand-btn-variant($antsand-secondary);
+    }
+
+    &-success {
+        @include antsand-btn-variant($antsand-success);
+    }
+
+    &-danger {
+        @include antsand-btn-variant($antsand-danger);
+    }
+
+    &-warning {
+        @include antsand-btn-variant($antsand-warning);
+    }
+
+    &-light {
+        @include antsand-btn-variant($antsand-light, $antsand-gray-900);
+    }
+
+    &-dark {
+        @include antsand-btn-variant($antsand-dark);
+    }
+
+    // Outline variants
+    &-outline-primary {
+        background: transparent;
+        color: $antsand-primary;
+        border-color: $antsand-primary;
+
+        &:hover:not(:disabled) {
+            background: $antsand-primary;
+            color: white;
+        }
+    }
+
+    &-outline-secondary {
+        background: transparent;
+        color: $antsand-secondary;
+        border-color: $antsand-secondary;
+
+        &:hover:not(:disabled) {
+            background: $antsand-secondary;
+            color: white;
+        }
+    }
+
+    // Block button
+    &-block {
+        display: flex;
+        width: 100%;
+    }
+
+    // Pill shape
+    &-pill {
+        border-radius: $antsand-radius-full;
+    }
+}

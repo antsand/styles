@@ -1,0 +1,110 @@
+// ============================================
+// ANTSAND Styles v2 - Forms
+// Form elements (consistent styling)
+// ============================================
+
+.antsand-form-group {
+    margin-bottom: $antsand-space-4;
+}
+
+.antsand-form-label {
+    display: block;
+    margin-bottom: $antsand-space-2;
+    font-weight: $antsand-font-weight-medium;
+    color: $antsand-gray-900;
+}
+
+.antsand-form-control {
+    display: block;
+    width: 100%;
+    padding: $antsand-space-2 $antsand-space-3;
+    font-size: $antsand-font-size-base;
+    line-height: $antsand-line-height-normal;
+    color: $antsand-gray-900;
+    background-color: white;
+    border: 1px solid $antsand-gray-300;
+    border-radius: $antsand-radius-md;
+    transition: border-color $antsand-transition-base;
+
+    &:focus {
+        outline: none;
+        border-color: $antsand-primary;
+        box-shadow: 0 0 0 3px rgba($antsand-primary, 0.1);
+    }
+
+    &::placeholder {
+        color: $antsand-gray-500;
+    }
+
+    &:disabled {
+        background-color: $antsand-gray-100;
+        cursor: not-allowed;
+    }
+}
+
+textarea.antsand-form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.antsand-form-select {
+    @extend .antsand-form-control;
+    cursor: pointer;
+}
+
+.antsand-form-check {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    margin-bottom: $antsand-space-2;
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        width: 1.125rem;
+        height: 1.125rem;
+        cursor: pointer;
+    }
+
+    label {
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+.antsand-form-text {
+    display: block;
+    margin-top: $antsand-space-1;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-gray-600;
+}
+
+// Validation states
+.antsand-form-control.is-invalid {
+    border-color: $antsand-danger;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($antsand-danger, 0.1);
+    }
+}
+
+.antsand-form-control.is-valid {
+    border-color: $antsand-success;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($antsand-success, 0.1);
+    }
+}
+
+.antsand-invalid-feedback {
+    display: block;
+    margin-top: $antsand-space-1;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-danger;
+}
+
+.antsand-valid-feedback {
+    display: block;
+    margin-top: $antsand-space-1;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-success;
+}

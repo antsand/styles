@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTSAND v2 - Layout Transformations Demo</title>
+    <link rel="stylesheet" href="/builds/production/css/antsand-v2/antsand.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        .demo-header {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2.5rem;
+        }
+
+        .demo-header p {
+            margin: 0;
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        .demo-nav {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem;
+        }
+
+        .demo-nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .demo-nav button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .demo-nav button:hover {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .demo-nav button.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .demo-section {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .demo-card-header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .demo-card-header h2 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+
+        .demo-card-header p {
+            margin: 0;
+            opacity: 0.8;
+            font-size: 0.875rem;
+        }
+
+        .demo-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .demo-svg {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-svg img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .demo-svg p {
+            margin: 1rem 0 0 0;
+            font-size: 0.875rem;
+            color: #7f8c8d;
+        }
+
+        .demo-code {
+            padding: 2rem;
+            background: #282c34;
+            color: #abb2bf;
+            overflow-x: auto;
+        }
+
+        .demo-code h3 {
+            margin: 0 0 1rem 0;
+            color: #61dafb;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .demo-code pre {
+            margin: 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .demo-code .key {
+            color: #e06c75;
+        }
+
+        .demo-code .string {
+            color: #98c379;
+        }
+
+        .demo-code .comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+
+        .demo-preview {
+            padding: 2rem;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .demo-preview h3 {
+            margin: 0 0 1.5rem 0;
+            font-size: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .pattern-hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .demo-split {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-svg {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="demo-header">
+        <h1>ANTSAND v2 Layout Transformations</h1>
+        <p>Same HTML Structure + Different CSS = Infinite Designs</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="demo-nav">
+        <div class="demo-nav-inner">
+            <button onclick="filterPatterns('all')" class="active">All Patterns</button>
+            <button onclick="filterPatterns('hero')">Hero Sections</button>
+            <button onclick="filterPatterns('features')">Features</button>
+            <button onclick="filterPatterns('content')">Content Layouts</button>
+            <button onclick="filterPatterns('cards')">Cards & Grids</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="demo-section">
+
+        <!-- Pattern 1: Hero Centered -->
+        <div class="demo-card pattern-card" data-pattern="hero">
+            <div class="demo-card-header">
+                <h2>Pattern 1: Hero Centered</h2>
+                <p>Full-width hero section with centered content and CTA</p>
+            </div>
+            <div class="demo-split">
+                <div class="demo-svg">
+                    <img src="/builds/production/images/concept2design/intro-1.svg" alt="Hero Centered">
+                    <p><strong>Template:</strong> intro-1.svg</p>
+                </div>
+                <div class="demo-code">
+                    <h3>CSS Configuration</h3>
+                    <pre><code>{
+  <span class="key">"header"</span>: {
+    <span class="key">"section"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-hero antsand-hero-centered antsand-bg-primary"</span>
+    },
+    <span class="key">"container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-container antsand-text-center"</span>
+    },
+    <span class="key">"h1"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-text-4xl antsand-text-white antsand-mb-4"</span>
+    },
+    <span class="key">"h2"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-text-xl antsand-text-white antsand-mb-6"</span>
+    },
+    <span class="key">"cta"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-btn antsand-btn-light antsand-btn-lg"</span>
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+            <div class="demo-preview">
+                <h3>Live Preview</h3>
+                <section class="antsand-hero antsand-hero-centered antsand-bg-primary">
+                    <div class="antsand-container antsand-text-center">
+                        <h1 class="antsand-text-4xl antsand-text-white antsand-mb-4">Welcome to ANTSAND</h1>
+                        <h2 class="antsand-text-xl antsand-text-white antsand-mb-6">Build beautiful websites with property-driven design</h2>
+                        <button class="antsand-btn antsand-btn-light antsand-btn-lg">Get Started</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Pattern 2: Hero Split -->
+        <div class="demo-card pattern-card" data-pattern="hero">
+            <div class="demo-card-header">
+                <h2>Pattern 2: Hero Split (Text + Image)</h2>
+                <p>50/50 split layout with text on left, image on right</p>
+            </div>
+            <div class="demo-split">
+                <div class="demo-svg">
+                    <img src="/builds/production/images/concept2design/intro-3.svg" alt="Hero Split">
+                    <p><strong>Template:</strong> intro-3.svg</p>
+                </div>
+                <div class="demo-code">
+                    <h3>CSS Configuration</h3>
+                    <pre><code>{
+  <span class="key">"header"</span>: {
+    <span class="key">"column_count"</span>: { <span class="key">"count"</span>: 2, <span class="key">"flip"</span>: false },
+    <span class="key">"section"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-hero antsand-hero-split antsand-section"</span>
+    },
+    <span class="key">"container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-grid antsand-grid-2 antsand-flex-align-center"</span>
+    },
+    <span class="key">"h1"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-text-3xl antsand-mb-4"</span>
+    },
+    <span class="key">"media"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-w-100 antsand-rounded-lg antsand-shadow-lg"</span>
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+            <div class="demo-preview">
+                <h3>Live Preview</h3>
+                <section class="antsand-hero antsand-hero-split antsand-section">
+                    <div class="antsand-grid antsand-grid-2 antsand-flex-align-center">
+                        <div>
+                            <h1 class="antsand-text-3xl antsand-mb-4">Property-Driven Design</h1>
+                            <p class="antsand-text-lg antsand-mb-6">Build federated platforms with data-centric architecture. ANTSAND chooses the right database for each property type.</p>
+                            <button class="antsand-btn antsand-btn-primary">Learn More</button>
+                        </div>
+                        <div>
+                            <img src="/builds/production/images/concept2design/api_icon.svg" alt="Demo" class="antsand-w-100 antsand-rounded-lg antsand-shadow-lg">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Pattern 3: Feature Grid -->
+        <div class="demo-card pattern-card" data-pattern="features">
+            <div class="demo-card-header">
+                <h2>Pattern 3: Feature Grid (3 Columns)</h2>
+                <p>Icon-based feature cards in a responsive grid</p>
+            </div>
+            <div class="demo-split">
+                <div class="demo-svg">
+                    <img src="/builds/production/images/concept2design/features-1.svg" alt="Feature Grid">
+                    <p><strong>Template:</strong> features-1.svg</p>
+                </div>
+                <div class="demo-code">
+                    <h3>CSS Configuration</h3>
+                    <pre><code>{
+  <span class="key">"data"</span>: {
+    <span class="key">"container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-grid antsand-grid-3 antsand-section"</span>
+    },
+    <span class="key">"sub_container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-card antsand-text-center antsand-p-5"</span>
+    },
+    <span class="key">"h3"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-text-xl antsand-mb-3"</span>
+    },
+    <span class="key">"p"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-text-base"</span>
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+            <div class="demo-preview">
+                <h3>Live Preview</h3>
+                <div class="antsand-text-center antsand-mb-8">
+                    <h2 class="antsand-text-3xl antsand-mb-3">Features</h2>
+                    <p class="antsand-text-lg antsand-text-muted">Powerful tools for modern development</p>
+                </div>
+                <div class="antsand-grid antsand-grid-3">
+                    <div class="antsand-card antsand-text-center antsand-p-5">
+                        <div class="antsand-mb-4">🚀</div>
+                        <h3 class="antsand-text-xl antsand-mb-3">Fast Performance</h3>
+                        <p class="antsand-text-base">Optimized for speed and efficiency</p>
+                    </div>
+                    <div class="antsand-card antsand-text-center antsand-p-5">
+                        <div class="antsand-mb-4">🎨</div>
+                        <h3 class="antsand-text-xl antsand-mb-3">Beautiful Design</h3>
+                        <p class="antsand-text-base">Modern and clean interface</p>
+                    </div>
+                    <div class="antsand-card antsand-text-center antsand-p-5">
+                        <div class="antsand-mb-4">🔒</div>
+                        <h3 class="antsand-text-xl antsand-mb-3">Secure</h3>
+                        <p class="antsand-text-base">Enterprise-grade security</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pattern 4: Pricing Cards -->
+        <div class="demo-card pattern-card" data-pattern="cards">
+            <div class="demo-card-header">
+                <h2>Pattern 4: Pricing Cards</h2>
+                <p>Highlighted pricing tiers with feature lists</p>
+            </div>
+            <div class="demo-split">
+                <div class="demo-svg">
+                    <img src="/builds/production/images/concept2design/pricing-1.svg" alt="Pricing">
+                    <p><strong>Template:</strong> pricing-1.svg</p>
+                </div>
+                <div class="demo-code">
+                    <h3>CSS Configuration</h3>
+                    <pre><code>{
+  <span class="key">"data"</span>: {
+    <span class="key">"container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-pricing-container antsand-grid antsand-grid-3"</span>
+    },
+    <span class="key">"sub_container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-pricing-card"</span>
+    },
+    <span class="key">"title"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-pricing-title"</span>
+    },
+    <span class="key">"cta"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-btn antsand-btn-primary antsand-btn-block"</span>
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+            <div class="demo-preview">
+                <h3>Live Preview</h3>
+                <div class="antsand-text-center antsand-mb-8">
+                    <h2 class="antsand-text-3xl antsand-mb-3">Pricing Plans</h2>
+                    <p class="antsand-text-lg antsand-text-muted">Choose the perfect plan for your needs</p>
+                </div>
+                <div class="antsand-pricing-container antsand-grid antsand-grid-3">
+                    <div class="antsand-pricing-card">
+                        <div class="antsand-pricing-title">Starter</div>
+                        <div class="antsand-pricing-price">$29<span>/mo</span></div>
+                        <ul class="antsand-pricing-features">
+                            <li>5 Projects</li>
+                            <li>Basic Support</li>
+                            <li>1GB Storage</li>
+                        </ul>
+                        <button class="antsand-btn antsand-btn-outline-primary antsand-btn-block">Choose Plan</button>
+                    </div>
+                    <div class="antsand-pricing-card antsand-pricing-card-highlighted">
+                        <div class="antsand-badge antsand-badge-success">Popular</div>
+                        <div class="antsand-pricing-title">Professional</div>
+                        <div class="antsand-pricing-price">$99<span>/mo</span></div>
+                        <ul class="antsand-pricing-features">
+                            <li>Unlimited Projects</li>
+                            <li>Priority Support</li>
+                            <li>50GB Storage</li>
+                        </ul>
+                        <button class="antsand-btn antsand-btn-primary antsand-btn-block">Choose Plan</button>
+                    </div>
+                    <div class="antsand-pricing-card">
+                        <div class="antsand-pricing-title">Enterprise</div>
+                        <div class="antsand-pricing-price">$299<span>/mo</span></div>
+                        <ul class="antsand-pricing-features">
+                            <li>Everything in Pro</li>
+                            <li>24/7 Support</li>
+                            <li>Unlimited Storage</li>
+                        </ul>
+                        <button class="antsand-btn antsand-btn-outline-primary antsand-btn-block">Choose Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pattern 5: Blog Grid -->
+        <div class="demo-card pattern-card" data-pattern="cards">
+            <div class="demo-card-header">
+                <h2>Pattern 5: Blog/News Grid</h2>
+                <p>Card-based blog layout with images and excerpts</p>
+            </div>
+            <div class="demo-split">
+                <div class="demo-svg">
+                    <img src="/builds/production/images/concept2design/blog-1.svg" alt="Blog Grid">
+                    <p><strong>Template:</strong> blog-1.svg</p>
+                </div>
+                <div class="demo-code">
+                    <h3>CSS Configuration</h3>
+                    <pre><code>{
+  <span class="key">"data"</span>: {
+    <span class="key">"container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-grid antsand-grid-3 antsand-section"</span>
+    },
+    <span class="key">"sub_container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-card antsand-overflow-hidden"</span>
+    },
+    <span class="key">"content_wrapper"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-p-5"</span>
+    },
+    <span class="key">"span"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-badge antsand-badge-primary"</span>
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+            <div class="demo-preview">
+                <h3>Live Preview</h3>
+                <div class="antsand-grid antsand-grid-3">
+                    <div class="antsand-card antsand-overflow-hidden">
+                        <img src="/builds/production/images/concept2design/concept2design_icon.svg" alt="Post" class="antsand-w-100">
+                        <div class="antsand-p-5">
+                            <span class="antsand-badge antsand-badge-primary antsand-mb-3">Technology</span>
+                            <h3 class="antsand-text-xl antsand-mb-3">Property-Driven Architecture</h3>
+                            <p class="antsand-text-base antsand-mb-4">Learn how ANTSAND uses data properties to choose the optimal database for each field...</p>
+                            <a href="#" class="antsand-btn antsand-btn-outline-primary">Read More</a>
+                        </div>
+                    </div>
+                    <div class="antsand-card antsand-overflow-hidden">
+                        <img src="/builds/production/images/concept2design/concept2design_icon.svg" alt="Post" class="antsand-w-100">
+                        <div class="antsand-p-5">
+                            <span class="antsand-badge antsand-badge-success antsand-mb-3">Conservation</span>
+                            <h3 class="antsand-text-xl antsand-mb-3">Earth's Nervous System</h3>
+                            <p class="antsand-text-base antsand-mb-4">Building monitoring infrastructure for conservation science with ANTSHIV Robotics...</p>
+                            <a href="#" class="antsand-btn antsand-btn-outline-primary">Read More</a>
+                        </div>
+                    </div>
+                    <div class="antsand-card antsand-overflow-hidden">
+                        <img src="/builds/production/images/concept2design/concept2design_icon.svg" alt="Post" class="antsand-w-100">
+                        <div class="antsand-p-5">
+                            <span class="antsand-badge antsand-badge-warning antsand-mb-3">Tutorial</span>
+                            <h3 class="antsand-text-xl antsand-mb-3">Getting Started with ANTSAND</h3>
+                            <p class="antsand-text-base antsand-mb-4">A beginner's guide to building federated platforms with ANTSAND framework...</p>
+                            <a href="#" class="antsand-btn antsand-btn-outline-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pattern 6: Alternating Content -->
+        <div class="demo-card pattern-card" data-pattern="content">
+            <div class="demo-card-header">
+                <h2>Pattern 6: Alternating Content Sections</h2>
+                <p>Image-text pairs that alternate left/right (flip: true)</p>
+            </div>
+            <div class="demo-split">
+                <div class="demo-svg">
+                    <img src="/builds/production/images/concept2design/about-2.svg" alt="Alternating">
+                    <p><strong>Template:</strong> about-2.svg</p>
+                </div>
+                <div class="demo-code">
+                    <h3>CSS Configuration</h3>
+                    <pre><code>{
+  <span class="key">"data"</span>: {
+    <span class="key">"column_count"</span>: { <span class="key">"count"</span>: 2, <span class="key">"flip"</span>: true },
+    <span class="key">"container"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-grid antsand-grid-2 antsand-mb-8"</span>
+    },
+    <span class="key">"img_src"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-rounded-lg antsand-shadow-md"</span>
+    },
+    <span class="key">"content_wrapper"</span>: {
+      <span class="key">"css_class"</span>: <span class="string">"antsand-p-5"</span>
+    }
+  }
+}</code></pre>
+                </div>
+            </div>
+            <div class="demo-preview">
+                <h3>Live Preview</h3>
+                <div class="antsand-section">
+                    <div class="antsand-grid antsand-grid-2 antsand-flex-align-center antsand-mb-8">
+                        <div>
+                            <img src="/builds/production/images/concept2design/api_icon.svg" alt="About" class="antsand-rounded-lg antsand-shadow-md antsand-w-100">
+                        </div>
+                        <div class="antsand-p-5">
+                            <h2 class="antsand-text-2xl antsand-mb-4">About ANTSAND</h2>
+                            <p class="antsand-text-base antsand-mb-4">ANTSAND is a property-driven federated platform builder. It analyzes your data properties and automatically chooses the optimal database for each field.</p>
+                            <button class="antsand-btn antsand-btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="antsand-grid antsand-grid-2 antsand-flex-align-center">
+                        <div class="antsand-p-5">
+                            <h2 class="antsand-text-2xl antsand-mb-4">Conservation Tech</h2>
+                            <p class="antsand-text-base antsand-mb-4">ANTSHIV Robotics builds hardware sensors for Earth's Nervous System - a conservation monitoring infrastructure.</p>
+                            <button class="antsand-btn antsand-btn-secondary">Explore</button>
+                        </div>
+                        <div>
+                            <img src="/builds/production/images/concept2design/api_icon.svg" alt="Conservation" class="antsand-rounded-lg antsand-shadow-md antsand-w-100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function filterPatterns(category) {
+            const cards = document.querySelectorAll('.pattern-card');
+            const buttons = document.querySelectorAll('.demo-nav button');
+
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Show/hide cards
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.remove('pattern-hidden');
+                } else {
+                    if (card.dataset.pattern === category) {
+                        card.classList.remove('pattern-hidden');
+                    } else {
+                        card.classList.add('pattern-hidden');
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

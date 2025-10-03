@@ -1,0 +1,126 @@
+// ============================================
+// ANTSAND Styles v2 - Modal
+// Overlay dialog component
+// ============================================
+
+.antsand-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $antsand-z-modal;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+
+    &.active {
+        display: flex;
+        animation: fadeIn $antsand-transition-base ease-out;
+    }
+}
+
+.antsand-modal-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    background-color: white;
+    border-radius: $antsand-radius-lg;
+    box-shadow: $antsand-shadow-xl;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp $antsand-transition-slow ease-out;
+
+    @include antsand-md {
+        width: 600px;
+    }
+}
+
+.antsand-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $antsand-space-4;
+    border-bottom: 1px solid $antsand-gray-200;
+
+    h3 {
+        margin: 0;
+        font-size: $antsand-font-size-xl;
+        font-weight: $antsand-font-weight-bold;
+    }
+}
+
+.antsand-modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: $antsand-radius-sm;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: $antsand-gray-600;
+    transition: all $antsand-transition-fast;
+
+    &:hover {
+        background-color: $antsand-gray-100;
+        color: $antsand-gray-900;
+    }
+}
+
+.antsand-modal-body {
+    flex: 1;
+    padding: $antsand-space-4;
+    overflow-y: auto;
+    color: $antsand-gray-700;
+    line-height: $antsand-line-height-relaxed;
+}
+
+.antsand-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: $antsand-space-2;
+    padding: $antsand-space-4;
+    border-top: 1px solid $antsand-gray-200;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Size variants
+.antsand-modal-sm .antsand-modal-dialog {
+    max-width: 400px;
+}
+
+.antsand-modal-lg .antsand-modal-dialog {
+    max-width: 800px;
+}
+
+.antsand-modal-xl .antsand-modal-dialog {
+    max-width: 1200px;
+}
+
+.antsand-modal-fullscreen .antsand-modal-dialog {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    border-radius: 0;
+}

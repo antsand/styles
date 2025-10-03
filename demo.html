@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTSAND Styles v2 - Demo & Reference</title>
+    <link rel="stylesheet" href="/builds/production/css/antsand-v2/antsand.css">
+    <style>
+        /* Demo page specific styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #212529;
+        }
+
+        .demo-section {
+            border: 2px dashed #dee2e6;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .demo-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #3498db;
+        }
+
+        .demo-description {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .demo-code {
+            background: #2d2d2d;
+            color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        .demo-preview {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+
+        .class-name {
+            background: #e9ecef;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #e74c3c;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background: #2c3e50;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: white;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .nav-menu a:hover {
+            background: #34495e;
+        }
+
+        .content-area {
+            margin-left: 270px;
+            padding: 2rem;
+            max-width: 1200px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Menu -->
+<nav class="nav-menu">
+    <h2 style="color: white; margin-bottom: 2rem;">ANTSAND v2</h2>
+    <a href="#layout">Layout & Grid</a>
+    <a href="#sections">Sections</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#forms">Forms</a>
+    <a href="#cards">Cards</a>
+    <a href="#typography">Typography</a>
+    <a href="#utilities">Utilities</a>
+    <a href="#templates">Template Examples</a>
+</nav>
+
+<!-- Main Content -->
+<div class="content-area">
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">ANTSAND Styles v2</h1>
+        <p style="font-size: 1.25rem; margin-bottom: 2rem;">Modern CSS library with Bootstrap philosophy, not Tailwind chaos</p>
+        <p style="font-size: 0.95rem; opacity: 0.9;">Semantic classes + utility helpers = Consistent, lightweight styling</p>
+    </div>
+
+    <!-- ========================================
+         LAYOUT & GRID
+    ========================================= -->
+    <section id="layout">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem;">Layout & Grid</h2>
+
+        <!-- Container -->
+        <div class="demo-section">
+            <div class="demo-title">Container</div>
+            <div class="demo-description">
+                Responsive container with max-width breakpoints: <span class="class-name">.antsand-container</span>
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-container" style="background: #e9ecef; padding: 2rem;">
+                    <p>This content is contained with responsive max-width. Resize browser to see breakpoints.</p>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="antsand-container"&gt;Content&lt;/div&gt;</div>
+        </div>
+
+        <!-- Fluid Container -->
+        <div class="demo-section">
+            <div class="demo-title">Fluid Container</div>
+            <div class="demo-description">
+                Full-width container: <span class="class-name">.antsand-container-fluid</span>
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-container-fluid" style="background: #e9ecef; padding: 2rem;">
+                    <p>This content spans full width with padding.</p>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="antsand-container-fluid"&gt;Content&lt;/div&gt;</div>
+        </div>
+
+        <!-- CSS Grid -->
+        <div class="demo-section">
+            <div class="demo-title">CSS Grid (No Float!)</div>
+            <div class="demo-description">
+                Modern CSS Grid system: <span class="class-name">.antsand-grid</span> + <span class="class-name">.antsand-grid-[1-6]</span>
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-grid antsand-grid-3 antsand-gap-3">
+                    <div style="background: #3498db; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Column 1</div>
+                    <div style="background: #3498db; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Column 2</div>
+                    <div style="background: #3498db; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Column 3</div>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="antsand-grid antsand-grid-3 antsand-gap-3"&gt;
+  &lt;div&gt;Column 1&lt;/div&gt;
+  &lt;div&gt;Column 2&lt;/div&gt;
+  &lt;div&gt;Column 3&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Auto Grid -->
+        <div class="demo-section">
+            <div class="demo-title">Auto-Responsive Grid</div>
+            <div class="demo-description">
+                Grid that automatically wraps based on min-width (no media queries!): <span class="class-name">.antsand-grid-auto</span>
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-grid antsand-grid-auto antsand-gap-3">
+                    <div style="background: #27ae60; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Auto 1</div>
+                    <div style="background: #27ae60; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Auto 2</div>
+                    <div style="background: #27ae60; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Auto 3</div>
+                    <div style="background: #27ae60; color: white; padding: 2rem; text-align: center; border-radius: 4px;">Auto 4</div>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="antsand-grid antsand-grid-auto antsand-gap-3"&gt;
+  &lt;div&gt;Auto Item&lt;/div&gt;
+  ...
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Flexbox -->
+        <div class="demo-section">
+            <div class="demo-title">Flexbox Layouts</div>
+            <div class="demo-description">
+                Flexbox utilities: <span class="class-name">.antsand-flex</span>, <span class="class-name">.antsand-flex-between</span>, <span class="class-name">.antsand-flex-center</span>
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-between" style="background: #e9ecef; padding: 1rem; margin-bottom: 1rem; border-radius: 4px;">
+                    <div>Left Content</div>
+                    <div>Right Content</div>
+                </div>
+                <div class="antsand-flex antsand-flex-center" style="background: #e9ecef; padding: 1rem; height: 100px; border-radius: 4px;">
+                    <div>Centered Content</div>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="antsand-flex antsand-flex-between"&gt;
+  &lt;div&gt;Left&lt;/div&gt;
+  &lt;div&gt;Right&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="antsand-flex antsand-flex-center"&gt;
+  &lt;div&gt;Centered&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECTIONS
+    ========================================= -->
+    <section id="sections">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; margin-top: 4rem; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem;">Sections</h2>
+
+        <!-- Standard Section -->
+        <div class="demo-section">
+            <div class="demo-title">Section Wrappers</div>
+            <div class="demo-description">
+                Vertical spacing wrappers: <span class="class-name">.antsand-section</span>, <span class="class-name">.antsand-section-sm</span>, <span class="class-name">.antsand-section-lg</span>
+            </div>
+            <div class="demo-preview">
+                <section class="antsand-section" style="background: #f8f9fa;">
+                    <div class="antsand-container">
+                        <h3>Standard Section Padding</h3>
+                        <p>3rem padding (desktop), 4rem on larger screens</p>
+                    </div>
+                </section>
+            </div>
+            <div class="demo-code">&lt;section class="antsand-section"&gt;
+  &lt;div class="antsand-container"&gt;
+    Content
+  &lt;/div&gt;
+&lt;/section&gt;</div>
+        </div>
+
+        <!-- Background Variants -->
+        <div class="demo-section">
+            <div class="demo-title">Section Background Variants</div>
+            <div class="demo-description">
+                Pre-styled backgrounds: <span class="class-name">.antsand-section-light</span>, <span class="class-name">.antsand-section-dark</span>, <span class="class-name">.antsand-section-primary</span>
+            </div>
+            <div class="demo-preview">
+                <section class="antsand-section antsand-section-light">
+                    <div class="antsand-container">
+                        <h3>Light Section</h3>
+                        <p>Background: #f8f9fa</p>
+                    </div>
+                </section>
+                <section class="antsand-section antsand-section-dark">
+                    <div class="antsand-container">
+                        <h3>Dark Section</h3>
+                        <p>Background: #212529, Color: white</p>
+                    </div>
+                </section>
+                <section class="antsand-section antsand-section-primary">
+                    <div class="antsand-container">
+                        <h3>Primary Section</h3>
+                        <p>Background: #3498db, Color: white</p>
+                    </div>
+                </section>
+            </div>
+            <div class="demo-code">&lt;section class="antsand-section antsand-section-light"&gt;...&lt;/section&gt;
+&lt;section class="antsand-section antsand-section-dark"&gt;...&lt;/section&gt;
+&lt;section class="antsand-section antsand-section-primary"&gt;...&lt;/section&gt;</div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         BUTTONS
+    ========================================= -->
+    <section id="buttons">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; margin-top: 4rem; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem;">Buttons</h2>
+
+        <!-- Button Variants -->
+        <div class="demo-section">
+            <div class="demo-title">Button Variants</div>
+            <div class="demo-description">
+                Consistent button styles: <span class="class-name">.antsand-btn</span> + variant classes
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-gap-2" style="flex-wrap: wrap;">
+                    <button class="antsand-btn antsand-btn-primary">Primary</button>
+                    <button class="antsand-btn antsand-btn-secondary">Secondary</button>
+                    <button class="antsand-btn antsand-btn-success">Success</button>
+                    <button class="antsand-btn antsand-btn-danger">Danger</button>
+                    <button class="antsand-btn antsand-btn-warning">Warning</button>
+                    <button class="antsand-btn antsand-btn-light">Light</button>
+                    <button class="antsand-btn antsand-btn-dark">Dark</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;button class="antsand-btn antsand-btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-success"&gt;Success&lt;/button&gt;</div>
+        </div>
+
+        <!-- Button Sizes -->
+        <div class="demo-section">
+            <div class="demo-title">Button Sizes</div>
+            <div class="demo-description">
+                Size modifiers: <span class="class-name">.antsand-btn-sm</span>, default, <span class="class-name">.antsand-btn-lg</span>
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-gap-2" style="align-items: center;">
+                    <button class="antsand-btn antsand-btn-primary antsand-btn-sm">Small</button>
+                    <button class="antsand-btn antsand-btn-primary">Default</button>
+                    <button class="antsand-btn antsand-btn-primary antsand-btn-lg">Large</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;button class="antsand-btn antsand-btn-primary antsand-btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-primary"&gt;Default&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-primary antsand-btn-lg"&gt;Large&lt;/button&gt;</div>
+        </div>
+
+        <!-- Outline Buttons -->
+        <div class="demo-section">
+            <div class="demo-title">Outline Buttons</div>
+            <div class="demo-description">
+                Transparent background with border: <span class="class-name">.antsand-btn-outline-*</span>
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-flex antsand-flex-gap-2" style="flex-wrap: wrap;">
+                    <button class="antsand-btn antsand-btn-outline-primary">Outline Primary</button>
+                    <button class="antsand-btn antsand-btn-outline-secondary">Outline Secondary</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;button class="antsand-btn antsand-btn-outline-primary"&gt;Outline&lt;/button&gt;</div>
+        </div>
+
+        <!-- Block & Pill -->
+        <div class="demo-section">
+            <div class="demo-title">Block & Pill Buttons</div>
+            <div class="demo-description">
+                Full-width: <span class="class-name">.antsand-btn-block</span>, Rounded: <span class="class-name">.antsand-btn-pill</span>
+            </div>
+            <div class="demo-preview">
+                <button class="antsand-btn antsand-btn-primary antsand-btn-block" style="margin-bottom: 1rem;">Full Width Button</button>
+                <button class="antsand-btn antsand-btn-success antsand-btn-pill">Pill Button</button>
+            </div>
+            <div class="demo-code">&lt;button class="antsand-btn antsand-btn-primary antsand-btn-block"&gt;Block&lt;/button&gt;
+&lt;button class="antsand-btn antsand-btn-success antsand-btn-pill"&gt;Pill&lt;/button&gt;</div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FORMS
+    ========================================= -->
+    <section id="forms">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; margin-top: 4rem; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem;">Forms</h2>
+
+        <!-- Form Controls -->
+        <div class="demo-section">
+            <div class="demo-title">Form Controls</div>
+            <div class="demo-description">
+                Form inputs: <span class="class-name">.antsand-form-group</span>, <span class="class-name">.antsand-form-label</span>, <span class="class-name">.antsand-form-control</span>
+            </div>
+            <div class="demo-preview">
+                <form>
+                    <div class="antsand-form-group">
+                        <label class="antsand-form-label">Email Address</label>
+                        <input type="email" class="antsand-form-control" placeholder="you@example.com">
+                        <small class="antsand-form-text">We'll never share your email.</small>
+                    </div>
+                    <div class="antsand-form-group">
+                        <label class="antsand-form-label">Password</label>
+                        <input type="password" class="antsand-form-control" placeholder="Password">
+                    </div>
+                    <div class="antsand-form-group">
+                        <label class="antsand-form-label">Message</label>
+                        <textarea class="antsand-form-control" rows="4" placeholder="Your message..."></textarea>
+                    </div>
+                    <div class="antsand-form-check">
+                        <input type="checkbox" id="agree">
+                        <label for="agree">I agree to terms and conditions</label>
+                    </div>
+                    <button type="submit" class="antsand-btn antsand-btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="demo-code">&lt;div class="antsand-form-group"&gt;
+  &lt;label class="antsand-form-label"&gt;Email&lt;/label&gt;
+  &lt;input type="email" class="antsand-form-control" placeholder="you@example.com"&gt;
+  &lt;small class="antsand-form-text"&gt;Helper text&lt;/small&gt;
+&lt;/div&gt;</div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CARDS
+    ========================================= -->
+    <section id="cards">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; margin-top: 4rem; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem;">Cards</h2>
+
+        <!-- Basic Card -->
+        <div class="demo-section">
+            <div class="demo-title">Cards</div>
+            <div class="demo-description">
+                Card component: <span class="class-name">.antsand-card</span>, <span class="class-name">.antsand-card-shadow</span>
+            </div>
+            <div class="demo-preview">
+                <div class="antsand-grid antsand-grid-3 antsand-gap-3">
+                    <div class="antsand-card antsand-card-shadow">
+                        <h3 class="antsand-card-title">Card Title</h3>
+                        <p class="antsand-card-text">This is a card with shadow. Perfect for showcasing services or products.</p>
+                        <button class="antsand-btn antsand-btn-primary">Learn More</button>
+                    </div>
+                    <div class="antsand-card antsand-card-shadow">
+                        <h3 class="antsand-card-title">Another Card</h3>
+                        <p class="antsand-card-text">Cards can be used in grid layouts for consistent spacing.</p>
+                        <button class="antsand-btn antsand-btn-secondary">Read More</button>
+                    </div>
+                    <div class="antsand-card antsand-card-shadow">
+                        <h3 class="antsand-card-title">Third Card</h3>
+                        <p class="antsand-card-text">All cards have consistent padding and styling.</p>
+                        <button class="antsand-btn antsand-btn-success">Get Started</button>
+                    </div>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="antsand-card antsand-card-shadow"&gt;
+  &lt;h3 class="antsand-card-title"&gt;Card Title&lt;/h3&gt;
+  &lt;p class="antsand-card-text"&gt;Card description&lt;/p&gt;
+  &lt;button class="antsand-btn antsand-btn-primary"&gt;Action&lt;/button&gt;
+&lt;/div&gt;</div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         TEMPLATE EXAMPLES
+    ========================================= -->
+    <section id="templates">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; margin-top: 4rem; border-bottom: 3px solid #3498db; padding-bottom: 0.5rem;">Template Examples</h2>
+
+        <!-- Hero Centered -->
+        <div class="demo-section">
+            <div class="demo-title">Hero Centered Template</div>
+            <div class="demo-description">
+                Full example using: <span class="class-name">.antsand-section-primary</span> + centered content
+            </div>
+            <div class="demo-preview">
+                <section class="antsand-section antsand-section-primary" style="text-align: center;">
+                    <div class="antsand-container">
+                        <h1 style="font-size: 3rem; margin-bottom: 1rem;">Welcome to Our Service</h1>
+                        <p style="font-size: 1.25rem; margin-bottom: 2rem;">Build amazing websites with ANTSAND's modern CSS framework</p>
+                        <div class="antsand-flex antsand-flex-center antsand-flex-gap-2">
+                            <button class="antsand-btn antsand-btn-light antsand-btn-lg">Get Started</button>
+                            <button class="antsand-btn antsand-btn-outline-primary antsand-btn-lg" style="background: transparent; color: white; border-color: white;">Learn More</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="demo-code">&lt;section class="antsand-section antsand-section-primary" style="text-align: center;"&gt;
+  &lt;div class="antsand-container"&gt;
+    &lt;h1&gt;Welcome&lt;/h1&gt;
+    &lt;p&gt;Description&lt;/p&gt;
+    &lt;button class="antsand-btn antsand-btn-light antsand-btn-lg"&gt;CTA&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</div>
+        </div>
+
+        <!-- Card Grid Template -->
+        <div class="demo-section">
+            <div class="demo-title">Services Grid Template</div>
+            <div class="demo-description">
+                3-column service showcase using cards + grid
+            </div>
+            <div class="demo-preview">
+                <section class="antsand-section">
+                    <div class="antsand-container">
+                        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Our Services</h2>
+                        <div class="antsand-grid antsand-grid-3 antsand-gap-4">
+                            <div class="antsand-card antsand-card-shadow">
+                                <h3 class="antsand-card-title">Web Development</h3>
+                                <p class="antsand-card-text">Build responsive websites with modern frameworks and best practices.</p>
+                                <button class="antsand-btn antsand-btn-primary antsand-btn-block">Learn More</button>
+                            </div>
+                            <div class="antsand-card antsand-card-shadow">
+                                <h3 class="antsand-card-title">UI/UX Design</h3>
+                                <p class="antsand-card-text">Create beautiful user interfaces that delight your customers.</p>
+                                <button class="antsand-btn antsand-btn-primary antsand-btn-block">Learn More</button>
+                            </div>
+                            <div class="antsand-card antsand-card-shadow">
+                                <h3 class="antsand-card-title">Consulting</h3>
+                                <p class="antsand-card-text">Get expert advice on architecture and technology choices.</p>
+                                <button class="antsand-btn antsand-btn-primary antsand-btn-block">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Feature Alternating -->
+        <div class="demo-section">
+            <div class="demo-title">Feature Showcase Template</div>
+            <div class="demo-description">
+                Alternating image/text layout using flex
+            </div>
+            <div class="demo-preview">
+                <section class="antsand-section antsand-section-light">
+                    <div class="antsand-container">
+                        <div class="antsand-flex antsand-flex-gap-4" style="align-items: center; margin-bottom: 3rem;">
+                            <div style="flex: 1;">
+                                <div style="background: #dee2e6; height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">Image Placeholder</div>
+                            </div>
+                            <div style="flex: 1;">
+                                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Amazing Feature #1</h2>
+                                <p style="color: #6c757d; margin-bottom: 1.5rem;">Description of the feature and why it's beneficial for users. Add compelling copy here.</p>
+                                <button class="antsand-btn antsand-btn-primary">Try It Now</button>
+                            </div>
+                        </div>
+                        <div class="antsand-flex antsand-flex-gap-4" style="align-items: center; flex-direction: row-reverse;">
+                            <div style="flex: 1;">
+                                <div style="background: #dee2e6; height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">Image Placeholder</div>
+                            </div>
+                            <div style="flex: 1;">
+                                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Amazing Feature #2</h2>
+                                <p style="color: #6c757d; margin-bottom: 1.5rem;">Another great feature that sets your product apart from competitors.</p>
+                                <button class="antsand-btn antsand-btn-secondary">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top: 6rem; padding: 3rem 0; background: #2c3e50; color: white; text-align: center;">
+        <div class="antsand-container">
+            <p style="margin-bottom: 1rem;">ANTSAND Styles v2 - Modern CSS Library</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Bootstrap philosophy, not Tailwind chaos. Build consistent, beautiful websites.</p>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>
