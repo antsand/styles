@@ -53,7 +53,8 @@
     }
 }
 
-.antsand-navbar-item {
+.antsand-navbar-item,
+.antsand-nav-link {
     padding: $antsand-space-2 $antsand-space-3;
     color: $antsand-gray-700;
     text-decoration: none;
@@ -69,6 +70,11 @@
         color: $antsand-primary;
         font-weight: $antsand-font-weight-semibold;
     }
+}
+
+// Alias for backwards compatibility
+.antsand-nav-items {
+    @extend .antsand-navbar-nav;
 }
 
 .antsand-navbar-toggle {
