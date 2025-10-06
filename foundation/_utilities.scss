@@ -689,3 +689,121 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+// ============================================
+// LEGACY UTILITIES (For Form Builder Compatibility)
+// ============================================
+
+// Display utilities (legacy naming)
+.display-none { display: none; }
+.display-block { display: block; }
+.display-flex { display: flex; }
+
+// Position utilities (legacy naming)
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+
+// Float utilities
+.float-left { float: left; }
+.float-right { float: right; }
+
+// Alignment utilities
+.align-center { text-align: center; }
+
+// Clearfix for old grid system
+.row {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.cf {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Legacy grid system classes (simplified flex-based replacements for Susy)
+.span-1-of-2-inside,
+.span-1-of-2-tablet {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.span-1-of-2-inside-last,
+.span-1-of-2-last-tablet {
+    float: right;
+    width: 50%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.span-1-of-3-inside,
+.span-1-of-3-tablet {
+    float: left;
+    width: 33.333%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.span-1-of-3-inside-last,
+.span-1-of-3-last-tablet {
+    float: right;
+    width: 33.333%;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+// Legacy font classes
+.font-Graphik {
+    font-family: 'Graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-weight-800-all {
+    font-weight: 800;
+}
+
+// Legacy responsive font sizes
+.font-size-54-semidesktop {
+    font-size: 54px;
+}
+
+.font-size-34-minidesktop {
+    font-size: 34px;
+}
+
+.font-size-20-sm-minidesktop {
+    font-size: 20px;
+}
+
+.font-size-23-tablet {
+    font-size: 23px;
+}
+
+.font-size-18-sm-tablet {
+    font-size: 18px;
+}
+
+.font-size-26-all {
+    font-size: 26px;
+}
+
+.font-size-16-all {
+    font-size: 16px;
+}
