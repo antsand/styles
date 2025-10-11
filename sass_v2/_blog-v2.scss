@@ -1,0 +1,400 @@
+// ============================================
+// ANTSAND Styles v2 - ShivasNotes Blog Component
+// Research-focused minimalist design
+// ============================================
+//
+// CLASS HIERARCHY:
+// Blog Entry Cards:
+// .antsand-blog-entry
+//   └── .entry-header
+//       └── .entry-badges
+//           └── .badge
+//       └── .entry-date
+//   └── .entry-title
+//   └── .entry-excerpt
+//   └── .sources-note
+//   └── .entry-footer
+//       └── .entry-tags
+//           └── .tag
+//       └── .read-more
+//
+// Hero Section:
+// .antsand-blog-hero
+//   └── .hero-content
+//       └── h1
+//       └── .hero-subtitle
+//       └── .hero-highlights
+//           └── .highlight-box
+//
+// Spectrum Grid:
+// .antsand-blog-spectrum
+//   └── .spectrum-grid
+//       └── .spectrum-card
+//           └// .spectrum-icon
+//           └── .spectrum-title
+//           └── .spectrum-desc
+//
+// Filter Pills:
+// .antsand-blog-filters
+//   └── .filters
+//       └── .filter-btn
+// ============================================
+
+// Hero Section
+.antsand-blog-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    padding: 70px 0;
+
+    .hero-content {
+        max-width: 950px;
+    }
+
+    h1 {
+        font-size: 52px;
+        font-weight: $antsand-font-weight-bold;
+        margin-bottom: $antsand-space-6;
+        line-height: 1.1;
+
+        @media (max-width: 768px) {
+            font-size: 36px;
+        }
+    }
+
+    .hero-subtitle {
+        font-size: 22px;
+        color: #cbd5e1;
+        margin-bottom: $antsand-space-8;
+        line-height: 1.6;
+    }
+
+    .hero-highlights {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $antsand-space-4;
+        margin-top: $antsand-space-10;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .highlight-box {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: $antsand-space-5;
+        border-radius: $antsand-radius-sm;
+        backdrop-filter: blur(10px);
+
+        strong {
+            color: $antsand-primary;
+            display: block;
+            margin-bottom: $antsand-space-2;
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+    }
+}
+
+// Spectrum Section (Category Grid)
+.antsand-blog-spectrum {
+    padding: 60px 0;
+    background: #fafafa;
+
+    .section-title {
+        font-size: 36px;
+        font-weight: $antsand-font-weight-bold;
+        text-align: center;
+        margin-bottom: $antsand-space-4;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 18px;
+        margin-bottom: $antsand-space-12;
+    }
+
+    .spectrum-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $antsand-space-5;
+
+        @media (max-width: 968px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .spectrum-card {
+        background: white;
+        padding: $antsand-space-6;
+        border: 1px solid #e5e5e5;
+        border-radius: $antsand-radius-md;
+        transition: all $antsand-transition-base;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $antsand-primary;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .spectrum-icon {
+            font-size: 32px;
+            margin-bottom: $antsand-space-3;
+        }
+
+        .spectrum-title {
+            font-size: 16px;
+            font-weight: $antsand-font-weight-bold;
+            color: $antsand-gray-900;
+            margin-bottom: $antsand-space-2;
+        }
+
+        .spectrum-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+        }
+    }
+}
+
+// Filter Pills
+.antsand-blog-filters {
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+    padding: $antsand-space-5 0;
+    position: sticky;
+    top: 61px;
+    z-index: 90;
+
+    .filters {
+        display: flex;
+        gap: $antsand-space-2;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        background: #f5f5f5;
+        border: none;
+        padding: $antsand-space-2 $antsand-space-4;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: $antsand-font-weight-medium;
+        cursor: pointer;
+        transition: all 0.2s;
+        color: #525252;
+
+        &:hover {
+            background: #e5e5e5;
+        }
+
+        &.active {
+            background: $antsand-primary;
+            color: white;
+        }
+    }
+}
+
+// Blog Entry Cards
+.antsand-blog-entries {
+    padding: 50px 0;
+
+    .entries-grid {
+        display: grid;
+        gap: $antsand-space-8;
+    }
+}
+
+.antsand-blog-entry {
+    background: white;
+    border: 1px solid #e5e5e5;
+    padding: $antsand-space-9;
+    transition: all $antsand-transition-base;
+    cursor: pointer;
+    position: relative;
+
+    // Colored left border
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        transition: all $antsand-transition-base;
+    }
+
+    // Category colors for left border
+    &.research::before { background: #8b5cf6; }
+    &.contrarian::before { background: #ec4899; }
+    &.legal::before { background: #ef4444; }
+    &.ai-augmentation::before { background: #10b981; }
+    &.technical::before { background: $antsand-primary; }
+    &.daily::before { background: #6366f1; }
+    &.philosophy::before { background: #f59e0b; }
+
+    &:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        transform: translateY(-4px);
+
+        &::before {
+            width: 6px;
+        }
+    }
+
+    .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: $antsand-space-5;
+    }
+
+    .entry-badges {
+        display: flex;
+        gap: $antsand-space-2;
+        flex-wrap: wrap;
+    }
+
+    .badge {
+        padding: 5px 12px;
+        border-radius: $antsand-radius-sm;
+        font-size: 10px;
+        font-weight: $antsand-font-weight-bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &.research { background: #f3e8ff; color: #6b21a8; }
+        &.contra { background: #fce7f3; color: #9f1239; }
+        &.legal { background: #fee2e2; color: #991b1b; }
+        &.ai { background: #d1fae5; color: #065f46; }
+        &.tech { background: #dbeafe; color: #1e3a8a; }
+        &.daily { background: #e0e7ff; color: #3730a3; }
+        &.phil { background: #fef3c7; color: #92400e; }
+        &.sources { background: #d1d5db; color: #1f2937; }
+    }
+
+    .entry-date {
+        font-size: 12px;
+        color: #999;
+        font-family: 'Courier New', monospace;
+    }
+
+    .entry-title {
+        font-size: 26px;
+        font-weight: $antsand-font-weight-bold;
+        color: $antsand-gray-900;
+        margin-bottom: $antsand-space-4;
+        line-height: 1.3;
+    }
+
+    .entry-excerpt {
+        font-size: 16px;
+        color: #525252;
+        line-height: 1.7;
+        margin-bottom: $antsand-space-5;
+    }
+
+    .sources-note {
+        background: #fffbeb;
+        border-left: 3px solid #f59e0b;
+        padding: $antsand-space-3 $antsand-space-4;
+        margin-top: $antsand-space-4;
+        font-size: 13px;
+        color: #92400e;
+    }
+
+    .entry-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: $antsand-space-5;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .entry-tags {
+        display: flex;
+        gap: $antsand-space-2;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        background: #f5f5f5;
+        padding: 4px 10px;
+        border-radius: $antsand-radius-xs;
+        font-size: 11px;
+        color: #666;
+        font-weight: $antsand-font-weight-medium;
+    }
+
+    .read-more {
+        color: $antsand-primary;
+        font-weight: $antsand-font-weight-semibold;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+
+// Principles Section
+.antsand-blog-principles {
+    background: #0f172a;
+    color: white;
+    padding: 80px 0;
+
+    .principles-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 42px;
+        margin-bottom: $antsand-space-6;
+        text-align: center;
+    }
+
+    .principles-intro {
+        text-align: center;
+        font-size: 18px;
+        color: #cbd5e1;
+        margin-bottom: $antsand-space-12;
+        line-height: 1.7;
+    }
+
+    .principles-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $antsand-space-6;
+
+        @media (max-width: 968px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .principle-card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: $antsand-space-7;
+        border-left: 4px solid $antsand-primary;
+        backdrop-filter: blur(10px);
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: $antsand-space-3;
+            color: white;
+        }
+
+        p {
+            color: #94a3b8;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+    }
+}

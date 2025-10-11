@@ -1,0 +1,57 @@
+// ============================================
+// ANTSAND Styles v2 - Navigation Component
+// Self-contained (no external dependencies)
+// ============================================
+
+// Color Palette
+$antsand-primary: #3498db !default;
+$antsand-gray-50: #f9fafb !default;
+$antsand-gray-100: #f8f9fa !default;
+$antsand-gray-600: #6c757d !default;
+$antsand-gray-700: #495057 !default;
+$antsand-gray-800: #343a40 !default;
+$antsand-gray-900: #212529 !default;
+
+// Spacing Scale
+$antsand-space-1: 0.25rem !default;  // 4px
+$antsand-space-2: 0.5rem !default;   // 8px
+$antsand-space-3: 1rem !default;     // 16px
+$antsand-space-4: 1.5rem !default;   // 24px
+
+// Typography
+$antsand-font-size-sm: 0.875rem !default;      // 14px
+$antsand-font-size-base: 1rem !default;        // 16px
+$antsand-font-weight-medium: 500 !default;
+$antsand-font-weight-semibold: 600 !default;
+$antsand-line-height-tight: 1.25 !default;
+$antsand-line-height-normal: 1.5 !default;
+
+// Border Radius
+$antsand-radius-sm: 0.25rem !default;   // 4px
+$antsand-radius-md: 0.5rem !default;    // 8px
+
+// Shadows
+$antsand-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05) !default;
+$antsand-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1) !default;
+$antsand-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1) !default;
+
+// Breakpoints
+$antsand-breakpoint-md: 768px !default;   // Tablet
+
+// Transitions
+$antsand-transition-base: 250ms ease !default;
+
+// Z-index
+$antsand-z-dropdown: 1000 !default;
+$antsand-z-sticky: 1020 !default;
+$antsand-z-fixed: 1030 !default;
+
+// Responsive Mixin
+@mixin antsand-md {
+    @media (min-width: $antsand-breakpoint-md) {
+        @content;
+    }
+}
+
+// Import v2 navigation component
+@import 'nav-v2';

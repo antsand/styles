@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTSAND v2 - Font Library</title>
+    <link rel="stylesheet" href="antsand.css">
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-text: #1a1a1a;
+            --color-border: #e5e7eb;
+            --color-accent: #3b82f6;
+            --color-muted: #6b7280;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background: var(--color-bg);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            background: var(--color-bg);
+            border-bottom: 2px solid var(--color-border);
+            padding: 1rem 2rem;
+            z-index: 100;
+            margin-bottom: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: var(--color-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--color-accent);
+            display: inline-block;
+        }
+
+        .section-intro {
+            color: var(--color-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .font-card {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .font-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .font-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .font-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--color-muted);
+        }
+
+        .font-meta span {
+            background: #f3f4f6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .font-sample {
+            margin-bottom: 1.5rem;
+        }
+
+        .sample-text {
+            margin-bottom: 1rem;
+        }
+
+        .sample-large {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .sample-medium {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .sample-small {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--color-muted);
+        }
+
+        .weight-samples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .weight-sample {
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 4px;
+        }
+
+        .weight-label {
+            font-size: 0.75rem;
+            color: var(--color-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        .alphabet {
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            color: var(--color-muted);
+            margin-top: 1rem;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .icon-item:hover {
+            border-color: var(--color-accent);
+            background: #f9fafb;
+        }
+
+        .icon-display {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .icon-name {
+            font-size: 0.75rem;
+            color: var(--color-muted);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            .sample-large {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ANTSAND v2 Font Library</h1>
+        <p>30+ Premium Fonts • Self-Hosted • Production Ready</p>
+    </div>
+
+    <nav class="nav">
+        <ul class="nav-links">
+            <li><a href="#sans-serif">Sans-Serif</a></li>
+            <li><a href="#serif">Serif</a></li>
+            <li><a href="#display">Display</a></li>
+            <li><a href="#editorial">Editorial</a></li>
+            <li><a href="#icons">Icons</a></li>
+            <li><a href="#usage">Usage Guide</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- SANS-SERIF FONTS -->
+        <section id="sans-serif" class="section">
+            <h2 class="section-title">Sans-Serif Fonts</h2>
+            <p class="section-intro">Modern, clean typefaces perfect for UI, body text, and digital interfaces.</p>
+
+            <!-- Graphik -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Graphik</div>
+                    <div class="font-meta">
+                        <span>8 Weights</span>
+                        <span>Sans-Serif</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Graphik">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-Graphik">A geometric sans-serif with a modern, clean aesthetic</div>
+                    <div class="alphabet font-Graphik">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="weight-samples">
+                    <div class="weight-sample">
+                        <div class="weight-label">Thin (100)</div>
+                        <div class="font-Graphik" style="font-weight: 100;">Graphik Thin</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Light (300)</div>
+                        <div class="font-Graphik" style="font-weight: 300;">Graphik Light</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Regular (400)</div>
+                        <div class="font-Graphik" style="font-weight: 400;">Graphik Regular</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Medium (500)</div>
+                        <div class="font-Graphik" style="font-weight: 500;">Graphik Medium</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Semibold (600)</div>
+                        <div class="font-Graphik" style="font-weight: 600;">Graphik Semibold</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Bold (700)</div>
+                        <div class="font-Graphik" style="font-weight: 700;">Graphik Bold</div>
+                    </div>
+                </div>
+                <div class="code-block">.font-Graphik { font-family: 'Graphik'; }</div>
+            </div>
+
+            <!-- Futura PT -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Futura PT</div>
+                    <div class="font-meta">
+                        <span>9 Weights</span>
+                        <span>Geometric Sans</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Futura">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-Futura">A timeless geometric sans-serif with perfect proportions</div>
+                    <div class="alphabet font-Futura">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="weight-samples">
+                    <div class="weight-sample">
+                        <div class="weight-label">Light</div>
+                        <div class="font-Futura" style="font-weight: 300;">Futura PT Light</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Book</div>
+                        <div class="font-Futura" style="font-weight: 400;">Futura PT Book</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Medium</div>
+                        <div class="font-Futura" style="font-weight: 500;">Futura PT Medium</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Demi</div>
+                        <div class="font-Futura" style="font-weight: 600;">Futura PT Demi</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Bold</div>
+                        <div class="font-Futura" style="font-weight: 700;">Futura PT Bold</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Extra Bold</div>
+                        <div class="font-Futura" style="font-weight: 800;">Futura PT Extra Bold</div>
+                    </div>
+                </div>
+                <div class="code-block">.font-Futura { font-family: 'Futura PT'; }</div>
+            </div>
+
+            <!-- Inter -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Inter</div>
+                    <div class="font-meta">
+                        <span>9 Weights</span>
+                        <span>UI Optimized</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Inter">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-Inter">Designed specifically for digital interfaces and screen readability</div>
+                    <div class="alphabet font-Inter">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="weight-samples">
+                    <div class="weight-sample">
+                        <div class="weight-label">Thin (100)</div>
+                        <div class="font-Inter" style="font-weight: 100;">Inter Thin</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Light (300)</div>
+                        <div class="font-Inter" style="font-weight: 300;">Inter Light</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Regular (400)</div>
+                        <div class="font-Inter" style="font-weight: 400;">Inter Regular</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Medium (500)</div>
+                        <div class="font-Inter" style="font-weight: 500;">Inter Medium</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Semibold (600)</div>
+                        <div class="font-Inter" style="font-weight: 600;">Inter Semibold</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Bold (700)</div>
+                        <div class="font-Inter" style="font-weight: 700;">Inter Bold</div>
+                    </div>
+                    <div class="weight-sample">
+                        <div class="weight-label">Black (900)</div>
+                        <div class="font-Inter" style="font-weight: 900;">Inter Black</div>
+                    </div>
+                </div>
+                <div class="code-block">.font-Inter { font-family: 'Inter'; }</div>
+            </div>
+
+            <!-- Avenir -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Avenir</div>
+                    <div class="font-meta">
+                        <span>6 Weights</span>
+                        <span>Humanist Sans</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Avenir">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-Avenir">A humanist sans-serif with organic warmth</div>
+                    <div class="alphabet font-Avenir">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-Avenir { font-family: 'Avenir'; }</div>
+            </div>
+
+            <!-- Gotham -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Gotham</div>
+                    <div class="font-meta">
+                        <span>3 Weights</span>
+                        <span>Geometric Sans</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Gotham">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-Gotham">Bold, confident, and instantly recognizable</div>
+                    <div class="alphabet font-Gotham">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-Gotham { font-family: 'Gotham'; }</div>
+            </div>
+
+            <!-- Proxima Nova -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Proxima Nova</div>
+                    <div class="font-meta">
+                        <span>ExtraBold</span>
+                        <span>Geometric Sans</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-ProximaNova">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-ProximaNova">Modern, friendly, and highly legible</div>
+                    <div class="alphabet font-ProximaNova">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-ProximaNova { font-family: 'Proxima Nova'; }</div>
+            </div>
+        </section>
+
+        <!-- SERIF FONTS -->
+        <section id="serif" class="section">
+            <h2 class="section-title">Serif Fonts</h2>
+            <p class="section-intro">Classic, elegant typefaces for editorial content and sophisticated designs.</p>
+
+            <!-- Freight Text Pro -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Freight Text Pro</div>
+                    <div class="font-meta">
+                        <span>8 Weights</span>
+                        <span>Transitional Serif</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-FreightTextPro">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-FreightTextPro">A versatile serif perfect for long-form reading</div>
+                    <div class="alphabet font-FreightTextPro">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-FreightTextPro { font-family: 'FreightTextPro'; }</div>
+            </div>
+
+            <!-- Playfair Display -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Playfair Display</div>
+                    <div class="font-meta">
+                        <span>2 Weights</span>
+                        <span>Transitional Serif</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-PlayfairDisplay">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-PlayfairDisplay">High-contrast serif with elegant proportions</div>
+                    <div class="alphabet font-PlayfairDisplay">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-PlayfairDisplay { font-family: 'Playfair Display'; }</div>
+            </div>
+
+            <!-- Merriweather -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Merriweather</div>
+                    <div class="font-meta">
+                        <span>Regular</span>
+                        <span>Slab Serif</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Merriweather">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-Merriweather">Designed for excellent screen readability</div>
+                    <div class="alphabet font-Merriweather">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-Merriweather { font-family: 'Merriweather'; }</div>
+            </div>
+
+            <!-- Goudy Old Style -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Goudy Old Style</div>
+                    <div class="font-meta">
+                        <span>Regular</span>
+                        <span>Old Style Serif</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-GoudyOldStyle">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-GoudyOldStyle">Classic American typeface with timeless appeal</div>
+                    <div class="alphabet font-GoudyOldStyle">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-GoudyOldStyle { font-family: 'Goudy Old Style'; }</div>
+            </div>
+        </section>
+
+        <!-- DISPLAY FONTS -->
+        <section id="display" class="section">
+            <h2 class="section-title">Display Fonts</h2>
+            <p class="section-intro">Bold, expressive typefaces for headlines, branding, and visual impact.</p>
+
+            <!-- Boing -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Boing</div>
+                    <div class="font-meta">
+                        <span>4 Weights</span>
+                        <span>Display</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Boing">The quick brown fox jumps</div>
+                    <div class="sample-medium font-Boing">Playful, bouncy display font</div>
+                </div>
+                <div class="code-block">.font-Boing { font-family: 'Boing'; }</div>
+            </div>
+
+            <!-- Boxout -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Boxout</div>
+                    <div class="font-meta">
+                        <span>ExtraBold</span>
+                        <span>Display</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Boxout">THE QUICK BROWN FOX</div>
+                    <div class="sample-medium font-Boxout">Bold geometric display font</div>
+                </div>
+                <div class="code-block">.font-Boxout { font-family: 'Boxout'; }</div>
+            </div>
+
+            <!-- Coluna -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Coluna</div>
+                    <div class="font-meta">
+                        <span>Condensed</span>
+                        <span>Display</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Coluna">THE QUICK BROWN FOX JUMPS</div>
+                    <div class="sample-medium font-Coluna">Tall, condensed, impactful</div>
+                </div>
+                <div class="code-block">.font-Coluna { font-family: 'Coluna'; }</div>
+            </div>
+
+            <!-- Akkurat -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Akkurat</div>
+                    <div class="font-meta">
+                        <span>2 Weights</span>
+                        <span>Grotesque</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Akkurat">The quick brown fox jumps</div>
+                    <div class="sample-medium font-Akkurat">Clean, neutral, functional</div>
+                </div>
+                <div class="code-block">.font-Akkurat { font-family: 'Akkurat'; }</div>
+            </div>
+
+            <!-- Schmalfette -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Schmalfette</div>
+                    <div class="font-meta">
+                        <span>Regular</span>
+                        <span>Display</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-Schmalfette">THE QUICK BROWN FOX</div>
+                    <div class="sample-medium font-Schmalfette">Condensed display with character</div>
+                </div>
+                <div class="code-block">.font-Schmalfette { font-family: 'Schmalfette'; }</div>
+            </div>
+        </section>
+
+        <!-- EDITORIAL FONTS (Guardian Family) -->
+        <section id="editorial" class="section">
+            <h2 class="section-title">Editorial Fonts</h2>
+            <p class="section-intro">The Guardian font family - premium editorial typefaces for professional publishing.</p>
+
+            <!-- GH Guardian Headline -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">GH Guardian Headline</div>
+                    <div class="font-meta">
+                        <span>Multiple Weights</span>
+                        <span>Editorial Serif</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-GHGuardianHeadline">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-GHGuardianHeadline">Premium editorial serif for impactful headlines</div>
+                    <div class="alphabet font-GHGuardianHeadline">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-GHGuardianHeadline { font-family: 'GH Guardian Headline'; }</div>
+            </div>
+
+            <!-- Guardian Text Egyptian -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Guardian Text Egyptian</div>
+                    <div class="font-meta">
+                        <span>Regular, Bold</span>
+                        <span>Slab Serif</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-GuardianTextEgyp">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-GuardianTextEgyp">Robust slab serif for body text and captions</div>
+                    <div class="alphabet font-GuardianTextEgyp">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-GuardianTextEgyp { font-family: 'Guardian Text Egyp'; }</div>
+            </div>
+
+            <!-- Guardian Text Sans -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Guardian Text Sans</div>
+                    <div class="font-meta">
+                        <span>Regular, Bold</span>
+                        <span>Editorial Sans</span>
+                    </div>
+                </div>
+                <div class="font-sample">
+                    <div class="sample-large font-GuardianTextSans">The quick brown fox jumps over the lazy dog</div>
+                    <div class="sample-medium font-GuardianTextSans">Clean sans-serif companion to Guardian Text</div>
+                    <div class="alphabet font-GuardianTextSans">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</div>
+                </div>
+                <div class="code-block">.font-GuardianTextSans { font-family: 'GuardianTextSans'; }</div>
+            </div>
+        </section>
+
+        <!-- ICON FONTS -->
+        <section id="icons" class="section">
+            <h2 class="section-title">Icon Fonts</h2>
+            <p class="section-intro">Comprehensive icon libraries for UI elements and visual communication.</p>
+
+            <!-- Pictos -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Pictos</div>
+                    <div class="font-meta">
+                        <span>40+ Icons</span>
+                        <span>UI Icons</span>
+                    </div>
+                </div>
+                <div class="icon-grid">
+                    <div class="icon-item">
+                        <div class="icon-display pictos-check"></div>
+                        <div class="icon-name">check</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display pictos-love"></div>
+                        <div class="icon-name">love</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display pictos-star"></div>
+                        <div class="icon-name">star</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display pictos-plus"></div>
+                        <div class="icon-name">plus</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display pictos-delete"></div>
+                        <div class="icon-name">delete</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display pictos-search"></div>
+                        <div class="icon-name">search</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display pictos-settings"></div>
+                        <div class="icon-name">settings</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display pictos-home"></div>
+                        <div class="icon-name">home</div>
+                    </div>
+                </div>
+                <div class="code-block">.pictos-check:before { content: '2'; font-family: pictos; }</div>
+            </div>
+
+            <!-- Font Awesome -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Font Awesome</div>
+                    <div class="font-meta">
+                        <span>30+ Icons</span>
+                        <span>UI Icons</span>
+                    </div>
+                </div>
+                <div class="icon-grid">
+                    <div class="icon-item">
+                        <div class="icon-display font-Fa-paragraph"></div>
+                        <div class="icon-name">paragraph</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display font-Fa-bold"></div>
+                        <div class="icon-name">bold</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display font-Fa-italic"></div>
+                        <div class="icon-name">italic</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display font-Fa-link"></div>
+                        <div class="icon-name">link</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display font-Fa-image"></div>
+                        <div class="icon-name">image</div>
+                    </div>
+                    <div class="icon-item">
+                        <div class="icon-display font-Fa-video"></div>
+                        <div class="icon-name">video</div>
+                    </div>
+                </div>
+                <div class="code-block">.font-Fa-paragraph:before { content: "\f1dd"; }</div>
+            </div>
+
+            <!-- Material Icons -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">Material Icons Extended</div>
+                    <div class="font-meta">
+                        <span>Extended Set</span>
+                        <span>Material Design</span>
+                    </div>
+                </div>
+                <div class="sample-text">
+                    <p style="color: var(--color-muted);">Complete Material Design icon set for modern interfaces.</p>
+                </div>
+                <div class="code-block">.material-icons { font-family: 'Material Icons Extended'; }</div>
+            </div>
+
+            <!-- icomoon -->
+            <div class="font-card">
+                <div class="font-header">
+                    <div class="font-name">icomoon</div>
+                    <div class="font-meta">
+                        <span>Custom Set</span>
+                        <span>Icon Font</span>
+                    </div>
+                </div>
+                <div class="sample-text">
+                    <p style="color: var(--color-muted);">Custom icon font for specialized UI elements.</p>
+                </div>
+                <div class="code-block">.icon-class { font-family: 'icomoon'; }</div>
+            </div>
+        </section>
+
+        <!-- USAGE GUIDE -->
+        <section id="usage" class="section">
+            <h2 class="section-title">Usage Guide</h2>
+
+            <div class="font-card">
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">How to Use These Fonts</h3>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Include ANTSAND v2 Styles</h4>
+                <div class="code-block">&lt;link rel="stylesheet" href="/builds/production/css/antsand-v2/antsand.css"&gt;</div>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Apply Font Classes</h4>
+                <div class="code-block">&lt;h1 class="font-Graphik"&gt;Headline&lt;/h1&gt;
+&lt;p class="font-Inter"&gt;Body text&lt;/p&gt;
+&lt;span class="font-GHGuardianHeadline"&gt;Editorial headline&lt;/span&gt;</div>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Combine with Size Utilities</h4>
+                <div class="code-block">&lt;h1 class="font-Graphik font-size-48"&gt;Large Headline&lt;/h1&gt;
+&lt;p class="font-Inter font-size-16 line-height-1-6"&gt;Readable body text&lt;/p&gt;</div>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Responsive Typography</h4>
+                <div class="code-block">&lt;h1 class="font-Graphik font-size-32 font-size-48-lg"&gt;
+    Responsive headline (32px on mobile, 48px on large screens)
+&lt;/h1&gt;</div>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Icon Usage</h4>
+                <div class="code-block">&lt;i class="pictos-check"&gt;&lt;/i&gt;
+&lt;i class="font-Fa-paragraph"&gt;&lt;/i&gt;</div>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Font Hosting</h4>
+                <p style="color: var(--color-muted); margin-top: 0.5rem;">
+                    All fonts are self-hosted on <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 3px;">https://styles.antsand.com/builds/production/fonts/</code> for optimal performance and reliability.
+                </p>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Available Size Classes</h4>
+                <p style="color: var(--color-muted); margin-top: 0.5rem;">
+                    Font sizes from 5px to 200px: <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 3px;">.font-size-{5-200}</code>
+                </p>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Line Height Classes</h4>
+                <p style="color: var(--color-muted); margin-top: 0.5rem;">
+                    <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 3px;">.line-height-1</code>,
+                    <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 3px;">.line-height-1-2</code>,
+                    <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 3px;">.line-height-1-4</code>,
+                    <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 3px;">.line-height-1-5</code>,
+                    <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 3px;">.line-height-1-6</code>,
+                    <code style="background: #f3f4f6; padding: 0.25rem 0.5rem; border-radius: 3px;">.line-height-2</code>
+                </p>
+            </div>
+
+            <div class="font-card" style="background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%); border-color: #667eea;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: #667eea;">Integration with Databoard</h3>
+                <p style="margin-bottom: 1rem;">These fonts are fully integrated with the ANTSAND databoard system. Use them in:</p>
+                <ul style="margin-left: 1.5rem; color: var(--color-muted);">
+                    <li style="margin-bottom: 0.5rem;">Template CSS configurations</li>
+                    <li style="margin-bottom: 0.5rem;">Data mapping style overrides</li>
+                    <li style="margin-bottom: 0.5rem;">Global common_styles</li>
+                    <li style="margin-bottom: 0.5rem;">Section-specific styling</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--color-border); color: var(--color-muted);">
+            <p style="margin-bottom: 0.5rem;"><strong>ANTSAND v2 Font Library</strong></p>
+            <p>Self-hosted • Production Ready • 30+ Premium Fonts</p>
+            <p style="margin-top: 1rem; font-size: 0.875rem;">
+                <a href="index.html" style="color: var(--color-accent); text-decoration: none;">← Back to Documentation Hub</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

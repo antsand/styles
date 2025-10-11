@@ -1,0 +1,511 @@
+// ============================================
+// ANTSAND Styles v2 - Navigation Component
+// Modern CSS Grid/Flexbox implementation
+// No Susy, No Breakpoint - Pure CSS Grid
+// ============================================
+//
+// CLASS HIERARCHY:
+// .antsand-nav
+//   └── .header-container
+//       └── .logo
+//   └── .data-container
+//       └── .data-sub-container
+//           └── .data-nested-container
+//               └── .data-nested-item
+//                   └── .data-nested-img-container
+//                   └── .data-nested-content-wrapper
+//                       └── .data-nested-h3
+//                       └── .data-nested-p
+// ============================================
+
+// Main nav wrapper - flex container for header + body
+.antsand-nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 $antsand-space-4;
+    height: 60px;
+    background: $antsand-gray-900;
+    color: white;
+
+    // Header container (holds logo)
+    .header-container {
+        display: flex;
+        align-items: center;
+        max-width: 250px;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            padding: 7px;
+
+            img {
+                height: auto;
+                width: auto;
+                max-height: 46px;
+            }
+        }
+    }
+
+    // Body/Data container (holds menu)
+    .data-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: $antsand-space-4;
+
+        // Individual menu items
+        .data-sub-container {
+            position: relative;
+            list-style: none;
+
+            // Link styles
+            > a {
+                color: white;
+                text-decoration: none;
+                padding: $antsand-space-2 $antsand-space-3;
+                display: block;
+                border-radius: $antsand-radius-sm;
+                transition: all $antsand-transition-base;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                }
+            }
+
+            // Dropdown container (nested inside data-sub-container)
+            .data-nested-container {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                min-width: 500px;
+                background: white;
+                color: $antsand-gray-900;
+                box-shadow: $antsand-shadow-lg;
+                border-radius: $antsand-radius-md;
+                padding: $antsand-space-4;
+                margin-top: $antsand-space-2;
+                z-index: $antsand-z-dropdown;
+                grid-template-columns: repeat(2, 1fr);
+                gap: $antsand-space-4;
+
+                // Auto-adjust position to prevent overflow
+                // If dropdown is near right edge, align right instead of left
+                right: auto;
+
+                @media (min-width: $antsand-breakpoint-md) {
+                    // Use CSS to detect if we're near the right edge
+                    // For items in the last 40% of the nav, align dropdown to the right
+                    .data-sub-container:nth-last-child(-n+2) & {
+                        left: auto;
+                        right: 0;
+                    }
+                }
+
+                // Dropdown item (the <a> tag)
+                .data-nested-item {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: $antsand-space-3;
+                    padding: $antsand-space-3;
+                    color: $antsand-gray-700;
+                    text-decoration: none;
+                    border-radius: $antsand-radius-sm;
+                    transition: all $antsand-transition-base;
+
+                    &:hover {
+                        background: $antsand-gray-100;
+                        color: $antsand-primary;
+                    }
+
+                    // Icon container
+                    .data-nested-img-container {
+                        width: 32px;
+                        height: 32px;
+                        flex-shrink: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: $antsand-gray-100;
+                        border-radius: $antsand-radius-sm;
+
+                        img {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+
+                    // Content wrapper
+                    .data-nested-content-wrapper {
+                        flex: 1;
+
+                        h3 {
+                            font-weight: $antsand-font-weight-semibold;
+                            font-size: $antsand-font-size-base;
+                            margin-bottom: $antsand-space-1;
+                            line-height: $antsand-line-height-tight;
+                        }
+
+                        p {
+                            font-size: $antsand-font-size-sm;
+                            color: $antsand-gray-600;
+                            line-height: $antsand-line-height-normal;
+                        }
+                    }
+                }
+            }
+
+            // Show dropdown on hover
+            &:hover .data-nested-container {
+                display: grid;
+            }
+        }
+    }
+
+    // Theme Variants
+    // Light theme
+    &.antsand-nav--light {
+        background: white;
+        color: $antsand-gray-900;
+        box-shadow: $antsand-shadow-sm;
+
+        .data-sub-container > a {
+            color: $antsand-gray-900;
+
+            &:hover {
+                background: $antsand-gray-100;
+            }
+        }
+    }
+
+    // Transparent theme
+    &.antsand-nav--transparent {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    // Dark theme (explicit, same as default but for clarity)
+    &.antsand-nav--dark {
+        background: $antsand-gray-900;
+        color: white;
+
+        .data-sub-container > a {
+            color: white;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+}
+
+// Legacy compatibility - map old class to new
+.antsand-nav-v2 {
+    @extend .antsand-nav;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 $antsand-space-4;
+    height: 60px;
+    position: relative;
+    background: $antsand-gray-900;
+    color: white;
+    box-shadow: $antsand-shadow-md;
+
+    // Logo section
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: $antsand-space-2;
+
+        img {
+            height: 40px;
+            width: auto;
+        }
+    }
+
+    // Mobile menu toggle
+    &__toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 24px;
+        height: 20px;
+        cursor: pointer;
+        z-index: $antsand-z-fixed + 1;
+
+        span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: white;
+            transition: all $antsand-transition-base;
+        }
+
+        &--active {
+            span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            span:nth-child(2) {
+                opacity: 0;
+            }
+            span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+        }
+
+        @include antsand-md {
+            display: none;
+        }
+    }
+
+    // Navigation menu container
+    &__menu {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $antsand-gray-800;
+        padding: $antsand-space-4;
+        flex-direction: column;
+        gap: $antsand-space-2;
+        z-index: $antsand-z-fixed;
+        overflow-y: auto;
+
+        &--open {
+            display: flex;
+        }
+
+        @include antsand-md {
+            display: flex !important;
+            position: static;
+            flex-direction: row;
+            background: transparent;
+            padding: 0;
+            gap: $antsand-space-2;
+            overflow-y: visible;
+        }
+    }
+
+    // Navigation items
+    &__item {
+        position: relative;
+        list-style: none;
+
+        > a {
+            display: block;
+            padding: $antsand-space-3 $antsand-space-4;
+            color: white;
+            text-decoration: none;
+            font-size: $antsand-font-size-base;
+            font-weight: $antsand-font-weight-medium;
+            border-radius: $antsand-radius-sm;
+            transition: all $antsand-transition-base;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            @include antsand-md {
+                padding: $antsand-space-2 $antsand-space-3;
+            }
+        }
+
+        // Dropdown indicator
+        &--has-dropdown > a::after {
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: $antsand-space-2;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid white;
+            transition: transform $antsand-transition-base;
+        }
+
+        &--has-dropdown:hover > a::after {
+            @include antsand-md {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    // Dropdown menu
+    &__dropdown {
+        display: none;
+        list-style: none;
+        padding-left: $antsand-space-4;
+        margin-top: $antsand-space-2;
+
+        @include antsand-md {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 250px;
+            background: white;
+            color: $antsand-gray-900;
+            box-shadow: $antsand-shadow-lg;
+            border-radius: $antsand-radius-md;
+            padding: $antsand-space-2 0;
+            margin-top: $antsand-space-2;
+            z-index: $antsand-z-dropdown;
+        }
+
+        &--open {
+            display: block;
+        }
+
+        .antsand-nav-v2__item:hover & {
+            @include antsand-md {
+                display: block;
+            }
+        }
+
+        a {
+            display: flex;
+            align-items: flex-start;
+            gap: $antsand-space-3;
+            padding: $antsand-space-3 $antsand-space-4;
+            color: $antsand-gray-700;
+            text-decoration: none;
+            transition: all $antsand-transition-base;
+
+            &:hover {
+                background: $antsand-gray-100;
+                color: $antsand-primary;
+            }
+        }
+
+        &-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $antsand-gray-100;
+            border-radius: $antsand-radius-sm;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &-content {
+            flex: 1;
+        }
+
+        &-title {
+            font-weight: $antsand-font-weight-semibold;
+            font-size: $antsand-font-size-base;
+            margin-bottom: $antsand-space-1;
+            line-height: $antsand-line-height-tight;
+        }
+
+        &-description {
+            font-size: $antsand-font-size-sm;
+            color: $antsand-gray-600;
+            line-height: $antsand-line-height-normal;
+        }
+    }
+
+    // Wide dropdown (2 columns)
+    &__dropdown--wide {
+        @include antsand-md {
+            min-width: 500px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: $antsand-space-2;
+        }
+    }
+
+    // Nav themes
+    &--light {
+        background: white;
+        color: $antsand-gray-900;
+        box-shadow: $antsand-shadow-sm;
+
+        .antsand-nav-v2__toggle span {
+            background: $antsand-gray-900;
+        }
+
+        .antsand-nav-v2__item > a {
+            color: $antsand-gray-900;
+
+            &:hover {
+                background: $antsand-gray-100;
+            }
+        }
+
+        .antsand-nav-v2__menu {
+            background: $antsand-gray-50;
+
+            @include antsand-md {
+                background: transparent;
+            }
+        }
+    }
+
+    &--transparent {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    // Fixed positioning
+    &--fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: $antsand-z-fixed;
+    }
+
+    // Sticky positioning
+    &--sticky {
+        position: sticky;
+        top: 0;
+        z-index: $antsand-z-sticky;
+    }
+}
+
+// Legacy compatibility - map old classes to new
+.antsand-nav-style {
+    @extend .antsand-nav-v2;
+
+    nav {
+        width: 100%;
+        position: relative;
+    }
+
+    .nav_bar {
+        @extend .antsand-nav-v2;
+    }
+
+    .module_left {
+        @extend .antsand-nav-v2__logo;
+    }
+
+    .mobile_toggle {
+        @extend .antsand-nav-v2__toggle;
+    }
+
+    .menu-right ul {
+        @extend .antsand-nav-v2__menu;
+    }
+
+    .drop-down-container {
+        @extend .antsand-nav-v2__item;
+        @extend .antsand-nav-v2__item--has-dropdown;
+    }
+
+    .drop-down {
+        @extend .antsand-nav-v2__dropdown;
+    }
+}
