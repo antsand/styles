@@ -1,0 +1,303 @@
+// ============================================
+// ANTSAND Styles v2 - Typography
+// Article and blog content styles
+// ============================================
+
+// Article Container - Default reading width (700px)
+.antsand-article {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: $antsand-space-3;
+    padding-right: $antsand-space-3;
+
+    // Paragraphs - comfortable reading
+    p {
+        font-size: $antsand-font-size-lg; // 18px
+        line-height: $antsand-line-height-relaxed; // 1.75
+        margin-bottom: $antsand-space-4; // 24px
+        color: $antsand-gray-800;
+    }
+
+    // Headings - proper hierarchy
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: $antsand-font-weight-bold;
+        line-height: $antsand-line-height-tight;
+        margin-top: $antsand-space-6;
+        margin-bottom: $antsand-space-3;
+        color: $antsand-gray-900;
+    }
+
+    h1 {
+        font-size: $antsand-font-size-4xl; // 40px
+        //margin-top: $antsand-space-8;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    h2 {
+        font-size: $antsand-font-size-3xl; // 32px
+        padding-bottom: $antsand-space-2;
+        border-bottom: 2px solid $antsand-gray-200;
+    }
+
+    h3 {
+        font-size: $antsand-font-size-2xl; // 24px
+    }
+
+    h4 {
+        font-size: $antsand-font-size-xl; // 20px
+    }
+
+    // Lead paragraph (first paragraph larger)
+    > p:first-of-type {
+        font-size: $antsand-font-size-xl; // 20px
+        color: $antsand-gray-700;
+    }
+
+    // Blockquotes
+    blockquote {
+        border-left: 4px solid $antsand-primary;
+        padding-left: $antsand-space-4;
+        margin: $antsand-space-5 0;
+        font-size: $antsand-font-size-xl;
+        font-style: italic;
+        color: $antsand-gray-700;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    // Code - inline
+    code {
+        background: $antsand-gray-100;
+        padding: 0.125rem 0.375rem;
+        border-radius: $antsand-radius-sm;
+        font-family: $antsand-font-family-mono;
+        font-size: 0.875em;
+        color: $antsand-danger;
+    }
+
+    // Code blocks
+    pre {
+        background: $antsand-gray-900;
+        color: $antsand-gray-100;
+        padding: $antsand-space-4;
+        border-radius: $antsand-radius-md;
+        overflow-x: auto;
+        margin: $antsand-space-4 0;
+
+        code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+            font-size: 0.875rem;
+        }
+    }
+
+    // Links
+    a {
+        color: $antsand-primary;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s;
+
+        &:hover {
+            border-bottom-color: $antsand-primary;
+        }
+    }
+
+    // Lists
+    ul, ol {
+        margin: $antsand-space-4 0;
+        padding-left: $antsand-space-5;
+
+        li {
+            margin-bottom: $antsand-space-2;
+            line-height: $antsand-line-height-relaxed;
+        }
+
+        // Nested lists
+        ul, ol {
+            margin: $antsand-space-2 0;
+        }
+    }
+
+    // Images
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: $antsand-radius-md;
+        margin: $antsand-space-5 0;
+    }
+
+    // Horizontal rule
+    hr {
+        border: 0;
+        border-top: 2px solid $antsand-gray-200;
+        margin: $antsand-space-6 0;
+    }
+
+    // Tables
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: $antsand-space-5 0;
+
+        th, td {
+            padding: $antsand-space-2;
+            border: 1px solid $antsand-gray-300;
+            text-align: left;
+        }
+
+        th {
+            background: $antsand-gray-100;
+            font-weight: $antsand-font-weight-semibold;
+        }
+    }
+    
+    .article-header {
+        max-width: 800px;
+        margin: 60px auto 40px;
+        text-align: center;
+    }
+
+    .article-category {
+        display: inline-block;
+        background: #dbeafe;
+        color: #1e40af;
+        padding: 6px 14px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+    }
+
+    .article-title {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        color: #1a1a1a;
+    }
+
+    .article-excerpt {
+        font-size: 22px;
+        line-height: 1.6;
+        color: #666;
+        margin-bottom: 32px;
+    }
+
+    .article-meta {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        font-size: 14px;
+        color: #999;
+    }
+
+    .article-body {
+        max-width: 700px;
+        margin: 0 auto 80px;
+        font-size: 19px;
+        line-height: 1.8;
+        color: #1a1a1a;
+        margin-bottom: 24px;
+    }
+
+    .article-body p {
+        font-size: 19px;
+        line-height: 1.8;
+        color: #1a1a1a;
+        margin-bottom: 24px;
+    }
+
+    .article-body h2 {
+        font-size: 32px;
+        font-weight: 700;
+        margin: 48px 0 20px;
+    }
+
+    .article-body h3 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 36px 0 16px;
+    }
+
+    .article-body blockquote {
+        border-left: 4px solid #2563eb;
+        padding-left: 24px;
+        margin: 32px 0;
+        font-size: 21px;
+        font-style: italic;
+        color: #525252;
+    }
+
+    .article-body code {
+        background: #f5f5f5;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-size: 16px;
+    }
+}
+
+// Wide Article - for visual content, infographics (1000px)
+.antsand-article-wide {
+    @extend .antsand-article;
+    max-width: 1000px;
+}
+
+// Research Paper - for data, tables, citations (900px)
+.antsand-research {
+    @extend .antsand-article;
+    max-width: 900px;
+
+    // Smaller font for dense content
+    p {
+        font-size: $antsand-font-size-base; // 16px
+        line-height: 1.6;
+    }
+}
+
+// Article Header (separate from article body)
+.antsand-article-header {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $antsand-space-8 $antsand-space-3 $antsand-space-6;
+    text-align: center;
+
+    .antsand-article-title {
+        font-size: $antsand-font-size-5xl; // 48px
+        font-weight: $antsand-font-weight-bold;
+        line-height: $antsand-line-height-tight;
+        margin-bottom: $antsand-space-4;
+        color: $antsand-gray-900;
+    }
+
+    .antsand-article-subtitle {
+        font-size: $antsand-font-size-2xl; // 24px
+        line-height: $antsand-line-height-normal;
+        color: $antsand-gray-600;
+        margin-bottom: $antsand-space-5;
+    }
+
+    .antsand-article-meta {
+        display: flex;
+        justify-content: center;
+        gap: $antsand-space-3;
+        font-size: $antsand-font-size-sm;
+        color: $antsand-gray-600;
+
+        span {
+            &:not(:last-child)::after {
+                content: "•";
+                margin-left: $antsand-space-3;
+            }
+        }
+    }
+}

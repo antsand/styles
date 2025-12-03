@@ -1,0 +1,41 @@
+// ============================================
+// ANTSAND Styles v2 - Master File
+// Bootstrap philosophy, modern CSS
+// ============================================
+
+// Foundation
+@import 'foundation/variables';
+@import 'foundation/reset';
+@import 'foundation/mixins';
+@import 'foundation/utilities';
+
+// Layout
+@import 'layout/grid';
+@import 'layout/section';
+@import 'layout/wrapper';
+
+// Components
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/blog-cards';
+@import 'components/forms';
+@import 'components/accordion';
+@import 'components/antsand-v2-tabs-refactored';
+@import 'components/carousel';
+@import 'components/modal';
+@import 'components/navbar';
+@import 'components/dropdown';
+@import 'components/alert';
+@import 'components/badge';
+@import 'components/breadcrumb';
+@import 'components/typography';
+@import 'components/callout';
+
+// Patterns
+@import 'patterns/hero';
+@import 'patterns/features';
+@import 'patterns/pricing';
+@import 'patterns/footer';
+
+// Themes
+@import 'themes/modern';

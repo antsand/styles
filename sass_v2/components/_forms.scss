@@ -1,0 +1,351 @@
+// ============================================
+// ANTSAND Styles v2 - Forms
+// Form elements (consistent styling)
+// ============================================
+
+.antsand-form-group {
+    margin-bottom: $antsand-space-4;
+}
+
+.antsand-form-label {
+    display: block;
+    margin-bottom: $antsand-space-2;
+    font-weight: $antsand-font-weight-medium;
+    color: $antsand-gray-900;
+}
+
+.antsand-form-control {
+    display: block;
+    width: 100%;
+    padding: $antsand-space-2 $antsand-space-3;
+    font-size: $antsand-font-size-base;
+    line-height: $antsand-line-height-normal;
+    color: $antsand-gray-900;
+    background-color: white;
+    border: 1px solid $antsand-gray-300;
+    border-radius: $antsand-radius-md;
+    transition: border-color $antsand-transition-base;
+
+    &:focus {
+        outline: none;
+        border-color: $antsand-primary;
+        box-shadow: 0 0 0 3px rgba($antsand-primary, 0.1);
+    }
+
+    &::placeholder {
+        color: $antsand-gray-500;
+    }
+
+    &:disabled {
+        background-color: $antsand-gray-100;
+        cursor: not-allowed;
+    }
+}
+
+textarea.antsand-form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.antsand-form-select {
+    @extend .antsand-form-control;
+    cursor: pointer;
+}
+
+// Modern form input/textarea classes (for templates)
+.antsand-input {
+    @extend .antsand-form-control;
+}
+
+.antsand-textarea {
+    @extend .antsand-form-control;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.antsand-form-check {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    margin-bottom: $antsand-space-2;
+
+    input[type="checkbox"],
+    input[type="radio"] {
+        width: 1.125rem;
+        height: 1.125rem;
+        cursor: pointer;
+    }
+
+    label {
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+.antsand-form-text {
+    display: block;
+    margin-top: $antsand-space-1;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-gray-600;
+}
+
+// Validation states
+.antsand-form-control.is-invalid {
+    border-color: $antsand-danger;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($antsand-danger, 0.1);
+    }
+}
+
+.antsand-form-control.is-valid {
+    border-color: $antsand-success;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($antsand-success, 0.1);
+    }
+}
+
+.antsand-invalid-feedback {
+    display: block;
+    margin-top: $antsand-space-1;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-danger;
+}
+
+.antsand-valid-feedback {
+    display: block;
+    margin-top: $antsand-space-1;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-success;
+}
+
+// ============================================
+// Legacy Form Builder Classes
+// For backwards compatibility with existing form builder
+// ============================================
+
+.form-default {
+    .form-elements {
+        margin: 15px 0px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea,
+    .input {
+        padding: .6em .7em .5em .7em;
+        font-size: .9em;
+        color: #666;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        border-color: #c4c4c4 #d8d8d8 #e2e2e2;
+        outline: none;
+        margin: 0;
+        line-height: 1.5em;
+        width: 100%;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: Helvetica, Arial, sans-serif;
+        vertical-align: top;
+
+        a {
+            text-decoration: underline;
+            color: #007AB8;
+            outline: none;
+        }
+
+        hr {
+            margin-top: 16px;
+            margin-bottom: 16px;
+            border: 0;
+            border-top: 1px solid rgba(0,0,0,.1);
+        }
+    }
+
+    .error {
+        border: #ff8181 2px solid !important;
+    }
+
+    .input-container {
+        position: relative;
+        margin: 6px 0 9px 0;
+    }
+
+    .error-notification {
+        position: absolute;
+        z-index: 100;
+        width: auto;
+        line-height: 1;
+        top: -10%;
+        font-size: 11px;
+        right: 32px;
+        display: block;
+        margin: auto auto;
+        text-align: center;
+        background: white;
+        color: #ec2222;
+    }
+
+    .form-text {
+        display: block;
+        margin-top: .25rem;
+    }
+
+    .label-container {
+        margin-bottom: 6px;
+    }
+
+    .label {
+        line-height: 1.42857143;
+        color: #333;
+        font-weight: bold;
+        font-size: 15.6px;
+        display: block;
+        flex: none;
+        max-width: none;
+        margin: 0;
+        padding: 0 0 3px 0;
+        border: none;
+        white-space: normal;
+        width: 100%;
+        min-height: 20px;
+    }
+
+    .sub-label {
+        color: rgba(15, 15, 15, 0.7);
+        line-height: 1.2;
+        min-height: 15px;
+        font-size: 12px;
+    }
+
+    .required {
+        position: relative;
+    }
+
+    .required:after {
+        content: '*';
+        color: red;
+        position: absolute;
+        top: -0.32em;
+        z-index: 10;
+        left: -0.17em;
+        right: -0.15em;
+        font-size: 1.6em;
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        width: 10px;
+    }
+}
+
+.form {
+    // Additional form wrapper styles if needed
+}
+
+.form_container {
+    // Form content container
+}
+
+.form_title_sub_container {
+    // Title/description wrapper
+}
+
+.form_submission_message {
+    // Success message container
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.form-row {
+    // Individual form row wrapper
+}
+
+// Legacy button styles for form builder
+.btn {
+    display: inline-block;
+    padding: .5em 1.5em;
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.15s ease-in-out;
+    text-decoration: none;
+}
+
+.default-btn {
+    @extend .btn;
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+
+    &:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+}
+
+.create-btn {
+    @extend .btn;
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+
+    &:hover {
+        background-color: #218838;
+        border-color: #218838;
+    }
+}
+
+.private-btn {
+    @extend .btn;
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+
+    &:hover {
+        background-color: #545b62;
+        border-color: #545b62;
+    }
+}
+
+.blue-btn-group {
+    @extend .btn;
+    background-color: #17a2b8;
+    color: white;
+    border-color: #17a2b8;
+
+    &:hover {
+        background-color: #138496;
+        border-color: #138496;
+    }
+}
+
+// Form popup styles
+.form_popup_class {
+    // Popup-specific styling
+}
+
+.popup-form-white {
+    background-color: hsla(0,0%,100%,.98);
+}
+
+.popup-form-black {
+    background-color: rgba(0,0,0,.98);
+}
+
+.color-red {
+    color: #d52b1e;
+}
+
+.form-padding {
+    padding: 45px 0px;
+}

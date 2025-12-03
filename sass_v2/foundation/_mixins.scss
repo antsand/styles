@@ -1,0 +1,81 @@
+// ============================================
+// ANTSAND Styles v2 - Mixins
+// Reusable SASS mixins
+// ============================================
+
+// Responsive breakpoints
+@mixin antsand-sm {
+    @media (min-width: $antsand-breakpoint-sm) {
+        @content;
+    }
+}
+
+@mixin antsand-md {
+    @media (min-width: $antsand-breakpoint-md) {
+        @content;
+    }
+}
+
+@mixin antsand-lg {
+    @media (min-width: $antsand-breakpoint-lg) {
+        @content;
+    }
+}
+
+@mixin antsand-xl {
+    @media (min-width: $antsand-breakpoint-xl) {
+        @content;
+    }
+}
+
+// Button base
+@mixin antsand-btn-base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $antsand-font-weight-medium;
+    text-align: center;
+    white-space: nowrap;
+    user-select: none;
+    border: 1px solid transparent;
+    transition: all $antsand-transition-base;
+    cursor: pointer;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+// Button variant
+@mixin antsand-btn-variant($bg, $color: white, $hover-bg: darken($bg, 10%)) {
+    background-color: $bg;
+    color: $color;
+    border-color: $bg;
+
+    &:hover:not(:disabled) {
+        background-color: $hover-bg;
+        border-color: $hover-bg;
+    }
+}
+
+// Card
+@mixin antsand-card {
+    background: white;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-md;
+    padding: $antsand-space-4;
+}
+
+// Shadow
+@mixin antsand-shadow($level: 'md') {
+    @if $level == 'sm' {
+        box-shadow: $antsand-shadow-sm;
+    } @else if $level == 'md' {
+        box-shadow: $antsand-shadow-md;
+    } @else if $level == 'lg' {
+        box-shadow: $antsand-shadow-lg;
+    } @else if $level == 'xl' {
+        box-shadow: $antsand-shadow-xl;
+    }
+}

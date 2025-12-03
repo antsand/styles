@@ -1,0 +1,136 @@
+// ============================================
+// ANTSAND Styles v2 - Hero Patterns
+// Hero section layouts
+// ============================================
+
+.antsand-hero {
+    position: relative;
+    padding: $antsand-space-8 0;
+    text-align: center;
+
+    @include antsand-lg {
+        padding: 6rem 0;
+    }
+}
+
+.antsand-hero-title {
+    font-size: $antsand-font-size-3xl;
+    font-weight: $antsand-font-weight-bold;
+    line-height: $antsand-line-height-tight;
+    margin-bottom: $antsand-space-4;
+
+    @include antsand-md {
+        font-size: $antsand-font-size-4xl;
+    }
+
+    @include antsand-lg {
+        font-size: $antsand-font-size-5xl;
+    }
+}
+
+.antsand-hero-subtitle {
+    font-size: $antsand-font-size-lg;
+    color: $antsand-gray-600;
+    line-height: $antsand-line-height-relaxed;
+    margin-bottom: $antsand-space-5;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include antsand-md {
+        font-size: $antsand-font-size-xl;
+    }
+}
+
+.antsand-hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $antsand-space-3;
+    flex-wrap: wrap;
+}
+
+.antsand-hero-image {
+    margin-top: $antsand-space-6;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: $antsand-radius-lg;
+        box-shadow: $antsand-shadow-xl;
+    }
+}
+
+// Hero with background image
+.antsand-hero-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .antsand-hero-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+// Hero with gradient
+.antsand-hero-gradient {
+    background: linear-gradient(135deg, $antsand-primary 0%, darken($antsand-primary, 15%) 100%);
+    color: white;
+
+    .antsand-hero-subtitle {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+// Split hero (image + text side by side)
+.antsand-hero-split {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-6;
+    text-align: left;
+    padding: $antsand-space-7 0;
+
+    @media (max-width: $antsand-breakpoint-md) {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .antsand-hero-content {
+        flex: 1;
+    }
+
+    .antsand-hero-image {
+        flex: 1;
+        margin-top: 0;
+    }
+
+    .antsand-hero-subtitle {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .antsand-hero-cta {
+        justify-content: flex-start;
+
+        @media (max-width: $antsand-breakpoint-md) {
+            justify-content: center;
+        }
+    }
+}

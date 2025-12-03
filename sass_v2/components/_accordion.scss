@@ -1,0 +1,72 @@
+// ============================================
+// ANTSAND Styles v2 - Accordion
+// Collapsible content panels
+// ============================================
+
+.antsand-accordion {
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-md;
+}
+
+.antsand-accordion-item {
+    border-bottom: 1px solid $antsand-gray-200;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.antsand-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $antsand-space-4;
+    font-weight: $antsand-font-weight-semibold;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color $antsand-transition-base;
+
+    &:hover {
+        background-color: $antsand-gray-100;
+    }
+
+    &.active {
+        background-color: $antsand-gray-100;
+        color: $antsand-primary;
+    }
+}
+
+.antsand-accordion-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform $antsand-transition-base;
+
+    &::before {
+        content: '+';
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+
+    &.active::before {
+        content: '−';
+    }
+}
+
+.antsand-accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $antsand-transition-slow ease-in-out;
+
+    &.active {
+        max-height: 1000px; // Adjust based on content
+    }
+}
+
+.antsand-accordion-content {
+    padding: 0 $antsand-space-4 $antsand-space-4 $antsand-space-4;
+    color: $antsand-gray-700;
+    line-height: $antsand-line-height-relaxed;
+}

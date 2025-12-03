@@ -1,0 +1,116 @@
+// ============================================
+// ANTSAND Styles v2 - Alert
+// Alert/notification component
+// ============================================
+
+.antsand-alert {
+    position: relative;
+    padding: $antsand-space-3 $antsand-space-4;
+    margin-bottom: $antsand-space-4;
+    border: 1px solid transparent;
+    border-radius: $antsand-radius-md;
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-3;
+}
+
+.antsand-alert-icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+}
+
+.antsand-alert-content {
+    flex: 1;
+
+    strong {
+        font-weight: $antsand-font-weight-semibold;
+        display: block;
+        margin-bottom: $antsand-space-1;
+    }
+}
+
+.antsand-alert-close {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: $antsand-radius-sm;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: 0.6;
+    transition: opacity $antsand-transition-base;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+// Variants
+.antsand-alert-primary {
+    background-color: lighten($antsand-primary, 45%);
+    border-color: lighten($antsand-primary, 30%);
+    color: darken($antsand-primary, 20%);
+}
+
+.antsand-alert-secondary {
+    background-color: lighten($antsand-secondary, 55%);
+    border-color: lighten($antsand-secondary, 40%);
+    color: darken($antsand-secondary, 10%);
+}
+
+.antsand-alert-success {
+    background-color: lighten($antsand-success, 50%);
+    border-color: lighten($antsand-success, 35%);
+    color: darken($antsand-success, 20%);
+}
+
+.antsand-alert-danger {
+    background-color: lighten($antsand-danger, 40%);
+    border-color: lighten($antsand-danger, 25%);
+    color: darken($antsand-danger, 15%);
+}
+
+.antsand-alert-warning {
+    background-color: lighten($antsand-warning, 40%);
+    border-color: lighten($antsand-warning, 25%);
+    color: darken($antsand-warning, 20%);
+}
+
+.antsand-alert-info {
+    background-color: lighten($antsand-info, 50%);
+    border-color: lighten($antsand-info, 35%);
+    color: darken($antsand-info, 20%);
+}
+
+.antsand-alert-light {
+    background-color: $antsand-light;
+    border-color: $antsand-gray-300;
+    color: $antsand-gray-800;
+}
+
+.antsand-alert-dark {
+    background-color: $antsand-dark;
+    border-color: darken($antsand-dark, 10%);
+    color: white;
+}
+
+// Dismissible animation
+.antsand-alert.fade-out {
+    animation: alertFadeOut $antsand-transition-base ease-out forwards;
+}
+
+@keyframes alertFadeOut {
+    from {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    to {
+        opacity: 0;
+        transform: scaleY(0);
+        margin: 0;
+        padding: 0;
+    }
+}

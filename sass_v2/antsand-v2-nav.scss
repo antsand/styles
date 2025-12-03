@@ -1,6 +1,6 @@
 // ============================================
 // ANTSAND Styles v2 - Navigation Component
-// Self-contained (no external dependencies)
+// Focused on navigation only - pair with antsand-v2-fonts
 // ============================================
 
 // Color Palette
@@ -55,3 +55,6 @@ $antsand-z-fixed: 1030 !default;
 
 // Import v2 navigation component
 @import 'nav-v2';
+
+// Import enhanced navigation with click-based dropdowns
+@import 'nav-v2-enhanced';

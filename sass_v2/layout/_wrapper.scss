@@ -1,0 +1,282 @@
+// ============================================
+// ANTSAND Styles v2 - Wrapper System
+// Powerful, responsive content wrappers
+// ============================================
+
+// Wrapper width variables (for easy customization)
+$wrapper-max-width-sm: 640px !default;
+$wrapper-max-width-md: 768px !default;
+$wrapper-max-width-lg: 1024px !default;
+$wrapper-max-width-xl: 1280px !default;
+$wrapper-max-width-2xl: 1440px !default;
+
+$wrapper-padding-mobile: $antsand-space-3 !default;  // 16px on mobile
+$wrapper-padding-tablet: $antsand-space-4 !default;  // 24px on tablet
+$wrapper-padding-desktop: $antsand-space-5 !default; // 32px on desktop
+
+// ============================================
+// Main Wrapper - Centers content, responsive width
+// ============================================
+
+.wrapper {
+    width: 100%;
+    max-width: $wrapper-max-width-xl;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $wrapper-padding-mobile;
+    padding-right: $wrapper-padding-mobile;
+
+    @include antsand-md {
+        padding-left: $wrapper-padding-tablet;
+        padding-right: $wrapper-padding-tablet;
+    }
+
+    @include antsand-lg {
+        padding-left: $wrapper-padding-desktop;
+        padding-right: $wrapper-padding-desktop;
+    }
+}
+
+// Inner wrapper - narrower content within wrapper
+.inner-wrapper {
+    width: 100%;
+    max-width: $wrapper-max-width-lg;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $wrapper-padding-mobile;
+    padding-right: $wrapper-padding-mobile;
+
+    @include antsand-md {
+        padding-left: $wrapper-padding-tablet;
+        padding-right: $wrapper-padding-tablet;
+    }
+
+    @include antsand-lg {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// ============================================
+// Width Variants
+// ============================================
+
+// Narrow wrapper (for blog content, articles)
+.wrapper-narrow {
+    max-width: 720px;
+}
+
+// Small wrapper (for forms, login)
+.wrapper-sm {
+    max-width: $wrapper-max-width-sm;
+}
+
+// Medium wrapper (for cards, features)
+.wrapper-md {
+    max-width: $wrapper-max-width-md;
+}
+
+// Large wrapper (standard content)
+.wrapper-lg {
+    max-width: $wrapper-max-width-lg;
+}
+
+// Extra large wrapper (full layouts)
+.wrapper-xl {
+    max-width: $wrapper-max-width-xl;
+}
+
+// 2XL wrapper (wide screens)
+.wrapper-2xl {
+    max-width: $wrapper-max-width-2xl;
+}
+
+// Full width (no max-width constraint)
+.wrapper-full {
+    max-width: none;
+}
+
+// ============================================
+// Padding Variants
+// ============================================
+
+.wrapper-no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.wrapper-padding-sm {
+    padding-left: $antsand-space-2;
+    padding-right: $antsand-space-2;
+
+    @include antsand-md {
+        padding-left: $antsand-space-3;
+        padding-right: $antsand-space-3;
+    }
+}
+
+.wrapper-padding-lg {
+    padding-left: $antsand-space-4;
+    padding-right: $antsand-space-4;
+
+    @include antsand-md {
+        padding-left: $antsand-space-6;
+        padding-right: $antsand-space-6;
+    }
+
+    @include antsand-lg {
+        padding-left: $antsand-space-8;
+        padding-right: $antsand-space-8;
+    }
+}
+
+// ============================================
+// ANTSAND Container (Bootstrap-like naming)
+// ============================================
+
+.antsand-container {
+    @extend .wrapper;
+}
+
+.antsand-container-narrow {
+    @extend .wrapper;
+    max-width: 900px;
+}
+
+.antsand-container-fluid {
+    @extend .wrapper;
+    max-width: none;
+}
+
+// ============================================
+// Responsive Width Utilities
+// ============================================
+
+// Full width on mobile, constrained on larger screens
+.width-full {
+    width: 100%;
+}
+
+.width-full-mobile {
+    width: 100%;
+
+    @include antsand-md {
+        width: auto;
+    }
+}
+
+.max-width-full {
+    max-width: 100%;
+}
+
+// ============================================
+// Centering Utilities
+// ============================================
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// ============================================
+// Content Width Utilities (for text readability)
+// ============================================
+
+// Optimal reading width (~65 characters)
+.content-width {
+    max-width: 65ch;
+}
+
+.content-width-sm {
+    max-width: 45ch;
+}
+
+.content-width-lg {
+    max-width: 80ch;
+}
+
+// ============================================
+// Breakpoint-specific wrappers
+// ============================================
+
+// Wrapper that changes max-width at breakpoints
+.wrapper-responsive {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $wrapper-padding-mobile;
+    padding-right: $wrapper-padding-mobile;
+
+    @include antsand-sm {
+        max-width: $wrapper-max-width-sm;
+    }
+
+    @include antsand-md {
+        max-width: $wrapper-max-width-md;
+        padding-left: $wrapper-padding-tablet;
+        padding-right: $wrapper-padding-tablet;
+    }
+
+    @include antsand-lg {
+        max-width: $wrapper-max-width-lg;
+        padding-left: $wrapper-padding-desktop;
+        padding-right: $wrapper-padding-desktop;
+    }
+
+    @include antsand-xl {
+        max-width: $wrapper-max-width-xl;
+    }
+}
+
+// ============================================
+// CSS Custom Properties (for runtime customization)
+// ============================================
+
+.wrapper-custom {
+    width: 100%;
+    max-width: var(--wrapper-max-width, #{$wrapper-max-width-xl});
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--wrapper-padding-x, #{$wrapper-padding-mobile});
+    padding-right: var(--wrapper-padding-x, #{$wrapper-padding-mobile});
+
+    @include antsand-md {
+        padding-left: var(--wrapper-padding-x-md, #{$wrapper-padding-tablet});
+        padding-right: var(--wrapper-padding-x-md, #{$wrapper-padding-tablet});
+    }
+}
+
+// ============================================
+// Legacy Support (matches old .wrapper behavior)
+// ============================================
+
+// For pages that used the old Susy-based wrapper
+.wrapper-legacy {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @include antsand-md {
+        width: 85%;
+        max-width: 1200px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    @include antsand-lg {
+        width: 75%;
+    }
+}

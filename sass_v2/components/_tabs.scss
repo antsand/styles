@@ -1,0 +1,104 @@
+// ============================================
+// ANTSAND Styles v2 - Tabs
+// Tab navigation component
+// ============================================
+
+.antsand-tabs {
+    width: 100%;
+}
+
+.antsand-tab-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $antsand-space-2;
+    border-bottom: 2px solid $antsand-gray-200;
+    margin-bottom: $antsand-space-4;
+}
+
+.antsand-tab-item {
+    padding: $antsand-space-3 $antsand-space-4;
+    font-weight: $antsand-font-weight-medium;
+    color: $antsand-gray-600;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all $antsand-transition-base;
+    margin-bottom: -2px;
+
+    &:hover {
+        color: $antsand-primary;
+    }
+
+    &.active {
+        color: $antsand-primary;
+        border-bottom-color: $antsand-primary;
+    }
+}
+
+.antsand-tab-content {
+    position: relative;
+}
+
+.antsand-tab-pane {
+    display: none;
+
+    &.active {
+        display: block;
+        animation: fadeIn $antsand-transition-base ease-in;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+// Variant: Pills
+.antsand-tab-nav-pills {
+    border-bottom: none;
+
+    .antsand-tab-item {
+        border-radius: $antsand-radius-md;
+        border-bottom: none;
+
+        &.active {
+            background-color: $antsand-primary;
+            color: white;
+        }
+    }
+}
+
+// Variant: Vertical
+.antsand-tabs-vertical {
+    display: flex;
+    gap: $antsand-space-4;
+
+    .antsand-tab-nav {
+        flex-direction: column;
+        border-bottom: none;
+        border-right: 2px solid $antsand-gray-200;
+        margin-bottom: 0;
+        margin-right: $antsand-space-4;
+    }
+
+    .antsand-tab-item {
+        border-bottom: none;
+        border-right: 2px solid transparent;
+        margin-bottom: 0;
+        margin-right: -2px;
+
+        &.active {
+            border-right-color: $antsand-primary;
+            border-bottom-color: transparent;
+        }
+    }
+
+    .antsand-tab-content {
+        flex: 1;
+    }
+}

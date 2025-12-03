@@ -1,0 +1,677 @@
+/*
+ * =========================================
+ * BLOG CARD SYSTEM
+ * Smart blog rendering with multiple variants
+ * =========================================
+ */
+
+// Blog Card Variables (inherit from ANTSAND foundation)
+$blog-card-bg: white !default;
+$blog-card-shadow: $antsand-shadow-md !default;
+$blog-card-shadow-lg: $antsand-shadow-lg !default;
+$blog-card-radius: $antsand-radius-lg !default;
+$blog-tag-bg: rgba($antsand-primary, 0.1) !default;
+$blog-tag-color: $antsand-primary !default;
+
+// Aliased variables for easier customization per-project
+$primary: $antsand-primary !default;
+$primary-dark: darken($antsand-primary, 10%) !default;
+$dark: $antsand-gray-900 !default;
+$light: white !default;
+$background: $antsand-gray-50 !default;
+$text-primary: $antsand-gray-900 !default;
+$text-secondary: $antsand-gray-600 !default;
+$border-color: $antsand-gray-200 !default;
+
+$spacing-xs: $antsand-space-1 !default;
+$spacing-sm: $antsand-space-2 !default;
+$spacing-base: $antsand-space-3 !default;
+$spacing-md: $antsand-space-4 !default;
+$spacing-lg: $antsand-space-6 !default;
+$border-radius: $antsand-radius-lg !default;
+$shadow: $antsand-shadow-md !default;
+$shadow-sm: $antsand-shadow-sm !default;
+$shadow-lg: $antsand-shadow-lg !default;
+
+/*
+ * -----------------------------------------
+ * BASE BLOG CARD META ELEMENTS
+ * -----------------------------------------
+ */
+
+.blog-card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-sm;
+    font-size: 0.8rem;
+    color: $text-secondary;
+}
+
+.blog-card-tag {
+    background: $blog-tag-bg;
+    color: $blog-tag-color;
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.blog-card-read-time {
+    color: $text-secondary;
+    font-size: 0.8rem;
+}
+
+.blog-card-excerpt {
+    font-size: 0.9rem;
+    color: $text-secondary;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.blog-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: $spacing-base;
+    padding-top: $spacing-base;
+    border-top: 1px solid $border-color;
+}
+
+.blog-card-author {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+}
+
+.blog-card-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $light;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.blog-card-author-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $text-primary;
+}
+
+.blog-card-date {
+    font-size: 0.8rem;
+    color: $text-secondary;
+}
+
+.blog-card-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $dark;
+    margin-bottom: $spacing-sm;
+    line-height: 1.4;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.blog-card-read-more {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $primary;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/*
+ * -----------------------------------------
+ * VARIANT 1: Full Card with Cover Image
+ * -----------------------------------------
+ */
+
+.blog-card {
+    background: $blog-card-bg;
+    border-radius: $blog-card-radius;
+    overflow: hidden;
+    box-shadow: $blog-card-shadow;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $shadow-lg;
+    }
+}
+
+.blog-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+}
+
+.blog-card-body {
+    padding: $spacing-md;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+ * -----------------------------------------
+ * VARIANT 2: No Cover Image - Text Only
+ * -----------------------------------------
+ */
+
+.blog-card-text-only {
+    background: $blog-card-bg;
+    border-radius: $blog-card-radius;
+    padding: $spacing-md;
+    box-shadow: $blog-card-shadow;
+    border-left: 4px solid $primary;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-lg;
+    }
+
+    .blog-card-footer {
+        border-top: none;
+        padding-top: $spacing-sm;
+    }
+}
+
+/*
+ * -----------------------------------------
+ * VARIANT 3: Minimal Row (List Style)
+ * -----------------------------------------
+ */
+
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-base;
+}
+
+.blog-list-item {
+    background: $blog-card-bg;
+    border-radius: $border-radius;
+    padding: $spacing-md;
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-md;
+    box-shadow: $shadow-sm;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: $blog-card-shadow;
+    }
+}
+
+.blog-list-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: $border-radius;
+    background: linear-gradient(135deg, $primary 0%, $primary-dark 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    svg {
+        width: 24px;
+        height: 24px;
+        color: $light;
+    }
+}
+
+.blog-list-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.blog-list-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $dark;
+    margin-bottom: 0.25rem;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.blog-list-meta {
+    font-size: 0.8rem;
+    color: $text-secondary;
+}
+
+.blog-list-date {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: $text-secondary;
+    white-space: nowrap;
+}
+
+/*
+ * -----------------------------------------
+ * VARIANT 4: Horizontal Card (Image Left)
+ * -----------------------------------------
+ */
+
+.blog-card-horizontal {
+    background: $blog-card-bg;
+    border-radius: $blog-card-radius;
+    overflow: hidden;
+    box-shadow: $blog-card-shadow;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-lg;
+    }
+
+    @media (max-width: 700px) {
+        grid-template-columns: 1fr;
+
+        .blog-card-image {
+            height: 180px;
+        }
+    }
+
+    .blog-card-image {
+        height: 100%;
+        min-height: 180px;
+    }
+
+    .blog-card-body {
+        padding: $spacing-md;
+    }
+
+    // No Image variant - just accent bar
+    &.no-image {
+        grid-template-columns: 6px 1fr;
+    }
+}
+
+.blog-card-accent {
+    background: linear-gradient(to bottom, $primary, $primary-dark);
+}
+
+/*
+ * -----------------------------------------
+ * VARIANT 5: Featured/Hero Card
+ * -----------------------------------------
+ */
+
+.blog-card-featured {
+    background: $blog-card-bg;
+    border-radius: $blog-card-radius;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 400px;
+
+    @media (max-width: 800px) {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-card-image {
+        height: 100%;
+        min-height: 300px;
+    }
+
+    .blog-card-body {
+        padding: $spacing-lg;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .blog-card-title {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+
+    .blog-card-excerpt {
+        font-size: 1rem;
+    }
+
+    // Featured without image
+    &.no-image {
+        grid-template-columns: 1fr;
+        background: linear-gradient(135deg, $dark 0%, lighten($dark, 5%) 100%);
+        color: $light;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, $primary, $primary-dark);
+        }
+
+        .blog-card-title {
+            color: $light;
+        }
+
+        .blog-card-excerpt {
+            color: rgba($light, 0.8);
+        }
+
+        .blog-card-tag {
+            background: rgba($light, 0.1);
+            color: $light;
+        }
+
+        .blog-card-footer {
+            border-top-color: rgba($light, 0.2);
+        }
+
+        .blog-card-author-name,
+        .blog-card-date,
+        .blog-card-read-more {
+            color: $light;
+        }
+    }
+}
+
+/*
+ * -----------------------------------------
+ * VARIANT 6: Compact Grid Card
+ * -----------------------------------------
+ */
+
+.blog-card-compact {
+    background: $blog-card-bg;
+    border-radius: $border-radius;
+    padding: $spacing-base;
+    box-shadow: $shadow-sm;
+    border: 1px solid $border-color;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        border-color: $primary;
+        box-shadow: $blog-card-shadow;
+    }
+
+    .blog-card-title {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .blog-card-meta {
+        font-size: 0.75rem;
+    }
+}
+
+/*
+ * -----------------------------------------
+ * TAG FILTER NAVIGATION
+ * -----------------------------------------
+ */
+
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+}
+
+.tag-filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid $border-color;
+    background: $light;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        border-color: $primary;
+        color: $primary;
+    }
+
+    &.active {
+        background: $primary;
+        border-color: $primary;
+        color: $light;
+    }
+}
+
+/*
+ * -----------------------------------------
+ * GROUPED BY CATEGORY/TAG
+ * -----------------------------------------
+ */
+
+.blog-group {
+    margin-bottom: $spacing-lg;
+}
+
+.blog-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-sm;
+    border-bottom: 2px solid $border-color;
+}
+
+.blog-group-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $dark;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    .icon {
+        width: 28px;
+        height: 28px;
+        background: $primary;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            color: $light;
+        }
+    }
+}
+
+.blog-group-count {
+    font-size: 0.85rem;
+    color: $text-secondary;
+}
+
+.blog-group-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/*
+ * -----------------------------------------
+ * TIMELINE/CHRONOLOGICAL
+ * -----------------------------------------
+ */
+
+.blog-timeline {
+    position: relative;
+    padding-left: $spacing-lg;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: $border-color;
+    }
+}
+
+.blog-timeline-month {
+    margin-bottom: $spacing-md;
+}
+
+.blog-timeline-month-label {
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: $spacing-sm;
+    margin-left: calc(-1 * #{$spacing-lg} + 20px);
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: $primary;
+        border-radius: 50%;
+        border: 2px solid $light;
+    }
+}
+
+.blog-timeline-item {
+    background: $blog-card-bg;
+    border-radius: $border-radius;
+    padding: $spacing-base;
+    margin-bottom: $spacing-sm;
+    box-shadow: $shadow-sm;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: calc(-1 * #{$spacing-lg} + 6px);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 8px;
+        height: 8px;
+        background: $border-color;
+        border-radius: 50%;
+    }
+}
+
+/*
+ * -----------------------------------------
+ * MASONRY STYLE (CSS Columns)
+ * -----------------------------------------
+ */
+
+.blog-masonry {
+    column-count: 3;
+    column-gap: $spacing-md;
+
+    @media (max-width: 900px) {
+        column-count: 2;
+    }
+
+    @media (max-width: 600px) {
+        column-count: 1;
+    }
+
+    .blog-card-text-only {
+        break-inside: avoid;
+        margin-bottom: $spacing-md;
+    }
+}
+
+/*
+ * -----------------------------------------
+ * PLACEHOLDER PATTERNS FOR NO-IMAGE
+ * -----------------------------------------
+ */
+
+.placeholder-pattern {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.pattern-dots {
+        background: radial-gradient(circle, $primary 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-color: rgba($primary, 0.05);
+    }
+
+    &.pattern-lines {
+        background: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba($primary, 0.05) 10px,
+            rgba($primary, 0.05) 20px
+        );
+        background-color: $background;
+    }
+
+    &.pattern-gradient {
+        background: linear-gradient(135deg, rgba($primary, 0.1) 0%, rgba($primary-dark, 0.2) 100%);
+    }
+}
+
+.placeholder-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba($primary, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 32px;
+        height: 32px;
+        color: $primary;
+    }
+}

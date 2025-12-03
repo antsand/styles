@@ -1,0 +1,113 @@
+// ============================================
+// ANTSAND Styles v2 - Callouts
+// Note boxes, warnings, source citations
+// ============================================
+
+// Base callout
+.antsand-callout {
+    padding: $antsand-space-4;
+    margin: $antsand-space-5 0;
+    border-left: 4px solid;
+    border-radius: $antsand-radius-sm;
+    background: $antsand-gray-50;
+    border-color: $antsand-gray-400;
+
+    // Headings in callouts
+    h4, h5 {
+        margin-top: 0;
+        margin-bottom: $antsand-space-2;
+        font-size: $antsand-font-size-base;
+        font-weight: $antsand-font-weight-bold;
+    }
+
+    // Last element no margin
+    > *:last-child {
+        margin-bottom: 0;
+    }
+
+    // Paragraphs
+    p {
+        font-size: $antsand-font-size-base;
+        line-height: $antsand-line-height-normal;
+    }
+
+    // Lists
+    ul, ol {
+        margin-top: $antsand-space-3;
+        font-size: $antsand-font-size-sm;
+        padding-left: $antsand-space-4;
+
+        li {
+            margin-bottom: $antsand-space-1;
+        }
+    }
+}
+
+// Info callout (primary color)
+.antsand-callout-info {
+    background: rgba($antsand-primary, 0.05);
+    border-color: $antsand-primary;
+    color: darken($antsand-primary, 20%);
+
+    h4, h5 {
+        color: darken($antsand-primary, 25%);
+    }
+}
+
+// Warning callout (yellow/orange)
+.antsand-callout-warning {
+    background: #fffbeb;
+    border-color: #f59e0b;
+    color: #92400e;
+
+    h4, h5 {
+        color: #78350f;
+    }
+}
+
+// Success callout (green)
+.antsand-callout-success {
+    background: rgba($antsand-success, 0.05);
+    border-color: $antsand-success;
+    color: darken($antsand-success, 25%);
+
+    h4, h5 {
+        color: darken($antsand-success, 30%);
+    }
+}
+
+// Danger callout (red)
+.antsand-callout-danger {
+    background: rgba($antsand-danger, 0.05);
+    border-color: $antsand-danger;
+    color: darken($antsand-danger, 20%);
+
+    h4, h5 {
+        color: darken($antsand-danger, 25%);
+    }
+}
+
+// Sources callout (for research papers)
+.antsand-callout-sources {
+    @extend .antsand-callout-warning;
+
+    ol, ul {
+        margin-top: $antsand-space-3;
+        font-size: $antsand-font-size-sm;
+
+        li {
+            margin-bottom: $antsand-space-2;
+        }
+    }
+}
+
+// Note callout (neutral gray)
+.antsand-callout-note {
+    background: $antsand-gray-50;
+    border-color: $antsand-gray-400;
+    color: $antsand-gray-800;
+
+    h4, h5 {
+        color: $antsand-gray-900;
+    }
+}

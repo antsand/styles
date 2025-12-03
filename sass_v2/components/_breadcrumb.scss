@@ -1,0 +1,62 @@
+// ============================================
+// ANTSAND Styles v2 - Breadcrumb
+// Navigation breadcrumb trail
+// ============================================
+
+.antsand-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: $antsand-space-3 0;
+    margin-bottom: $antsand-space-4;
+    list-style: none;
+}
+
+.antsand-breadcrumb-item {
+    display: flex;
+    align-items: center;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-gray-600;
+
+    a {
+        color: $antsand-primary;
+        text-decoration: none;
+        transition: color $antsand-transition-base;
+
+        &:hover {
+            color: darken($antsand-primary, 15%);
+            text-decoration: underline;
+        }
+    }
+
+    &.active {
+        color: $antsand-gray-700;
+        font-weight: $antsand-font-weight-medium;
+    }
+
+    & + &::before {
+        content: '/';
+        padding: 0 $antsand-space-2;
+        color: $antsand-gray-400;
+    }
+}
+
+// Custom separator
+.antsand-breadcrumb-separator-arrow {
+    .antsand-breadcrumb-item + .antsand-breadcrumb-item::before {
+        content: '›';
+        font-size: 1.25rem;
+    }
+}
+
+.antsand-breadcrumb-separator-dot {
+    .antsand-breadcrumb-item + .antsand-breadcrumb-item::before {
+        content: '•';
+    }
+}
+
+.antsand-breadcrumb-separator-chevron {
+    .antsand-breadcrumb-item + .antsand-breadcrumb-item::before {
+        content: '»';
+    }
+}

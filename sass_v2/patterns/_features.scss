@@ -1,0 +1,182 @@
+// ============================================
+// ANTSAND Styles v2 - Features Patterns
+// Feature grid layouts
+// ============================================
+
+.antsand-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $antsand-space-5;
+    padding: $antsand-space-6 0;
+}
+
+.antsand-feature-item {
+    text-align: center;
+    padding: $antsand-space-4;
+    transition: transform $antsand-transition-base;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+}
+
+.antsand-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto $antsand-space-3 auto;
+    background-color: lighten($antsand-primary, 45%);
+    color: $antsand-primary;
+    border-radius: $antsand-radius-lg;
+    font-size: 2rem;
+
+    img, svg {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+.antsand-feature-title {
+    font-size: $antsand-font-size-xl;
+    font-weight: $antsand-font-weight-bold;
+    color: $antsand-gray-900;
+    margin-bottom: $antsand-space-2;
+}
+
+.antsand-feature-desc {
+    color: $antsand-gray-600;
+    line-height: $antsand-line-height-relaxed;
+}
+
+// Left-aligned features
+.antsand-features-left {
+    .antsand-feature-item {
+        text-align: left;
+        display: flex;
+        gap: $antsand-space-4;
+        align-items: flex-start;
+    }
+
+    .antsand-feature-icon {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .antsand-feature-content {
+        flex: 1;
+    }
+}
+
+// Features with cards
+.antsand-features-cards {
+    .antsand-feature-item {
+        background-color: white;
+        border: 1px solid $antsand-gray-200;
+        border-radius: $antsand-radius-lg;
+        box-shadow: $antsand-shadow-sm;
+
+        &:hover {
+            box-shadow: $antsand-shadow-lg;
+            border-color: $antsand-primary;
+        }
+    }
+}
+
+// Icon variants
+.antsand-feature-icon-circle {
+    border-radius: 50%;
+}
+
+.antsand-feature-icon-primary {
+    background-color: $antsand-primary;
+    color: white;
+}
+
+.antsand-feature-icon-success {
+    background-color: lighten($antsand-success, 45%);
+    color: $antsand-success;
+}
+
+.antsand-feature-icon-warning {
+    background-color: lighten($antsand-warning, 40%);
+    color: darken($antsand-warning, 20%);
+}
+
+.antsand-feature-icon-danger {
+    background-color: lighten($antsand-danger, 40%);
+    color: $antsand-danger;
+}
+
+.antsand-feature-icon-info {
+    background-color: lighten($antsand-info, 50%);
+    color: $antsand-info;
+}
+
+// Large feature with image
+.antsand-feature-large {
+    display: flex;
+    gap: $antsand-space-6;
+    align-items: center;
+    margin-bottom: $antsand-space-6;
+
+    @media (max-width: $antsand-breakpoint-md) {
+        flex-direction: column;
+    }
+
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+
+        @media (max-width: $antsand-breakpoint-md) {
+            flex-direction: column;
+        }
+    }
+}
+
+.antsand-feature-large-image {
+    flex: 1;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: $antsand-radius-lg;
+        box-shadow: $antsand-shadow-lg;
+    }
+}
+
+.antsand-feature-large-content {
+    flex: 1;
+
+    h3 {
+        font-size: $antsand-font-size-3xl;
+        font-weight: $antsand-font-weight-bold;
+        color: $antsand-gray-900;
+        margin-bottom: $antsand-space-3;
+    }
+
+    p {
+        font-size: $antsand-font-size-lg;
+        color: $antsand-gray-600;
+        line-height: $antsand-line-height-relaxed;
+        margin-bottom: $antsand-space-4;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: $antsand-space-4;
+
+        li {
+            padding: $antsand-space-2 0;
+            color: $antsand-gray-700;
+
+            &::before {
+                content: '✓';
+                color: $antsand-success;
+                font-weight: $antsand-font-weight-bold;
+                margin-right: $antsand-space-2;
+            }
+        }
+    }
+}

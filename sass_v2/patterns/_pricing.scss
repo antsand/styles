@@ -1,0 +1,168 @@
+// ============================================
+// ANTSAND Styles v2 - Pricing Patterns
+// Pricing table layouts
+// ============================================
+
+.antsand-pricing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $antsand-space-5;
+    padding: $antsand-space-6 0;
+
+    @media (max-width: $antsand-breakpoint-sm) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.antsand-pricing-card {
+    background-color: white;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-lg;
+    padding: $antsand-space-5;
+    text-align: center;
+    transition: all $antsand-transition-base;
+    position: relative;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $antsand-shadow-xl;
+    }
+}
+
+.antsand-pricing-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $antsand-primary;
+    color: white;
+    padding: $antsand-space-1 $antsand-space-3;
+    border-radius: $antsand-radius-full;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-semibold;
+}
+
+.antsand-pricing-header {
+    padding-bottom: $antsand-space-4;
+    border-bottom: 1px solid $antsand-gray-200;
+    margin-bottom: $antsand-space-4;
+
+    h3 {
+        font-size: $antsand-font-size-xl;
+        font-weight: $antsand-font-weight-bold;
+        color: $antsand-gray-900;
+        margin-bottom: $antsand-space-2;
+    }
+
+    p {
+        color: $antsand-gray-600;
+        font-size: $antsand-font-size-sm;
+    }
+}
+
+.antsand-pricing-price {
+    margin-bottom: $antsand-space-4;
+
+    .price {
+        font-size: $antsand-font-size-4xl;
+        font-weight: $antsand-font-weight-bold;
+        color: $antsand-gray-900;
+        line-height: 1;
+
+        .currency {
+            font-size: $antsand-font-size-2xl;
+            vertical-align: super;
+        }
+    }
+
+    .period {
+        color: $antsand-gray-600;
+        font-size: $antsand-font-size-base;
+    }
+}
+
+.antsand-pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $antsand-space-5 0;
+
+    li {
+        padding: $antsand-space-2 0;
+        color: $antsand-gray-700;
+        line-height: $antsand-line-height-relaxed;
+
+        &::before {
+            content: '✓';
+            color: $antsand-success;
+            font-weight: $antsand-font-weight-bold;
+            margin-right: $antsand-space-2;
+        }
+
+        &.disabled {
+            color: $antsand-gray-400;
+
+            &::before {
+                content: '✕';
+                color: $antsand-gray-400;
+            }
+        }
+    }
+}
+
+.antsand-pricing-cta {
+    width: 100%;
+}
+
+// Highlighted/Featured plan
+.antsand-pricing-highlight {
+    border-color: $antsand-primary;
+    border-width: 2px;
+    box-shadow: $antsand-shadow-lg;
+    transform: scale(1.05);
+
+    @media (max-width: $antsand-breakpoint-md) {
+        transform: scale(1);
+    }
+
+    .antsand-pricing-header h3 {
+        color: $antsand-primary;
+    }
+}
+
+// Dark variant
+.antsand-pricing-dark {
+    .antsand-pricing-card {
+        background-color: $antsand-gray-900;
+        border-color: $antsand-gray-800;
+
+        &:hover {
+            border-color: $antsand-primary;
+        }
+    }
+
+    .antsand-pricing-header {
+        border-bottom-color: $antsand-gray-800;
+
+        h3 {
+            color: white;
+        }
+
+        p {
+            color: $antsand-gray-400;
+        }
+    }
+
+    .antsand-pricing-price {
+        .price {
+            color: white;
+        }
+
+        .period {
+            color: $antsand-gray-400;
+        }
+    }
+
+    .antsand-pricing-features li {
+        color: $antsand-gray-300;
+    }
+}

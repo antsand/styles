@@ -1,0 +1,185 @@
+// ============================================
+// ANTSAND Styles v2 - Tabs Component
+// Production class names (tabs-container-*, tab-*)
+// Matches tabs.html and tabs.js structure
+// ============================================
+
+// ===========================================
+// Base Tab Content Styles
+// ===========================================
+
+.tab-content {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    min-height: 150px;
+    display: none; /* Hide by default */
+
+    &.active {
+        display: block; /* Show active tab */
+    }
+}
+
+// ===========================================
+// Variation 1: Horizontal Pill Tabs
+// Class: tabs-container-h-pills
+// ===========================================
+
+.tabs-container-h-pills {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    background-color: #e2e8f0;
+    border-radius: 50px;
+}
+
+.tab-h-pills {
+    list-style: none;
+    padding: 10px 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #4a5568;
+
+    &:hover {
+        background-color: rgba(102, 126, 234, 0.1);
+    }
+
+    &.active {
+        background-image: linear-gradient(to right, #667eea, #764ba2);
+        color: white;
+        box-shadow: 0 4px 12px rgba(118, 75, 162, 0.3);
+    }
+}
+
+// ===========================================
+// Variation 2: Horizontal Step Tabs
+// Class: tabs-container-h-steps
+// ===========================================
+
+.tabs-container-h-steps {
+    display: flex;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.tab-h-steps {
+    list-style: none;
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #f8fafc;
+    color: #718096;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    border-right: 1px solid #cbd5e0;
+
+    &:last-child {
+        border-right: none;
+    }
+
+    &:hover {
+        background-color: #edf2f7;
+    }
+
+    &.active {
+        background-color: #edf2f7;
+        color: #2d3748;
+        font-weight: 600;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #4c51bf;
+        }
+    }
+}
+
+// ===========================================
+// Variation 3: Vertical Tabs
+// Class: tabs-container-vertical
+// ===========================================
+
+.vertical-tabs-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.tabs-container-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-right: 2px solid #e2e8f0;
+    padding-right: 20px;
+}
+
+.tab-vertical {
+    list-style: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #4a5568;
+    transition: all 0.3s ease;
+    min-width: 120px;
+
+    &:hover {
+        background-color: #f7fafc;
+    }
+
+    &.active {
+        background-color: #4c51bf;
+        color: white;
+    }
+}
+
+.vertical-tabs-layout .tab-content {
+    flex-grow: 1;
+}
+
+// ===========================================
+// Mobile Responsive
+// ===========================================
+
+@media (max-width: 768px) {
+    .tabs-container-h-pills,
+    .tabs-container-h-steps {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .tab-h-pills,
+    .tab-h-steps {
+        min-width: 100px;
+        flex-shrink: 0;
+    }
+
+    .vertical-tabs-layout {
+        flex-direction: column;
+    }
+
+    .tabs-container-vertical {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-right: none;
+        border-bottom: 2px solid #e2e8f0;
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .tab-vertical {
+        min-width: auto;
+    }
+}

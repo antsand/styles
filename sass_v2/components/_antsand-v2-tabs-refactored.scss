@@ -1,0 +1,322 @@
+// ============================================
+// ANTSAND Styles v2 - Tabs Component (Refactored)
+// Universal structure with parent class variants
+// Internal classes remain the same across all variants
+// Focused on tabs only - pair with antsand-v2-fonts
+// ============================================
+
+// Universal Tab Structure (works for ALL variants)
+// ============================================
+
+// Base structure - no variant-specific styling
+[data-tabs] {
+  position: relative;
+
+  .tabs-header {
+    display: flex;
+    margin-bottom: 1.5rem;
+  }
+
+  .tabs-item {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: #4a5568;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .tabs-content {
+    display: none;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    min-height: 150px;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+// ============================================
+// Pills Variant
+// Parent class: antsand-tabs-pills
+// ============================================
+.antsand-tabs-pills {
+  .tabs-header {
+    justify-content: center;
+    padding: 0.5rem;
+    background-color: #e2e8f0;
+    border-radius: 50px;
+  }
+
+  .tabs-item {
+    margin: 0 0.25rem;
+    border-radius: 50px;
+
+    &:hover {
+      background-color: rgba(102, 126, 234, 0.1);
+    }
+
+    &.active {
+      background-image: linear-gradient(to right, #667eea, #764ba2);
+      color: white;
+      box-shadow: 0 4px 12px rgba(118, 75, 162, 0.3);
+    }
+  }
+
+  .tabs-content {
+    background: #f7fafc;
+  }
+}
+
+// ============================================
+// Steps Variant
+// Parent class: antsand-tabs-steps
+// ============================================
+.antsand-tabs-steps {
+  .tabs-header {
+    border: 1px solid #cbd5e0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .tabs-item {
+    flex: 1;
+    text-align: center;
+    background-color: #f8fafc;
+    border-right: 1px solid #cbd5e0;
+    position: relative;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:hover {
+      background-color: #edf2f7;
+    }
+
+    &.active {
+      background-color: #edf2f7;
+      color: #2d3748;
+      font-weight: 600;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: #4c51bf;
+      }
+    }
+  }
+
+  .tabs-content {
+    background: #ffffff;
+    border: 1px solid #cbd5e0;
+  }
+}
+
+// ============================================
+// Vertical Variant
+// Parent class: antsand-tabs-vertical
+// ============================================
+.antsand-tabs-vertical {
+  display: flex;
+  gap: 1.5rem;
+
+  .tabs-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    border-right: 2px solid #e2e8f0;
+    padding-right: 1.5rem;
+    margin-bottom: 0;
+    min-width: 200px;
+  }
+
+  .tabs-item {
+    text-align: left;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background-color: #f7fafc;
+    }
+
+    &.active {
+      background-color: #4c51bf;
+      color: white;
+    }
+  }
+
+  .tabs-content-wrapper {
+    flex: 1;
+  }
+
+  .tabs-content {
+    &:first-of-type {
+      display: block;
+    }
+  }
+}
+
+// ============================================
+// Underline Variant
+// Parent class: antsand-tabs-underline
+// ============================================
+.antsand-tabs-underline {
+  .tabs-header {
+    border-bottom: 2px solid #e2e8f0;
+    gap: 1rem;
+  }
+
+  .tabs-item {
+    padding-bottom: 1rem;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+
+    &:hover {
+      color: #2d3748;
+      border-bottom-color: #cbd5e0;
+    }
+
+    &.active {
+      color: #3498db;
+      border-bottom-color: #3498db;
+      font-weight: 600;
+    }
+  }
+
+  .tabs-content {
+    background: transparent;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// ============================================
+// Boxed Variant
+// Parent class: antsand-tabs-boxed
+// ============================================
+.antsand-tabs-boxed {
+  .tabs-header {
+    gap: 0.5rem;
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .tabs-item {
+    border-radius: 0.5rem;
+    background: white;
+    border: 1px solid #e2e8f0;
+
+    &:hover {
+      border-color: #cbd5e0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active {
+      background: #3498db;
+      color: white;
+      border-color: #3498db;
+      box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+    }
+  }
+
+  .tabs-content {
+    background: white;
+    border: 1px solid #e2e8f0;
+  }
+}
+
+// ============================================
+// Mobile Responsive (applies to all variants)
+// ============================================
+@media (max-width: 768px) {
+  [data-tabs] {
+    .tabs-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .tabs-item {
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  // Pills keeps horizontal on mobile
+  .antsand-tabs-pills {
+    .tabs-header {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .tabs-item {
+      width: auto;
+    }
+  }
+
+  // Vertical becomes horizontal on mobile
+  .antsand-tabs-vertical {
+    flex-direction: column;
+
+    .tabs-header {
+      flex-direction: row;
+      border-right: none;
+      border-bottom: 2px solid #e2e8f0;
+      padding-right: 0;
+      padding-bottom: 1rem;
+      min-width: 0;
+    }
+  }
+}
+
+// ============================================
+// Utility Classes
+// ============================================
+.tabs-content-wrapper {
+  position: relative;
+}
+
+// Loading state
+.tabs-item[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+// Icon support in tabs
+.tabs-item-icon {
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: middle;
+}
+
+// Badge/count support
+.tabs-item-badge {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  background: #e2e8f0;
+  color: #4a5568;
+
+  .tabs-item.active & {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+  }
+}
