@@ -1,0 +1,28 @@
+{
+    "version": "2.0.0",
+    "description": "ANTSAND SASS Libraries - Available for import in databoard",
+    "libraries": [
+        {
+            "id": "breakpoints",
+            "name": "Breakpoints",
+            "filename": "_breakpoints.scss",
+            "description": "Responsive breakpoint mixins for mobile-first design",
+            "usage": "@import 'breakpoints';\n\n.my-class {\n    padding: 1rem;\n    \n    @include bp(md) {\n        padding: 2rem;  // tablet and up\n    }\n    \n    @include mobile {\n        padding: 0.5rem;  // phones only\n    }\n}",
+            "mixins": [
+                "@include bp(sm|md|lg|xl) - min-width breakpoint",
+                "@include bp(md, max) - max-width breakpoint",
+                "@include bp(sm, lg) - between breakpoints",
+                "@include mobile - phones only (<640px)",
+                "@include tablet - tablets (640px-1023px)",
+                "@include desktop - desktop+ (>=1024px)",
+                "@include sm-down, md-down, lg-down - max-width shortcuts"
+            ],
+            "variables": [
+                "$bp-sm: 640px",
+                "$bp-md: 768px",
+                "$bp-lg: 1024px",
+                "$bp-xl: 1280px"
+            ]
+        }
+    ]
+}

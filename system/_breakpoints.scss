@@ -1,0 +1,123 @@
+// ============================================
+// ANTSAND System - Breakpoints
+// DO NOT EDIT - This is a system file
+// Auto-included in all databoard CSS files
+// To restore: delete this file and it will be regenerated
+// ============================================
+
+// Breakpoint values (mobile-first)
+$bp-sm: 640px !default;   // Phone landscape
+$bp-md: 768px !default;   // Tablet
+$bp-lg: 1024px !default;  // Desktop
+$bp-xl: 1280px !default;  // Large desktop
+$bp-2xl: 1536px !default; // Extra large
+
+// Breakpoint map for dynamic access
+$breakpoints: (
+    'sm': $bp-sm,
+    'md': $bp-md,
+    'lg': $bp-lg,
+    'xl': $bp-xl,
+    '2xl': $bp-2xl
+) !default;
+
+// ============================================
+// MAIN MIXIN: bp()
+// ============================================
+// Usage:
+//   @include bp(md) { ... }           // min-width: 768px (mobile-first, default)
+//   @include bp(md, max) { ... }      // max-width: 768px (desktop-first)
+//   @include bp(sm, md) { ... }       // between sm and md
+//   @include bp(600px) { ... }        // custom value
+//   @include bp(600px, 900px) { ... } // custom range
+
+@mixin bp($min, $max: null) {
+    // Handle named breakpoints
+    @if type-of($min) == string and map-has-key($breakpoints, $min) {
+        $min-val: map-get($breakpoints, $min);
+
+        @if $max == null {
+            // Mobile-first: min-width
+            @media (min-width: $min-val) {
+                @content;
+            }
+        } @else if $max == 'max' or $max == 'down' {
+            // Desktop-first: max-width
+            @media (max-width: $min-val - 1px) {
+                @content;
+            }
+        } @else if type-of($max) == string and map-has-key($breakpoints, $max) {
+            // Range between two named breakpoints
+            $max-val: map-get($breakpoints, $max);
+            @media (min-width: $min-val) and (max-width: $max-val - 1px) {
+                @content;
+            }
+        } @else if type-of($max) == number {
+            // Named min, custom max
+            @media (min-width: $min-val) and (max-width: $max) {
+                @content;
+            }
+        }
+    } @else if type-of($min) == number {
+        // Custom pixel value
+        @if $max == null {
+            @media (min-width: $min) {
+                @content;
+            }
+        } @else if $max == 'max' or $max == 'down' {
+            @media (max-width: $min) {
+                @content;
+            }
+        } @else if type-of($max) == number {
+            @media (min-width: $min) and (max-width: $max) {
+                @content;
+            }
+        }
+    }
+}
+
+// ============================================
+// SHORTHAND MIXINS
+// ============================================
+
+// Mobile-first (min-width) - most common
+@mixin sm { @include bp(sm) { @content; } }
+@mixin md { @include bp(md) { @content; } }
+@mixin lg { @include bp(lg) { @content; } }
+@mixin xl { @include bp(xl) { @content; } }
+
+// Desktop-first (max-width) - for mobile overrides
+@mixin sm-down { @include bp(sm, max) { @content; } }
+@mixin md-down { @include bp(md, max) { @content; } }
+@mixin lg-down { @include bp(lg, max) { @content; } }
+@mixin xl-down { @include bp(xl, max) { @content; } }
+
+// Common aliases
+@mixin mobile { @include bp(sm, max) { @content; } }      // < 640px
+@mixin tablet { @include bp(sm, lg) { @content; } }       // 640px - 1023px
+@mixin desktop { @include bp(lg) { @content; } }          // >= 1024px
+
+// ============================================
+// HIDE/SHOW UTILITIES (optional)
+// ============================================
+
+// Generate responsive hide classes
+// .hide-sm, .hide-md, .hide-lg, etc.
+@each $name, $value in $breakpoints {
+    .hide-#{$name} {
+        @include bp($name) {
+            display: none !important;
+        }
+    }
+    .hide-#{$name}-down {
+        @include bp($name, max) {
+            display: none !important;
+        }
+    }
+    .show-#{$name} {
+        display: none !important;
+        @include bp($name) {
+            display: block !important;
+        }
+    }
+}
