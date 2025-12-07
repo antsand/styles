@@ -1,0 +1,1025 @@
+// =============================================================================
+// ANTSAND Modern Data Tables
+// Beautiful, themeable tables with multiple design variants
+// =============================================================================
+//
+// Usage: Add variant class to .ant-table container
+//   <div class="ant-table material">...</div>
+//   <div class="ant-table minimal">...</div>
+//   <div class="ant-table elegant">...</div>
+//
+// Available variants:
+//   .material    - Material Design 3 inspired with elevation and ripple
+//   .minimal     - Clean, borderless modern look
+//   .elegant     - Sophisticated with subtle gradients
+//   .glass       - Glassmorphism effect (works best on colored backgrounds)
+//   .neon        - Cyberpunk/neon glow effect (dark theme)
+//   .striped     - Modern striped with smooth hover
+//   .corporate   - Professional business style
+//
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Base Variables
+// -----------------------------------------------------------------------------
+$_table-radius: 12px;
+$_table-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Light theme colors
+$_light-bg: #ffffff;
+$_light-bg-alt: #f8fafc;
+$_light-border: #e2e8f0;
+$_light-text: #1e293b;
+$_light-text-muted: #64748b;
+$_light-header-bg: #f1f5f9;
+$_light-hover: #f8fafc;
+$_light-accent: #3b82f6;
+$_light-accent-soft: rgba(59, 130, 246, 0.1);
+
+// Dark theme colors
+$_dark-bg: #1e1e1e;
+$_dark-bg-alt: #252525;
+$_dark-border: #333333;
+$_dark-text: #e5e5e5;
+$_dark-text-muted: #a0a0a0;
+$_dark-header-bg: #2a2a2a;
+$_dark-hover: #2d2d2d;
+$_dark-accent: #60a5fa;
+
+// =============================================================================
+// BASE TABLE STYLES
+// =============================================================================
+.ant-table {
+    width: 100%;
+    overflow: hidden;
+    background: $_light-bg;
+    border-radius: $_table-radius;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    // Inner table
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        color: $_light-text;
+    }
+
+    th, td {
+        padding: 14px 18px;
+        text-align: left;
+    }
+
+    th {
+        font-weight: 600;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: $_light-text-muted;
+        background: $_light-header-bg;
+        border-bottom: 2px solid $_light-border;
+        white-space: nowrap;
+        position: relative;
+    }
+
+    td {
+        border-bottom: 1px solid $_light-border;
+        vertical-align: middle;
+    }
+
+    tbody tr {
+        transition: $_table-transition;
+
+        &:hover {
+            background: $_light-hover;
+        }
+
+        &:last-child td {
+            border-bottom: none;
+        }
+    }
+
+    // Sortable headers
+    th.sortable {
+        cursor: pointer;
+        user-select: none;
+        padding-right: 32px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 5px solid $_light-text-muted;
+            opacity: 0.3;
+        }
+
+        &:hover::after {
+            opacity: 0.6;
+        }
+
+        &.asc::after {
+            border-top: none;
+            border-bottom: 5px solid $_light-accent;
+            opacity: 1;
+        }
+
+        &.desc::after {
+            border-top: 5px solid $_light-accent;
+            opacity: 1;
+        }
+    }
+}
+
+// =============================================================================
+// VARIANT: MATERIAL DESIGN 3
+// =============================================================================
+.ant-table.material {
+    border-radius: 16px;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.05),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+
+    th {
+        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        border-bottom: none;
+        padding: 16px 20px;
+        font-size: 11px;
+        font-weight: 700;
+        color: $_light-text-muted;
+    }
+
+    td {
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    tbody tr {
+        transition: background-color 0.2s ease;
+
+        &:hover {
+            background: rgba($_light-accent, 0.04);
+        }
+
+        &:active {
+            background: rgba($_light-accent, 0.08);
+        }
+    }
+
+    // Elevated row on hover
+    tbody tr:hover td {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    // Selection highlight
+    tbody tr.selected {
+        background: $_light-accent-soft;
+    }
+
+    // Status badges
+    .status {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+
+        &.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+        &.warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        &.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        &.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+    }
+}
+
+// =============================================================================
+// VARIANT: MINIMAL
+// =============================================================================
+.ant-table.minimal {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+
+    th {
+        background: transparent;
+        border-bottom: 2px solid $_light-text;
+        padding: 12px 16px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: $_light-text;
+    }
+
+    td {
+        padding: 16px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    tbody tr:hover {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    tbody tr:last-child td {
+        border-bottom: 2px solid $_light-text;
+    }
+}
+
+// =============================================================================
+// VARIANT: ELEGANT
+// =============================================================================
+.ant-table.elegant {
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 20px -5px rgba(0, 0, 0, 0.08);
+
+    th {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-bottom: none;
+        padding: 18px 20px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &:first-child {
+            border-radius: 15px 0 0 0;
+        }
+        &:last-child {
+            border-radius: 0 15px 0 0;
+        }
+
+        &.sortable::after {
+            border-top-color: rgba(255, 255, 255, 0.5);
+        }
+        &.sortable.asc::after,
+        &.sortable.desc::after {
+            border-top-color: white;
+            border-bottom-color: white;
+        }
+    }
+
+    td {
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    tbody tr {
+        &:nth-child(even) {
+            background: rgba(102, 126, 234, 0.03);
+        }
+
+        &:hover {
+            background: rgba(102, 126, 234, 0.08);
+        }
+    }
+
+    // Purple accent for interactive elements
+    a, .link {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+            color: #764ba2;
+        }
+    }
+}
+
+// =============================================================================
+// VARIANT: GLASS (Glassmorphism)
+// =============================================================================
+.ant-table.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
+    th {
+        background: rgba(255, 255, 255, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 16px 20px;
+        font-weight: 600;
+        color: $_light-text;
+    }
+
+    td {
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    tbody tr:hover {
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    // Dark glass variant
+    &.dark {
+        background: rgba(30, 30, 30, 0.8);
+        border-color: rgba(255, 255, 255, 0.1);
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: $_dark-text;
+        }
+
+        td {
+            border-color: rgba(255, 255, 255, 0.05);
+            color: $_dark-text;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+    }
+}
+
+// =============================================================================
+// VARIANT: NEON (Cyberpunk)
+// =============================================================================
+.ant-table.neon {
+    background: #0a0a0f;
+    border: 1px solid #1a1a2e;
+    border-radius: 12px;
+    box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    table {
+        color: #e0e0e0;
+    }
+
+    th {
+        background: linear-gradient(180deg, #1a1a2e 0%, #16162a 100%);
+        border-bottom: 1px solid #00fff2;
+        padding: 16px 20px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #00fff2;
+        text-shadow: 0 0 10px rgba(0, 255, 242, 0.5);
+    }
+
+    td {
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(0, 255, 242, 0.1);
+    }
+
+    tbody tr {
+        &:hover {
+            background: rgba(0, 255, 242, 0.05);
+            box-shadow:
+                inset 3px 0 0 #00fff2,
+                0 0 20px rgba(0, 255, 242, 0.1);
+        }
+    }
+
+    // Neon status badges
+    .status {
+        padding: 5px 12px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &.success {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+        &.warning {
+            background: rgba(255, 200, 0, 0.1);
+            color: #ffc800;
+            border: 1px solid #ffc800;
+            box-shadow: 0 0 10px rgba(255, 200, 0, 0.3);
+        }
+        &.error {
+            background: rgba(255, 0, 85, 0.1);
+            color: #ff0055;
+            border: 1px solid #ff0055;
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+        }
+    }
+
+    // Neon accent links
+    a, .link {
+        color: #ff00ff;
+        text-shadow: 0 0 8px rgba(255, 0, 255, 0.5);
+
+        &:hover {
+            color: #00fff2;
+            text-shadow: 0 0 12px rgba(0, 255, 242, 0.8);
+        }
+    }
+}
+
+// =============================================================================
+// VARIANT: STRIPED MODERN
+// =============================================================================
+.ant-table.striped {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    th {
+        background: $_light-text;
+        color: white;
+        border-bottom: none;
+        padding: 16px 20px;
+        font-size: 12px;
+        font-weight: 600;
+
+        &.sortable::after {
+            border-top-color: rgba(255, 255, 255, 0.5);
+        }
+        &.sortable.asc::after,
+        &.sortable.desc::after {
+            border-top-color: white;
+            border-bottom-color: white;
+        }
+    }
+
+    td {
+        padding: 14px 20px;
+        border-bottom: none;
+    }
+
+    tbody tr {
+        &:nth-child(odd) {
+            background: $_light-bg;
+        }
+        &:nth-child(even) {
+            background: $_light-bg-alt;
+        }
+
+        &:hover {
+            background: #e0f2fe;
+            transform: scale(1.005);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    // Color variants for striped
+    &.blue {
+        th { background: #1e40af; }
+        tbody tr {
+            &:nth-child(odd) { background: #eff6ff; }
+            &:nth-child(even) { background: #dbeafe; }
+            &:hover { background: #bfdbfe; }
+        }
+    }
+
+    &.green {
+        th { background: #166534; }
+        tbody tr {
+            &:nth-child(odd) { background: #f0fdf4; }
+            &:nth-child(even) { background: #dcfce7; }
+            &:hover { background: #bbf7d0; }
+        }
+    }
+
+    &.purple {
+        th { background: #6b21a8; }
+        tbody tr {
+            &:nth-child(odd) { background: #faf5ff; }
+            &:nth-child(even) { background: #f3e8ff; }
+            &:hover { background: #e9d5ff; }
+        }
+    }
+
+    &.amber {
+        th { background: #b45309; }
+        tbody tr {
+            &:nth-child(odd) { background: #fffbeb; }
+            &:nth-child(even) { background: #fef3c7; }
+            &:hover { background: #fde68a; }
+        }
+    }
+
+    &.rose {
+        th { background: #be123c; }
+        tbody tr {
+            &:nth-child(odd) { background: #fff1f2; }
+            &:nth-child(even) { background: #ffe4e6; }
+            &:hover { background: #fecdd3; }
+        }
+    }
+
+    &.teal {
+        th { background: #0f766e; }
+        tbody tr {
+            &:nth-child(odd) { background: #f0fdfa; }
+            &:nth-child(even) { background: #ccfbf1; }
+            &:hover { background: #99f6e4; }
+        }
+    }
+}
+
+// =============================================================================
+// VARIANT: ZEBRA (Bold alternating colors)
+// =============================================================================
+.ant-table.zebra {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    th {
+        background: #0f172a;
+        color: white;
+        border-bottom: none;
+        padding: 16px 20px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    td {
+        padding: 16px 20px;
+        border-bottom: none;
+        font-weight: 500;
+    }
+
+    tbody tr {
+        transition: $_table-transition;
+
+        &:nth-child(odd) {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        &:nth-child(even) {
+            background: #1e293b;
+            color: #f8fafc;
+        }
+
+        &:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    // Zebra color themes
+    &.ocean {
+        th { background: #0c4a6e; }
+        tbody tr {
+            &:nth-child(odd) { background: #e0f2fe; color: #0c4a6e; }
+            &:nth-child(even) { background: #0369a1; color: white; }
+        }
+    }
+
+    &.forest {
+        th { background: #14532d; }
+        tbody tr {
+            &:nth-child(odd) { background: #dcfce7; color: #14532d; }
+            &:nth-child(even) { background: #15803d; color: white; }
+        }
+    }
+
+    &.sunset {
+        th { background: #7c2d12; }
+        tbody tr {
+            &:nth-child(odd) { background: #ffedd5; color: #7c2d12; }
+            &:nth-child(even) { background: #ea580c; color: white; }
+        }
+    }
+
+    &.royal {
+        th { background: #4c1d95; }
+        tbody tr {
+            &:nth-child(odd) { background: #ede9fe; color: #4c1d95; }
+            &:nth-child(even) { background: #7c3aed; color: white; }
+        }
+    }
+}
+
+// =============================================================================
+// VARIANT: CORPORATE
+// =============================================================================
+.ant-table.corporate {
+    border: 1px solid $_light-border;
+    border-radius: 8px;
+    box-shadow: none;
+
+    th {
+        background: #1e3a5f;
+        color: white;
+        border-bottom: none;
+        padding: 14px 18px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: none;
+        letter-spacing: 0;
+
+        &:first-child {
+            border-radius: 7px 0 0 0;
+        }
+        &:last-child {
+            border-radius: 0 7px 0 0;
+        }
+    }
+
+    td {
+        padding: 12px 18px;
+        border-bottom: 1px solid $_light-border;
+        font-size: 14px;
+    }
+
+    tbody tr:hover {
+        background: #f0f7ff;
+    }
+
+    // Professional status indicators
+    .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 500;
+
+        &::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        &.success::before { background: #22c55e; }
+        &.warning::before { background: #f59e0b; }
+        &.error::before { background: #ef4444; }
+        &.info::before { background: #3b82f6; }
+    }
+
+    // Action buttons
+    .actions {
+        display: flex;
+        gap: 8px;
+
+        button, a {
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 4px;
+            border: 1px solid $_light-border;
+            background: white;
+            color: $_light-text;
+            cursor: pointer;
+            transition: $_table-transition;
+
+            &:hover {
+                background: #1e3a5f;
+                border-color: #1e3a5f;
+                color: white;
+            }
+        }
+    }
+}
+
+// =============================================================================
+// DARK MODE SUPPORT
+// =============================================================================
+.ant-table.dark {
+    background: $_dark-bg;
+    border-color: $_dark-border;
+
+    table {
+        color: $_dark-text;
+    }
+
+    th {
+        background: $_dark-header-bg;
+        color: $_dark-text-muted;
+        border-color: $_dark-border;
+    }
+
+    td {
+        border-color: $_dark-border;
+    }
+
+    tbody tr:hover {
+        background: $_dark-hover;
+    }
+
+    // Dark variants for each theme
+    &.material {
+        box-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.2),
+            0 4px 12px rgba(0, 0, 0, 0.3);
+
+        th {
+            background: linear-gradient(180deg, #2a2a2a 0%, #252525 100%);
+        }
+
+        td {
+            border-color: rgba(255, 255, 255, 0.06);
+        }
+
+        tbody tr:hover td {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    &.minimal {
+        th {
+            border-color: $_dark-text;
+            color: $_dark-text;
+        }
+
+        tbody tr:last-child td {
+            border-color: $_dark-text;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+    }
+
+    &.striped {
+        th {
+            background: #374151;
+        }
+
+        tbody tr {
+            &:nth-child(odd) {
+                background: $_dark-bg;
+            }
+            &:nth-child(even) {
+                background: $_dark-bg-alt;
+            }
+
+            &:hover {
+                background: rgba(96, 165, 250, 0.15);
+            }
+        }
+    }
+
+    &.corporate {
+        th {
+            background: #0f172a;
+        }
+
+        tbody tr:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+    }
+}
+
+// =============================================================================
+// TABLE CONTROLS (Search, Pagination, etc.)
+// =============================================================================
+.ant-table__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid $_light-border;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    .dark & {
+        border-color: $_dark-border;
+    }
+}
+
+.ant-table__search {
+    position: relative;
+    flex: 1;
+    max-width: 300px;
+
+    input {
+        width: 100%;
+        padding: 10px 16px 10px 42px;
+        border: 1px solid $_light-border;
+        border-radius: 8px;
+        font-size: 14px;
+        background: $_light-bg;
+        transition: $_table-transition;
+
+        &:focus {
+            outline: none;
+            border-color: $_light-accent;
+            box-shadow: 0 0 0 3px $_light-accent-soft;
+        }
+
+        &::placeholder {
+            color: $_light-text-muted;
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background: $_light-text-muted;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E") no-repeat center;
+    }
+
+    .dark & {
+        input {
+            background: $_dark-bg-alt;
+            border-color: $_dark-border;
+            color: $_dark-text;
+
+            &::placeholder {
+                color: $_dark-text-muted;
+            }
+        }
+
+        &::before {
+            background: $_dark-text-muted;
+        }
+    }
+}
+
+.ant-table__pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 20px;
+    border-top: 1px solid $_light-border;
+
+    .dark & {
+        border-color: $_dark-border;
+    }
+}
+
+.ant-table__pagination-info {
+    font-size: 13px;
+    color: $_light-text-muted;
+    margin-right: auto;
+
+    .dark & {
+        color: $_dark-text-muted;
+    }
+}
+
+.ant-table__pagination-btn {
+    padding: 8px 14px;
+    border: 1px solid $_light-border;
+    border-radius: 6px;
+    background: $_light-bg;
+    font-size: 13px;
+    cursor: pointer;
+    transition: $_table-transition;
+
+    &:hover:not(:disabled) {
+        border-color: $_light-accent;
+        color: $_light-accent;
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &.active {
+        background: $_light-accent;
+        border-color: $_light-accent;
+        color: white;
+    }
+
+    .dark & {
+        background: $_dark-bg-alt;
+        border-color: $_dark-border;
+        color: $_dark-text;
+
+        &:hover:not(:disabled) {
+            border-color: $_dark-accent;
+            color: $_dark-accent;
+        }
+
+        &.active {
+            background: $_dark-accent;
+            border-color: $_dark-accent;
+            color: #1e1e1e;
+        }
+    }
+}
+
+// =============================================================================
+// RESPONSIVE
+// =============================================================================
+@media (max-width: 768px) {
+    .ant-table {
+        border-radius: 8px;
+
+        // Stack to cards on mobile
+        &.responsive {
+            table, thead, tbody, tr, th, td {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tbody tr {
+                margin-bottom: 16px;
+                border: 1px solid $_light-border;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 12px 16px;
+                border-bottom: 1px solid $_light-border;
+
+                &::before {
+                    content: attr(data-label);
+                    font-weight: 600;
+                    color: $_light-text-muted;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        &.dark.responsive {
+            tbody tr {
+                border-color: $_dark-border;
+            }
+
+            td {
+                border-color: $_dark-border;
+
+                &::before {
+                    color: $_dark-text-muted;
+                }
+            }
+        }
+    }
+
+    .ant-table__controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ant-table__search {
+        max-width: none;
+    }
+}
+
+// =============================================================================
+// LEGACY SUPPORT - ant-datatable class mapping
+// =============================================================================
+.ant-datatable {
+    @extend .ant-table;
+
+    &__table {
+        @extend table;
+    }
+
+    &__controls {
+        @extend .ant-table__controls;
+    }
+
+    &__search {
+        @extend .ant-table__search;
+    }
+
+    &__pagination {
+        @extend .ant-table__pagination;
+    }
+}

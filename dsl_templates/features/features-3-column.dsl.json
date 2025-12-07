@@ -1,0 +1,183 @@
+{
+  "template_id": "features-3-column",
+  "template_name": "Features - 3 Column Grid",
+  "category": "features",
+  "description": "Clean 3-column feature grid with icons, titles, and descriptions. Perfect for showcasing product benefits or service offerings.",
+  "preview_image": "/dsl_templates/features/features-3-column.png",
+  "tags": ["features", "3-column", "grid", "icons", "benefits"],
+  "version": "1.0",
+  "author": "ANTSAND",
+  "created": "2025-12-07",
+
+  "volt_template": "/antsand_bootstrap/project/common_views/features_benefits/feature_3.volt",
+  "scss_file": "styles_antsand/sass/_common.scss",
+
+  "schema": {
+    "description": "Data structure for 3-column feature grid",
+    "body": {
+      "header": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string", "description": "Section heading" },
+          "css_class": { "type": "string" },
+          "css_style": { "type": "string" }
+        }
+      },
+      "data": {
+        "type": "array",
+        "description": "Feature items (best with 3 or 6 items)",
+        "items": {
+          "title": { "type": "string", "description": "Feature name" },
+          "description": { "type": "string", "description": "Feature description" },
+          "img_src": { "type": "string", "description": "Icon or image path" },
+          "sub_heading_1": { "type": "string", "description": "Optional badge text" },
+          "sub_heading_2": { "type": "string", "description": "Optional subtitle" },
+          "css_class": { "type": "string" },
+          "css_style": { "type": "string" },
+          "cta": {
+            "type": "object",
+            "description": "Optional learn more link",
+            "properties": {
+              "title": { "type": "string" },
+              "link": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "dsl": {
+    "name": "Features - 3 Column Grid",
+    "phalcon_template": "/antsand_bootstrap/project/common_views/features_benefits/feature_3.volt",
+
+    "css": {
+      "header": {
+        "section": {
+          "css_class": "antsand-section py-16",
+          "css_styles": {
+            "style": "background: white;"
+          },
+          "attributes": ""
+        },
+        "container": {
+          "css_class": "antsand-container",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "title": {
+          "css_class": "text-3xl font-bold text-center text-gray-900 mb-12",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "data": {
+        "grid": {
+          "css_class": "antsand-grid-3 gap-8",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "card": {
+          "css_class": "text-center p-6",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "icon": {
+          "css_class": "w-16 h-16 mx-auto mb-4",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "h3": {
+          "css_class": "text-xl font-semibold text-gray-900 mb-2",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "p": {
+          "css_class": "text-gray-600",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "link": {
+          "css_class": "text-primary font-medium hover:underline mt-4 inline-block",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "section": {
+        "column_count": {
+          "count": 3,
+          "breakpoint": "tablet",
+          "padding": "padding-20-all"
+        }
+      }
+    },
+
+    "data_mapping": {
+      "_comment": "This maps to Databoard menu topo - the actual data lives there",
+      "source": ["databoard", "menu", "features_section", "topo"],
+      "target": ["data"]
+    }
+  },
+
+  "sample_data": {
+    "_comment": "This is SAMPLE data for documentation/preview only. Real data comes from Databoard.",
+    "header": {
+      "title": "Why Choose Us",
+      "css_class": "antsand-section py-16",
+      "css_style": "background: white;"
+    },
+    "data": [
+      {
+        "title": "Lightning Fast",
+        "description": "Optimized performance that keeps your users engaged. Our platform loads in milliseconds, not seconds.",
+        "img_src": "/icons/lightning.svg",
+        "icon": "⚡",
+        "sub_heading_1": "",
+        "sub_heading_2": "",
+        "css_class": "text-center p-6",
+        "css_style": "",
+        "cta": {
+          "title": "Learn More",
+          "link": "/features/performance",
+          "css_class": "text-primary font-medium hover:underline",
+          "css_style": "",
+          "click": ""
+        }
+      },
+      {
+        "title": "Secure by Default",
+        "description": "Enterprise-grade security built in from day one. SSL, encryption, and compliance out of the box.",
+        "img_src": "/icons/shield.svg",
+        "icon": "🔒",
+        "sub_heading_1": "",
+        "sub_heading_2": "",
+        "css_class": "text-center p-6",
+        "css_style": "",
+        "cta": {
+          "title": "Learn More",
+          "link": "/features/security",
+          "css_class": "text-primary font-medium hover:underline",
+          "css_style": "",
+          "click": ""
+        }
+      },
+      {
+        "title": "Easy to Use",
+        "description": "Intuitive interface designed for everyone. No technical expertise required to get started.",
+        "img_src": "/icons/puzzle.svg",
+        "icon": "🧩",
+        "sub_heading_1": "",
+        "sub_heading_2": "",
+        "css_class": "text-center p-6",
+        "css_style": "",
+        "cta": {
+          "title": "Learn More",
+          "link": "/features/ease",
+          "css_class": "text-primary font-medium hover:underline",
+          "css_style": "",
+          "click": ""
+        }
+      }
+    ]
+  }
+}

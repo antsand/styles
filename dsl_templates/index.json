@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "description": "ANTSAND DSL Template Library - Component templates with data structure and styling",
+  "categories": [
+    {
+      "id": "footer",
+      "name": "Footers",
+      "description": "Page footer sections with links, social media, and copyright",
+      "templates": [
+        "footer/footer-modern-4col.dsl.json",
+        "footer/footer-minimal-centered.dsl.json",
+        "footer/footer-simple-dark.dsl.json"
+      ]
+    },
+    {
+      "id": "hero",
+      "name": "Hero Sections",
+      "description": "Landing page hero sections with headlines and CTAs",
+      "templates": [
+        "hero/hero-gradient-cta.dsl.json",
+        "hero/hero-split-image.dsl.json"
+      ]
+    },
+    {
+      "id": "features",
+      "name": "Features",
+      "description": "Feature showcase sections with icons and descriptions",
+      "templates": [
+        "features/features-3-column.dsl.json"
+      ]
+    }
+  ]
+}

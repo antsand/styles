@@ -1,0 +1,171 @@
+{
+  "template_id": "footer-simple-dark",
+  "template_name": "Simple Footer - Dark",
+  "category": "footer",
+  "description": "Classic dark footer matching the original ANTSAND footer style. Multi-column layout with expandable sections on mobile.",
+  "preview_image": "/dsl_templates/footer/footer-simple-dark.png",
+  "tags": ["footer", "dark", "classic", "responsive", "mobile-friendly"],
+  "version": "1.0",
+  "author": "ANTSAND",
+  "created": "2025-12-07",
+
+  "volt_template": "/antsand_bootstrap/project/common_views/footer/footer_2.volt",
+  "scss_file": "styles_antsand/sass/_footer.scss",
+
+  "schema": {
+    "description": "Data structure expected by this template - uses default #default-footer styles",
+    "body": {
+      "data": {
+        "type": "array",
+        "description": "Footer columns with links and optional social media",
+        "items": {
+          "title": { "type": "string" },
+          "list": {
+            "type": "array",
+            "items": { "title": { "type": "string" }, "link": { "type": "string" } }
+          },
+          "social_media": {
+            "type": "array",
+            "items": { "icon": { "type": "string" }, "link": { "type": "string" } }
+          }
+        }
+      },
+      "footer": {
+        "type": "object",
+        "properties": {
+          "copyright": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "dsl": {
+    "name": "Footer - Simple Dark",
+    "phalcon_template": "/antsand_bootstrap/project/common_views/footer/footer_2.volt",
+
+    "css": {
+      "header": {
+        "section": {
+          "css_id": "default-footer",
+          "css_class": "",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "container": {
+          "css_class": "footer-product-container",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "data": {
+        "data_container": {
+          "css_class": "antsand-container cf",
+          "css_styles": { "style": "" },
+          "attributes": "",
+          "name": "footer-columns"
+        },
+        "sub_container": {
+          "css_class": "padding-20-all-tablet",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "column": {
+          "css_class": "footer-span-small",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "column_first": {
+          "css_class": "footer-span-big",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "h5": {
+          "css_class": "",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "ul": {
+          "css_class": "ul-mobile-padding",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "li": {
+          "css_class": "",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "social": {
+          "css_class": "footer-social-media",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "footer": {
+        "section": {
+          "css_class": "footer-copyright",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "section": {
+        "column_count": {
+          "count": 4,
+          "breakpoint": "tablet",
+          "padding": "padding-20-all"
+        }
+      }
+    },
+
+    "data_mapping": {
+      "_comment": "This maps to Databoard menu topo - the actual data lives there",
+      "source": ["databoard", "menu", "footer_section", "topo"],
+      "target": ["data"]
+    }
+  },
+
+  "sample_data": {
+    "_comment": "This is SAMPLE data for documentation/preview only. Real data comes from Databoard.",
+    "data": [
+      {
+        "title": "Products",
+        "list": [
+          { "title": "Databoard", "link": "/databoard" },
+          { "title": "ANTSAND Styles", "link": "/styles" },
+          { "title": "Documentation", "link": "/docs" }
+        ],
+        "social_media": [
+          { "icon": "fab fa-github", "link": "#" },
+          { "icon": "fab fa-youtube", "link": "#" },
+          { "icon": "fab fa-linkedin", "link": "#" }
+        ]
+      },
+      {
+        "title": "Support",
+        "list": [
+          { "title": "Help Center", "link": "/help" },
+          { "title": "Community", "link": "/community" },
+          { "title": "Contact Us", "link": "/contact" }
+        ]
+      },
+      {
+        "title": "Company",
+        "list": [
+          { "title": "About", "link": "/about" },
+          { "title": "Blog", "link": "/blog" },
+          { "title": "Careers", "link": "/careers" }
+        ]
+      },
+      {
+        "title": "Legal",
+        "list": [
+          { "title": "Privacy Policy", "link": "/privacy" },
+          { "title": "Terms of Service", "link": "/terms" },
+          { "title": "Cookie Policy", "link": "/cookies" }
+        ]
+      }
+    ],
+    "footer": {
+      "copyright": "© 2025 ANTSAND. All rights reserved."
+    }
+  }
+}

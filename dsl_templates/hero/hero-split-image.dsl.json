@@ -1,0 +1,135 @@
+{
+  "template_id": "hero-split-image",
+  "template_name": "Hero - Split with Image",
+  "category": "hero",
+  "description": "Classic split-screen hero with text on left and image on right. Clean, professional layout for business and SaaS websites.",
+  "preview_image": "/dsl_templates/hero/hero-split-image.png",
+  "tags": ["hero", "split", "image", "professional", "clean"],
+  "version": "1.0",
+  "author": "ANTSAND",
+  "created": "2025-12-07",
+
+  "volt_template": "/antsand_bootstrap/project/common_views/intro_banner/intro-10.volt",
+  "scss_file": "styles_antsand/sass/_common.scss",
+
+  "schema": {
+    "description": "Data structure for split hero section",
+    "body": {
+      "header": {
+        "type": "object",
+        "properties": {
+          "css_class": { "type": "string" },
+          "css_style": { "type": "string" }
+        }
+      },
+      "data": {
+        "type": "array",
+        "items": {
+          "title": { "type": "string" },
+          "sub_heading_1": { "type": "string" },
+          "sub_heading_2": { "type": "string" },
+          "description": { "type": "string" },
+          "img_src": { "type": "string" },
+          "cta": { "type": "object" }
+        }
+      }
+    }
+  },
+
+  "dsl": {
+    "name": "Hero - Split with Image",
+    "phalcon_template": "/antsand_bootstrap/project/common_views/intro_banner/intro-10.volt",
+
+    "css": {
+      "header": {
+        "section": {
+          "css_class": "antsand-section py-20",
+          "css_styles": {
+            "style": "background: #f8fafc;"
+          },
+          "attributes": ""
+        },
+        "container": {
+          "css_class": "antsand-container",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "data": {
+        "wrapper": {
+          "css_class": "display-flex-tablet items-center gap-16",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "content": {
+          "css_class": "span-1-of-2-tablet",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "image": {
+          "css_class": "span-1-of-2-last-tablet",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "h1": {
+          "css_class": "text-4xl font-bold text-gray-900 mb-4",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "subtitle": {
+          "css_class": "text-lg text-gray-600 mb-6",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "cta": {
+        "button_primary": {
+          "css_class": "btn btn-primary",
+          "css_styles": {
+            "style": "background: #3b82f6; color: white; padding: 12px 24px; border-radius: 6px; margin-right: 12px;"
+          },
+          "attributes": ""
+        },
+        "button_secondary": {
+          "css_class": "btn btn-outline",
+          "css_styles": {
+            "style": "border: 2px solid #3b82f6; color: #3b82f6; padding: 12px 24px; border-radius: 6px;"
+          },
+          "attributes": ""
+        }
+      }
+    },
+
+    "data_mapping": {
+      "_comment": "This maps to Databoard menu topo - the actual data lives there",
+      "source": ["databoard", "menu", "hero_section", "topo"],
+      "target": ["data"]
+    }
+  },
+
+  "sample_data": {
+    "_comment": "This is SAMPLE data for documentation/preview only. Real data comes from Databoard.",
+    "header": {
+      "css_class": "antsand-section py-20",
+      "css_style": "background: #f8fafc;"
+    },
+    "data": [
+      {
+        "title": "Ship Products 10x Faster",
+        "sub_heading_1": "FOR DEVELOPERS",
+        "sub_heading_2": "Trusted by 10,000+ teams worldwide",
+        "description": "Streamline your workflow with our powerful platform. Build, deploy, and scale your applications with confidence.",
+        "img_src": "/images/dashboard-preview.png",
+        "css_class": "",
+        "css_style": "",
+        "cta": {
+          "title": "Start Building",
+          "link": "/signup",
+          "css_class": "btn btn-primary",
+          "css_style": "background: #3b82f6; color: white; padding: 12px 24px; border-radius: 6px;",
+          "click": ""
+        }
+      }
+    ]
+  }
+}

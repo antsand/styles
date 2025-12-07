@@ -21,7 +21,11 @@
 # Directories
 SASS_V2_DIR = sass_v2
 CSS_DIR = css
+JS_DIR = js
+DSL_TEMPLATES_DIR = dsl_templates
 STYLES_DOC_CSS = ../styles_doc/public/css
+STYLES_DOC_JS = ../styles_doc/public/js
+STYLES_DOC_TEMPLATES = ../styles_doc/public/dsl_templates
 
 # Source files (in sass_v2/)
 V2_FONTS = $(SASS_V2_DIR)/antsand-v2-fonts.scss
@@ -74,12 +78,38 @@ watch:
 		make all; \
 	done
 
-# Sync compiled CSS to styles_doc (flat structure)
+# Sync compiled CSS and JS to styles_doc (flat structure)
 sync-to-docs:
 	@echo "Syncing CSS to styles_doc/public/css..."
 	@mkdir -p $(STYLES_DOC_CSS)
 	@cp $(CSS_DIR)/antsand-v2*.css $(STYLES_DOC_CSS)/
 	@echo "✓ Synced all v2 CSS files to $(STYLES_DOC_CSS)/"
+	@echo "Syncing JS to styles_doc/public/js..."
+	@mkdir -p $(STYLES_DOC_JS)
+	@if [ -d "$(JS_DIR)" ] && [ "$$(ls -A $(JS_DIR)/*.js 2>/dev/null)" ]; then \
+		cp $(JS_DIR)/*.js $(STYLES_DOC_JS)/ && \
+		chmod 644 $(STYLES_DOC_JS)/*.js && \
+		echo "✓ Synced JS files to $(STYLES_DOC_JS)/"; \
+	else \
+		echo "  No JS files to sync"; \
+	fi
+
+# Sync DSL templates to styles_doc
+sync-templates:
+	@echo "Syncing DSL templates to styles_doc..."
+	@mkdir -p $(STYLES_DOC_TEMPLATES)
+	@if [ -d "$(DSL_TEMPLATES_DIR)" ]; then \
+		cp -r $(DSL_TEMPLATES_DIR)/* $(STYLES_DOC_TEMPLATES)/ && \
+		chmod -R 644 $(STYLES_DOC_TEMPLATES)/*.json 2>/dev/null || true && \
+		chmod -R 644 $(STYLES_DOC_TEMPLATES)/**/*.json 2>/dev/null || true && \
+		echo "✓ Synced DSL templates to $(STYLES_DOC_TEMPLATES)/"; \
+	else \
+		echo "⚠ DSL templates directory not found at $(DSL_TEMPLATES_DIR)"; \
+	fi
+
+# Full sync - CSS, JS, and templates
+sync-all: sync-to-docs sync-templates
+	@echo "✓ All files synced to styles_doc"
 
 # Help
 help:
@@ -91,16 +121,21 @@ help:
 	@echo "  make nav            - Compile navigation only"
 	@echo "  make tabs           - Compile tabs only"
 	@echo "  make master         - Compile master antsand.scss"
-	@echo "  make sync-to-docs   - Copy compiled CSS to styles_doc/public/css"
+	@echo "  make sync-to-docs   - Copy compiled CSS/JS to styles_doc"
+	@echo "  make sync-templates - Copy DSL templates to styles_doc"
+	@echo "  make sync-all       - Sync everything (CSS, JS, templates)"
 	@echo "  make clean          - Remove compiled CSS"
 	@echo "  make watch          - Watch and auto-compile"
 	@echo "  make help           - Show this help"
 	@echo ""
-	@echo "All source files are in: $(SASS_V2_DIR)/"
-	@echo "All compiled files go to: $(CSS_DIR)/"
+	@echo "Directories:"
+	@echo "  SCSS source:      $(SASS_V2_DIR)/"
+	@echo "  Compiled CSS:     $(CSS_DIR)/"
+	@echo "  DSL Templates:    $(DSL_TEMPLATES_DIR)/"
 	@echo ""
 	@echo "Quick workflow:"
-	@echo "  make tabs           - Compile tabs"
-	@echo "  make sync-to-docs   - Push to styles_doc"
+	@echo "  make tabs && make sync-to-docs    - Compile tabs + push CSS"
+	@echo "  make sync-templates               - Push DSL templates to styles_doc"
+	@echo "  make sync-all                     - Push everything"
 
-.PHONY: all fonts nav tabs master sync-to-docs clean watch help
+.PHONY: all fonts nav tabs master sync-to-docs sync-templates sync-all clean watch help

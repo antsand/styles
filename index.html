@@ -3,311 +3,751 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANTSAND Styles v2 - Documentation Hub</title>
+    <title>ANTSAND - A responsive CSS library to create stunning websites</title>
     <link rel="stylesheet" href="/builds/production/css/antsand-v2/antsand.css">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: #f8f9fa;
+            box-sizing: border-box;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: white;
-            padding: 4rem 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Hero Section - Starfield Background */
+        .hero {
+            position: relative;
+            padding: 8rem 1.5rem 10rem;
             text-align: center;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent),
+                radial-gradient(1px 1px at 33% 80%, white, transparent),
+                radial-gradient(1px 1px at 15% 15%, white, transparent);
+            background-size: 200% 200%, 180% 180%, 250% 250%, 200% 200%, 220% 220%, 240% 240%, 210% 210%;
+            background-position: 0% 0%, 60% 60%, 33% 33%, 80% 80%, 90% 90%, 20% 20%, 50% 50%;
+            opacity: 0.5;
+            animation: twinkle 8s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            margin: 0 0 1rem 0;
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
-            margin: 0;
-            font-size: 1.25rem;
-            opacity: 0.9;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: #cbd5e1;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            margin: 0 0 1rem 0;
-            color: #2c3e50;
-            font-size: 1.5rem;
-        }
-
-        .card p {
-            margin: 0 0 1.5rem 0;
-            color: #7f8c8d;
-            line-height: 1.6;
-        }
-
-        .card a {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: #3498db;
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s;
             text-decoration: none;
-            border-radius: 6px;
-            transition: background 0.2s;
+            display: inline-block;
         }
 
-        .card a:hover {
-            background: #2980b9;
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
         }
 
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 5rem 1.5rem;
+        }
+
+        /* Philosophy Section */
         .philosophy {
-            background: white;
-            border-radius: 12px;
-            padding: 3rem;
-            margin: 3rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            margin-bottom: 5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .philosophy h2 {
-            color: #2c3e50;
-            margin-top: 0;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .philosophy p {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto 3rem;
         }
 
         .philosophy-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .philosophy-item {
-            text-align: center;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .philosophy-item:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .philosophy-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         .philosophy-item h3 {
-            color: #3498db;
-            margin: 1rem 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
         }
 
-        .footer {
-            background: #2c3e50;
-            color: white;
+        .philosophy-item p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
             text-align: center;
+            color: white;
+        }
+
+        /* Cards Grid - Mobile First */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        /* Tablet: 2 columns */
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Desktop: 3 columns */
+        @media (min-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            line-height: 1.3;
+        }
+
+        .card p {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #a5b4fc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .card a:hover {
+            color: #c7d2fe;
+            gap: 0.75rem;
+        }
+
+        .card a::after {
+            content: '→';
+            font-size: 1.25rem;
+        }
+
+        /* Feature Cards (smaller variant) */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
             padding: 2rem;
-            margin-top: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 4rem;
+        }
+
+        .quick-links h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .quick-links-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .quick-links h4 {
+            color: #a5b4fc;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .quick-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .quick-links a:hover {
+            color: #c7d2fe;
+        }
+
+        /* Pro Tip Callout */
+        .pro-tip {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border-left: 4px solid #6366f1;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .pro-tip h3 {
+            color: #a5b4fc;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pro-tip p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding: 3rem 1.5rem;
+            margin-top: 5rem;
+        }
+
+        .footer p {
+            color: #94a3b8;
+            margin: 0.5rem 0;
+        }
+
+        /* Mobile Navigation Toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
-            .philosophy-grid {
-                grid-template-columns: 1fr;
+            .nav-links {
+                display: none;
             }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem 6rem;
+            }
+
+            .container {
+                padding: 3rem 1.5rem;
+            }
+
+            .philosophy {
+                padding: 3rem 1.5rem;
+            }
+
+            .quick-links {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <h1>ANTSAND Styles v2</h1>
-        <p>Property-Driven Design System for Federated Platforms</p>
-    </div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">ANTSAND</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#components">Components</a>
+                <a href="#docs">Docs</a>
+                <a href="demo_v2.html" class="btn-primary">Get Started</a>
+            </div>
+            <button class="nav-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>A responsive CSS library to create <span class="highlight">stunning</span> websites.</h1>
+            <p>Build faster, more beautiful websites with our utility-first CSS framework. Full of component classes so you don't have to reinvent the wheel.</p>
+            <div class="hero-buttons">
+                <a href="demo_v2.html" class="btn-primary">Get Started Now</a>
+                <a href="https://github.com/yourusername/antsand" class="btn-secondary">View on GitHub</a>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
 
-        <div class="philosophy">
-            <h2>🎯 The ANTSAND Philosophy</h2>
-            <p style="font-size: 1.125rem; color: #7f8c8d; margin-bottom: 2rem;">
-                Every section is just <strong>Header + Body + Footer</strong>.
-                Same HTML structure + Different CSS = Infinite designs.
-            </p>
+        <!-- Philosophy Section -->
+        <section class="philosophy">
+            <h2>The ANTSAND Philosophy</h2>
+            <p>Every section is just <strong>Header + Body + Footer</strong>. Same HTML structure + Different CSS = Infinite designs.</p>
 
             <div class="philosophy-grid">
                 <div class="philosophy-item">
-                    <div style="font-size: 2.5rem;">📐</div>
+                    <span class="icon">📐</span>
                     <h3>One Structure</h3>
-                    <p>Same Volt template for all sections</p>
+                    <p>Same Volt template for all sections. Consistent, predictable architecture.</p>
                 </div>
                 <div class="philosophy-item">
-                    <div style="font-size: 2.5rem;">🎨</div>
+                    <span class="icon">🎨</span>
                     <h3>Different CSS</h3>
-                    <p>Apply classes to transform layouts</p>
+                    <p>Apply property-driven classes to transform layouts instantly.</p>
                 </div>
                 <div class="philosophy-item">
-                    <div style="font-size: 2.5rem;">♾️</div>
+                    <span class="icon">♾️</span>
                     <h3>Infinite Designs</h3>
-                    <p>200+ utility classes to combine</p>
+                    <p>200+ utility classes to combine for unlimited possibilities.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <h2 style="margin: 3rem 0 1rem 0; color: #2c3e50;">📚 Documentation & Resources</h2>
+        <!-- Documentation & Resources -->
+        <h2 class="section-title" id="docs">📚 Documentation & Resources</h2>
 
-        <div class="grid">
+        <div class="cards-grid">
 
             <!-- Quick Start -->
             <div class="card">
                 <div class="card-icon">🚀</div>
                 <h3>Quick Start</h3>
                 <p>Everything you need to get started with ANTSAND v2 - installation, basic usage, and core concepts.</p>
-                <a href="WHATS_NEW.md">Get Started →</a>
+                <a href="WHATS_NEW.md">Get Started</a>
             </div>
 
             <!-- Complete Component Docs -->
             <div class="card">
                 <div class="card-icon">📖</div>
-                <h3>Complete Component Docs</h3>
-                <p>Comprehensive documentation of all 12+ components, utilities, and layout patterns with code examples.</p>
-                <a href="README_COMPLETE.md">Read Docs →</a>
+                <h3>Complete Documentation</h3>
+                <p>Comprehensive documentation of all 12+ components, utilities, and layout patterns with live code examples.</p>
+                <a href="README_COMPLETE.md">Read Full Docs</a>
             </div>
 
             <!-- Template Guide -->
             <div class="card">
                 <div class="card-icon">🎨</div>
-                <h3>Template-to-CSS Mapping</h3>
-                <p>Visual guide showing how SVG templates map to CSS classes. Perfect for understanding the system.</p>
-                <a href="TEMPLATE_GUIDE.md">View Mapping →</a>
+                <h3>Template-to-CSS Guide</h3>
+                <p>Visual guide showing how SVG templates map to CSS classes. Perfect for understanding the property-driven system.</p>
+                <a href="TEMPLATE_GUIDE.md">View Mapping</a>
             </div>
 
             <!-- Databoard Integration -->
             <div class="card">
                 <div class="card-icon">🔧</div>
                 <h3>Databoard Integration</h3>
-                <p>How to use ANTSAND v2 with the databoard - SVG templates, CSS configs, and workflow examples.</p>
-                <a href="DATABOARD_INTEGRATION.md">Integration Guide →</a>
+                <p>Learn how to use ANTSAND v2 with the databoard - SVG templates, CSS configs, and complete workflow examples.</p>
+                <a href="DATABOARD_INTEGRATION.md">Integration Guide</a>
             </div>
 
             <!-- Interactive Demos -->
             <div class="card">
                 <div class="card-icon">🎬</div>
                 <h3>Interactive Layout Demo</h3>
-                <p>Side-by-side visual examples showing SVG templates and their CSS configurations in action.</p>
-                <a href="demo_layouts.html">Live Layouts →</a>
+                <p>Side-by-side visual examples showing SVG templates and their CSS configurations working in real-time.</p>
+                <a href="demo_layouts.html">View Live Layouts</a>
             </div>
 
             <!-- Component Demo -->
             <div class="card">
                 <div class="card-icon">🧩</div>
                 <h3>Component Showcase</h3>
-                <p>Comprehensive demo of all components - buttons, cards, modals, accordions, tabs, and more.</p>
-                <a href="demo_v2.html">All Components →</a>
+                <p>Comprehensive demo of all components - buttons, cards, modals, accordions, tabs, navbars, and more.</p>
+                <a href="demo_v2.html">Explore All Components</a>
+            </div>
+
+            <!-- Blog Guide -->
+            <div class="card">
+                <div class="card-icon">✍️</div>
+                <h3>Blog & Article Styling</h3>
+                <p>Typography-focused classes for beautiful blog posts, articles, and long-form content with optimal readability.</p>
+                <a href="BLOG_GUIDE.md">Blog Guide</a>
+            </div>
+
+            <!-- CSS Philosophy -->
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>CSS Specificity Philosophy</h3>
+                <p>Deep dive into our approach to CSS specificity, component naming, and why we chose this architecture.</p>
+                <a href="CSS_SPECIFICITY_PHILOSOPHY.md">Learn Philosophy</a>
+            </div>
+
+            <!-- Responsive Layouts -->
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3>Responsive Layouts</h3>
+                <p>Style for various device types. Make your layout mobile first and friendly with built-in responsive utilities.</p>
+                <a href="demo_layouts.html#responsive">Responsive Patterns</a>
             </div>
 
         </div>
 
-        <h2 style="margin: 3rem 0 1rem 0; color: #2c3e50;">🎯 Key Features</h2>
+        <!-- Key Features -->
+        <h2 class="section-title" id="features">🎯 Key Features</h2>
 
-        <div class="grid">
+        <div class="cards-grid">
 
-            <div class="card">
-                <h3>12+ Components</h3>
+            <div class="feature-card">
+                <h3>🧩 12+ Components</h3>
                 <p>Accordion, Tabs, Modal, Navbar, Dropdown, Alert, Badge, Breadcrumb, Hero, Features, Pricing, Footer</p>
             </div>
 
-            <div class="card">
-                <h3>200+ Utility Classes</h3>
+            <div class="feature-card">
+                <h3>⚡ 200+ Utility Classes</h3>
                 <p>Text, spacing, display, width/height, background, border, shadow utilities for rapid development</p>
             </div>
 
-            <div class="card">
-                <h3>JavaScript Library</h3>
+            <div class="feature-card">
+                <h3>🎭 JavaScript Library</h3>
                 <p>Auto-initialization for interactive components with simple API: Antsand.init()</p>
             </div>
 
-            <div class="card">
-                <h3>Bootstrap Philosophy</h3>
+            <div class="feature-card">
+                <h3>🎯 Bootstrap Philosophy</h3>
                 <p>Semantic classes, consistent spacing, color variants - without the bloat</p>
             </div>
 
-            <div class="card">
-                <h3>Modern CSS</h3>
-                <p>CSS Grid, Flexbox, custom properties - no float-based layouts</p>
+            <div class="feature-card">
+                <h3>🌟 Modern CSS</h3>
+                <p>CSS Grid, Flexbox, custom properties - no float-based layouts or hacks</p>
             </div>
 
-            <div class="card">
-                <h3>Databoard Ready</h3>
+            <div class="feature-card">
+                <h3>🔗 Databoard Ready</h3>
                 <p>Designed to work seamlessly with ANTSAND's template system and property-driven architecture</p>
             </div>
 
         </div>
 
-        <h2 style="margin: 3rem 0 1rem 0; color: #2c3e50;">🔗 Quick Links</h2>
-
-        <div style="background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-
-                <div>
-                    <h4 style="margin: 0 0 0.5rem 0; color: #3498db;">CSS Files</h4>
-                    <ul style="margin: 0; padding-left: 1.5rem; color: #7f8c8d;">
-                        <li><a href="/builds/production/css/antsand-v2/antsand.css" style="color: #3498db;">antsand.css</a> - Full library</li>
-                        <li><a href="/builds/production/css/antsand-v2/antsand-core.css" style="color: #3498db;">antsand-core.css</a> - Core only</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 style="margin: 0 0 0.5rem 0; color: #3498db;">JavaScript</h4>
-                    <ul style="margin: 0; padding-left: 1.5rem; color: #7f8c8d;">
-                        <li><a href="/builds/production/css/antsand-v2/antsand.js" style="color: #3498db;">antsand.js</a> - Interactive components</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 style="margin: 0 0 0.5rem 0; color: #3498db;">Additional Demos</h4>
-                    <ul style="margin: 0; padding-left: 1.5rem; color: #7f8c8d;">
-                        <li><a href="demo.html" style="color: #3498db;">Basic Demo</a></li>
-                        <li><a href="demo_comprehensive.html" style="color: #3498db;">Compact Reference</a></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-        <div style="background: #e8f4f8; border-left: 4px solid #3498db; border-radius: 8px; padding: 2rem; margin: 3rem 0;">
-            <h3 style="margin: 0 0 1rem 0; color: #2c3e50;">💡 Pro Tip</h3>
-            <p style="margin: 0; color: #34495e; line-height: 1.6;">
+        <!-- Pro Tip -->
+        <div class="pro-tip">
+            <h3>💡 Pro Tip</h3>
+            <p>
                 Start with the <strong>Interactive Layout Demo</strong> to see how SVG templates map to CSS classes.
                 Then check the <strong>Databoard Integration Guide</strong> to understand how to use these patterns
                 in your projects. The philosophy is simple: <em>same structure + different CSS = different designs</em>.
             </p>
         </div>
 
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <h2>🔗 Quick Links</h2>
+            <div class="quick-links-grid">
+
+                <div>
+                    <h4>CSS Files</h4>
+                    <ul>
+                        <li><a href="/builds/production/css/antsand-v2/antsand.css">antsand.css</a> - Full library</li>
+                        <li><a href="/builds/production/css/antsand-v2/antsand-core.css">antsand-core.css</a> - Core only</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>JavaScript</h4>
+                    <ul>
+                        <li><a href="/builds/production/css/antsand-v2/antsand.js">antsand.js</a> - Interactive components</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Additional Demos</h4>
+                    <ul>
+                        <li><a href="demo.html">Basic Demo</a></li>
+                        <li><a href="demo_comprehensive.html">Compact Reference</a></li>
+                        <li><a href="font-showcase.html">Font Showcase</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
-    <div class="footer">
-        <p style="margin: 0;">Built with ❤️ for ANTSAND Projects</p>
-        <p style="margin: 0.5rem 0 0 0; opacity: 0.8; font-size: 0.875rem;">
-            "Semantic classes + utility helpers = Consistent, lightweight styling"
-        </p>
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p style="font-weight: 600; color: #e2e8f0; margin-bottom: 1rem;">Built with ❤️ for ANTSAND Projects</p>
+        <p>"Semantic classes + utility helpers = Consistent, lightweight styling"</p>
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1rem;">© 2025 ANTSAND. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>

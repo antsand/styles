@@ -1,0 +1,132 @@
+{
+  "template_id": "footer-minimal-centered",
+  "template_name": "Minimal Footer - Centered",
+  "category": "footer",
+  "description": "Simple centered footer with logo, navigation links, social icons, and copyright. Clean and minimal design perfect for portfolios and landing pages.",
+  "preview_image": "/dsl_templates/footer/footer-minimal-centered.png",
+  "tags": ["footer", "minimal", "centered", "simple", "light"],
+  "version": "1.0",
+  "author": "ANTSAND",
+  "created": "2025-12-07",
+
+  "volt_template": "/antsand_bootstrap/project/common_views/services_products/service_3_modern.volt",
+  "scss_file": "styles_antsand/sass/_footer.scss",
+
+  "schema": {
+    "description": "Data structure expected by this template",
+    "body": {
+      "header": {
+        "type": "object",
+        "properties": {
+          "logo": { "type": "string", "description": "Path to logo image" }
+        }
+      },
+      "data": {
+        "type": "array",
+        "description": "Navigation links displayed horizontally",
+        "items": {
+          "text": { "type": "string", "description": "Link text" },
+          "href": { "type": "string", "description": "Link URL" }
+        }
+      },
+      "social": {
+        "type": "array",
+        "description": "Social media icons",
+        "items": {
+          "icon": { "type": "string", "description": "FontAwesome class" },
+          "link": { "type": "string" }
+        }
+      },
+      "footer": {
+        "type": "object",
+        "properties": {
+          "copyright": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "dsl": {
+    "name": "Footer - Minimal Centered",
+    "phalcon_template": "/antsand_bootstrap/project/common_views/services_products/service_3_modern.volt",
+
+    "css": {
+      "header": {
+        "section": {
+          "css_class": "antsand-section py-6",
+          "css_styles": {
+            "style": "background: #f8f9fa; border-top: 1px solid #e9ecef;"
+          },
+          "attributes": ""
+        },
+        "container": {
+          "css_class": "antsand-container text-center",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "data": {
+        "nav": {
+          "css_class": "flex justify-center gap-8 mb-4",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "link": {
+          "css_class": "text-gray-600 hover:text-primary transition-colors font-medium",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "social": {
+          "css_class": "flex justify-center gap-4 mb-4",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "social_icon": {
+          "css_class": "text-gray-400 hover:text-primary transition-colors text-xl",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "footer": {
+        "section": {
+          "css_class": "",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "title": {
+          "css_class": "text-gray-500 text-sm",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      }
+    },
+
+    "data_mapping": {
+      "_comment": "This maps to Databoard menu topo - the actual data lives there",
+      "source": ["databoard", "menu", "footer_section", "topo"],
+      "target": ["data"]
+    }
+  },
+
+  "sample_data": {
+    "_comment": "This is SAMPLE data for documentation/preview only. Real data comes from Databoard.",
+    "header": {
+      "logo": "/images/logo.svg"
+    },
+    "data": [
+      { "text": "Home", "href": "/" },
+      { "text": "About", "href": "/about" },
+      { "text": "Services", "href": "/services" },
+      { "text": "Blog", "href": "/blog" },
+      { "text": "Contact", "href": "/contact" }
+    ],
+    "social": [
+      { "icon": "fab fa-github", "link": "#" },
+      { "icon": "fab fa-youtube", "link": "#" },
+      { "icon": "fab fa-linkedin", "link": "#" }
+    ],
+    "footer": {
+      "copyright": "© 2025 Your Company. All rights reserved."
+    }
+  }
+}

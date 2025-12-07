@@ -1,0 +1,183 @@
+{
+  "template_id": "footer-modern-4col",
+  "template_name": "Modern Footer - 4 Columns",
+  "category": "footer",
+  "description": "Clean modern footer with 4 columns: About, Links, Services, Contact. Dark background with social icons. Perfect for corporate and SaaS websites.",
+  "preview_image": "/dsl_templates/footer/footer-modern-4col.png",
+  "tags": ["footer", "modern", "4-column", "dark", "social", "responsive"],
+  "version": "1.0",
+  "author": "ANTSAND",
+  "created": "2025-12-07",
+
+  "volt_template": "common_views/services_products/service_3_modern.volt",
+  "scss_file": "styles_antsand/sass/_footer.scss",
+
+  "schema": {
+    "description": "Data structure parsed by footer_2.volt (stored in Databoard menu topo)",
+    "data": {
+      "type": "array",
+      "description": "Footer columns - each item becomes a column",
+      "items": {
+        "title": { "type": "string", "description": "Column heading (rendered as <h5>)" },
+        "list": {
+          "type": "array",
+          "description": "Links list (rendered as <ul><li><a>)",
+          "items": {
+            "title": { "type": "string", "description": "Link text" },
+            "link": { "type": "string", "description": "Link URL" }
+          }
+        },
+        "social_media": {
+          "type": "array",
+          "description": "Social icons (rendered with FontAwesome <i>)",
+          "items": {
+            "icon": { "type": "string", "description": "FontAwesome class e.g. fab fa-github" },
+            "link": { "type": "string", "description": "Social profile URL" }
+          }
+        }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "description": "Copyright section (note: uses api_data['groups']['title'] for company name)"
+    }
+  },
+
+  "dsl": {
+    "name": "Footer - Modern 4 Column",
+    "phalcon_template": "common_views/services_products/service_3_modern.volt",
+
+    "css": {
+      "section": {
+        "container": {
+          "css_class": "cf footer-dark padding-top-60 padding-bottom-40",
+          "css_id": "footer-main",
+          "css_styles": {
+            "style": "background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);"
+          },
+          "attributes": ""
+        },
+        "column_count": {
+          "count": 4,
+          "breakpoint": "tablet",
+          "padding": "padding-20-all"
+        }
+      },
+      "data": {
+        "container": {
+          "css_class": "antsand-container cf",
+          "css_styles": {
+            "style": ""
+          },
+          "attributes": "",
+          "name": "footer-columns"
+        },
+        "sub_container": {
+          "css_class": "padding-20-all-tablet",
+          "css_styles": {
+            "style": "color: #94a3b8;"
+          },
+          "attributes": ""
+        },
+        "title": {
+          "css_class": "font-size-16-all font-weight-600 color-white margin-bottom-15",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "description": {
+          "css_class": "font-size-14-all line-height-17",
+          "css_styles": { "style": "color: #94a3b8;" },
+          "attributes": ""
+        },
+        "h3": {
+          "css_class": "list-style-none margin-0 padding-0",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "h4": {
+          "css_class": "margin-bottom-8",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "p": {
+          "css_class": "font-size-14-all",
+          "css_styles": { "style": "color: #94a3b8;" },
+          "attributes": ""
+        }
+      },
+      "footer": {
+        "section": {
+          "css_class": "footer-copyright border-top-1 margin-top-30 padding-top-20",
+          "css_styles": {
+            "style": "border-color: rgba(255,255,255,0.1);"
+          },
+          "attributes": ""
+        },
+        "title": {
+          "css_class": "text-center font-size-14-all",
+          "css_styles": {
+            "style": "color: #64748b;"
+          },
+          "attributes": ""
+        },
+        "social_container": {
+          "css_class": "display-flex gap-12 margin-top-15",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "social": {
+          "css_class": "margin-right-10",
+          "css_styles": {
+            "style": "color: #94a3b8; font-size: 1.25rem;"
+          },
+          "attributes": ""
+        }
+      }
+    },
+
+    "data_mapping": {
+      "_comment": "This maps to Databoard menu topo - the actual data lives there",
+      "source": ["databoard", "menu", "footer_section", "topo"],
+      "target": ["data"]
+    }
+  },
+
+  "sample_data": {
+    "_comment": "This is SAMPLE data for documentation/preview only. Real data comes from Databoard.",
+    "data": [
+      {
+        "title": "About Us",
+        "content": "Building amazing websites with the ANTSAND ecosystem.",
+        "social_media": [
+          { "icon": "fab fa-github", "link": "https://github.com" },
+          { "icon": "fab fa-youtube", "link": "https://youtube.com" },
+          { "icon": "fas fa-book", "link": "https://shivasnotes.com" }
+        ]
+      },
+      {
+        "title": "Quick Links",
+        "list": [
+          { "title": "Home", "link": "/" },
+          { "title": "About", "link": "/about" },
+          { "title": "Services", "link": "/services" },
+          { "title": "Contact", "link": "/contact" }
+        ]
+      },
+      {
+        "title": "Services",
+        "list": [
+          { "title": "Web Design", "link": "#" },
+          { "title": "Development", "link": "#" },
+          { "title": "Consulting", "link": "#" }
+        ]
+      },
+      {
+        "title": "Contact",
+        "list": [
+          { "title": "hello@example.com", "link": "mailto:hello@example.com" },
+          { "title": "+1 234 567 890", "link": "tel:+1234567890" }
+        ]
+      }
+    ]
+  }
+}

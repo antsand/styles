@@ -1,0 +1,145 @@
+{
+  "template_id": "hero-gradient-cta",
+  "template_name": "Hero - Gradient with CTA",
+  "category": "hero",
+  "description": "Bold hero section with gradient background, headline, description, and call-to-action button. Great for landing pages and product launches.",
+  "preview_image": "/dsl_templates/hero/hero-gradient-cta.png",
+  "tags": ["hero", "gradient", "cta", "landing", "bold"],
+  "version": "1.0",
+  "author": "ANTSAND",
+  "created": "2025-12-07",
+
+  "volt_template": "/antsand_bootstrap/project/common_views/intro_banner/intro-10.volt",
+  "scss_file": "styles_antsand/sass/_common.scss",
+
+  "schema": {
+    "description": "Data structure for hero section",
+    "body": {
+      "header": {
+        "type": "object",
+        "properties": {
+          "css_class": { "type": "string" },
+          "css_style": { "type": "string" }
+        }
+      },
+      "data": {
+        "type": "array",
+        "description": "Hero content blocks",
+        "items": {
+          "title": { "type": "string", "description": "Main headline" },
+          "sub_heading_1": { "type": "string", "description": "Eyebrow text above headline" },
+          "sub_heading_2": { "type": "string", "description": "Subheadline below title" },
+          "description": { "type": "string", "description": "Supporting paragraph" },
+          "img_src": { "type": "string", "description": "Hero image path" },
+          "css_class": { "type": "string" },
+          "css_style": { "type": "string" },
+          "cta": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "link": { "type": "string" },
+              "css_class": { "type": "string" },
+              "css_style": { "type": "string" },
+              "click": { "type": "string", "description": "Optional onclick handler" }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "dsl": {
+    "name": "Hero - Gradient with CTA",
+    "phalcon_template": "/antsand_bootstrap/project/common_views/intro_banner/intro-10.volt",
+
+    "css": {
+      "header": {
+        "section": {
+          "css_class": "antsand-section min-h-screen flex items-center",
+          "css_styles": {
+            "style": "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"
+          },
+          "attributes": ""
+        },
+        "container": {
+          "css_class": "antsand-container",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "data": {
+        "wrapper": {
+          "css_class": "display-flex-tablet items-center gap-12",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "content": {
+          "css_class": "flex-1",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "image": {
+          "css_class": "flex-1",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "h1": {
+          "css_class": "text-5xl font-bold text-white mb-4 leading-tight",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "subtitle": {
+          "css_class": "text-xl text-white/80 mb-8",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        },
+        "eyebrow": {
+          "css_class": "text-sm uppercase tracking-widest text-white/60 mb-2",
+          "css_styles": { "style": "" },
+          "attributes": ""
+        }
+      },
+      "cta": {
+        "button": {
+          "css_class": "btn btn-primary btn-lg",
+          "css_styles": {
+            "style": "background: white; color: #764ba2; padding: 16px 32px; border-radius: 8px; font-weight: 600;"
+          },
+          "attributes": ""
+        }
+      }
+    },
+
+    "data_mapping": {
+      "_comment": "This maps to Databoard menu topo - the actual data lives there",
+      "source": ["databoard", "menu", "hero_section", "topo"],
+      "target": ["data"]
+    }
+  },
+
+  "sample_data": {
+    "_comment": "This is SAMPLE data for documentation/preview only. Real data comes from Databoard.",
+    "header": {
+      "css_class": "antsand-section min-h-screen flex items-center",
+      "css_style": "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"
+    },
+    "data": [
+      {
+        "title": "Build Beautiful Websites Faster",
+        "sub_heading_1": "INTRODUCING ANTSAND",
+        "sub_heading_2": "The complete ecosystem for modern web development",
+        "description": "Create stunning, responsive websites with our powerful DSL system. No coding required - just describe what you want and watch it come to life.",
+        "img_src": "/images/hero-illustration.svg",
+        "css_class": "",
+        "css_style": "",
+        "cta": {
+          "title": "Get Started Free",
+          "link": "/signup",
+          "css_class": "btn btn-primary btn-lg",
+          "css_style": "background: white; color: #764ba2; padding: 16px 32px; border-radius: 8px; font-weight: 600;",
+          "click": ""
+        }
+      }
+    ]
+  }
+}

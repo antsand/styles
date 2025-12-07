@@ -38,25 +38,103 @@ const Antsand = {
     }
   },
 
-  // Tabs functionality
+  // Tabs functionality (Universal - variant-agnostic)
   tabs: {
-    init: function(selector = '.antsand-tabs') {
-      document.querySelectorAll(selector).forEach(tabContainer => {
-        const tabItems = tabContainer.querySelectorAll('.antsand-tab-item');
-        const tabPanes = tabContainer.querySelectorAll('.antsand-tab-pane');
+    init: function(selector = '[data-tabs]') {
+      // Universal selector - works with ANY variant
+      const tabContainers = document.querySelectorAll(selector);
 
-        tabItems.forEach((tab, index) => {
-          tab.addEventListener('click', () => {
-            // Remove active class from all tabs and panes
-            tabItems.forEach(t => t.classList.remove('active'));
-            tabPanes.forEach(p => p.classList.remove('active'));
+      tabContainers.forEach(container => {
+        // Universal class names
+        const tabs = container.querySelectorAll('.tabs-item');
+        const contents = container.querySelectorAll('.tabs-content');
 
-            // Add active class to clicked tab and corresponding pane
-            tab.classList.add('active');
-            if (tabPanes[index]) {
-              tabPanes[index].classList.add('active');
+        if (tabs.length === 0) return;
+
+        tabs.forEach((tab, index) => {
+          tab.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Get target ID from data-tab attribute
+            const targetId = this.getAttribute('data-tab');
+
+            // Deactivate all tabs
+            tabs.forEach(t => {
+              t.classList.remove('active');
+              t.setAttribute('aria-selected', 'false');
+              t.setAttribute('tabindex', '-1');
+            });
+
+            // Activate clicked tab
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+            this.setAttribute('tabindex', '0');
+
+            // Deactivate all content panes
+            contents.forEach(pane => pane.classList.remove('active'));
+
+            // Activate target content by ID or index
+            if (targetId) {
+              const targetContent = document.getElementById(targetId.replace('data-tab=', ''));
+              if (targetContent) {
+                targetContent.classList.add('active');
+              }
+            } else if (contents[index]) {
+              contents[index].classList.add('active');
+            }
+
+            // Trigger custom event
+            const event = new CustomEvent('antsand:tab:changed', {
+              detail: {
+                tabIndex: index,
+                tab: this,
+                content: contents[index],
+                container: container
+              }
+            });
+            container.dispatchEvent(event);
+          });
+
+          // Keyboard navigation (ARIA compliant)
+          tab.addEventListener('keydown', function(e) {
+            let newTab = null;
+
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+              e.preventDefault();
+              newTab = tabs[(index + 1) % tabs.length];
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+              e.preventDefault();
+              newTab = tabs[(index - 1 + tabs.length) % tabs.length];
+            } else if (e.key === 'Home') {
+              e.preventDefault();
+              newTab = tabs[0];
+            } else if (e.key === 'End') {
+              e.preventDefault();
+              newTab = tabs[tabs.length - 1];
+            }
+
+            if (newTab) {
+              newTab.focus();
+              newTab.click();
             }
           });
+
+          // Set ARIA attributes
+          tab.setAttribute('role', 'tab');
+          tab.setAttribute('tabindex', tab.classList.contains('active') ? '0' : '-1');
+          tab.setAttribute('aria-selected', tab.classList.contains('active') ? 'true' : 'false');
+        });
+
+        // Set container ARIA role
+        const tabsHeader = container.querySelector('.tabs-header');
+        if (tabsHeader) {
+          tabsHeader.setAttribute('role', 'tablist');
+        }
+
+        // Set content ARIA attributes
+        contents.forEach((content, index) => {
+          content.setAttribute('role', 'tabpanel');
+          content.setAttribute('aria-labelledby', tabs[index] ? tabs[index].getAttribute('data-tab') : '');
         });
       });
     }
@@ -128,6 +206,112 @@ const Antsand = {
     }
   },
 
+  // Enhanced Navigation with click-based dropdowns
+  nav: {
+    init: function(selector = '.antsand-nav') {
+      document.querySelectorAll(selector).forEach(nav => {
+        // Handle dropdown containers
+        const dropdownContainers = nav.querySelectorAll('.drop-down-container');
+
+        dropdownContainers.forEach(container => {
+          const trigger = container.querySelector('a');
+          const dropdown = container.querySelector('.drop-down');
+
+          if (trigger && dropdown) {
+            // Click handler for dropdown toggle
+            trigger.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+
+              // Close all other dropdowns
+              dropdownContainers.forEach(otherContainer => {
+                if (otherContainer !== container) {
+                  otherContainer.classList.remove('drop-active');
+                  const otherDropdown = otherContainer.querySelector('.drop-down');
+                  if (otherDropdown) {
+                    otherDropdown.classList.remove('active');
+                  }
+                }
+              });
+
+              // Toggle current dropdown
+              container.classList.toggle('drop-active');
+              dropdown.classList.toggle('active');
+            });
+          }
+        });
+
+        // Handle mobile toggle
+        const mobileToggle = nav.querySelector('.mobile_toggle');
+        const navContainer = nav.querySelector('.antsand-nav-container');
+
+        if (mobileToggle && navContainer) {
+          mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navContainer.classList.toggle('nav-open');
+          });
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!nav.contains(e.target)) {
+            dropdownContainers.forEach(container => {
+              container.classList.remove('drop-active');
+              const dropdown = container.querySelector('.drop-down');
+              if (dropdown) {
+                dropdown.classList.remove('active');
+              }
+            });
+          }
+        });
+
+        // Close dropdowns on ESC key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            dropdownContainers.forEach(container => {
+              container.classList.remove('drop-active');
+              const dropdown = container.querySelector('.drop-down');
+              if (dropdown) {
+                dropdown.classList.remove('active');
+              }
+            });
+          }
+        });
+
+        // Handle tabs within dropdowns
+        const dropdownTabs = nav.querySelectorAll('[data-antsand-tabs-dropdown]');
+        dropdownTabs.forEach(tabContainer => {
+          const tabs = tabContainer.querySelectorAll('.dropdown-tab');
+
+          tabs.forEach((tab, index) => {
+            tab.addEventListener('click', (e) => {
+              e.stopPropagation(); // Prevent dropdown from closing
+
+              const targetId = tab.getAttribute('data-tab');
+
+              // Deactivate all tabs in this group
+              tabs.forEach(t => t.classList.remove('active'));
+
+              // Activate clicked tab
+              tab.classList.add('active');
+
+              // Deactivate all content panes
+              const parentDropdown = tabContainer.closest('.drop-down');
+              const allContent = parentDropdown.querySelectorAll('.dropdown-tab-content');
+              allContent.forEach(pane => pane.classList.remove('active'));
+
+              // Activate target content
+              const targetContent = document.getElementById(targetId);
+              if (targetContent) {
+                targetContent.classList.add('active');
+              }
+            });
+          });
+        });
+      });
+    }
+  },
+
   // Dropdown functionality
   dropdown: {
     init: function(selector = '.antsand-dropdown') {
@@ -191,6 +375,7 @@ const Antsand = {
     this.tabs.init();
     this.modal.init();
     this.navbar.init();
+    this.nav.init();
     this.dropdown.init();
     this.alert.init();
   }

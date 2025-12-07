@@ -111,21 +111,6 @@ $shadow-lg: $antsand-shadow-lg !default;
     color: $text-secondary;
 }
 
-.blog-card-dates {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: $spacing-xs;
-    font-size: 0.8rem;
-    color: $text-secondary;
-}
-
-.blog-card-updated {
-    font-size: 0.75rem;
-    color: $primary;
-    font-weight: 500;
-}
-
 .blog-card-title {
     font-size: 1.125rem;
     font-weight: 700;
