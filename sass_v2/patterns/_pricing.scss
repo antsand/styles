@@ -1,168 +1,568 @@
 // ============================================
 // ANTSAND Styles v2 - Pricing Patterns
-// Pricing table layouts
+// ============================================
+//
+// UNIVERSAL ANTSAND SECTION PATTERN:
+// Change ONLY the parent class to switch styles
+//
+// Structure:
+//   .pricing-1 (parent - controls all styling)
+//     └── .container (main wrapper)
+//         ├── .header-section (optional section header)
+//         │   ├── .title (section title)
+//         │   └── .description (section description)
+//         └── .sub-container (each pricing card)
+//             ├── .badge (optional "Popular" badge)
+//             ├── .title (plan name)
+//             ├── .description (plan description)
+//             ├── .price (price display)
+//             ├── .features (feature list)
+//             └── .cta-container > .cta (buy button)
+//
 // ============================================
 
-.antsand-pricing {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: $antsand-space-5;
-    padding: $antsand-space-6 0;
+// ============================================
+// BASE PRICING STYLES
+// ============================================
 
-    @media (max-width: $antsand-breakpoint-sm) {
-        grid-template-columns: 1fr;
-    }
-}
+@mixin pricing-base {
+    padding: $antsand-space-7 0;
 
-.antsand-pricing-card {
-    background-color: white;
-    border: 1px solid $antsand-gray-200;
-    border-radius: $antsand-radius-lg;
-    padding: $antsand-space-5;
-    text-align: center;
-    transition: all $antsand-transition-base;
-    position: relative;
-
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow: $antsand-shadow-xl;
-    }
-}
-
-.antsand-pricing-badge {
-    position: absolute;
-    top: -0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: $antsand-primary;
-    color: white;
-    padding: $antsand-space-1 $antsand-space-3;
-    border-radius: $antsand-radius-full;
-    font-size: $antsand-font-size-sm;
-    font-weight: $antsand-font-weight-semibold;
-}
-
-.antsand-pricing-header {
-    padding-bottom: $antsand-space-4;
-    border-bottom: 1px solid $antsand-gray-200;
-    margin-bottom: $antsand-space-4;
-
-    h3 {
-        font-size: $antsand-font-size-xl;
-        font-weight: $antsand-font-weight-bold;
-        color: $antsand-gray-900;
-        margin-bottom: $antsand-space-2;
+    // Container
+    > .container {
+        max-width: $antsand-container-xl;
+        margin: 0 auto;
+        padding: 0 $antsand-space-4;
     }
 
-    p {
-        color: $antsand-gray-600;
-        font-size: $antsand-font-size-sm;
-    }
-}
+    // Header section
+    .header-section {
+        text-align: center;
+        margin-bottom: $antsand-space-6;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
 
-.antsand-pricing-price {
-    margin-bottom: $antsand-space-4;
-
-    .price {
-        font-size: $antsand-font-size-4xl;
-        font-weight: $antsand-font-weight-bold;
-        color: $antsand-gray-900;
-        line-height: 1;
-
-        .currency {
-            font-size: $antsand-font-size-2xl;
-            vertical-align: super;
-        }
-    }
-
-    .period {
-        color: $antsand-gray-600;
-        font-size: $antsand-font-size-base;
-    }
-}
-
-.antsand-pricing-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 $antsand-space-5 0;
-
-    li {
-        padding: $antsand-space-2 0;
-        color: $antsand-gray-700;
-        line-height: $antsand-line-height-relaxed;
-
-        &::before {
-            content: '✓';
-            color: $antsand-success;
+        .title {
+            font-size: $antsand-font-size-3xl;
             font-weight: $antsand-font-weight-bold;
-            margin-right: $antsand-space-2;
+            margin-bottom: $antsand-space-3;
+
+            @media (min-width: $antsand-breakpoint-md) {
+                font-size: $antsand-font-size-4xl;
+            }
         }
 
-        &.disabled {
-            color: $antsand-gray-400;
+        .description {
+            font-size: $antsand-font-size-lg;
+            line-height: $antsand-line-height-relaxed;
+        }
+    }
 
-            &::before {
-                content: '✕';
-                color: $antsand-gray-400;
+    // Grid container
+    .data-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: $antsand-space-5;
+        align-items: stretch;
+
+        @media (max-width: $antsand-breakpoint-sm) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    // Each pricing card
+    .sub-container {
+        border-radius: $antsand-radius-lg;
+        padding: $antsand-space-5;
+        text-align: center;
+        transition: all $antsand-transition-base;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+
+        // Badge
+        .badge {
+            position: absolute;
+            top: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: $antsand-space-1 $antsand-space-3;
+            border-radius: $antsand-radius-full;
+            font-size: $antsand-font-size-sm;
+            font-weight: $antsand-font-weight-semibold;
+            white-space: nowrap;
+        }
+
+        // Plan name
+        .title {
+            font-size: $antsand-font-size-xl;
+            font-weight: $antsand-font-weight-bold;
+            margin-bottom: $antsand-space-2;
+        }
+
+        // Plan description
+        .description {
+            font-size: $antsand-font-size-sm;
+            margin-bottom: $antsand-space-4;
+            padding-bottom: $antsand-space-4;
+        }
+
+        // Price
+        .price {
+            margin-bottom: $antsand-space-4;
+            font-size: $antsand-font-size-4xl;
+            font-weight: $antsand-font-weight-bold;
+            line-height: 1;
+
+            .currency {
+                font-size: $antsand-font-size-2xl;
+                vertical-align: super;
+            }
+
+            .period {
+                display: block;
+                font-size: $antsand-font-size-base;
+                font-weight: $antsand-font-weight-normal;
+                margin-top: $antsand-space-1;
+            }
+        }
+
+        // Features list
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 $antsand-space-5 0;
+            text-align: left;
+            flex-grow: 1;
+
+            li {
+                padding: $antsand-space-2 0;
+                line-height: $antsand-line-height-relaxed;
+
+                &::before {
+                    content: '✓';
+                    font-weight: $antsand-font-weight-bold;
+                    margin-right: $antsand-space-2;
+                }
+
+                &.disabled {
+                    opacity: 0.5;
+
+                    &::before {
+                        content: '✕';
+                    }
+                }
+            }
+        }
+
+        // CTA
+        .cta-container {
+            margin-top: auto;
+
+            .cta {
+                display: block;
+                width: 100%;
+                padding: $antsand-space-3 $antsand-space-4;
+                border-radius: $antsand-radius-md;
+                font-weight: $antsand-font-weight-semibold;
+                text-decoration: none;
+                text-align: center;
+                transition: all $antsand-transition-base;
+                cursor: pointer;
+                border: none;
+            }
+        }
+
+        // Featured/highlighted card
+        &.featured {
+            transform: scale(1.05);
+
+            @media (max-width: $antsand-breakpoint-md) {
+                transform: scale(1);
             }
         }
     }
 }
 
-.antsand-pricing-cta {
-    width: 100%;
-}
+// ============================================
+// PRICING VARIANTS
+// ============================================
+//
+// VARIANT REFERENCE:
+// ------------------
+// pricing-1: Light cards    | bg: white      | cards: white + gray-200 border | featured: primary border
+// pricing-2: Gray bg        | bg: gray-50    | cards: white + shadow          | featured: purple gradient
+// pricing-3: Dark           | bg: #1a1a2e→   | cards: rgba white + border     | featured: primary bg
+// pricing-4: Minimal        | bg: white      | cards: no radius, thin border  | featured: thick border
+// pricing-5: Gradient accent| bg: gray-50    | cards: top accent bar          | featured: thicker bar
+//
+// MODIFIER: .featured (add to sub-container for highlighted plan)
+// ============================================
 
-// Highlighted/Featured plan
-.antsand-pricing-highlight {
-    border-color: $antsand-primary;
-    border-width: 2px;
-    box-shadow: $antsand-shadow-lg;
-    transform: scale(1.05);
+// -----------------------------
+// Pricing 1 - Light with cards
+// background: white
+// cards: white bg, gray-200 border | hover: shadow-xl
+// badge: primary bg | cta: gray-100 bg → primary on hover
+// featured: primary border, primary title, primary cta
+// -----------------------------
+.pricing-1 {
+    @include pricing-base;
+    background-color: white;
 
-    @media (max-width: $antsand-breakpoint-md) {
-        transform: scale(1);
+    .header-section {
+        .title { color: $antsand-gray-900; }
+        .description { color: $antsand-gray-600; }
     }
 
-    .antsand-pricing-header h3 {
-        color: $antsand-primary;
-    }
-}
-
-// Dark variant
-.antsand-pricing-dark {
-    .antsand-pricing-card {
-        background-color: $antsand-gray-900;
-        border-color: $antsand-gray-800;
+    .sub-container {
+        background-color: white;
+        border: 1px solid $antsand-gray-200;
 
         &:hover {
+            box-shadow: $antsand-shadow-xl;
+        }
+
+        .badge {
+            background-color: $antsand-primary;
+            color: white;
+        }
+
+        .title { color: $antsand-gray-900; }
+        .description {
+            color: $antsand-gray-600;
+            border-bottom: 1px solid $antsand-gray-200;
+        }
+        .price { color: $antsand-gray-900; }
+        .price .period { color: $antsand-gray-600; }
+
+        .features li {
+            color: $antsand-gray-700;
+            &::before { color: $antsand-success; }
+            &.disabled::before { color: $antsand-gray-400; }
+        }
+
+        .cta {
+            background-color: $antsand-gray-100;
+            color: $antsand-gray-700;
+
+            &:hover {
+                background-color: $antsand-primary;
+                color: white;
+            }
+        }
+
+        &.featured {
             border-color: $antsand-primary;
+            border-width: 2px;
+            box-shadow: $antsand-shadow-lg;
+
+            .title { color: $antsand-primary; }
+
+            .cta {
+                background-color: $antsand-primary;
+                color: white;
+
+                &:hover {
+                    background-color: darken($antsand-primary, 10%);
+                }
+            }
         }
-    }
-
-    .antsand-pricing-header {
-        border-bottom-color: $antsand-gray-800;
-
-        h3 {
-            color: white;
-        }
-
-        p {
-            color: $antsand-gray-400;
-        }
-    }
-
-    .antsand-pricing-price {
-        .price {
-            color: white;
-        }
-
-        .period {
-            color: $antsand-gray-400;
-        }
-    }
-
-    .antsand-pricing-features li {
-        color: $antsand-gray-300;
     }
 }
+
+// -----------------------------
+// Pricing 2 - Gray background
+// background: gray-50
+// cards: white bg, shadow-sm | badge: success bg
+// cta: primary bg | featured: purple gradient bg, white text, white cta
+// -----------------------------
+.pricing-2 {
+    @include pricing-base;
+    background-color: $antsand-gray-50;
+
+    .header-section {
+        .title { color: $antsand-gray-900; }
+        .description { color: $antsand-gray-600; }
+    }
+
+    .sub-container {
+        background-color: white;
+        box-shadow: $antsand-shadow-sm;
+        border: none;
+
+        &:hover {
+            box-shadow: $antsand-shadow-xl;
+        }
+
+        .badge {
+            background-color: $antsand-success;
+            color: white;
+        }
+
+        .title { color: $antsand-gray-900; }
+        .description { color: $antsand-gray-500; border-bottom: none; }
+        .price { color: $antsand-gray-900; }
+        .price .period { color: $antsand-gray-500; }
+
+        .features li {
+            color: $antsand-gray-600;
+            &::before { color: $antsand-success; }
+        }
+
+        .cta {
+            background-color: $antsand-primary;
+            color: white;
+
+            &:hover {
+                background-color: darken($antsand-primary, 10%);
+            }
+        }
+
+        &.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+            .title, .price { color: white; }
+            .description { color: rgba(255, 255, 255, 0.8); }
+            .price .period { color: rgba(255, 255, 255, 0.7); }
+            .features li { color: rgba(255, 255, 255, 0.9); }
+            .features li::before { color: white; }
+
+            .cta {
+                background-color: white;
+                color: #764ba2;
+            }
+        }
+    }
+}
+
+// -----------------------------
+// Pricing 3 - Dark
+// background: linear-gradient(135deg, #1a1a2e, #16213e)
+// cards: rgba(255,255,255,0.05) bg, rgba border
+// title: white | features: gray-300 | cta: rgba bg + border
+// featured: primary bg, white cta
+// -----------------------------
+.pricing-3 {
+    @include pricing-base;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+    .header-section {
+        .title { color: white; }
+        .description { color: $antsand-gray-400; }
+    }
+
+    .sub-container {
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: $antsand-primary;
+        }
+
+        .badge {
+            background-color: $antsand-primary;
+            color: white;
+        }
+
+        .title { color: white; }
+        .description {
+            color: $antsand-gray-400;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .price { color: white; }
+        .price .period { color: $antsand-gray-400; }
+
+        .features li {
+            color: $antsand-gray-300;
+            &::before { color: $antsand-success; }
+            &.disabled::before { color: $antsand-gray-600; }
+        }
+
+        .cta {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            &:hover {
+                background-color: $antsand-primary;
+                border-color: $antsand-primary;
+            }
+        }
+
+        &.featured {
+            background-color: $antsand-primary;
+            border-color: $antsand-primary;
+
+            .cta {
+                background-color: white;
+                color: $antsand-primary;
+                border-color: white;
+            }
+        }
+    }
+}
+
+// -----------------------------
+// Pricing 4 - Minimal
+// background: white
+// cards: transparent, gray-200 border, no radius
+// title: uppercase, letter-spacing | cta: outline style
+// featured: thick border, filled cta
+// -----------------------------
+.pricing-4 {
+    @include pricing-base;
+    background-color: white;
+
+    .header-section {
+        .title { color: $antsand-gray-900; }
+        .description { color: $antsand-gray-500; }
+    }
+
+    .sub-container {
+        background-color: transparent;
+        border: 1px solid $antsand-gray-200;
+        border-radius: 0;
+
+        &:hover {
+            border-color: $antsand-gray-900;
+            transform: none;
+        }
+
+        .badge {
+            background-color: $antsand-gray-900;
+            color: white;
+            border-radius: 0;
+        }
+
+        .title {
+            color: $antsand-gray-900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: $antsand-font-size-base;
+        }
+        .description { color: $antsand-gray-500; border-bottom: none; }
+        .price { color: $antsand-gray-900; }
+        .price .period { color: $antsand-gray-500; }
+
+        .features li {
+            color: $antsand-gray-600;
+            &::before { color: $antsand-gray-900; }
+        }
+
+        .cta {
+            background-color: transparent;
+            color: $antsand-gray-900;
+            border: 1px solid $antsand-gray-900;
+
+            &:hover {
+                background-color: $antsand-gray-900;
+                color: white;
+            }
+        }
+
+        &.featured {
+            border-width: 2px;
+            border-color: $antsand-gray-900;
+
+            .cta {
+                background-color: $antsand-gray-900;
+                color: white;
+            }
+        }
+    }
+}
+
+// -----------------------------
+// Pricing 5 - Gradient accent
+// background: gray-50
+// cards: white bg, shadow, 4px top bar (gray → purple on hover)
+// badge: purple gradient | cta: purple gradient
+// featured: 6px top bar
+// -----------------------------
+.pricing-5 {
+    @include pricing-base;
+    background-color: $antsand-gray-50;
+
+    .header-section {
+        .title { color: $antsand-gray-900; }
+        .description { color: $antsand-gray-600; }
+    }
+
+    .sub-container {
+        background-color: white;
+        box-shadow: $antsand-shadow-md;
+        border: none;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: $antsand-gray-200;
+        }
+
+        &:hover {
+            box-shadow: $antsand-shadow-xl;
+
+            &::before {
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            }
+        }
+
+        .badge {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .title { color: $antsand-gray-900; }
+        .description { color: $antsand-gray-500; }
+        .price { color: $antsand-gray-900; }
+        .price .period { color: $antsand-gray-500; }
+
+        .features li {
+            color: $antsand-gray-600;
+            &::before { color: #667eea; }
+        }
+
+        .cta {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+
+            &:hover {
+                opacity: 0.9;
+                transform: translateY(-2px);
+            }
+        }
+
+        &.featured {
+            &::before {
+                height: 6px;
+                background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            }
+        }
+    }
+}
+
+// ============================================
+// LEGACY SUPPORT
+// ============================================
+
+.antsand-pricing { @extend .pricing-1; }
+.antsand-pricing-dark { @extend .pricing-3; }
+.antsand-pricing-card { @extend .sub-container; }
+.antsand-pricing-badge { @extend .badge; }
+.antsand-pricing-header { border-bottom: 1px solid $antsand-gray-200; padding-bottom: $antsand-space-4; margin-bottom: $antsand-space-4; }
+.antsand-pricing-price { @extend .price; }
+.antsand-pricing-features { @extend .features; }
+.antsand-pricing-cta { @extend .cta; }
+.antsand-pricing-highlight { @extend .featured; }

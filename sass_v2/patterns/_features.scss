@@ -1,182 +1,437 @@
 // ============================================
 // ANTSAND Styles v2 - Features Patterns
-// Feature grid layouts
+// ============================================
+//
+// UNIVERSAL ANTSAND SECTION PATTERN:
+// Change ONLY the parent class to switch styles
+//
+// Structure:
+//   .features-1 (parent - controls all styling)
+//     └── .container (main wrapper)
+//         ├── .header-section (optional section header)
+//         │   ├── .title (section title)
+//         │   └── .description (section description)
+//         └── .sub-container (each feature item)
+//             ├── .icon (feature icon)
+//             ├── .title (feature title)
+//             ├── .description (feature description)
+//             └── .cta-container > .cta (optional link)
+//
 // ============================================
 
-.antsand-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: $antsand-space-5;
-    padding: $antsand-space-6 0;
-}
+// ============================================
+// BASE FEATURES STYLES
+// ============================================
 
-.antsand-feature-item {
-    text-align: center;
-    padding: $antsand-space-4;
-    transition: transform $antsand-transition-base;
+@mixin features-base {
+    padding: $antsand-space-7 0;
 
-    &:hover {
-        transform: translateY(-4px);
-    }
-}
-
-.antsand-feature-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 4rem;
-    height: 4rem;
-    margin: 0 auto $antsand-space-3 auto;
-    background-color: lighten($antsand-primary, 45%);
-    color: $antsand-primary;
-    border-radius: $antsand-radius-lg;
-    font-size: 2rem;
-
-    img, svg {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-}
-
-.antsand-feature-title {
-    font-size: $antsand-font-size-xl;
-    font-weight: $antsand-font-weight-bold;
-    color: $antsand-gray-900;
-    margin-bottom: $antsand-space-2;
-}
-
-.antsand-feature-desc {
-    color: $antsand-gray-600;
-    line-height: $antsand-line-height-relaxed;
-}
-
-// Left-aligned features
-.antsand-features-left {
-    .antsand-feature-item {
-        text-align: left;
-        display: flex;
-        gap: $antsand-space-4;
-        align-items: flex-start;
+    // Container
+    > .container {
+        max-width: $antsand-container-xl;
+        margin: 0 auto;
+        padding: 0 $antsand-space-4;
     }
 
-    .antsand-feature-icon {
-        margin: 0;
-        flex-shrink: 0;
+    // Header section (optional title/desc above features)
+    .header-section {
+        text-align: center;
+        margin-bottom: $antsand-space-6;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .title {
+            font-size: $antsand-font-size-3xl;
+            font-weight: $antsand-font-weight-bold;
+            margin-bottom: $antsand-space-3;
+
+            @media (min-width: $antsand-breakpoint-md) {
+                font-size: $antsand-font-size-4xl;
+            }
+        }
+
+        .description {
+            font-size: $antsand-font-size-lg;
+            line-height: $antsand-line-height-relaxed;
+        }
     }
 
-    .antsand-feature-content {
-        flex: 1;
+    // Grid container for features
+    .data-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: $antsand-space-5;
     }
-}
 
-// Features with cards
-.antsand-features-cards {
-    .antsand-feature-item {
-        background-color: white;
-        border: 1px solid $antsand-gray-200;
-        border-radius: $antsand-radius-lg;
-        box-shadow: $antsand-shadow-sm;
+    // Each feature item
+    .sub-container {
+        text-align: center;
+        padding: $antsand-space-4;
+        transition: transform $antsand-transition-base;
 
         &:hover {
-            box-shadow: $antsand-shadow-lg;
-            border-color: $antsand-primary;
+            transform: translateY(-4px);
         }
-    }
-}
 
-// Icon variants
-.antsand-feature-icon-circle {
-    border-radius: 50%;
-}
+        // Icon
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto $antsand-space-3 auto;
+            border-radius: $antsand-radius-lg;
+            font-size: 1.75rem;
 
-.antsand-feature-icon-primary {
-    background-color: $antsand-primary;
-    color: white;
-}
+            img, svg {
+                width: 2rem;
+                height: 2rem;
+            }
 
-.antsand-feature-icon-success {
-    background-color: lighten($antsand-success, 45%);
-    color: $antsand-success;
-}
-
-.antsand-feature-icon-warning {
-    background-color: lighten($antsand-warning, 40%);
-    color: darken($antsand-warning, 20%);
-}
-
-.antsand-feature-icon-danger {
-    background-color: lighten($antsand-danger, 40%);
-    color: $antsand-danger;
-}
-
-.antsand-feature-icon-info {
-    background-color: lighten($antsand-info, 50%);
-    color: $antsand-info;
-}
-
-// Large feature with image
-.antsand-feature-large {
-    display: flex;
-    gap: $antsand-space-6;
-    align-items: center;
-    margin-bottom: $antsand-space-6;
-
-    @media (max-width: $antsand-breakpoint-md) {
-        flex-direction: column;
-    }
-
-    &:nth-child(even) {
-        flex-direction: row-reverse;
-
-        @media (max-width: $antsand-breakpoint-md) {
-            flex-direction: column;
+            i {
+                font-size: 1.75rem;
+            }
         }
-    }
-}
 
-.antsand-feature-large-image {
-    flex: 1;
+        // Title
+        .title {
+            font-size: $antsand-font-size-xl;
+            font-weight: $antsand-font-weight-semibold;
+            margin-bottom: $antsand-space-2;
+        }
 
-    img {
-        width: 100%;
-        height: auto;
-        border-radius: $antsand-radius-lg;
-        box-shadow: $antsand-shadow-lg;
-    }
-}
+        // Description
+        .description {
+            font-size: $antsand-font-size-base;
+            line-height: $antsand-line-height-relaxed;
+        }
 
-.antsand-feature-large-content {
-    flex: 1;
+        // CTA
+        .cta-container {
+            margin-top: $antsand-space-3;
 
-    h3 {
-        font-size: $antsand-font-size-3xl;
-        font-weight: $antsand-font-weight-bold;
-        color: $antsand-gray-900;
-        margin-bottom: $antsand-space-3;
-    }
-
-    p {
-        font-size: $antsand-font-size-lg;
-        color: $antsand-gray-600;
-        line-height: $antsand-line-height-relaxed;
-        margin-bottom: $antsand-space-4;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin-bottom: $antsand-space-4;
-
-        li {
-            padding: $antsand-space-2 0;
-            color: $antsand-gray-700;
-
-            &::before {
-                content: '✓';
-                color: $antsand-success;
-                font-weight: $antsand-font-weight-bold;
-                margin-right: $antsand-space-2;
+            .cta {
+                font-weight: $antsand-font-weight-medium;
+                text-decoration: none;
+                transition: color $antsand-transition-base;
             }
         }
     }
 }
+
+// ============================================
+// FEATURES VARIANTS
+// ============================================
+//
+// VARIANT REFERENCE:
+// ------------------
+// features-1: Light + colored icons | bg: white      | icon: primary-light bg | text: gray-900/600
+// features-2: Cards with shadow     | bg: gray-50    | icon: primary bg, white | cards: white + shadow
+// features-3: Dark                  | bg: #1a1a2e→   | icon: rgba white bg    | text: white/gray-400
+// features-4: Left-aligned + border | bg: white      | icon: gray-100 bg      | hover: left border
+// features-5: Gradient cards        | bg: gray-50    | cards: purple gradient | text: white
+//
+// MODIFIERS: features-2col, features-3col, features-4col
+// ============================================
+
+// -----------------------------
+// Features 1 - Light with colored icons
+// background: white
+// icon: primary-light bg (#3498db lightened), primary text
+// title: gray-900 | description: gray-600 | cta: primary
+// -----------------------------
+.features-1 {
+    @include features-base;
+    background-color: white;
+
+    .header-section {
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+    }
+
+    .sub-container {
+        .icon {
+            background-color: lighten($antsand-primary, 42%);
+            color: $antsand-primary;
+        }
+
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+
+        .cta {
+            color: $antsand-primary;
+
+            &:hover {
+                color: darken($antsand-primary, 10%);
+            }
+        }
+    }
+}
+
+// -----------------------------
+// Features 2 - Cards with shadow
+// background: gray-50 (#f9fafb)
+// cards: white bg, shadow-sm → shadow-lg on hover
+// icon: primary bg (#3498db), white text, rounded-full
+// -----------------------------
+.features-2 {
+    @include features-base;
+    background-color: $antsand-gray-50;
+
+    .header-section {
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+    }
+
+    .sub-container {
+        background-color: white;
+        border-radius: $antsand-radius-lg;
+        box-shadow: $antsand-shadow-sm;
+        padding: $antsand-space-5;
+
+        &:hover {
+            box-shadow: $antsand-shadow-lg;
+        }
+
+        .icon {
+            background-color: $antsand-primary;
+            color: white;
+            border-radius: 50%;
+        }
+
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+
+        .cta {
+            color: $antsand-primary;
+        }
+    }
+}
+
+// -----------------------------
+// Features 3 - Dark background
+// background: linear-gradient(135deg, #1a1a2e, #16213e)
+// icon: rgba(255,255,255,0.1) bg, primary text
+// title: white | description: gray-400 | cta: primary
+// -----------------------------
+.features-3 {
+    @include features-base;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+    .header-section {
+        .title {
+            color: white;
+        }
+
+        .description {
+            color: $antsand-gray-400;
+        }
+    }
+
+    .sub-container {
+        .icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: $antsand-primary;
+        }
+
+        .title {
+            color: white;
+        }
+
+        .description {
+            color: $antsand-gray-400;
+        }
+
+        .cta {
+            color: $antsand-primary;
+
+            &:hover {
+                color: lighten($antsand-primary, 10%);
+            }
+        }
+    }
+}
+
+// -----------------------------
+// Features 4 - Left aligned with border
+// background: white
+// layout: flex row (icon + content)
+// icon: gray-100 bg, gray-700 text
+// hover: border-left primary, bg gray-50
+// -----------------------------
+.features-4 {
+    @include features-base;
+    background-color: white;
+
+    .header-section {
+        text-align: left;
+        margin-left: 0;
+
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+    }
+
+    .sub-container {
+        text-align: left;
+        display: flex;
+        gap: $antsand-space-4;
+        align-items: flex-start;
+        padding: $antsand-space-4;
+        border-left: 3px solid transparent;
+        transition: border-color $antsand-transition-base, background $antsand-transition-base;
+
+        &:hover {
+            border-left-color: $antsand-primary;
+            background-color: $antsand-gray-50;
+            transform: none;
+        }
+
+        .icon {
+            margin: 0;
+            flex-shrink: 0;
+            background-color: $antsand-gray-100;
+            color: $antsand-gray-700;
+        }
+
+        .content-wrapper {
+            flex: 1;
+        }
+
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+    }
+}
+
+// -----------------------------
+// Features 5 - Gradient cards
+// background: gray-50
+// cards: linear-gradient(135deg, #667eea, #764ba2)
+// icon: rgba(255,255,255,0.2) bg, white text
+// all text: white | hover: lift + purple shadow
+// -----------------------------
+.features-5 {
+    @include features-base;
+    background-color: $antsand-gray-50;
+
+    .header-section {
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+    }
+
+    .sub-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: $antsand-radius-lg;
+        padding: $antsand-space-5;
+
+        &:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .icon {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .title {
+            color: white;
+        }
+
+        .description {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .cta {
+            color: white;
+            text-decoration: underline;
+        }
+    }
+}
+
+// ============================================
+// COLUMN MODIFIERS
+// ============================================
+
+.features-2col {
+    .data-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        @media (max-width: $antsand-breakpoint-md) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.features-3col {
+    .data-container {
+        grid-template-columns: repeat(3, 1fr);
+
+        @media (max-width: $antsand-breakpoint-md) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.features-4col {
+    .data-container {
+        grid-template-columns: repeat(4, 1fr);
+
+        @media (max-width: $antsand-breakpoint-lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $antsand-breakpoint-sm) {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+// ============================================
+// LEGACY SUPPORT
+// ============================================
+
+.antsand-features { @extend .features-1; }
+.antsand-features-cards { @extend .features-2; }
+.antsand-features-left { @extend .features-4; }
+.antsand-feature-item { @extend .sub-container; }
+.antsand-feature-icon { @extend .icon; }
+.antsand-feature-title { @extend .title; }
+.antsand-feature-desc { @extend .description; }

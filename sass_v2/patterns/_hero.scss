@@ -1,136 +1,468 @@
 // ============================================
 // ANTSAND Styles v2 - Hero Patterns
-// Hero section layouts
+// ============================================
+//
+// UNIVERSAL ANTSAND SECTION PATTERN:
+// Change ONLY the parent class to switch styles
+//
+// Structure:
+//   .hero-1 (parent - controls all styling)
+//     └── .container (main wrapper)
+//         └── .sub-container (content + image areas)
+//             ├── .title (main headline)
+//             ├── .description (subtitle/description)
+//             ├── .eyebrow (small text above title)
+//             ├── .img-container > img
+//             └── .cta-container > .cta
+//
+// DSL CSS Object:
+//   css: {
+//     section: { container: { css_class: "hero-1" } },
+//     data: {
+//       container: { css_class: "container" },
+//       sub_container: { css_class: "sub-container" },
+//       title: { css_class: "title" },
+//       description: { css_class: "description" }
+//     }
+//   }
+//
 // ============================================
 
-.antsand-hero {
+// ============================================
+// BASE HERO STYLES (shared across variants)
+// ============================================
+
+@mixin hero-base {
     position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
     padding: $antsand-space-8 0;
-    text-align: center;
 
-    @include antsand-lg {
-        padding: 6rem 0;
-    }
-}
-
-.antsand-hero-title {
-    font-size: $antsand-font-size-3xl;
-    font-weight: $antsand-font-weight-bold;
-    line-height: $antsand-line-height-tight;
-    margin-bottom: $antsand-space-4;
-
-    @include antsand-md {
-        font-size: $antsand-font-size-4xl;
-    }
-
-    @include antsand-lg {
-        font-size: $antsand-font-size-5xl;
-    }
-}
-
-.antsand-hero-subtitle {
-    font-size: $antsand-font-size-lg;
-    color: $antsand-gray-600;
-    line-height: $antsand-line-height-relaxed;
-    margin-bottom: $antsand-space-5;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-
-    @include antsand-md {
-        font-size: $antsand-font-size-xl;
-    }
-}
-
-.antsand-hero-cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: $antsand-space-3;
-    flex-wrap: wrap;
-}
-
-.antsand-hero-image {
-    margin-top: $antsand-space-6;
-
-    img {
-        max-width: 100%;
-        height: auto;
-        border-radius: $antsand-radius-lg;
-        box-shadow: $antsand-shadow-xl;
-    }
-}
-
-// Hero with background image
-.antsand-hero-bg {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    color: white;
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    > * {
-        position: relative;
-        z-index: 1;
-    }
-
-    .antsand-hero-subtitle {
-        color: rgba(255, 255, 255, 0.9);
-    }
-}
-
-// Hero with gradient
-.antsand-hero-gradient {
-    background: linear-gradient(135deg, $antsand-primary 0%, darken($antsand-primary, 15%) 100%);
-    color: white;
-
-    .antsand-hero-subtitle {
-        color: rgba(255, 255, 255, 0.9);
-    }
-}
-
-// Split hero (image + text side by side)
-.antsand-hero-split {
-    display: flex;
-    align-items: center;
-    gap: $antsand-space-6;
-    text-align: left;
-    padding: $antsand-space-7 0;
-
-    @media (max-width: $antsand-breakpoint-md) {
+    // Container
+    > .container {
+        max-width: $antsand-container-xl;
+        margin: 0 auto;
+        padding: 0 $antsand-space-4;
+        width: 100%;
+        display: flex;
         flex-direction: column;
+        gap: $antsand-space-6;
+
+        @media (min-width: $antsand-breakpoint-md) {
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    // Sub-container (content area or image area)
+    .sub-container {
+        flex: 1;
+
+        // Eyebrow text
+        .eyebrow {
+            font-size: $antsand-font-size-sm;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: $antsand-space-2;
+            font-weight: $antsand-font-weight-medium;
+        }
+
+        // Main title
+        .title {
+            font-size: $antsand-font-size-3xl;
+            font-weight: $antsand-font-weight-bold;
+            line-height: $antsand-line-height-tight;
+            margin-bottom: $antsand-space-4;
+
+            @media (min-width: $antsand-breakpoint-md) {
+                font-size: $antsand-font-size-4xl;
+            }
+
+            @media (min-width: $antsand-breakpoint-lg) {
+                font-size: $antsand-font-size-5xl;
+            }
+        }
+
+        // Description
+        .description {
+            font-size: $antsand-font-size-lg;
+            line-height: $antsand-line-height-relaxed;
+            margin-bottom: $antsand-space-5;
+            max-width: 540px;
+
+            @media (min-width: $antsand-breakpoint-md) {
+                font-size: $antsand-font-size-xl;
+            }
+        }
+
+        // CTA container
+        .cta-container {
+            display: flex;
+            gap: $antsand-space-3;
+            flex-wrap: wrap;
+            margin-top: $antsand-space-4;
+
+            .cta {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: $antsand-space-3 $antsand-space-5;
+                border-radius: $antsand-radius-md;
+                font-weight: $antsand-font-weight-semibold;
+                text-decoration: none;
+                transition: all $antsand-transition-base;
+                cursor: pointer;
+                border: none;
+            }
+        }
+
+        // Image container
+        .img-container {
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: $antsand-radius-lg;
+            }
+        }
+    }
+
+    // Mobile center
+    @media (max-width: $antsand-breakpoint-md - 1) {
         text-align: center;
+
+        .sub-container {
+            .description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .cta-container {
+                justify-content: center;
+            }
+        }
+    }
+}
+
+// ============================================
+// HERO VARIANTS - Just change parent class!
+// ============================================
+//
+// VARIANT REFERENCE:
+// ------------------
+// hero-1: Purple gradient  | bg: #667eea → #764ba2 | text: white | cta: white bg, purple text
+// hero-2: Light/Clean      | bg: gray-50           | text: gray-900 | cta: primary bg
+// hero-3: Dark             | bg: #1a1a2e → #16213e | text: white | cta: primary bg
+// hero-4: Minimal white    | bg: white + border    | text: gray-900 | cta: gray-900 bg
+// hero-5: Blue gradient    | bg: #0f172a → #1e3a5f | text: white | cta: #38bdf8 bg
+//
+// MODIFIERS: hero-centered, hero-reversed, hero-full
+// ============================================
+
+// -----------------------------
+// Hero 1 - Gradient Purple
+// background: linear-gradient(135deg, #667eea, #764ba2)
+// title: white | description: rgba(255,255,255,0.85) | eyebrow: rgba(255,255,255,0.7)
+// cta: white bg, #764ba2 text | cta-secondary: transparent, white border
+// -----------------------------
+.hero-1 {
+    @include hero-base;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+
+    .sub-container {
+        .eyebrow {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .title {
+            color: white;
+        }
+
+        .description {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .cta-container .cta {
+            background: white;
+            color: #764ba2;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.9);
+                transform: translateY(-2px);
+                box-shadow: $antsand-shadow-lg;
+            }
+
+            &.cta-secondary {
+                background: transparent;
+                color: white;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+
+                &:hover {
+                    border-color: white;
+                    background: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+
+        .img-container img {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+    }
+}
+
+// -----------------------------
+// Hero 2 - Light / Clean
+// background: gray-50 (#f9fafb)
+// title: gray-900 | description: gray-600 | eyebrow: primary
+// cta: primary bg, white text | cta-secondary: white bg, gray-700 text, gray-300 border
+// -----------------------------
+.hero-2 {
+    @include hero-base;
+    background: $antsand-gray-50;
+    color: $antsand-gray-900;
+
+    .sub-container {
+        .eyebrow {
+            color: $antsand-primary;
+        }
+
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+
+        .cta-container .cta {
+            background: $antsand-primary;
+            color: white;
+
+            &:hover {
+                background: darken($antsand-primary, 10%);
+                transform: translateY(-2px);
+                box-shadow: $antsand-shadow-lg;
+            }
+
+            &.cta-secondary {
+                background: white;
+                color: $antsand-gray-700;
+                border: 1px solid $antsand-gray-300;
+
+                &:hover {
+                    border-color: $antsand-gray-400;
+                    background: $antsand-gray-50;
+                }
+            }
+        }
+
+        .img-container img {
+            box-shadow: $antsand-shadow-xl;
+        }
+    }
+}
+
+// -----------------------------
+// Hero 3 - Dark
+// background: linear-gradient(135deg, #1a1a2e, #16213e)
+// title: white | description: gray-400 | eyebrow: primary
+// cta: primary bg, white text | cta-secondary: transparent, gray-600 border
+// -----------------------------
+.hero-3 {
+    @include hero-base;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+
+    .sub-container {
+        .eyebrow {
+            color: $antsand-primary;
+        }
+
+        .title {
+            color: white;
+        }
+
+        .description {
+            color: $antsand-gray-400;
+        }
+
+        .cta-container .cta {
+            background: $antsand-primary;
+            color: white;
+
+            &:hover {
+                background: lighten($antsand-primary, 5%);
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba($antsand-primary, 0.4);
+            }
+
+            &.cta-secondary {
+                background: transparent;
+                color: white;
+                border: 1px solid $antsand-gray-600;
+
+                &:hover {
+                    border-color: $antsand-gray-400;
+                }
+            }
+        }
+
+        .img-container img {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+// -----------------------------
+// Hero 4 - Minimal White
+// background: white | border-bottom: gray-200
+// title: gray-900 | description: gray-600 | eyebrow: gray-500
+// cta: gray-900 bg, white text | cta-secondary: transparent, gray-300 border
+// -----------------------------
+.hero-4 {
+    @include hero-base;
+    background: white;
+    color: $antsand-gray-900;
+    border-bottom: 1px solid $antsand-gray-200;
+
+    .sub-container {
+        .eyebrow {
+            color: $antsand-gray-500;
+        }
+
+        .title {
+            color: $antsand-gray-900;
+        }
+
+        .description {
+            color: $antsand-gray-600;
+        }
+
+        .cta-container .cta {
+            background: $antsand-gray-900;
+            color: white;
+
+            &:hover {
+                background: $antsand-gray-800;
+            }
+
+            &.cta-secondary {
+                background: transparent;
+                color: $antsand-gray-700;
+                border: 1px solid $antsand-gray-300;
+
+                &:hover {
+                    border-color: $antsand-gray-900;
+                    color: $antsand-gray-900;
+                }
+            }
+        }
+
+        .img-container img {
+            border: 1px solid $antsand-gray-200;
+            box-shadow: $antsand-shadow-md;
+        }
+    }
+}
+
+// -----------------------------
+// Hero 5 - Blue Gradient
+// background: linear-gradient(135deg, #0f172a, #1e3a5f)
+// title: white | description: gray-300 | eyebrow: #38bdf8 (sky-400)
+// cta: #38bdf8 bg, #0f172a text | cta-secondary: transparent, #38bdf8 border
+// -----------------------------
+.hero-5 {
+    @include hero-base;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    color: white;
+
+    .sub-container {
+        .eyebrow {
+            color: #38bdf8;
+        }
+
+        .title {
+            color: white;
+        }
+
+        .description {
+            color: $antsand-gray-300;
+        }
+
+        .cta-container .cta {
+            background: #38bdf8;
+            color: #0f172a;
+
+            &:hover {
+                background: #7dd3fc;
+                transform: translateY(-2px);
+            }
+
+            &.cta-secondary {
+                background: transparent;
+                color: #38bdf8;
+                border: 1px solid #38bdf8;
+
+                &:hover {
+                    background: rgba(56, 189, 248, 0.1);
+                }
+            }
+        }
+
+        .img-container img {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+    }
+}
+
+// ============================================
+// LAYOUT MODIFIERS (add to parent class)
+// ============================================
+
+// Centered content (no image)
+.hero-centered {
+    > .container {
+        flex-direction: column !important;
+        text-align: center;
+        max-width: 900px;
     }
 
-    .antsand-hero-content {
-        flex: 1;
-    }
+    .sub-container {
+        .description {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .antsand-hero-image {
-        flex: 1;
-        margin-top: 0;
-    }
-
-    .antsand-hero-subtitle {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .antsand-hero-cta {
-        justify-content: flex-start;
-
-        @media (max-width: $antsand-breakpoint-md) {
+        .cta-container {
             justify-content: center;
         }
     }
 }
+
+// Reversed layout (image on left)
+.hero-reversed {
+    > .container {
+        @media (min-width: $antsand-breakpoint-md) {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+// Full height
+.hero-full {
+    min-height: 100vh;
+}
+
+// ============================================
+// LEGACY SUPPORT
+// ============================================
+
+.antsand-hero { @extend .hero-2; }
+.antsand-hero-gradient { @extend .hero-1; }
+.antsand-hero-bg { @extend .hero-3; }
+.antsand-hero-split { @extend .hero-2; }
+.antsand-hero-title { @extend .title; }
+.antsand-hero-subtitle { @extend .description; }
+.antsand-hero-cta { @extend .cta-container; }
+.antsand-hero-image { @extend .img-container; }

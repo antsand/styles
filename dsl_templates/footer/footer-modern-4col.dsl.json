@@ -142,6 +142,43 @@
     }
   },
 
+  "ai_prompt": {
+    "system_context": "You are generating content for ANTSAND CMS. Output valid JSON only. Use ANTSAND utility classes (font-size-{n}-all, padding-{n}-all, margin-{n}, color-{name}, display-flex, gap-{n}, etc). The template uses service_3_modern.volt which renders: header (h1, p), data[] (grid items with title, list, social_media), footer (copyright).",
+
+    "user_prompt_template": "Generate a modern 4-column footer for [BUSINESS_NAME].\n\nBusiness type: [BUSINESS_TYPE]\nMain links: [LINK_LIST]\nSocial profiles: [SOCIAL_URLS]\nColor scheme: [dark/light]\nContact email: [EMAIL]\nContact phone: [PHONE]\n\nGenerate 3 JSON outputs:\n\n1. DATA (for menu.topo) - the content\n2. DSL (css classes mapping) - styling\n3. SASS (only if new classes needed beyond ANTSAND utilities)\n\nUse this exact structure:",
+
+    "output_format": {
+      "data": {
+        "description": "Content for databoard.menu.footer_section.topo",
+        "example_structure": "Array of 4 column objects with title, list[], or social_media[]"
+      },
+      "dsl": {
+        "description": "CSS class mapping for the section",
+        "example_structure": "Object with css.section, css.data, css.footer keys"
+      },
+      "sass": {
+        "description": "Custom SCSS if needed (usually empty if using ANTSAND utilities)",
+        "example_structure": "String of SCSS code or empty"
+      }
+    },
+
+    "placeholders": [
+      { "key": "BUSINESS_NAME", "label": "Business Name", "default": "My Company", "type": "text" },
+      { "key": "BUSINESS_TYPE", "label": "Business Type", "default": "SaaS / Tech Startup", "type": "text" },
+      { "key": "LINK_LIST", "label": "Navigation Links", "default": "Home, About, Services, Blog, Contact", "type": "textarea" },
+      { "key": "SOCIAL_URLS", "label": "Social Media URLs", "default": "github.com/myco, twitter.com/myco, linkedin.com/company/myco", "type": "textarea" },
+      { "key": "EMAIL", "label": "Contact Email", "default": "hello@example.com", "type": "email" },
+      { "key": "PHONE", "label": "Contact Phone", "default": "+1 234 567 890", "type": "tel" }
+    ],
+
+    "available_classes": [
+      "font-size-{12-48}-all", "font-weight-{400,500,600,700}", "color-white", "color-black",
+      "padding-{0-100}-all", "padding-top-{n}", "padding-bottom-{n}", "margin-{0-100}",
+      "display-flex", "display-grid", "gap-{n}", "justify-center", "align-center",
+      "text-center", "text-left", "border-top-1", "list-style-none", "antsand-container"
+    ]
+  },
+
   "sample_data": {
     "_comment": "This is SAMPLE data for documentation/preview only. Real data comes from Databoard.",
     "data": [
