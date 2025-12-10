@@ -194,6 +194,11 @@ sync-antsand: sync-css-antsand sync-js-antsand sync-dsl-antsand
 sync-all: sync-to-docs sync-js-docs sync-templates sync-fonts sync-css-antsand sync-js-antsand sync-dsl-antsand
 	@echo "✓ All files synced to both styles_doc and antsand"
 
+# Run CSS class structure tests (validates all components use universal class naming)
+test:
+	@echo "Running ANTSAND CSS class structure tests..."
+	@/home/antshiv/Programs/bin/php /home/antshiv/Programs/html/antsand.com/tests/test_css_class_structure.php
+
 # Help
 help:
 	@echo "ANTSAND v2 Build System"
@@ -242,12 +247,16 @@ help:
 	@echo "  antsand JS:         $(ANTSAND_JS)/"
 	@echo "  antsand DSL:        $(ANTSAND_TEMPLATES)/"
 	@echo ""
+	@echo "Testing:"
+	@echo "  make test           - Run CSS class structure tests"
+	@echo ""
 	@echo "Quick workflows:"
 	@echo "  make && make sync-all             - Build + sync everything"
 	@echo "  make sync-js                      - Push JS v2 to both sites"
 	@echo "  make tabs && make sync-css        - Compile tabs + push CSS"
+	@echo "  make test                         - Verify class alignment"
 
-.PHONY: all fonts nav tabs master clean watch help \
+.PHONY: all fonts nav tabs master clean watch help test \
         sync-to-docs sync-js-docs sync-templates sync-fonts sync-docs \
         sync-css-antsand sync-js-antsand sync-dsl-antsand sync-antsand \
         sync-css sync-js sync-dsl sync-all list-fonts
