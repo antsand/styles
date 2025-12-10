@@ -1,42 +1,76 @@
 // ============================================
 // ANTSAND Styles v2 - Enhanced Navigation
-// Based on antsand.ca navigation pattern
-// Features:
+// PARENT MODIFIER PATTERN: .antsand-nav-enhanced
+//
+// Architecture:
+// - Uses SAME nested class names as base nav
+// - Parent modifier enables enhanced features
 // - Click-based dropdowns (not hover)
-// - Multi-level nested menus
-// - Icon support for menu items
-// - Descriptive text for each item
-// - Mobile responsive
+// - Icon + description support in dropdowns
+// - Mobile responsive with hamburger menu
+//
+// Usage:
+//   Base:     <nav class="antsand-nav">
+//   Enhanced: <nav class="antsand-nav antsand-nav-enhanced">
+//
+// Same nested classes work in both:
+//   .data-sub-container  (menu item with dropdown)
+//   .data-nested-container (dropdown panel)
+//   .data-nested-item (dropdown link)
+//   .data-nested-img-container (icon wrapper)
+//   .data-nested-content-wrapper (text wrapper)
 // ============================================
 
-// Enhanced Navigation Dropdown Styles
-.antsand-nav {
+// Enhanced Navigation - Parent Modifier Pattern
+// Overrides base .antsand-nav behavior when this class is added
+.antsand-nav.antsand-nav-enhanced {
 
-    // Dropdown trigger with caret
-    .drop-down-container {
+    // ==========================================
+    // ENHANCED: Click-based dropdowns (not hover)
+    // ==========================================
+    .data-sub-container {
         position: relative;
 
+        // Enhanced link with caret indicator
         > a {
             display: flex;
             align-items: center;
             gap: 0.5rem;
 
-            .down-caret {
+            // Caret icon rotates when active
+            .down-caret,
+            .caret {
                 width: 12px;
                 height: 12px;
                 transition: transform 0.25s ease;
             }
         }
 
-        &.drop-active {
-            > a .down-caret {
+        // Active state (click-triggered)
+        &.drop-active,
+        &.active {
+            > a .down-caret,
+            > a .caret {
                 transform: rotate(180deg);
             }
+
+            // Show dropdown on click (not hover)
+            .data-nested-container {
+                display: grid;
+                opacity: 1;
+            }
+        }
+
+        // DISABLE hover dropdown in enhanced mode
+        &:hover .data-nested-container {
+            display: none;
         }
     }
 
-    // Dropdown panel
-    .drop-down {
+    // ==========================================
+    // ENHANCED: Rich dropdown panel
+    // ==========================================
+    .data-nested-container {
         display: none;
         opacity: 0;
         position: absolute;
@@ -51,60 +85,26 @@
         margin-top: 0.5rem;
         z-index: 1000;
         transition: opacity 0.25s ease;
-
-        &.active {
-            display: block;
-            opacity: 1;
-        }
-
-        // Narrow dropdown (for simple menus)
-        &.drop-down-narrow {
-            min-width: 400px;
-        }
-
-        // Wide dropdown (for rich menus)
-        &.drop-width-wide {
-            min-width: 800px;
-            max-width: 900px;
-        }
-    }
-
-    // Dropdown body
-    .drop-body {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    // Dropdown heading
-    .drop-down-heading {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: #2c3e50;
-        margin-bottom: 1rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 2px solid #e0e0e0;
-
-        &.drop-down-heading-active {
-            color: #3498db;
-        }
-    }
-
-    // Industry/Section list
-    .industry {
-        display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
 
-        // Gallery layout for multiple columns
-        &.gallery-2 {
-            grid-template-columns: repeat(2, 1fr);
+        // Size variants
+        &.narrow {
+            min-width: 400px;
+            grid-template-columns: 1fr;
+        }
+
+        &.wide {
+            min-width: 800px;
+            max-width: 900px;
+            grid-template-columns: repeat(3, 1fr);
         }
     }
 
-    // Individual dropdown item
-    .drop-down-item,
-    li > a {
+    // ==========================================
+    // ENHANCED: Dropdown items with icons
+    // ==========================================
+    .data-nested-item {
         display: grid;
         grid-template-columns: auto 1fr;
         gap: 1rem;
@@ -123,61 +123,166 @@
                 text-decoration: underline;
             }
         }
+    }
 
-        // Icon container
-        .ico,
-        .span-1-of-4 {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
+    // ==========================================
+    // ENHANCED: Icon container (larger icons)
+    // ==========================================
+    .data-nested-img-container {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        background: transparent;
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    // ==========================================
+    // ENHANCED: Content wrapper with description
+    // ==========================================
+    .data-nested-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
         }
 
-        // Description container
-        .desc,
-        .span-3-of-4-last {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
+        p {
+            font-size: 0.875rem;
+            color: #6c757d;
+            line-height: 1.4;
+        }
 
-            h5 {
-                font-size: 1rem;
-                font-weight: 600;
-                color: #2c3e50;
-                margin: 0;
-            }
+        .learn-more {
+            font-size: 0.875rem;
+            color: #3498db;
+            font-weight: 500;
+            margin-top: 0.25rem;
+            transition: all 0.25s ease;
+        }
+    }
 
-            span:not(.learn-more) {
-                font-size: 0.875rem;
-                color: #6c757d;
-                line-height: 1.4;
-            }
+    // ==========================================
+    // ENHANCED: Dropdown section headings
+    // ==========================================
+    .dropdown-heading,
+    .data-nested-heading {
+        grid-column: 1 / -1;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #e0e0e0;
 
-            .learn-more {
-                font-size: 0.875rem;
-                color: #3498db;
-                font-weight: 500;
-                margin-top: 0.25rem;
-                transition: all 0.25s ease;
-            }
+        &.active {
+            color: #3498db;
         }
     }
 }
 
-// Mobile Navigation
+// ==========================================
+// LEGACY CLASS MAPPING
+// Maps old enhanced classes to new structure
+// ==========================================
+.antsand-nav {
+    // Legacy: .drop-down-container → .data-sub-container
+    .drop-down-container {
+        @extend .data-sub-container;
+    }
+
+    // Legacy: .drop-down → .data-nested-container
+    .drop-down {
+        @extend .data-nested-container;
+
+        &.active {
+            display: grid;
+            opacity: 1;
+        }
+    }
+
+    // Legacy: .ico → .data-nested-img-container
+    .ico {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    // Legacy: .desc → .data-nested-content-wrapper
+    .desc {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        span:not(.learn-more) {
+            font-size: 0.875rem;
+            color: #6c757d;
+            line-height: 1.4;
+        }
+
+        .learn-more {
+            font-size: 0.875rem;
+            color: #3498db;
+            font-weight: 500;
+            margin-top: 0.25rem;
+            transition: all 0.25s ease;
+        }
+    }
+
+    // Legacy dropdown item hover
+    .drop-down-item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        border-radius: 8px;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.25s ease;
+
+        &:hover {
+            background: #f7f9fc;
+            transform: translateX(4px);
+        }
+    }
+}
+
+// ==========================================
+// MOBILE NAVIGATION - Enhanced
+// ==========================================
 @media (max-width: 768px) {
-    .antsand-nav {
+    .antsand-nav.antsand-nav-enhanced {
         flex-wrap: wrap;
         height: auto;
 
-        // Mobile toggle button
+        // Mobile toggle button (hamburger)
         .mobile_toggle {
             display: block;
             width: 30px;
@@ -231,7 +336,7 @@
                 gap: 0;
             }
 
-            .drop-down-container {
+            .data-sub-container {
                 width: 100%;
 
                 > a {
@@ -240,7 +345,7 @@
                 }
             }
 
-            .drop-down {
+            .data-nested-container {
                 position: static;
                 width: 100%;
                 min-width: unset;
@@ -248,6 +353,7 @@
                 border-radius: 0;
                 box-shadow: none;
                 border-left: 3px solid #3498db;
+                grid-template-columns: 1fr;
             }
         }
     }
@@ -288,19 +394,23 @@
 }
 
 // ============================================
-// Tabbed Dropdowns in Navigation
+// TABBED DROPDOWNS - Enhanced Feature
+// Tabs within dropdown panels for complex menus
 // ============================================
 
-.antsand-nav {
+.antsand-nav.antsand-nav-enhanced {
     // Dropdown tabs (tabs within dropdown panels)
-    .dropdown-tabs {
+    .dropdown-tabs,
+    .data-nested-tabs {
         display: flex;
         gap: 0.5rem;
         margin-bottom: 1.5rem;
         border-bottom: 2px solid #e0e0e0;
+        grid-column: 1 / -1;
     }
 
-    .dropdown-tab {
+    .dropdown-tab,
+    .data-nested-tab {
         padding: 0.75rem 1.5rem;
         background: transparent;
         border: none;
@@ -324,11 +434,15 @@
         }
     }
 
-    .dropdown-tab-content {
+    .dropdown-tab-content,
+    .data-nested-tab-content {
         display: none;
+        grid-column: 1 / -1;
 
         &.active {
-            display: block;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
         }
     }
 }

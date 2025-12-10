@@ -24,19 +24,19 @@
     justify-content: flex-end;
     align-items: center;
     gap: 1.5rem; }
-    .antsand-nav .data-container .data-sub-container, .antsand-nav-v2 .data-container .data-sub-container, .antsand-nav-style .data-container .data-sub-container {
+    .antsand-nav .data-container .data-sub-container, .antsand-nav .data-container .drop-down-container, .antsand-nav-v2 .data-container .data-sub-container, .antsand-nav-v2 .data-container .drop-down-container, .antsand-nav-style .data-container .data-sub-container, .antsand-nav-style .data-container .drop-down-container {
       position: relative;
       list-style: none; }
-      .antsand-nav .data-container .data-sub-container > a, .antsand-nav-v2 .data-container .data-sub-container > a, .antsand-nav-style .data-container .data-sub-container > a {
+      .antsand-nav .data-container .data-sub-container > a, .antsand-nav .data-container .drop-down-container > a, .antsand-nav .data-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav .data-container .antsand-nav-style .drop-down-container > a, .antsand-nav-v2 .data-container .data-sub-container > a, .antsand-nav-v2 .data-container .antsand-nav .drop-down-container > a, .antsand-nav-v2 .data-container .drop-down-container > a, .antsand-nav-v2 .data-container .antsand-nav-style .drop-down-container > a, .antsand-nav-style .data-container .data-sub-container > a, .antsand-nav-style .data-container .antsand-nav .drop-down-container > a, .antsand-nav-style .data-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .data-container .drop-down-container > a {
         color: white;
         text-decoration: none;
         padding: 0.5rem 1rem;
         display: block;
         border-radius: 0.25rem;
         transition: all 250ms ease; }
-        .antsand-nav .data-container .data-sub-container > a:hover, .antsand-nav-v2 .data-container .data-sub-container > a:hover, .antsand-nav-style .data-container .data-sub-container > a:hover {
+        .antsand-nav .data-container .data-sub-container > a:hover, .antsand-nav .data-container .drop-down-container > a:hover, .antsand-nav .data-container .antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav .data-container .antsand-nav-style .drop-down-container > a:hover, .antsand-nav-v2 .data-container .data-sub-container > a:hover, .antsand-nav-v2 .data-container .antsand-nav .drop-down-container > a:hover, .antsand-nav-v2 .data-container .drop-down-container > a:hover, .antsand-nav-v2 .data-container .antsand-nav-style .drop-down-container > a:hover, .antsand-nav-style .data-container .data-sub-container > a:hover, .antsand-nav-style .data-container .antsand-nav .drop-down-container > a:hover, .antsand-nav-style .data-container .antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav-style .data-container .drop-down-container > a:hover {
           background: rgba(255, 255, 255, 0.1); }
-      .antsand-nav .data-container .data-sub-container .data-nested-container, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container, .antsand-nav-style .data-container .data-sub-container .data-nested-container {
+      .antsand-nav .data-container .data-sub-container .data-nested-container, .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav .data-container .drop-down-container .data-nested-container, .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container, .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container, .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav-style .data-container .data-sub-container .data-nested-container, .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav-style .data-container .drop-down-container .data-nested-container, .antsand-nav-style .data-container .drop-down-container .drop-down {
         display: none;
         position: absolute;
         top: 100%;
@@ -53,10 +53,10 @@
         gap: 1.5rem;
         right: auto; }
         @media (min-width: 768px) {
-          .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .data-nested-container, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .data-nested-container, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .data-nested-container, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .data-nested-container {
+          .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .data-nested-container, .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .antsand-nav-style .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .data-nested-container, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .data-nested-container, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .data-nested-container, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .data-sub-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .data-nested-container, .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .antsand-nav-style .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .data-nested-container, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .data-nested-container, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .data-nested-container, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .data-nested-container, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .antsand-nav .drop-down, .antsand-nav .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .antsand-nav-style .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .data-nested-container, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .data-nested-container, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .data-nested-container, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .data-nested-container, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .data-nested-container, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .antsand-nav .drop-down, .antsand-nav .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .antsand-nav-style .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .data-nested-container, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .data-nested-container, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .data-nested-container, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .data-nested-container, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .data-sub-container .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .data-nested-container, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .drop-down, .antsand-nav-style .data-sub-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .data-nested-container, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .nav_bar .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .data-nested-container, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .antsand-nav .drop-down, .antsand-nav .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .data-nested-container, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .data-nested-container, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .data-nested-container, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .data-nested-container, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .data-nested-container, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .antsand-nav-v2 .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .data-nested-container, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .antsand-nav .drop-down, .antsand-nav .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .data-sub-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .data-nested-container, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .antsand-nav .drop-down, .antsand-nav .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .antsand-nav-v2 .drop-down, .antsand-nav-v2 .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down, .antsand-nav-style .drop-down-container:nth-last-child(-n+2) .antsand-nav-style .data-container .drop-down-container .drop-down {
             left: auto;
             right: 0; } }
-        .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item {
+        .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item, .antsand-nav .data-container .data-sub-container .drop-down .data-nested-item, .antsand-nav .data-container .drop-down-container .data-nested-container .data-nested-item, .antsand-nav .data-container .drop-down-container .drop-down .data-nested-item, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item, .antsand-nav-v2 .data-container .data-sub-container .drop-down .data-nested-item, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container .data-nested-item, .antsand-nav-v2 .data-container .drop-down-container .drop-down .data-nested-item, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item, .antsand-nav-style .data-container .data-sub-container .drop-down .data-nested-item, .antsand-nav-style .data-container .drop-down-container .data-nested-container .data-nested-item, .antsand-nav-style .data-container .drop-down-container .drop-down .data-nested-item {
           display: flex;
           align-items: flex-start;
           gap: 1rem;
@@ -65,10 +65,10 @@
           text-decoration: none;
           border-radius: 0.25rem;
           transition: all 250ms ease; }
-          .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item:hover, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item:hover, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item:hover {
+          .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item:hover, .antsand-nav .data-container .data-sub-container .drop-down .data-nested-item:hover, .antsand-nav .data-container .drop-down-container .data-nested-container .data-nested-item:hover, .antsand-nav .data-container .drop-down-container .drop-down .data-nested-item:hover, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item:hover, .antsand-nav-v2 .data-container .data-sub-container .drop-down .data-nested-item:hover, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container .data-nested-item:hover, .antsand-nav-v2 .data-container .drop-down-container .drop-down .data-nested-item:hover, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item:hover, .antsand-nav-style .data-container .data-sub-container .drop-down .data-nested-item:hover, .antsand-nav-style .data-container .drop-down-container .data-nested-container .data-nested-item:hover, .antsand-nav-style .data-container .drop-down-container .drop-down .data-nested-item:hover {
             background: #f8f9fa;
             color: #3498db; }
-          .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container {
+          .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container, .antsand-nav .data-container .data-sub-container .drop-down .data-nested-item .data-nested-img-container, .antsand-nav .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-img-container, .antsand-nav .data-container .drop-down-container .drop-down .data-nested-item .data-nested-img-container, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container, .antsand-nav-v2 .data-container .data-sub-container .drop-down .data-nested-item .data-nested-img-container, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-img-container, .antsand-nav-v2 .data-container .drop-down-container .drop-down .data-nested-item .data-nested-img-container, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container, .antsand-nav-style .data-container .data-sub-container .drop-down .data-nested-item .data-nested-img-container, .antsand-nav-style .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-img-container, .antsand-nav-style .data-container .drop-down-container .drop-down .data-nested-item .data-nested-img-container {
             width: 32px;
             height: 32px;
             flex-shrink: 0;
@@ -77,29 +77,29 @@
             justify-content: center;
             background: #f8f9fa;
             border-radius: 0.25rem; }
-            .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container img, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container img, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container img {
+            .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container img, .antsand-nav .data-container .data-sub-container .drop-down .data-nested-item .data-nested-img-container img, .antsand-nav .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-img-container img, .antsand-nav .data-container .drop-down-container .drop-down .data-nested-item .data-nested-img-container img, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container img, .antsand-nav-v2 .data-container .data-sub-container .drop-down .data-nested-item .data-nested-img-container img, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-img-container img, .antsand-nav-v2 .data-container .drop-down-container .drop-down .data-nested-item .data-nested-img-container img, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-img-container img, .antsand-nav-style .data-container .data-sub-container .drop-down .data-nested-item .data-nested-img-container img, .antsand-nav-style .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-img-container img, .antsand-nav-style .data-container .drop-down-container .drop-down .data-nested-item .data-nested-img-container img {
               width: 20px;
               height: 20px; }
-          .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper {
+          .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper, .antsand-nav .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper, .antsand-nav .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper, .antsand-nav .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper, .antsand-nav-v2 .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper, .antsand-nav-v2 .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper, .antsand-nav-style .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper, .antsand-nav-style .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper, .antsand-nav-style .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper {
             flex: 1; }
-            .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3 {
+            .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3, .antsand-nav .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper h3, .antsand-nav .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3, .antsand-nav .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-v2 .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-v2 .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-style .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-style .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper h3, .antsand-nav-style .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper h3 {
               font-weight: 600;
               font-size: 1rem;
               margin-bottom: 0.25rem;
               line-height: 1.25; }
-            .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper p, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper p, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper p {
+            .antsand-nav .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper p, .antsand-nav .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper p, .antsand-nav .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper p, .antsand-nav .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper p, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper p, .antsand-nav-v2 .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper p, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper p, .antsand-nav-v2 .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper p, .antsand-nav-style .data-container .data-sub-container .data-nested-container .data-nested-item .data-nested-content-wrapper p, .antsand-nav-style .data-container .data-sub-container .drop-down .data-nested-item .data-nested-content-wrapper p, .antsand-nav-style .data-container .drop-down-container .data-nested-container .data-nested-item .data-nested-content-wrapper p, .antsand-nav-style .data-container .drop-down-container .drop-down .data-nested-item .data-nested-content-wrapper p {
               font-size: 0.875rem;
               color: #6c757d;
               line-height: 1.5; }
-      .antsand-nav .data-container .data-sub-container:hover .data-nested-container, .antsand-nav-v2 .data-container .data-sub-container:hover .data-nested-container, .antsand-nav-style .data-container .data-sub-container:hover .data-nested-container {
+      .antsand-nav .data-container .data-sub-container:hover .data-nested-container, .antsand-nav .data-container .data-sub-container:hover .drop-down, .antsand-nav .data-container .drop-down-container:hover .data-nested-container, .antsand-nav .data-container .drop-down-container:hover .drop-down, .antsand-nav-v2 .data-container .data-sub-container:hover .data-nested-container, .antsand-nav-v2 .data-container .data-sub-container:hover .drop-down, .antsand-nav-v2 .data-container .drop-down-container:hover .data-nested-container, .antsand-nav-v2 .data-container .drop-down-container:hover .drop-down, .antsand-nav-style .data-container .data-sub-container:hover .data-nested-container, .antsand-nav-style .data-container .data-sub-container:hover .drop-down, .antsand-nav-style .data-container .drop-down-container:hover .data-nested-container, .antsand-nav-style .data-container .drop-down-container:hover .drop-down {
         display: grid; }
   .antsand-nav.antsand-nav--light, .antsand-nav--light.antsand-nav-v2, .antsand-nav-style .antsand-nav--light.nav_bar, .antsand-nav--light.antsand-nav-style {
     background: white;
     color: #212529;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); }
-    .antsand-nav.antsand-nav--light .data-sub-container > a, .antsand-nav--light.antsand-nav-v2 .data-sub-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .data-sub-container > a, .antsand-nav--light.antsand-nav-style .data-sub-container > a {
+    .antsand-nav.antsand-nav--light .data-sub-container > a, .antsand-nav.antsand-nav--light .drop-down-container > a, .antsand-nav.antsand-nav--light .antsand-nav-v2 .drop-down-container > a, .antsand-nav.antsand-nav--light .antsand-nav-style .drop-down-container > a, .antsand-nav--light.antsand-nav-v2 .data-sub-container > a, .antsand-nav--light.antsand-nav-v2 .antsand-nav .drop-down-container > a, .antsand-nav--light.antsand-nav-v2 .drop-down-container > a, .antsand-nav--light.antsand-nav-v2 .antsand-nav-style .drop-down-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .data-sub-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .antsand-nav .drop-down-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .drop-down-container > a, .antsand-nav--light.antsand-nav-style .data-sub-container > a, .antsand-nav--light.antsand-nav-style .antsand-nav .drop-down-container > a, .antsand-nav--light.antsand-nav-style .antsand-nav-v2 .drop-down-container > a, .antsand-nav--light.antsand-nav-style .drop-down-container > a {
       color: #212529; }
-      .antsand-nav.antsand-nav--light .data-sub-container > a:hover, .antsand-nav--light.antsand-nav-v2 .data-sub-container > a:hover, .antsand-nav-style .antsand-nav--light.nav_bar .data-sub-container > a:hover, .antsand-nav--light.antsand-nav-style .data-sub-container > a:hover {
+      .antsand-nav.antsand-nav--light .data-sub-container > a:hover, .antsand-nav.antsand-nav--light .drop-down-container > a:hover, .antsand-nav.antsand-nav--light .antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav.antsand-nav--light .antsand-nav-style .drop-down-container > a:hover, .antsand-nav--light.antsand-nav-v2 .data-sub-container > a:hover, .antsand-nav--light.antsand-nav-v2 .antsand-nav .drop-down-container > a:hover, .antsand-nav--light.antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav--light.antsand-nav-v2 .antsand-nav-style .drop-down-container > a:hover, .antsand-nav-style .antsand-nav--light.nav_bar .data-sub-container > a:hover, .antsand-nav-style .antsand-nav--light.nav_bar .antsand-nav .drop-down-container > a:hover, .antsand-nav-style .antsand-nav--light.nav_bar .antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav-style .antsand-nav--light.nav_bar .drop-down-container > a:hover, .antsand-nav--light.antsand-nav-style .data-sub-container > a:hover, .antsand-nav--light.antsand-nav-style .antsand-nav .drop-down-container > a:hover, .antsand-nav--light.antsand-nav-style .antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav--light.antsand-nav-style .drop-down-container > a:hover {
         background: #f8f9fa; }
   .antsand-nav.antsand-nav--transparent, .antsand-nav--transparent.antsand-nav-v2, .antsand-nav-style .antsand-nav--transparent.nav_bar, .antsand-nav--transparent.antsand-nav-style {
     background: transparent;
@@ -107,9 +107,9 @@
   .antsand-nav.antsand-nav--dark, .antsand-nav--dark.antsand-nav-v2, .antsand-nav-style .antsand-nav--dark.nav_bar, .antsand-nav--dark.antsand-nav-style {
     background: #212529;
     color: white; }
-    .antsand-nav.antsand-nav--dark .data-sub-container > a, .antsand-nav--dark.antsand-nav-v2 .data-sub-container > a, .antsand-nav-style .antsand-nav--dark.nav_bar .data-sub-container > a, .antsand-nav--dark.antsand-nav-style .data-sub-container > a {
+    .antsand-nav.antsand-nav--dark .data-sub-container > a, .antsand-nav.antsand-nav--dark .drop-down-container > a, .antsand-nav.antsand-nav--dark .antsand-nav-v2 .drop-down-container > a, .antsand-nav.antsand-nav--dark .antsand-nav-style .drop-down-container > a, .antsand-nav--dark.antsand-nav-v2 .data-sub-container > a, .antsand-nav--dark.antsand-nav-v2 .antsand-nav .drop-down-container > a, .antsand-nav--dark.antsand-nav-v2 .drop-down-container > a, .antsand-nav--dark.antsand-nav-v2 .antsand-nav-style .drop-down-container > a, .antsand-nav-style .antsand-nav--dark.nav_bar .data-sub-container > a, .antsand-nav-style .antsand-nav--dark.nav_bar .antsand-nav .drop-down-container > a, .antsand-nav-style .antsand-nav--dark.nav_bar .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .antsand-nav--dark.nav_bar .drop-down-container > a, .antsand-nav--dark.antsand-nav-style .data-sub-container > a, .antsand-nav--dark.antsand-nav-style .antsand-nav .drop-down-container > a, .antsand-nav--dark.antsand-nav-style .antsand-nav-v2 .drop-down-container > a, .antsand-nav--dark.antsand-nav-style .drop-down-container > a {
       color: white; }
-      .antsand-nav.antsand-nav--dark .data-sub-container > a:hover, .antsand-nav--dark.antsand-nav-v2 .data-sub-container > a:hover, .antsand-nav-style .antsand-nav--dark.nav_bar .data-sub-container > a:hover, .antsand-nav--dark.antsand-nav-style .data-sub-container > a:hover {
+      .antsand-nav.antsand-nav--dark .data-sub-container > a:hover, .antsand-nav.antsand-nav--dark .drop-down-container > a:hover, .antsand-nav.antsand-nav--dark .antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav.antsand-nav--dark .antsand-nav-style .drop-down-container > a:hover, .antsand-nav--dark.antsand-nav-v2 .data-sub-container > a:hover, .antsand-nav--dark.antsand-nav-v2 .antsand-nav .drop-down-container > a:hover, .antsand-nav--dark.antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav--dark.antsand-nav-v2 .antsand-nav-style .drop-down-container > a:hover, .antsand-nav-style .antsand-nav--dark.nav_bar .data-sub-container > a:hover, .antsand-nav-style .antsand-nav--dark.nav_bar .antsand-nav .drop-down-container > a:hover, .antsand-nav-style .antsand-nav--dark.nav_bar .antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav-style .antsand-nav--dark.nav_bar .drop-down-container > a:hover, .antsand-nav--dark.antsand-nav-style .data-sub-container > a:hover, .antsand-nav--dark.antsand-nav-style .antsand-nav .drop-down-container > a:hover, .antsand-nav--dark.antsand-nav-style .antsand-nav-v2 .drop-down-container > a:hover, .antsand-nav--dark.antsand-nav-style .drop-down-container > a:hover {
         background: rgba(255, 255, 255, 0.1); }
 
 .antsand-nav-v2, .antsand-nav-style .nav_bar, .antsand-nav-style {
@@ -302,20 +302,49 @@
   width: 100%;
   position: relative; }
 
-.antsand-nav .drop-down-container, .antsand-nav-v2 .drop-down-container, .antsand-nav-style .drop-down-container {
+.antsand-nav.antsand-nav-enhanced .data-sub-container, .antsand-nav.antsand-nav-enhanced .drop-down-container, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container, .antsand-nav-enhanced.antsand-nav-v2 .drop-down-container, .antsand-nav-enhanced.antsand-nav-style .data-sub-container, .antsand-nav-enhanced.antsand-nav-style .drop-down-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down-container {
   position: relative; }
-  .antsand-nav .drop-down-container > a, .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .drop-down-container > a, .antsand-nav-style .nav_bar .drop-down-container > a {
+  .antsand-nav.antsand-nav-enhanced .data-sub-container > a, .antsand-nav.antsand-nav-enhanced .drop-down-container > a, .antsand-nav.antsand-nav-enhanced .antsand-nav-v2 .drop-down-container > a, .antsand-nav.antsand-nav-enhanced .antsand-nav-style .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container > a, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-style .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .data-sub-container > a, .antsand-nav-enhanced.antsand-nav-style .antsand-nav .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-v2 .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down-container > a {
     display: flex;
     align-items: center;
     gap: 0.5rem; }
-    .antsand-nav .drop-down-container > a .down-caret, .antsand-nav-v2 .drop-down-container > a .down-caret, .antsand-nav-style .drop-down-container > a .down-caret {
+    .antsand-nav.antsand-nav-enhanced .data-sub-container > a .down-caret, .antsand-nav.antsand-nav-enhanced .drop-down-container > a .down-caret, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container > a .down-caret, .antsand-nav-enhanced.antsand-nav-v2 .drop-down-container > a .down-caret, .antsand-nav-enhanced.antsand-nav-style .data-sub-container > a .down-caret, .antsand-nav-enhanced.antsand-nav-style .drop-down-container > a .down-caret, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container > a .down-caret, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down-container > a .down-caret,
+    .antsand-nav.antsand-nav-enhanced .data-sub-container > a .caret,
+    .antsand-nav.antsand-nav-enhanced .drop-down-container > a .caret,
+    .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container > a .caret,
+    .antsand-nav-enhanced.antsand-nav-v2 .drop-down-container > a .caret,
+    .antsand-nav-enhanced.antsand-nav-style .data-sub-container > a .caret,
+    .antsand-nav-enhanced.antsand-nav-style .drop-down-container > a .caret,
+    .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container > a .caret,
+    .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down-container > a .caret {
       width: 12px;
       height: 12px;
       transition: transform 0.25s ease; }
-  .antsand-nav .drop-down-container.drop-active > a .down-caret, .antsand-nav-v2 .drop-down-container.drop-active > a .down-caret, .antsand-nav-style .drop-down-container.drop-active > a .down-caret {
+  .antsand-nav.antsand-nav-enhanced .data-sub-container.drop-active > a .down-caret, .antsand-nav.antsand-nav-enhanced .drop-active.drop-down-container > a .down-caret, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container.drop-active > a .down-caret, .antsand-nav-enhanced.antsand-nav-v2 .drop-active.drop-down-container > a .down-caret, .antsand-nav-enhanced.antsand-nav-style .data-sub-container.drop-active > a .down-caret, .antsand-nav-enhanced.antsand-nav-style .drop-active.drop-down-container > a .down-caret, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container.drop-active > a .down-caret, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-active.drop-down-container > a .down-caret,
+  .antsand-nav.antsand-nav-enhanced .data-sub-container.drop-active > a .caret,
+  .antsand-nav.antsand-nav-enhanced .drop-active.drop-down-container > a .caret,
+  .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container.drop-active > a .caret,
+  .antsand-nav-enhanced.antsand-nav-v2 .drop-active.drop-down-container > a .caret,
+  .antsand-nav-enhanced.antsand-nav-style .data-sub-container.drop-active > a .caret,
+  .antsand-nav-enhanced.antsand-nav-style .drop-active.drop-down-container > a .caret,
+  .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container.drop-active > a .caret,
+  .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-active.drop-down-container > a .caret, .antsand-nav.antsand-nav-enhanced .data-sub-container.active > a .down-caret, .antsand-nav.antsand-nav-enhanced .active.drop-down-container > a .down-caret, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container.active > a .down-caret, .antsand-nav-enhanced.antsand-nav-v2 .active.drop-down-container > a .down-caret, .antsand-nav-enhanced.antsand-nav-style .data-sub-container.active > a .down-caret, .antsand-nav-enhanced.antsand-nav-style .active.drop-down-container > a .down-caret, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container.active > a .down-caret, .antsand-nav-style .antsand-nav-enhanced.nav_bar .active.drop-down-container > a .down-caret,
+  .antsand-nav.antsand-nav-enhanced .data-sub-container.active > a .caret,
+  .antsand-nav.antsand-nav-enhanced .active.drop-down-container > a .caret,
+  .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container.active > a .caret,
+  .antsand-nav-enhanced.antsand-nav-v2 .active.drop-down-container > a .caret,
+  .antsand-nav-enhanced.antsand-nav-style .data-sub-container.active > a .caret,
+  .antsand-nav-enhanced.antsand-nav-style .active.drop-down-container > a .caret,
+  .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container.active > a .caret,
+  .antsand-nav-style .antsand-nav-enhanced.nav_bar .active.drop-down-container > a .caret {
     transform: rotate(180deg); }
+  .antsand-nav.antsand-nav-enhanced .data-sub-container.drop-active .data-nested-container, .antsand-nav.antsand-nav-enhanced .data-sub-container.drop-active .drop-down, .antsand-nav.antsand-nav-enhanced .drop-active.drop-down-container .data-nested-container, .antsand-nav.antsand-nav-enhanced .drop-active.drop-down-container .drop-down, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container.drop-active .data-nested-container, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container.drop-active .drop-down, .antsand-nav-enhanced.antsand-nav-v2 .drop-active.drop-down-container .data-nested-container, .antsand-nav-enhanced.antsand-nav-v2 .drop-active.drop-down-container .drop-down, .antsand-nav-enhanced.antsand-nav-style .data-sub-container.drop-active .data-nested-container, .antsand-nav-enhanced.antsand-nav-style .data-sub-container.drop-active .drop-down, .antsand-nav-enhanced.antsand-nav-style .drop-active.drop-down-container .data-nested-container, .antsand-nav-enhanced.antsand-nav-style .drop-active.drop-down-container .drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container.drop-active .data-nested-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container.drop-active .drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-active.drop-down-container .data-nested-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-active.drop-down-container .drop-down, .antsand-nav.antsand-nav-enhanced .data-sub-container.active .data-nested-container, .antsand-nav.antsand-nav-enhanced .data-sub-container.active .drop-down, .antsand-nav.antsand-nav-enhanced .active.drop-down-container .data-nested-container, .antsand-nav.antsand-nav-enhanced .active.drop-down-container .drop-down, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container.active .data-nested-container, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container.active .drop-down, .antsand-nav-enhanced.antsand-nav-v2 .active.drop-down-container .data-nested-container, .antsand-nav-enhanced.antsand-nav-v2 .active.drop-down-container .drop-down, .antsand-nav-enhanced.antsand-nav-style .data-sub-container.active .data-nested-container, .antsand-nav-enhanced.antsand-nav-style .data-sub-container.active .drop-down, .antsand-nav-enhanced.antsand-nav-style .active.drop-down-container .data-nested-container, .antsand-nav-enhanced.antsand-nav-style .active.drop-down-container .drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container.active .data-nested-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container.active .drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .active.drop-down-container .data-nested-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .active.drop-down-container .drop-down {
+    display: grid;
+    opacity: 1; }
+  .antsand-nav.antsand-nav-enhanced .data-sub-container:hover .data-nested-container, .antsand-nav.antsand-nav-enhanced .data-sub-container:hover .drop-down, .antsand-nav.antsand-nav-enhanced .drop-down-container:hover .data-nested-container, .antsand-nav.antsand-nav-enhanced .drop-down-container:hover .drop-down, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container:hover .data-nested-container, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container:hover .drop-down, .antsand-nav-enhanced.antsand-nav-v2 .drop-down-container:hover .data-nested-container, .antsand-nav-enhanced.antsand-nav-v2 .drop-down-container:hover .drop-down, .antsand-nav-enhanced.antsand-nav-style .data-sub-container:hover .data-nested-container, .antsand-nav-enhanced.antsand-nav-style .data-sub-container:hover .drop-down, .antsand-nav-enhanced.antsand-nav-style .drop-down-container:hover .data-nested-container, .antsand-nav-enhanced.antsand-nav-style .drop-down-container:hover .drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container:hover .data-nested-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container:hover .drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down-container:hover .data-nested-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down-container:hover .drop-down {
+    display: none; }
 
-.antsand-nav .drop-down, .antsand-nav-v2 .drop-down, .antsand-nav-style .drop-down {
+.antsand-nav.antsand-nav-enhanced .data-nested-container, .antsand-nav.antsand-nav-enhanced .drop-down, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-container, .antsand-nav-enhanced.antsand-nav-v2 .drop-down, .antsand-nav-enhanced.antsand-nav-style .data-nested-container, .antsand-nav-enhanced.antsand-nav-style .drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down {
   display: none;
   opacity: 0;
   position: absolute;
@@ -329,43 +358,18 @@
   padding: 2rem;
   margin-top: 0.5rem;
   z-index: 1000;
-  transition: opacity 0.25s ease; }
-  .antsand-nav .drop-down.active, .antsand-nav-v2 .drop-down.active, .antsand-nav-style .drop-down.active {
-    display: block;
-    opacity: 1; }
-  .antsand-nav .drop-down.drop-down-narrow, .antsand-nav-v2 .drop-down.drop-down-narrow, .antsand-nav-style .drop-down.drop-down-narrow {
-    min-width: 400px; }
-  .antsand-nav .drop-down.drop-width-wide, .antsand-nav-v2 .drop-down.drop-width-wide, .antsand-nav-style .drop-down.drop-width-wide {
-    min-width: 800px;
-    max-width: 900px; }
-
-.antsand-nav .drop-body, .antsand-nav-v2 .drop-body, .antsand-nav-style .drop-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem; }
-
-.antsand-nav .drop-down-heading, .antsand-nav-v2 .drop-down-heading, .antsand-nav-style .drop-down-heading {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid #e0e0e0; }
-  .antsand-nav .drop-down-heading.drop-down-heading-active, .antsand-nav-v2 .drop-down-heading.drop-down-heading-active, .antsand-nav-style .drop-down-heading.drop-down-heading-active {
-    color: #3498db; }
-
-.antsand-nav .industry, .antsand-nav-v2 .industry, .antsand-nav-style .industry {
-  display: grid;
-  grid-template-columns: 1fr;
+  transition: opacity 0.25s ease;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem; }
-  .antsand-nav .industry.gallery-2, .antsand-nav-v2 .industry.gallery-2, .antsand-nav-style .industry.gallery-2 {
-    grid-template-columns: repeat(2, 1fr); }
+  .antsand-nav.antsand-nav-enhanced .data-nested-container.narrow, .antsand-nav.antsand-nav-enhanced .narrow.drop-down, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-container.narrow, .antsand-nav-enhanced.antsand-nav-v2 .narrow.drop-down, .antsand-nav-enhanced.antsand-nav-style .data-nested-container.narrow, .antsand-nav-enhanced.antsand-nav-style .narrow.drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-container.narrow, .antsand-nav-style .antsand-nav-enhanced.nav_bar .narrow.drop-down {
+    min-width: 400px;
+    grid-template-columns: 1fr; }
+  .antsand-nav.antsand-nav-enhanced .data-nested-container.wide, .antsand-nav.antsand-nav-enhanced .wide.drop-down, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-container.wide, .antsand-nav-enhanced.antsand-nav-v2 .wide.drop-down, .antsand-nav-enhanced.antsand-nav-style .data-nested-container.wide, .antsand-nav-enhanced.antsand-nav-style .wide.drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-container.wide, .antsand-nav-style .antsand-nav-enhanced.nav_bar .wide.drop-down {
+    min-width: 800px;
+    max-width: 900px;
+    grid-template-columns: repeat(3, 1fr); }
 
-.antsand-nav .drop-down-item, .antsand-nav-v2 .drop-down-item, .antsand-nav-style .drop-down-item,
-.antsand-nav li > a,
-.antsand-nav-v2 li > a,
-.antsand-nav-style li > a,
-.antsand-nav-style .nav_bar li > a {
+.antsand-nav.antsand-nav-enhanced .data-nested-item, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-item, .antsand-nav-enhanced.antsand-nav-style .data-nested-item, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-item {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem;
@@ -374,114 +378,124 @@
   text-decoration: none;
   color: inherit;
   transition: all 0.25s ease; }
-  .antsand-nav .drop-down-item:hover, .antsand-nav-v2 .drop-down-item:hover, .antsand-nav-style .drop-down-item:hover,
-  .antsand-nav li > a:hover,
-  .antsand-nav-v2 li > a:hover,
-  .antsand-nav-style li > a:hover,
-  .antsand-nav-style .nav_bar li > a:hover {
+  .antsand-nav.antsand-nav-enhanced .data-nested-item:hover, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-item:hover, .antsand-nav-enhanced.antsand-nav-style .data-nested-item:hover, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-item:hover {
     background: #f7f9fc;
     transform: translateX(4px); }
-    .antsand-nav .drop-down-item:hover .learn-more, .antsand-nav-v2 .drop-down-item:hover .learn-more, .antsand-nav-style .drop-down-item:hover .learn-more,
-    .antsand-nav li > a:hover .learn-more,
-    .antsand-nav-v2 li > a:hover .learn-more,
-    .antsand-nav-style li > a:hover .learn-more {
+    .antsand-nav.antsand-nav-enhanced .data-nested-item:hover .learn-more, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-item:hover .learn-more, .antsand-nav-enhanced.antsand-nav-style .data-nested-item:hover .learn-more, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-item:hover .learn-more {
       color: #3498db;
       text-decoration: underline; }
-  .antsand-nav .drop-down-item .ico, .antsand-nav-v2 .drop-down-item .ico, .antsand-nav-style .drop-down-item .ico,
-  .antsand-nav .drop-down-item .span-1-of-4,
-  .antsand-nav-v2 .drop-down-item .span-1-of-4,
-  .antsand-nav-style .drop-down-item .span-1-of-4,
-  .antsand-nav li > a .ico,
-  .antsand-nav-v2 li > a .ico,
-  .antsand-nav-style li > a .ico,
-  .antsand-nav li > a .span-1-of-4,
-  .antsand-nav-v2 li > a .span-1-of-4,
-  .antsand-nav-style li > a .span-1-of-4 {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 48px;
-    height: 48px; }
-    .antsand-nav .drop-down-item .ico img, .antsand-nav-v2 .drop-down-item .ico img, .antsand-nav-style .drop-down-item .ico img,
-    .antsand-nav .drop-down-item .span-1-of-4 img,
-    .antsand-nav-v2 .drop-down-item .span-1-of-4 img,
-    .antsand-nav-style .drop-down-item .span-1-of-4 img,
-    .antsand-nav li > a .ico img,
-    .antsand-nav-v2 li > a .ico img,
-    .antsand-nav-style li > a .ico img,
-    .antsand-nav li > a .span-1-of-4 img,
-    .antsand-nav-v2 li > a .span-1-of-4 img,
-    .antsand-nav-style li > a .span-1-of-4 img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; }
-  .antsand-nav .drop-down-item .desc, .antsand-nav-v2 .drop-down-item .desc, .antsand-nav-style .drop-down-item .desc,
-  .antsand-nav .drop-down-item .span-3-of-4-last,
-  .antsand-nav-v2 .drop-down-item .span-3-of-4-last,
-  .antsand-nav-style .drop-down-item .span-3-of-4-last,
-  .antsand-nav li > a .desc,
-  .antsand-nav-v2 li > a .desc,
-  .antsand-nav-style li > a .desc,
-  .antsand-nav li > a .span-3-of-4-last,
-  .antsand-nav-v2 li > a .span-3-of-4-last,
-  .antsand-nav-style li > a .span-3-of-4-last {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem; }
-    .antsand-nav .drop-down-item .desc h5, .antsand-nav-v2 .drop-down-item .desc h5, .antsand-nav-style .drop-down-item .desc h5,
-    .antsand-nav .drop-down-item .span-3-of-4-last h5,
-    .antsand-nav-v2 .drop-down-item .span-3-of-4-last h5,
-    .antsand-nav-style .drop-down-item .span-3-of-4-last h5,
-    .antsand-nav li > a .desc h5,
-    .antsand-nav-v2 li > a .desc h5,
-    .antsand-nav-style li > a .desc h5,
-    .antsand-nav li > a .span-3-of-4-last h5,
-    .antsand-nav-v2 li > a .span-3-of-4-last h5,
-    .antsand-nav-style li > a .span-3-of-4-last h5 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #2c3e50;
-      margin: 0; }
-    .antsand-nav .drop-down-item .desc span:not(.learn-more), .antsand-nav-v2 .drop-down-item .desc span:not(.learn-more), .antsand-nav-style .drop-down-item .desc span:not(.learn-more),
-    .antsand-nav .drop-down-item .span-3-of-4-last span:not(.learn-more),
-    .antsand-nav-v2 .drop-down-item .span-3-of-4-last span:not(.learn-more),
-    .antsand-nav-style .drop-down-item .span-3-of-4-last span:not(.learn-more),
-    .antsand-nav li > a .desc span:not(.learn-more),
-    .antsand-nav-v2 li > a .desc span:not(.learn-more),
-    .antsand-nav-style li > a .desc span:not(.learn-more),
-    .antsand-nav li > a .span-3-of-4-last span:not(.learn-more),
-    .antsand-nav-v2 li > a .span-3-of-4-last span:not(.learn-more),
-    .antsand-nav-style li > a .span-3-of-4-last span:not(.learn-more) {
-      font-size: 0.875rem;
-      color: #6c757d;
-      line-height: 1.4; }
-    .antsand-nav .drop-down-item .desc .learn-more, .antsand-nav-v2 .drop-down-item .desc .learn-more, .antsand-nav-style .drop-down-item .desc .learn-more,
-    .antsand-nav .drop-down-item .span-3-of-4-last .learn-more,
-    .antsand-nav-v2 .drop-down-item .span-3-of-4-last .learn-more,
-    .antsand-nav-style .drop-down-item .span-3-of-4-last .learn-more,
-    .antsand-nav li > a .desc .learn-more,
-    .antsand-nav-v2 li > a .desc .learn-more,
-    .antsand-nav-style li > a .desc .learn-more,
-    .antsand-nav li > a .span-3-of-4-last .learn-more,
-    .antsand-nav-v2 li > a .span-3-of-4-last .learn-more,
-    .antsand-nav-style li > a .span-3-of-4-last .learn-more {
-      font-size: 0.875rem;
-      color: #3498db;
-      font-weight: 500;
-      margin-top: 0.25rem;
-      transition: all 0.25s ease; }
+
+.antsand-nav.antsand-nav-enhanced .data-nested-img-container, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-img-container, .antsand-nav-enhanced.antsand-nav-style .data-nested-img-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-img-container {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: transparent; }
+  .antsand-nav.antsand-nav-enhanced .data-nested-img-container img, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-img-container img, .antsand-nav-enhanced.antsand-nav-style .data-nested-img-container img, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; }
+
+.antsand-nav.antsand-nav-enhanced .data-nested-content-wrapper, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-content-wrapper, .antsand-nav-enhanced.antsand-nav-style .data-nested-content-wrapper, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; }
+  .antsand-nav.antsand-nav-enhanced .data-nested-content-wrapper h3, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-content-wrapper h3, .antsand-nav-enhanced.antsand-nav-style .data-nested-content-wrapper h3, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-content-wrapper h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0; }
+  .antsand-nav.antsand-nav-enhanced .data-nested-content-wrapper p, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-content-wrapper p, .antsand-nav-enhanced.antsand-nav-style .data-nested-content-wrapper p, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-content-wrapper p {
+    font-size: 0.875rem;
+    color: #6c757d;
+    line-height: 1.4; }
+  .antsand-nav.antsand-nav-enhanced .data-nested-content-wrapper .learn-more, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-content-wrapper .learn-more, .antsand-nav-enhanced.antsand-nav-style .data-nested-content-wrapper .learn-more, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-content-wrapper .learn-more {
+    font-size: 0.875rem;
+    color: #3498db;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    transition: all 0.25s ease; }
+
+.antsand-nav.antsand-nav-enhanced .dropdown-heading, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-heading, .antsand-nav-enhanced.antsand-nav-style .dropdown-heading, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-heading,
+.antsand-nav.antsand-nav-enhanced .data-nested-heading,
+.antsand-nav-enhanced.antsand-nav-v2 .data-nested-heading,
+.antsand-nav-enhanced.antsand-nav-style .data-nested-heading,
+.antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-heading {
+  grid-column: 1 / -1;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0; }
+  .antsand-nav.antsand-nav-enhanced .dropdown-heading.active, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-heading.active, .antsand-nav-enhanced.antsand-nav-style .dropdown-heading.active, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-heading.active,
+  .antsand-nav.antsand-nav-enhanced .data-nested-heading.active,
+  .antsand-nav-enhanced.antsand-nav-v2 .data-nested-heading.active,
+  .antsand-nav-enhanced.antsand-nav-style .data-nested-heading.active,
+  .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-heading.active {
+    color: #3498db; }
+
+.antsand-nav .drop-down.active, .antsand-nav-v2 .drop-down.active, .antsand-nav-style .drop-down.active {
+  display: grid;
+  opacity: 1; }
+
+.antsand-nav .ico, .antsand-nav-v2 .ico, .antsand-nav-style .ico {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 48px;
+  height: 48px; }
+  .antsand-nav .ico img, .antsand-nav-v2 .ico img, .antsand-nav-style .ico img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; }
+
+.antsand-nav .desc, .antsand-nav-v2 .desc, .antsand-nav-style .desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; }
+  .antsand-nav .desc h5, .antsand-nav-v2 .desc h5, .antsand-nav-style .desc h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0; }
+  .antsand-nav .desc span:not(.learn-more), .antsand-nav-v2 .desc span:not(.learn-more), .antsand-nav-style .desc span:not(.learn-more) {
+    font-size: 0.875rem;
+    color: #6c757d;
+    line-height: 1.4; }
+  .antsand-nav .desc .learn-more, .antsand-nav-v2 .desc .learn-more, .antsand-nav-style .desc .learn-more {
+    font-size: 0.875rem;
+    color: #3498db;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    transition: all 0.25s ease; }
+
+.antsand-nav .drop-down-item, .antsand-nav-v2 .drop-down-item, .antsand-nav-style .drop-down-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease; }
+  .antsand-nav .drop-down-item:hover, .antsand-nav-v2 .drop-down-item:hover, .antsand-nav-style .drop-down-item:hover {
+    background: #f7f9fc;
+    transform: translateX(4px); }
 
 @media (max-width: 768px) {
-  .antsand-nav, .antsand-nav-v2, .antsand-nav-style, .antsand-nav-style .nav_bar {
+  .antsand-nav.antsand-nav-enhanced, .antsand-nav-enhanced.antsand-nav-v2, .antsand-nav-enhanced.antsand-nav-style, .antsand-nav-style .antsand-nav-enhanced.nav_bar {
     flex-wrap: wrap;
     height: auto; }
-    .antsand-nav .mobile_toggle, .antsand-nav-v2 .mobile_toggle, .antsand-nav-style .mobile_toggle {
+    .antsand-nav.antsand-nav-enhanced .mobile_toggle, .antsand-nav-enhanced.antsand-nav-v2 .mobile_toggle, .antsand-nav-enhanced.antsand-nav-style .mobile_toggle, .antsand-nav-style .antsand-nav-enhanced.nav_bar .mobile_toggle {
       display: block;
       width: 30px;
       height: 30px;
       cursor: pointer;
       position: relative; }
-      .antsand-nav .mobile_toggle i, .antsand-nav-v2 .mobile_toggle i, .antsand-nav-style .mobile_toggle i {
+      .antsand-nav.antsand-nav-enhanced .mobile_toggle i, .antsand-nav-enhanced.antsand-nav-v2 .mobile_toggle i, .antsand-nav-enhanced.antsand-nav-style .mobile_toggle i, .antsand-nav-style .antsand-nav-enhanced.nav_bar .mobile_toggle i {
         display: block;
         width: 100%;
         height: 2px;
@@ -489,44 +503,45 @@
         position: absolute;
         left: 0;
         transition: all 0.25s ease; }
-        .antsand-nav .mobile_toggle i:nth-child(1), .antsand-nav-v2 .mobile_toggle i:nth-child(1), .antsand-nav-style .mobile_toggle i:nth-child(1) {
+        .antsand-nav.antsand-nav-enhanced .mobile_toggle i:nth-child(1), .antsand-nav-enhanced.antsand-nav-v2 .mobile_toggle i:nth-child(1), .antsand-nav-enhanced.antsand-nav-style .mobile_toggle i:nth-child(1), .antsand-nav-style .antsand-nav-enhanced.nav_bar .mobile_toggle i:nth-child(1) {
           top: 6px; }
-        .antsand-nav .mobile_toggle i:nth-child(2), .antsand-nav-v2 .mobile_toggle i:nth-child(2), .antsand-nav-style .mobile_toggle i:nth-child(2) {
+        .antsand-nav.antsand-nav-enhanced .mobile_toggle i:nth-child(2), .antsand-nav-enhanced.antsand-nav-v2 .mobile_toggle i:nth-child(2), .antsand-nav-enhanced.antsand-nav-style .mobile_toggle i:nth-child(2), .antsand-nav-style .antsand-nav-enhanced.nav_bar .mobile_toggle i:nth-child(2) {
           top: 14px; }
-        .antsand-nav .mobile_toggle i:nth-child(3), .antsand-nav-v2 .mobile_toggle i:nth-child(3), .antsand-nav-style .mobile_toggle i:nth-child(3) {
+        .antsand-nav.antsand-nav-enhanced .mobile_toggle i:nth-child(3), .antsand-nav-enhanced.antsand-nav-v2 .mobile_toggle i:nth-child(3), .antsand-nav-enhanced.antsand-nav-style .mobile_toggle i:nth-child(3), .antsand-nav-style .antsand-nav-enhanced.nav_bar .mobile_toggle i:nth-child(3) {
           top: 22px; }
-      .antsand-nav .mobile_toggle.active i:nth-child(1), .antsand-nav-v2 .mobile_toggle.active i:nth-child(1), .antsand-nav-style .mobile_toggle.active i:nth-child(1) {
+      .antsand-nav.antsand-nav-enhanced .mobile_toggle.active i:nth-child(1), .antsand-nav-enhanced.antsand-nav-v2 .mobile_toggle.active i:nth-child(1), .antsand-nav-enhanced.antsand-nav-style .mobile_toggle.active i:nth-child(1), .antsand-nav-style .antsand-nav-enhanced.nav_bar .mobile_toggle.active i:nth-child(1) {
         transform: rotate(45deg);
         top: 14px; }
-      .antsand-nav .mobile_toggle.active i:nth-child(2), .antsand-nav-v2 .mobile_toggle.active i:nth-child(2), .antsand-nav-style .mobile_toggle.active i:nth-child(2) {
+      .antsand-nav.antsand-nav-enhanced .mobile_toggle.active i:nth-child(2), .antsand-nav-enhanced.antsand-nav-v2 .mobile_toggle.active i:nth-child(2), .antsand-nav-enhanced.antsand-nav-style .mobile_toggle.active i:nth-child(2), .antsand-nav-style .antsand-nav-enhanced.nav_bar .mobile_toggle.active i:nth-child(2) {
         opacity: 0; }
-      .antsand-nav .mobile_toggle.active i:nth-child(3), .antsand-nav-v2 .mobile_toggle.active i:nth-child(3), .antsand-nav-style .mobile_toggle.active i:nth-child(3) {
+      .antsand-nav.antsand-nav-enhanced .mobile_toggle.active i:nth-child(3), .antsand-nav-enhanced.antsand-nav-v2 .mobile_toggle.active i:nth-child(3), .antsand-nav-enhanced.antsand-nav-style .mobile_toggle.active i:nth-child(3), .antsand-nav-style .antsand-nav-enhanced.nav_bar .mobile_toggle.active i:nth-child(3) {
         transform: rotate(-45deg);
         top: 14px; }
-    .antsand-nav .antsand-nav-container, .antsand-nav-v2 .antsand-nav-container, .antsand-nav-style .antsand-nav-container {
+    .antsand-nav.antsand-nav-enhanced .antsand-nav-container, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container {
       display: none;
       width: 100%;
       flex-direction: column;
       padding: 1rem 0; }
-      .antsand-nav .antsand-nav-container.nav-open, .antsand-nav-v2 .antsand-nav-container.nav-open, .antsand-nav-style .antsand-nav-container.nav-open {
+      .antsand-nav.antsand-nav-enhanced .antsand-nav-container.nav-open, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container.nav-open, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container.nav-open, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container.nav-open {
         display: flex; }
-      .antsand-nav .antsand-nav-container .data-container, .antsand-nav-v2 .antsand-nav-container .data-container, .antsand-nav-style .antsand-nav-container .data-container {
+      .antsand-nav.antsand-nav-enhanced .antsand-nav-container .data-container, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .data-container, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .data-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .data-container {
         flex-direction: column;
         align-items: stretch;
         gap: 0; }
-      .antsand-nav .antsand-nav-container .drop-down-container, .antsand-nav-v2 .antsand-nav-container .drop-down-container, .antsand-nav-style .antsand-nav-container .drop-down-container {
+      .antsand-nav.antsand-nav-enhanced .antsand-nav-container .data-sub-container, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .data-sub-container, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .data-sub-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .data-sub-container, .antsand-nav.antsand-nav-enhanced .antsand-nav-container .drop-down-container, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .drop-down-container, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .drop-down-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .drop-down-container {
         width: 100%; }
-        .antsand-nav .antsand-nav-container .drop-down-container > a, .antsand-nav-v2 .antsand-nav-container .drop-down-container > a, .antsand-nav-style .antsand-nav-container .drop-down-container > a {
+        .antsand-nav.antsand-nav-enhanced .antsand-nav-container .data-sub-container > a, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .data-sub-container > a, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .data-sub-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .data-sub-container > a, .antsand-nav.antsand-nav-enhanced .antsand-nav-container .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .antsand-nav .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .antsand-nav .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .antsand-nav .drop-down-container > a, .antsand-nav.antsand-nav-enhanced .antsand-nav-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav.antsand-nav-enhanced .antsand-nav-container .antsand-nav-style .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .antsand-nav-style .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .drop-down-container > a {
           padding: 1rem;
           border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-      .antsand-nav .antsand-nav-container .drop-down, .antsand-nav-v2 .antsand-nav-container .drop-down, .antsand-nav-style .antsand-nav-container .drop-down {
+      .antsand-nav.antsand-nav-enhanced .antsand-nav-container .data-nested-container, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .data-nested-container, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .data-nested-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .data-nested-container, .antsand-nav.antsand-nav-enhanced .antsand-nav-container .drop-down, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-container .drop-down, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-container .drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-container .drop-down {
         position: static;
         width: 100%;
         min-width: unset;
         margin: 0;
         border-radius: 0;
         box-shadow: none;
-        border-left: 3px solid #3498db; } }
+        border-left: 3px solid #3498db;
+        grid-template-columns: 1fr; } }
 
 .no_decor {
   text-decoration: none;
@@ -554,13 +569,22 @@
 .inline-block {
   display: inline-block; }
 
-.antsand-nav .dropdown-tabs, .antsand-nav-v2 .dropdown-tabs, .antsand-nav-style .dropdown-tabs {
+.antsand-nav.antsand-nav-enhanced .dropdown-tabs, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-tabs, .antsand-nav-enhanced.antsand-nav-style .dropdown-tabs, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-tabs,
+.antsand-nav.antsand-nav-enhanced .data-nested-tabs,
+.antsand-nav-enhanced.antsand-nav-v2 .data-nested-tabs,
+.antsand-nav-enhanced.antsand-nav-style .data-nested-tabs,
+.antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-tabs {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #e0e0e0; }
+  border-bottom: 2px solid #e0e0e0;
+  grid-column: 1 / -1; }
 
-.antsand-nav .dropdown-tab, .antsand-nav-v2 .dropdown-tab, .antsand-nav-style .dropdown-tab {
+.antsand-nav.antsand-nav-enhanced .dropdown-tab, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-tab, .antsand-nav-enhanced.antsand-nav-style .dropdown-tab, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-tab,
+.antsand-nav.antsand-nav-enhanced .data-nested-tab,
+.antsand-nav-enhanced.antsand-nav-v2 .data-nested-tab,
+.antsand-nav-enhanced.antsand-nav-style .data-nested-tab,
+.antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-tab {
   padding: 0.75rem 1.5rem;
   background: transparent;
   border: none;
@@ -571,15 +595,34 @@
   color: #6c757d;
   transition: all 0.25s ease;
   margin-bottom: -2px; }
-  .antsand-nav .dropdown-tab:hover, .antsand-nav-v2 .dropdown-tab:hover, .antsand-nav-style .dropdown-tab:hover {
+  .antsand-nav.antsand-nav-enhanced .dropdown-tab:hover, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-tab:hover, .antsand-nav-enhanced.antsand-nav-style .dropdown-tab:hover, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-tab:hover,
+  .antsand-nav.antsand-nav-enhanced .data-nested-tab:hover,
+  .antsand-nav-enhanced.antsand-nav-v2 .data-nested-tab:hover,
+  .antsand-nav-enhanced.antsand-nav-style .data-nested-tab:hover,
+  .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-tab:hover {
     color: #2c3e50;
     background: #f7f9fc; }
-  .antsand-nav .dropdown-tab.active, .antsand-nav-v2 .dropdown-tab.active, .antsand-nav-style .dropdown-tab.active {
+  .antsand-nav.antsand-nav-enhanced .dropdown-tab.active, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-tab.active, .antsand-nav-enhanced.antsand-nav-style .dropdown-tab.active, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-tab.active,
+  .antsand-nav.antsand-nav-enhanced .data-nested-tab.active,
+  .antsand-nav-enhanced.antsand-nav-v2 .data-nested-tab.active,
+  .antsand-nav-enhanced.antsand-nav-style .data-nested-tab.active,
+  .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-tab.active {
     color: #3498db;
     border-bottom-color: #3498db;
     font-weight: 600; }
 
-.antsand-nav .dropdown-tab-content, .antsand-nav-v2 .dropdown-tab-content, .antsand-nav-style .dropdown-tab-content {
-  display: none; }
-  .antsand-nav .dropdown-tab-content.active, .antsand-nav-v2 .dropdown-tab-content.active, .antsand-nav-style .dropdown-tab-content.active {
-    display: block; }
+.antsand-nav.antsand-nav-enhanced .dropdown-tab-content, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-tab-content, .antsand-nav-enhanced.antsand-nav-style .dropdown-tab-content, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-tab-content,
+.antsand-nav.antsand-nav-enhanced .data-nested-tab-content,
+.antsand-nav-enhanced.antsand-nav-v2 .data-nested-tab-content,
+.antsand-nav-enhanced.antsand-nav-style .data-nested-tab-content,
+.antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-tab-content {
+  display: none;
+  grid-column: 1 / -1; }
+  .antsand-nav.antsand-nav-enhanced .dropdown-tab-content.active, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-tab-content.active, .antsand-nav-enhanced.antsand-nav-style .dropdown-tab-content.active, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-tab-content.active,
+  .antsand-nav.antsand-nav-enhanced .data-nested-tab-content.active,
+  .antsand-nav-enhanced.antsand-nav-v2 .data-nested-tab-content.active,
+  .antsand-nav-enhanced.antsand-nav-style .data-nested-tab-content.active,
+  .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-tab-content.active {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem; }

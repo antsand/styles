@@ -5,28 +5,34 @@
 // UNIVERSAL ANTSAND SECTION PATTERN:
 // Every section follows this hierarchy - change ONLY the parent class
 //
+// DUAL-CLASS SYSTEM (for backward compatibility):
+//   - Prefixed class: indicates AREA (data-container, footer-h3)
+//   - Semantic class: universal styling hook (container, title)
+//   - SCSS targets semantic classes; both classes are output
+//
 // Structure:
 //   .footer-1 (parent - controls all styling)
-//     └── .container (main wrapper - centered, max-width)
-//         └── .sub-container (repeated items - columns, cards, etc.)
-//             ├── .title (heading text)
-//             ├── .description (paragraph text)
-//             ├── .img-container > img (images)
-//             ├── .cta-container > .cta (buttons/links)
-//             └── .social-container > .social (social icons)
+//     └── .data-container.container (main wrapper)
+//         └── .data-sub-container.sub-container (columns)
+//             ├── .data-h3.title (heading text)
+//             ├── .data-p.description (paragraph text)
+//             ├── .data-img-container.img-container > img
+//             ├── .data-cta-container.cta-container > .data-cta.cta
+//             └── .footer-social-container.social-container > .footer-social.social
 //         └── .footer-section (bottom copyright/links)
 //
 // DSL CSS Object:
 //   css: {
 //     section: { container: { css_class: "footer-1" } },
 //     data: {
-//       container: { css_class: "container" },
-//       sub_container: { css_class: "sub-container" },
-//       title: { css_class: "title" },
-//       description: { css_class: "description" }
+//       container: { css_class: "data-container container" },
+//       sub_container: { css_class: "data-sub-container sub-container" },
+//       h3: { css_class: "data-h3 title" },
+//       p: { css_class: "data-p description" }
 //     },
 //     footer: {
-//       section: { css_class: "footer-section" }
+//       section: { css_class: "footer-section" },
+//       social_container: { css_class: "footer-social-container social-container" }
 //     }
 //   }
 //
@@ -40,8 +46,9 @@
 @mixin footer-base {
     padding: $antsand-space-7 0 $antsand-space-4 0;
 
-    // Container - centered content
-    > .container {
+    // Container - centered content with grid layout
+    // Note: Using descendant selector (not >) to allow for .wrapper intermediary
+    .container, .data-container {
         max-width: $antsand-container-xl;
         margin: 0 auto;
         padding: 0 $antsand-space-4;
@@ -74,14 +81,14 @@
             margin-bottom: $antsand-space-3;
         }
 
-        // Lists inside column (h3 = ul, h4 = li in volt)
-        ul, .h3 {
+        // Lists inside column
+        ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        li, .h4 {
+        li {
             margin-bottom: $antsand-space-2;
 
             a {
@@ -200,7 +207,7 @@
             color: $antsand-gray-400;
         }
 
-        li a, .h4 a {
+        li a {
             color: $antsand-gray-400;
 
             &:hover {

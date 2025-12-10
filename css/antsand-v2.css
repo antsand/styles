@@ -6365,7 +6365,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
   padding: 4rem 0 1.5rem 0;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   color: #dee2e6; }
-  .footer-1 > .container, .footer-1 > .antsand-footer-grid, .antsand-footer > .container, .antsand-footer > .antsand-footer-grid {
+  .footer-1 .container, .footer-1 .antsand-footer-grid, .antsand-footer .container, .antsand-footer .antsand-footer-grid, .footer-1 .data-container, .antsand-footer .data-container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -6373,7 +6373,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 3rem; }
     @media (max-width: 640px) {
-      .footer-1 > .container, .footer-1 > .antsand-footer-grid, .antsand-footer > .container, .antsand-footer > .antsand-footer-grid {
+      .footer-1 .container, .footer-1 .antsand-footer-grid, .antsand-footer .container, .antsand-footer .antsand-footer-grid, .footer-1 .data-container, .antsand-footer .data-container {
         grid-template-columns: 1fr;
         gap: 1.5rem; } }
   .footer-1 .sub-container .title, .footer-1 .antsand-footer-column .title, .antsand-footer .sub-container .title, .antsand-footer .antsand-footer-column .title, .footer-1 .antsand-feature-item .title, .antsand-footer .antsand-feature-item .title, .footer-1 .antsand-pricing-card .title, .antsand-footer .antsand-pricing-card .title, .footer-1 .sub-container .antsand-hero-title, .footer-1 .antsand-footer-column .antsand-hero-title, .antsand-footer .sub-container .antsand-hero-title, .antsand-footer .antsand-footer-column .antsand-hero-title, .footer-1 .antsand-feature-item .antsand-hero-title, .antsand-footer .antsand-feature-item .antsand-hero-title, .footer-1 .antsand-pricing-card .antsand-hero-title, .antsand-footer .antsand-pricing-card .antsand-hero-title, .footer-1 .sub-container .antsand-feature-title, .footer-1 .antsand-footer-column .antsand-feature-title, .antsand-footer .sub-container .antsand-feature-title, .antsand-footer .antsand-footer-column .antsand-feature-title, .footer-1 .antsand-feature-item .antsand-feature-title, .antsand-footer .antsand-feature-item .antsand-feature-title, .footer-1 .antsand-pricing-card .antsand-feature-title, .antsand-footer .antsand-pricing-card .antsand-feature-title {
@@ -6385,13 +6385,13 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     font-size: 1rem;
     line-height: 1.75;
     margin-bottom: 1rem; }
-  .footer-1 .sub-container ul, .footer-1 .antsand-footer-column ul, .antsand-footer .sub-container ul, .antsand-footer .antsand-footer-column ul, .footer-1 .antsand-feature-item ul, .antsand-footer .antsand-feature-item ul, .footer-1 .antsand-pricing-card ul, .antsand-footer .antsand-pricing-card ul, .footer-1 .sub-container .h3, .footer-1 .antsand-footer-column .h3, .antsand-footer .sub-container .h3, .antsand-footer .antsand-footer-column .h3, .footer-1 .antsand-feature-item .h3, .antsand-footer .antsand-feature-item .h3, .footer-1 .antsand-pricing-card .h3, .antsand-footer .antsand-pricing-card .h3 {
+  .footer-1 .sub-container ul, .footer-1 .antsand-footer-column ul, .antsand-footer .sub-container ul, .antsand-footer .antsand-footer-column ul, .footer-1 .antsand-feature-item ul, .antsand-footer .antsand-feature-item ul, .footer-1 .antsand-pricing-card ul, .antsand-footer .antsand-pricing-card ul {
     list-style: none;
     padding: 0;
     margin: 0; }
-  .footer-1 .sub-container li, .footer-1 .antsand-footer-column li, .antsand-footer .sub-container li, .antsand-footer .antsand-footer-column li, .footer-1 .antsand-feature-item li, .antsand-footer .antsand-feature-item li, .footer-1 .antsand-pricing-card li, .antsand-footer .antsand-pricing-card li, .footer-1 .sub-container .h4, .footer-1 .antsand-footer-column .h4, .antsand-footer .sub-container .h4, .antsand-footer .antsand-footer-column .h4, .footer-1 .antsand-feature-item .h4, .antsand-footer .antsand-feature-item .h4, .footer-1 .antsand-pricing-card .h4, .antsand-footer .antsand-pricing-card .h4 {
+  .footer-1 .sub-container li, .footer-1 .antsand-footer-column li, .antsand-footer .sub-container li, .antsand-footer .antsand-footer-column li, .footer-1 .antsand-feature-item li, .antsand-footer .antsand-feature-item li, .footer-1 .antsand-pricing-card li, .antsand-footer .antsand-pricing-card li {
     margin-bottom: 0.5rem; }
-    .footer-1 .sub-container li a, .footer-1 .antsand-footer-column li a, .antsand-footer .sub-container li a, .antsand-footer .antsand-footer-column li a, .footer-1 .antsand-feature-item li a, .antsand-footer .antsand-feature-item li a, .footer-1 .antsand-pricing-card li a, .antsand-footer .antsand-pricing-card li a, .footer-1 .sub-container .h4 a, .footer-1 .antsand-footer-column .h4 a, .antsand-footer .sub-container .h4 a, .antsand-footer .antsand-footer-column .h4 a, .footer-1 .antsand-feature-item .h4 a, .antsand-footer .antsand-feature-item .h4 a, .footer-1 .antsand-pricing-card .h4 a, .antsand-footer .antsand-pricing-card .h4 a {
+    .footer-1 .sub-container li a, .footer-1 .antsand-footer-column li a, .antsand-footer .sub-container li a, .antsand-footer .antsand-footer-column li a, .footer-1 .antsand-feature-item li a, .antsand-footer .antsand-feature-item li a, .footer-1 .antsand-pricing-card li a, .antsand-footer .antsand-pricing-card li a {
       text-decoration: none;
       transition: color 250ms ease; }
   .footer-1 .sub-container .cta-container, .footer-1 .antsand-footer-column .cta-container, .antsand-footer .sub-container .cta-container, .antsand-footer .antsand-footer-column .cta-container, .footer-1 .antsand-feature-item .cta-container, .antsand-footer .antsand-feature-item .cta-container, .footer-1 .antsand-pricing-card .cta-container, .antsand-footer .antsand-pricing-card .cta-container, .footer-1 .sub-container .antsand-hero-cta, .footer-1 .antsand-footer-column .antsand-hero-cta, .antsand-footer .sub-container .antsand-hero-cta, .antsand-footer .antsand-footer-column .antsand-hero-cta, .footer-1 .antsand-feature-item .antsand-hero-cta, .antsand-footer .antsand-feature-item .antsand-hero-cta, .footer-1 .antsand-pricing-card .antsand-hero-cta, .antsand-footer .antsand-pricing-card .antsand-hero-cta {
@@ -6445,9 +6445,9 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     color: white; }
   .footer-1 .sub-container .description, .footer-1 .antsand-footer-column .description, .antsand-footer .sub-container .description, .antsand-footer .antsand-footer-column .description, .footer-1 .antsand-feature-item .description, .antsand-footer .antsand-feature-item .description, .footer-1 .antsand-pricing-card .description, .antsand-footer .antsand-pricing-card .description, .footer-1 .sub-container .antsand-hero-subtitle, .footer-1 .antsand-footer-column .antsand-hero-subtitle, .antsand-footer .sub-container .antsand-hero-subtitle, .antsand-footer .antsand-footer-column .antsand-hero-subtitle, .footer-1 .antsand-feature-item .antsand-hero-subtitle, .antsand-footer .antsand-feature-item .antsand-hero-subtitle, .footer-1 .antsand-pricing-card .antsand-hero-subtitle, .antsand-footer .antsand-pricing-card .antsand-hero-subtitle, .footer-1 .sub-container .antsand-feature-desc, .footer-1 .antsand-footer-column .antsand-feature-desc, .antsand-footer .sub-container .antsand-feature-desc, .antsand-footer .antsand-footer-column .antsand-feature-desc, .footer-1 .antsand-feature-item .antsand-feature-desc, .antsand-footer .antsand-feature-item .antsand-feature-desc, .footer-1 .antsand-pricing-card .antsand-feature-desc, .antsand-footer .antsand-pricing-card .antsand-feature-desc {
     color: #ced4da; }
-  .footer-1 .sub-container li a, .footer-1 .antsand-footer-column li a, .antsand-footer .sub-container li a, .antsand-footer .antsand-footer-column li a, .footer-1 .antsand-feature-item li a, .antsand-footer .antsand-feature-item li a, .footer-1 .antsand-pricing-card li a, .antsand-footer .antsand-pricing-card li a, .footer-1 .sub-container .h4 a, .footer-1 .antsand-footer-column .h4 a, .antsand-footer .sub-container .h4 a, .antsand-footer .antsand-footer-column .h4 a, .footer-1 .antsand-feature-item .h4 a, .antsand-footer .antsand-feature-item .h4 a, .footer-1 .antsand-pricing-card .h4 a, .antsand-footer .antsand-pricing-card .h4 a {
+  .footer-1 .sub-container li a, .footer-1 .antsand-footer-column li a, .antsand-footer .sub-container li a, .antsand-footer .antsand-footer-column li a, .footer-1 .antsand-feature-item li a, .antsand-footer .antsand-feature-item li a, .footer-1 .antsand-pricing-card li a, .antsand-footer .antsand-pricing-card li a {
     color: #ced4da; }
-    .footer-1 .sub-container li a:hover, .footer-1 .antsand-footer-column li a:hover, .antsand-footer .sub-container li a:hover, .antsand-footer .antsand-footer-column li a:hover, .footer-1 .antsand-feature-item li a:hover, .antsand-footer .antsand-feature-item li a:hover, .footer-1 .antsand-pricing-card li a:hover, .antsand-footer .antsand-pricing-card li a:hover, .footer-1 .sub-container .h4 a:hover, .footer-1 .antsand-footer-column .h4 a:hover, .antsand-footer .sub-container .h4 a:hover, .antsand-footer .antsand-footer-column .h4 a:hover, .footer-1 .antsand-feature-item .h4 a:hover, .antsand-footer .antsand-feature-item .h4 a:hover, .footer-1 .antsand-pricing-card .h4 a:hover, .antsand-footer .antsand-pricing-card .h4 a:hover {
+    .footer-1 .sub-container li a:hover, .footer-1 .antsand-footer-column li a:hover, .antsand-footer .sub-container li a:hover, .antsand-footer .antsand-footer-column li a:hover, .footer-1 .antsand-feature-item li a:hover, .antsand-footer .antsand-feature-item li a:hover, .footer-1 .antsand-pricing-card li a:hover, .antsand-footer .antsand-pricing-card li a:hover {
       color: white; }
   .footer-1 .sub-container .social-container .social, .footer-1 .sub-container .antsand-footer-social .social, .footer-1 .antsand-footer-column .social-container .social, .footer-1 .antsand-footer-column .antsand-footer-social .social, .antsand-footer .sub-container .social-container .social, .antsand-footer .sub-container .antsand-footer-social .social, .antsand-footer .antsand-footer-column .social-container .social, .antsand-footer .antsand-footer-column .antsand-footer-social .social, .footer-1 .antsand-feature-item .social-container .social, .footer-1 .antsand-feature-item .antsand-footer-social .social, .antsand-footer .antsand-feature-item .social-container .social, .antsand-footer .antsand-feature-item .antsand-footer-social .social, .footer-1 .antsand-pricing-card .social-container .social, .footer-1 .antsand-pricing-card .antsand-footer-social .social, .antsand-footer .antsand-pricing-card .social-container .social, .antsand-footer .antsand-pricing-card .antsand-footer-social .social {
     background-color: rgba(255, 255, 255, 0.1);
@@ -6468,7 +6468,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
   padding: 4rem 0 1.5rem 0;
   background-color: #f8f9fa;
   color: #495057; }
-  .footer-2 > .container, .footer-2 > .antsand-footer-grid, .antsand-footer-light > .container, .antsand-footer-light > .antsand-footer-grid {
+  .footer-2 .container, .footer-2 .antsand-footer-grid, .antsand-footer-light .container, .antsand-footer-light .antsand-footer-grid, .footer-2 .data-container, .antsand-footer-light .data-container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -6476,7 +6476,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 3rem; }
     @media (max-width: 640px) {
-      .footer-2 > .container, .footer-2 > .antsand-footer-grid, .antsand-footer-light > .container, .antsand-footer-light > .antsand-footer-grid {
+      .footer-2 .container, .footer-2 .antsand-footer-grid, .antsand-footer-light .container, .antsand-footer-light .antsand-footer-grid, .footer-2 .data-container, .antsand-footer-light .data-container {
         grid-template-columns: 1fr;
         gap: 1.5rem; } }
   .footer-2 .sub-container .title, .footer-2 .antsand-footer-column .title, .antsand-footer-light .sub-container .title, .antsand-footer-light .antsand-footer-column .title, .footer-2 .antsand-feature-item .title, .antsand-footer-light .antsand-feature-item .title, .footer-2 .antsand-pricing-card .title, .antsand-footer-light .antsand-pricing-card .title, .footer-2 .sub-container .antsand-hero-title, .footer-2 .antsand-footer-column .antsand-hero-title, .antsand-footer-light .sub-container .antsand-hero-title, .antsand-footer-light .antsand-footer-column .antsand-hero-title, .footer-2 .antsand-feature-item .antsand-hero-title, .antsand-footer-light .antsand-feature-item .antsand-hero-title, .footer-2 .antsand-pricing-card .antsand-hero-title, .antsand-footer-light .antsand-pricing-card .antsand-hero-title, .footer-2 .sub-container .antsand-feature-title, .footer-2 .antsand-footer-column .antsand-feature-title, .antsand-footer-light .sub-container .antsand-feature-title, .antsand-footer-light .antsand-footer-column .antsand-feature-title, .footer-2 .antsand-feature-item .antsand-feature-title, .antsand-footer-light .antsand-feature-item .antsand-feature-title, .footer-2 .antsand-pricing-card .antsand-feature-title, .antsand-footer-light .antsand-pricing-card .antsand-feature-title {
@@ -6488,13 +6488,13 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     font-size: 1rem;
     line-height: 1.75;
     margin-bottom: 1rem; }
-  .footer-2 .sub-container ul, .footer-2 .antsand-footer-column ul, .antsand-footer-light .sub-container ul, .antsand-footer-light .antsand-footer-column ul, .footer-2 .antsand-feature-item ul, .antsand-footer-light .antsand-feature-item ul, .footer-2 .antsand-pricing-card ul, .antsand-footer-light .antsand-pricing-card ul, .footer-2 .sub-container .h3, .footer-2 .antsand-footer-column .h3, .antsand-footer-light .sub-container .h3, .antsand-footer-light .antsand-footer-column .h3, .footer-2 .antsand-feature-item .h3, .antsand-footer-light .antsand-feature-item .h3, .footer-2 .antsand-pricing-card .h3, .antsand-footer-light .antsand-pricing-card .h3 {
+  .footer-2 .sub-container ul, .footer-2 .antsand-footer-column ul, .antsand-footer-light .sub-container ul, .antsand-footer-light .antsand-footer-column ul, .footer-2 .antsand-feature-item ul, .antsand-footer-light .antsand-feature-item ul, .footer-2 .antsand-pricing-card ul, .antsand-footer-light .antsand-pricing-card ul {
     list-style: none;
     padding: 0;
     margin: 0; }
-  .footer-2 .sub-container li, .footer-2 .antsand-footer-column li, .antsand-footer-light .sub-container li, .antsand-footer-light .antsand-footer-column li, .footer-2 .antsand-feature-item li, .antsand-footer-light .antsand-feature-item li, .footer-2 .antsand-pricing-card li, .antsand-footer-light .antsand-pricing-card li, .footer-2 .sub-container .h4, .footer-2 .antsand-footer-column .h4, .antsand-footer-light .sub-container .h4, .antsand-footer-light .antsand-footer-column .h4, .footer-2 .antsand-feature-item .h4, .antsand-footer-light .antsand-feature-item .h4, .footer-2 .antsand-pricing-card .h4, .antsand-footer-light .antsand-pricing-card .h4 {
+  .footer-2 .sub-container li, .footer-2 .antsand-footer-column li, .antsand-footer-light .sub-container li, .antsand-footer-light .antsand-footer-column li, .footer-2 .antsand-feature-item li, .antsand-footer-light .antsand-feature-item li, .footer-2 .antsand-pricing-card li, .antsand-footer-light .antsand-pricing-card li {
     margin-bottom: 0.5rem; }
-    .footer-2 .sub-container li a, .footer-2 .antsand-footer-column li a, .antsand-footer-light .sub-container li a, .antsand-footer-light .antsand-footer-column li a, .footer-2 .antsand-feature-item li a, .antsand-footer-light .antsand-feature-item li a, .footer-2 .antsand-pricing-card li a, .antsand-footer-light .antsand-pricing-card li a, .footer-2 .sub-container .h4 a, .footer-2 .antsand-footer-column .h4 a, .antsand-footer-light .sub-container .h4 a, .antsand-footer-light .antsand-footer-column .h4 a, .footer-2 .antsand-feature-item .h4 a, .antsand-footer-light .antsand-feature-item .h4 a, .footer-2 .antsand-pricing-card .h4 a, .antsand-footer-light .antsand-pricing-card .h4 a {
+    .footer-2 .sub-container li a, .footer-2 .antsand-footer-column li a, .antsand-footer-light .sub-container li a, .antsand-footer-light .antsand-footer-column li a, .footer-2 .antsand-feature-item li a, .antsand-footer-light .antsand-feature-item li a, .footer-2 .antsand-pricing-card li a, .antsand-footer-light .antsand-pricing-card li a {
       text-decoration: none;
       transition: color 250ms ease; }
   .footer-2 .sub-container .cta-container, .footer-2 .antsand-footer-column .cta-container, .antsand-footer-light .sub-container .cta-container, .antsand-footer-light .antsand-footer-column .cta-container, .footer-2 .antsand-feature-item .cta-container, .antsand-footer-light .antsand-feature-item .cta-container, .footer-2 .antsand-pricing-card .cta-container, .antsand-footer-light .antsand-pricing-card .cta-container, .footer-2 .sub-container .antsand-hero-cta, .footer-2 .antsand-footer-column .antsand-hero-cta, .antsand-footer-light .sub-container .antsand-hero-cta, .antsand-footer-light .antsand-footer-column .antsand-hero-cta, .footer-2 .antsand-feature-item .antsand-hero-cta, .antsand-footer-light .antsand-feature-item .antsand-hero-cta, .footer-2 .antsand-pricing-card .antsand-hero-cta, .antsand-footer-light .antsand-pricing-card .antsand-hero-cta {
@@ -6572,7 +6572,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
   padding: 4rem 0 1.5rem 0;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: rgba(255, 255, 255, 0.8); }
-  .footer-3 > .container, .footer-3 > .antsand-footer-grid {
+  .footer-3 .container, .footer-3 .antsand-footer-grid, .footer-3 .data-container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -6580,7 +6580,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 3rem; }
     @media (max-width: 640px) {
-      .footer-3 > .container, .footer-3 > .antsand-footer-grid {
+      .footer-3 .container, .footer-3 .antsand-footer-grid, .footer-3 .data-container {
         grid-template-columns: 1fr;
         gap: 1.5rem; } }
   .footer-3 .sub-container .title, .footer-3 .antsand-footer-column .title, .footer-3 .antsand-feature-item .title, .footer-3 .antsand-pricing-card .title, .footer-3 .sub-container .antsand-hero-title, .footer-3 .antsand-footer-column .antsand-hero-title, .footer-3 .antsand-feature-item .antsand-hero-title, .footer-3 .antsand-pricing-card .antsand-hero-title, .footer-3 .sub-container .antsand-feature-title, .footer-3 .antsand-footer-column .antsand-feature-title, .footer-3 .antsand-feature-item .antsand-feature-title, .footer-3 .antsand-pricing-card .antsand-feature-title {
@@ -6592,13 +6592,13 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     font-size: 1rem;
     line-height: 1.75;
     margin-bottom: 1rem; }
-  .footer-3 .sub-container ul, .footer-3 .antsand-footer-column ul, .footer-3 .antsand-feature-item ul, .footer-3 .antsand-pricing-card ul, .footer-3 .sub-container .h3, .footer-3 .antsand-footer-column .h3, .footer-3 .antsand-feature-item .h3, .footer-3 .antsand-pricing-card .h3 {
+  .footer-3 .sub-container ul, .footer-3 .antsand-footer-column ul, .footer-3 .antsand-feature-item ul, .footer-3 .antsand-pricing-card ul {
     list-style: none;
     padding: 0;
     margin: 0; }
-  .footer-3 .sub-container li, .footer-3 .antsand-footer-column li, .footer-3 .antsand-feature-item li, .footer-3 .antsand-pricing-card li, .footer-3 .sub-container .h4, .footer-3 .antsand-footer-column .h4, .footer-3 .antsand-feature-item .h4, .footer-3 .antsand-pricing-card .h4 {
+  .footer-3 .sub-container li, .footer-3 .antsand-footer-column li, .footer-3 .antsand-feature-item li, .footer-3 .antsand-pricing-card li {
     margin-bottom: 0.5rem; }
-    .footer-3 .sub-container li a, .footer-3 .antsand-footer-column li a, .footer-3 .antsand-feature-item li a, .footer-3 .antsand-pricing-card li a, .footer-3 .sub-container .h4 a, .footer-3 .antsand-footer-column .h4 a, .footer-3 .antsand-feature-item .h4 a, .footer-3 .antsand-pricing-card .h4 a {
+    .footer-3 .sub-container li a, .footer-3 .antsand-footer-column li a, .footer-3 .antsand-feature-item li a, .footer-3 .antsand-pricing-card li a {
       text-decoration: none;
       transition: color 250ms ease; }
   .footer-3 .sub-container .cta-container, .footer-3 .antsand-footer-column .cta-container, .footer-3 .antsand-feature-item .cta-container, .footer-3 .antsand-pricing-card .cta-container, .footer-3 .sub-container .antsand-hero-cta, .footer-3 .antsand-footer-column .antsand-hero-cta, .footer-3 .antsand-feature-item .antsand-hero-cta, .footer-3 .antsand-pricing-card .antsand-hero-cta {
@@ -6676,7 +6676,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
   background-color: white;
   color: #6c757d;
   border-top: 1px solid #e9ecef; }
-  .footer-4 > .container, .footer-4 > .antsand-footer-grid {
+  .footer-4 .container, .footer-4 .antsand-footer-grid, .footer-4 .data-container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -6684,7 +6684,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 3rem; }
     @media (max-width: 640px) {
-      .footer-4 > .container, .footer-4 > .antsand-footer-grid {
+      .footer-4 .container, .footer-4 .antsand-footer-grid, .footer-4 .data-container {
         grid-template-columns: 1fr;
         gap: 1.5rem; } }
   .footer-4 .sub-container .title, .footer-4 .antsand-footer-column .title, .footer-4 .antsand-feature-item .title, .footer-4 .antsand-pricing-card .title, .footer-4 .sub-container .antsand-hero-title, .footer-4 .antsand-footer-column .antsand-hero-title, .footer-4 .antsand-feature-item .antsand-hero-title, .footer-4 .antsand-pricing-card .antsand-hero-title, .footer-4 .sub-container .antsand-feature-title, .footer-4 .antsand-footer-column .antsand-feature-title, .footer-4 .antsand-feature-item .antsand-feature-title, .footer-4 .antsand-pricing-card .antsand-feature-title {
@@ -6696,13 +6696,13 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     font-size: 1rem;
     line-height: 1.75;
     margin-bottom: 1rem; }
-  .footer-4 .sub-container ul, .footer-4 .antsand-footer-column ul, .footer-4 .antsand-feature-item ul, .footer-4 .antsand-pricing-card ul, .footer-4 .sub-container .h3, .footer-4 .antsand-footer-column .h3, .footer-4 .antsand-feature-item .h3, .footer-4 .antsand-pricing-card .h3 {
+  .footer-4 .sub-container ul, .footer-4 .antsand-footer-column ul, .footer-4 .antsand-feature-item ul, .footer-4 .antsand-pricing-card ul {
     list-style: none;
     padding: 0;
     margin: 0; }
-  .footer-4 .sub-container li, .footer-4 .antsand-footer-column li, .footer-4 .antsand-feature-item li, .footer-4 .antsand-pricing-card li, .footer-4 .sub-container .h4, .footer-4 .antsand-footer-column .h4, .footer-4 .antsand-feature-item .h4, .footer-4 .antsand-pricing-card .h4 {
+  .footer-4 .sub-container li, .footer-4 .antsand-footer-column li, .footer-4 .antsand-feature-item li, .footer-4 .antsand-pricing-card li {
     margin-bottom: 0.5rem; }
-    .footer-4 .sub-container li a, .footer-4 .antsand-footer-column li a, .footer-4 .antsand-feature-item li a, .footer-4 .antsand-pricing-card li a, .footer-4 .sub-container .h4 a, .footer-4 .antsand-footer-column .h4 a, .footer-4 .antsand-feature-item .h4 a, .footer-4 .antsand-pricing-card .h4 a {
+    .footer-4 .sub-container li a, .footer-4 .antsand-footer-column li a, .footer-4 .antsand-feature-item li a, .footer-4 .antsand-pricing-card li a {
       text-decoration: none;
       transition: color 250ms ease; }
   .footer-4 .sub-container .cta-container, .footer-4 .antsand-footer-column .cta-container, .footer-4 .antsand-feature-item .cta-container, .footer-4 .antsand-pricing-card .cta-container, .footer-4 .sub-container .antsand-hero-cta, .footer-4 .antsand-footer-column .antsand-hero-cta, .footer-4 .antsand-feature-item .antsand-hero-cta, .footer-4 .antsand-pricing-card .antsand-hero-cta {
@@ -6784,7 +6784,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
   padding: 4rem 0 1.5rem 0;
   background-color: #0f172a;
   color: #ced4da; }
-  .footer-5 > .container, .footer-5 > .antsand-footer-grid {
+  .footer-5 .container, .footer-5 .antsand-footer-grid, .footer-5 .data-container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -6792,7 +6792,7 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 3rem; }
     @media (max-width: 640px) {
-      .footer-5 > .container, .footer-5 > .antsand-footer-grid {
+      .footer-5 .container, .footer-5 .antsand-footer-grid, .footer-5 .data-container {
         grid-template-columns: 1fr;
         gap: 1.5rem; } }
   .footer-5 .sub-container .title, .footer-5 .antsand-footer-column .title, .footer-5 .antsand-feature-item .title, .footer-5 .antsand-pricing-card .title, .footer-5 .sub-container .antsand-hero-title, .footer-5 .antsand-footer-column .antsand-hero-title, .footer-5 .antsand-feature-item .antsand-hero-title, .footer-5 .antsand-pricing-card .antsand-hero-title, .footer-5 .sub-container .antsand-feature-title, .footer-5 .antsand-footer-column .antsand-feature-title, .footer-5 .antsand-feature-item .antsand-feature-title, .footer-5 .antsand-pricing-card .antsand-feature-title {
@@ -6804,13 +6804,13 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
     font-size: 1rem;
     line-height: 1.75;
     margin-bottom: 1rem; }
-  .footer-5 .sub-container ul, .footer-5 .antsand-footer-column ul, .footer-5 .antsand-feature-item ul, .footer-5 .antsand-pricing-card ul, .footer-5 .sub-container .h3, .footer-5 .antsand-footer-column .h3, .footer-5 .antsand-feature-item .h3, .footer-5 .antsand-pricing-card .h3 {
+  .footer-5 .sub-container ul, .footer-5 .antsand-footer-column ul, .footer-5 .antsand-feature-item ul, .footer-5 .antsand-pricing-card ul {
     list-style: none;
     padding: 0;
     margin: 0; }
-  .footer-5 .sub-container li, .footer-5 .antsand-footer-column li, .footer-5 .antsand-feature-item li, .footer-5 .antsand-pricing-card li, .footer-5 .sub-container .h4, .footer-5 .antsand-footer-column .h4, .footer-5 .antsand-feature-item .h4, .footer-5 .antsand-pricing-card .h4 {
+  .footer-5 .sub-container li, .footer-5 .antsand-footer-column li, .footer-5 .antsand-feature-item li, .footer-5 .antsand-pricing-card li {
     margin-bottom: 0.5rem; }
-    .footer-5 .sub-container li a, .footer-5 .antsand-footer-column li a, .footer-5 .antsand-feature-item li a, .footer-5 .antsand-pricing-card li a, .footer-5 .sub-container .h4 a, .footer-5 .antsand-footer-column .h4 a, .footer-5 .antsand-feature-item .h4 a, .footer-5 .antsand-pricing-card .h4 a {
+    .footer-5 .sub-container li a, .footer-5 .antsand-footer-column li a, .footer-5 .antsand-feature-item li a, .footer-5 .antsand-pricing-card li a {
       text-decoration: none;
       transition: color 250ms ease; }
   .footer-5 .sub-container .cta-container, .footer-5 .antsand-footer-column .cta-container, .footer-5 .antsand-feature-item .cta-container, .footer-5 .antsand-pricing-card .cta-container, .footer-5 .sub-container .antsand-hero-cta, .footer-5 .antsand-footer-column .antsand-hero-cta, .footer-5 .antsand-feature-item .antsand-hero-cta, .footer-5 .antsand-pricing-card .antsand-hero-cta {
