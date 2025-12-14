@@ -1,0 +1,855 @@
+// ============================================
+// ProfilePosts / Posts Component Styles
+// ============================================
+// CSS classes for the profileposts-modern template.
+// Uses a data- prefix naming convention for consistency with other templates.
+//
+// Structure:
+// - data-container: Grid container for all posts
+// - data-sub-container: Individual post card
+// - data-media: Post image/media
+// - data-img-container: Image wrapper
+// - data-content-wrapper: Content area wrapper
+// - data-author-container: Author info wrapper (avatar + info)
+// - data-author-avatar: Profile image
+// - data-avatar-placeholder: Fallback when no avatar (shows initials)
+// - data-author-info: Wrapper for name + date
+// - data-author-name: Author name text
+// - data-date: Timestamp
+// - data-h3: Post content/text
+// - data-p: Secondary description
+// - data-tags-container: Tags wrapper
+// - data-tag: Individual tag badge
+// - data-cta-container: CTA wrapper
+// - data-cta: Read more / View post link
+// ============================================
+
+// =============================================================================
+// PROFILEPOSTS GRID LAYOUTS
+// =============================================================================
+
+// Default Grid Layout
+.profileposts-grid,
+.data-container.profileposts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+// Timeline Layout
+.profileposts-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+    padding-left: 40px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    }
+}
+
+// Masonry Layout (requires JS for true masonry, CSS approximation)
+.profileposts-masonry {
+    column-count: 3;
+    column-gap: 24px;
+
+    @media (max-width: 992px) {
+        column-count: 2;
+    }
+
+    @media (max-width: 576px) {
+        column-count: 1;
+    }
+
+    .profileposts-card,
+    .data-sub-container {
+        break-inside: avoid;
+        margin-bottom: 24px;
+    }
+}
+
+// =============================================================================
+// POST CARD STYLES
+// =============================================================================
+
+.profileposts-card,
+.data-sub-container.profileposts-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+}
+
+// Dark theme variant
+.profileposts-card-dark,
+.data-sub-container.profileposts-card-dark {
+    background: #1f2937;
+    color: #f3f4f6;
+
+    .profileposts-author-name,
+    .data-author-name {
+        color: #f3f4f6;
+    }
+
+    .profileposts-date,
+    .data-date {
+        color: #9ca3af;
+    }
+
+    .profileposts-text,
+    .data-h3 {
+        color: #e5e7eb;
+    }
+
+    .profileposts-tag,
+    .data-tag {
+        background: #374151;
+        color: #d1d5db;
+    }
+}
+
+// =============================================================================
+// IMAGE / MEDIA STYLES
+// =============================================================================
+
+.profileposts-img-container,
+.data-img-container.profileposts-img-container {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.profileposts-media,
+.data-media.profileposts-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    .profileposts-card:hover & {
+        transform: scale(1.05);
+    }
+}
+
+// =============================================================================
+// CONTENT WRAPPER
+// =============================================================================
+
+.profileposts-content,
+.data-content-wrapper.profileposts-content {
+    padding: 20px;
+}
+
+// =============================================================================
+// AUTHOR SECTION
+// =============================================================================
+
+.profileposts-author,
+.data-author-container.profileposts-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.profileposts-avatar,
+.data-author-avatar.profileposts-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.profileposts-avatar-placeholder,
+.data-avatar-placeholder.profileposts-avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.profileposts-author-info,
+.data-author-info.profileposts-author-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // Allow text truncation
+}
+
+.profileposts-author-name,
+.data-author-name.profileposts-author-name {
+    font-weight: 600;
+    color: #1a202c;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profileposts-date,
+.data-date.profileposts-date {
+    font-size: 12px;
+    color: #718096;
+}
+
+// =============================================================================
+// POST TEXT / CONTENT
+// =============================================================================
+
+.profileposts-text,
+.data-h3.profileposts-text {
+    color: #2d3748;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.profileposts-description,
+.data-p.profileposts-description {
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+// =============================================================================
+// TAGS
+// =============================================================================
+
+.profileposts-tags,
+.data-tags-container.profileposts-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.profileposts-tag,
+.data-tag.profileposts-tag {
+    background: #edf2f7;
+    color: #4a5568;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background: #e2e8f0;
+    }
+}
+
+// Colored tag variants
+.profileposts-tag-primary {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.profileposts-tag-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.profileposts-tag-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.profileposts-tag-danger {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+// =============================================================================
+// CTA / BUTTONS
+// =============================================================================
+
+.profileposts-cta-container,
+.data-cta-container.profileposts-cta-container {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+}
+
+.profileposts-cta,
+.data-cta.profileposts-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #3b82f6;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #2563eb;
+    }
+
+    &::after {
+        content: '\2192'; // Right arrow
+        transition: transform 0.2s ease;
+    }
+
+    &:hover::after {
+        transform: translateX(4px);
+    }
+}
+
+// =============================================================================
+// SECTION WRAPPERS
+// =============================================================================
+
+.profileposts-section,
+.section.profileposts-section {
+    padding: 60px 0;
+}
+
+.profileposts-wrapper,
+.wrapper.profileposts-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// =============================================================================
+// HEADER SECTION (Page title area)
+// =============================================================================
+
+.profileposts-header-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profileposts-header-h1,
+.header-h1.profileposts-header-h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 12px;
+}
+
+.profileposts-header-h2,
+.header-h2.profileposts-header-h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.profileposts-header-p,
+.header-p.profileposts-header-p {
+    font-size: 16px;
+    color: #718096;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+// =============================================================================
+// FOOTER SECTION (Subscribe, social, etc.)
+// =============================================================================
+
+.profileposts-footer-section {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.profileposts-footer-h3,
+.footer-h3.profileposts-footer-h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 8px;
+}
+
+.profileposts-footer-p,
+.footer-p.profileposts-footer-p {
+    font-size: 14px;
+    color: #718096;
+    margin-bottom: 16px;
+}
+
+.profileposts-footer-cta,
+.footer-cta.profileposts-footer-cta {
+    display: inline-block;
+    background: #3b82f6;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background: #2563eb;
+    }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS
+// =============================================================================
+
+@media (max-width: 768px) {
+    .profileposts-grid,
+    .data-container.profileposts-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .profileposts-header-h1 {
+        font-size: 28px;
+    }
+
+    .profileposts-section {
+        padding: 40px 0;
+    }
+}
+
+// =============================================================================
+// UTILITY CLASSES (for quick customization)
+// =============================================================================
+
+// Grid column variants
+.profileposts-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.profileposts-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.profileposts-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+// Card size variants
+.profileposts-card-compact {
+    .profileposts-content {
+        padding: 12px;
+    }
+
+    .profileposts-avatar,
+    .profileposts-avatar-placeholder {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+}
+
+.profileposts-card-large {
+    .profileposts-content {
+        padding: 28px;
+    }
+
+    .profileposts-avatar,
+    .profileposts-avatar-placeholder {
+        width: 48px;
+        height: 48px;
+        font-size: 16px;
+    }
+}
+
+// =============================================================================
+// CAROUSEL LAYOUT
+// =============================================================================
+// Horizontal scrolling carousel for posts - based on shivasnotes design
+// Uses scroll-snap for smooth scrolling and snap-to-card behavior
+
+.profileposts-carousel,
+.data-container.profileposts-carousel {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 2rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    // Carousel cards have fixed width and snap alignment
+    .profileposts-card,
+    .data-sub-container {
+        flex: 0 0 320px;
+        scroll-snap-align: start;
+    }
+}
+
+// Carousel with visible scrollbar
+.profileposts-carousel-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #c74a22 #f0f0f0;
+
+    &::-webkit-scrollbar {
+        display: block;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #c74a22;
+        border-radius: 4px;
+    }
+}
+
+// =============================================================================
+// GENERIC DATA CLASSES (for hierarchy consistency)
+// =============================================================================
+// These generic classes work across all card variants and can be styled
+// differently based on their parent modifier class.
+
+// Generic indicator (dot marker)
+.data-indicator {
+    width: 8px;
+    height: 8px;
+    background-color: #c74a22;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+// Generic time display
+.data-time {
+    font-size: 0.8rem;
+    color: #6c757d;
+    font-family: monospace;
+}
+
+// Generic header row
+.data-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+// Generic footer row
+.data-footer {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// Generic label (for section labels, badges)
+.data-label {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #c74a22;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+// Generic badge (image count, etc.)
+.data-badge {
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+// =============================================================================
+// NOTE CARD STYLES (Micro-Log / Quick Updates)
+// =============================================================================
+// Usage: <article class="data-sub-container profileposts-note">
+//          <div class="data-header"><span class="data-indicator"></span><span class="data-date">...</span></div>
+//          <div class="data-h3">...</div>
+//          <div class="data-footer"><span class="data-tag">...</span><span class="data-time">...</span></div>
+//        </article>
+
+.profileposts-note {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+    background-color: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+    position: relative;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: #c74a22;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    // Header styling within note card
+    .data-header {
+        font-family: monospace;
+        font-size: 0.75rem;
+        color: #6c757d;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    // Main content - italic quote style
+    .data-h3 {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 1.1rem;
+        color: #181818;
+        font-style: italic;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+    }
+
+    // Footer with dashed border
+    .data-footer {
+        border-top: 1px dashed #e5e5e5;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 0.8rem;
+        color: #6c757d;
+    }
+
+    // Tag styling - orange accent
+    .data-tag {
+        background: transparent;
+        color: #c74a22;
+        font-weight: 500;
+        padding: 0;
+
+        &:hover {
+            color: #a33d1c;
+        }
+    }
+}
+
+// =============================================================================
+// ARTICLE CARD (Blog-style posts in carousel)
+// =============================================================================
+// Usage: <article class="data-sub-container profileposts-article">
+//          <div class="data-h3">Title</div>
+//          <div class="data-p">Excerpt...</div>
+//          <div class="data-footer"><span class="data-date">...</span><span class="data-tag">CATEGORY</span></div>
+//        </article>
+
+.profileposts-article {
+    flex: 0 0 340px;
+    scroll-snap-align: start;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    // Title styling
+    .data-h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #181818;
+        line-height: 1.3;
+        margin-bottom: 0.75rem;
+    }
+
+    // Excerpt styling
+    .data-p {
+        font-size: 0.95rem;
+        color: #4a5568;
+        line-height: 1.6;
+        flex-grow: 1;
+        margin-bottom: 1.5rem;
+    }
+
+    // Footer with solid border
+    .data-footer {
+        border-top: 1px solid #e5e5e5;
+        font-size: 0.8rem;
+        color: #6c757d;
+        font-family: monospace;
+        text-transform: uppercase;
+    }
+
+    // Category tag styling
+    .data-tag {
+        background: #f3f4f6;
+        color: #4a5568;
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-weight: 500;
+    }
+}
+
+// =============================================================================
+// VISUAL LOG CARD (Posts with media count badge)
+// =============================================================================
+// Usage: <article class="data-sub-container profileposts-visual">
+//          <div class="data-author-container">...</div>
+//          <div class="data-img-container"><span class="data-badge">3</span>...</div>
+//          <div class="data-content-wrapper">
+//            <div class="data-h3">Title</div>
+//            <div class="data-p">Text...</div>
+//            <div class="data-footer"><span class="data-time">...</span><span class="data-tag">...</span></div>
+//          </div>
+//        </article>
+
+.profileposts-visual {
+    flex: 0 0 360px;
+    scroll-snap-align: start;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    // Author container at top
+    .data-author-container {
+        padding: 1rem 1.25rem;
+        margin-bottom: 0;
+    }
+
+    // Media container
+    .data-img-container {
+        position: relative;
+        background: #f5f5f5;
+        min-height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    // Badge positioning
+    .data-badge {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+
+    // Content wrapper
+    .data-content-wrapper {
+        padding: 1.25rem;
+    }
+
+    // Title
+    .data-h3 {
+        font-weight: 600;
+        color: #181818;
+        margin-bottom: 0.5rem;
+    }
+
+    // Text content
+    .data-p {
+        font-size: 0.9rem;
+        color: #4a5568;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    // Footer styling
+    .data-footer {
+        border-top: 1px solid #e5e5e5;
+        font-size: 0.8rem;
+        color: #6c757d;
+        font-family: monospace;
+        text-transform: uppercase;
+        padding-top: 0.75rem;
+    }
+
+    // Handle text (under author name)
+    .data-author-info .data-date {
+        font-size: 0.8rem;
+        color: #6c757d;
+    }
+}
+
+// =============================================================================
+// SECTION HEADER
+// =============================================================================
+// Usage: <div class="data-header profileposts-section-header">
+//          <div><span class="data-label">MICRO-LOG</span><div class="data-h2">Title</div></div>
+//          <span class="data-cta">Scroll</span>
+//        </div>
+
+.profileposts-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .data-label {
+        margin-bottom: 0.25rem;
+    }
+
+    .data-h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #181818;
+        margin: 0;
+    }
+
+    .data-cta {
+        font-size: 0.875rem;
+        color: #6c757d;
+
+        &::after {
+            content: ' \2192';
+        }
+    }
+}
+
+// =============================================================================
+// RESPONSIVE ADJUSTMENTS FOR NEW LAYOUTS
+// =============================================================================
+
+@media (max-width: 576px) {
+    .profileposts-carousel .profileposts-card,
+    .profileposts-carousel .data-sub-container,
+    .profileposts-note,
+    .profileposts-article,
+    .profileposts-visual {
+        flex: 0 0 280px;
+    }
+
+    .profileposts-note,
+    .profileposts-article {
+        padding: 1.5rem;
+    }
+}
