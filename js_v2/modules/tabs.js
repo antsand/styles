@@ -5,6 +5,18 @@
  * - Parent class controls variant styling (antsand-tabs-pills, antsand-tabs-steps, etc.)
  * - Child classes are consistent: .tabs-header, .tabs-item, .tabs-content
  *
+ * =====================================================================
+ * FEATURE-BASED ACTIVATION (preferred)
+ * =====================================================================
+ * Any template can enable tabs via CSS config: "feature": "tabs" or "feature": "tabs-pills"
+ * Volt auto-generates:
+ *   data-feature="tabs"
+ *   data-tabs="true"
+ *   data-tabs-variant="pills"
+ *
+ * =====================================================================
+ * DEDICATED TABS COMPONENT
+ * =====================================================================
  * HTML Structure (consistent across all variants):
  * <div class="antsand-tabs-{variant}" data-tabs>
  *   <div class="tabs-header">
@@ -38,6 +50,16 @@ class AntsandTabs {
         if (this.container.dataset.tabsInit === 'true') {
             return;
         }
+
+        // Detect if this is a feature-activated tabs or dedicated component
+        this.isFeatureActivated = this.container.dataset.feature === 'tabs' ||
+                                   this.container.dataset.tabs === 'true';
+
+        // Get variant from data-tabs-variant attribute if set
+        this.variant = this.container.dataset.tabsVariant || '';
+
+        // Get section index for debugging/targeting
+        this.sectionIndex = this.container.dataset.sectionIndex || null;
 
         this.tabsHeader = this.container.querySelector('.tabs-header');
         this.tabs = this.container.querySelectorAll('.tabs-item');
@@ -210,11 +232,17 @@ class AntsandTabs {
 
 /**
  * Initialize all tabs on the page
- * Looks for [data-tabs] attribute on any ANTSAND tabs variant
+ * Detection priority:
+ * 1. [data-feature="tabs"]      - Primary: auto-populated by volt from CSS config
+ * 2. [data-tabs="true"]         - Explicit tabs flag
+ * 3. [data-tabs]                - Legacy attribute
+ * 4. .antsand-tabs-{variant}    - Dedicated tabs component
  */
 function initAllTabs() {
     const selectors = [
-        '[data-tabs]',
+        '[data-feature="tabs"]',   // Primary: auto-populated by volt
+        '[data-tabs="true"]',      // Explicit flag
+        '[data-tabs]',             // Legacy attribute
         '.antsand-tabs-pills',
         '.antsand-tabs-steps',
         '.antsand-tabs-vertical',

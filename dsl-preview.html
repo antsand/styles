@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTSAND DSL Preview - Live Test</title>
+    <link rel="stylesheet" href="css/antsand-v2.css">
+    <link rel="stylesheet" href="css/antsand-v2-fonts.css">
+    <link rel="stylesheet" href="css/antsand-v2-tabs.css">
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+        }
+
+        body {
+            font-family: 'Graphik', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            background: #f7fafc;
+        }
+
+        /* Preview toolbar */
+        .preview-toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #1a202c;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .preview-toolbar h1 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .toolbar-btn {
+            padding: 0.5rem 1rem;
+            background: #4a5568;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .toolbar-btn:hover {
+            background: #667eea;
+        }
+
+        .toolbar-btn.active {
+            background: #667eea;
+        }
+
+        /* Preview container */
+        .preview-container {
+            margin-top: 60px;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* Feature demos */
+        .demo-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .demo-section:nth-child(even) {
+            background: white;
+        }
+
+        /* Section headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #718096;
+        }
+
+        /* Grid layouts */
+        .antsand-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .antsand-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .antsand-grid-3,
+            .antsand-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card styles */
+        .antsand-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .antsand-card-shadow {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+        }
+
+        /* Container */
+        .antsand-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section backgrounds */
+        .antsand-section {
+            padding: 4rem 0;
+        }
+
+        .antsand-section-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .antsand-section-light {
+            background: #f7fafc;
+        }
+
+        /* Feature badge */
+        .feature-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #edf2f7;
+            color: #667eea;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        /* Hero styles */
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* CTA Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--secondary);
+        }
+
+        /* Image placeholder */
+        .img-placeholder {
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+            border-radius: 8px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 0.875rem;
+        }
+
+        /* Avatar */
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-toolbar">
+        <h1>ANTSAND DSL Preview</h1>
+        <div class="toolbar-actions">
+            <button class="toolbar-btn" onclick="showDemo('carousel')">Carousel Demo</button>
+            <button class="toolbar-btn" onclick="showDemo('tabs')">Tabs Demo</button>
+            <button class="toolbar-btn" onclick="showDemo('accordion')">Accordion Demo</button>
+            <button class="toolbar-btn" onclick="showDemo('all')">All Features</button>
+        </div>
+    </div>
+
+    <div class="preview-container">
+        <!-- Carousel Demo Section -->
+        <section class="demo-section" id="carousel-demo">
+            <div class="antsand-container">
+                <div class="section-header">
+                    <span class="feature-badge">data-feature="carousel"</span>
+                    <h2>Carousel Feature Demo</h2>
+                    <p>Enable carousel on any grid by adding <code>"feature": "carousel"</code> to CSS config</p>
+                </div>
+
+                <!-- Carousel Slide Variant -->
+                <h3 style="margin-bottom: 1rem; color: #4a5568;">Slide Variant (default)</h3>
+                <div class="antsand-container"
+                     data-section-index="1"
+                     data-feature="carousel"
+                     data-carousel="true"
+                     style="margin-bottom: 3rem;">
+
+                    <div class="data-track" data-track>
+                        <div class="antsand-card" style="min-width: 100%; padding: 3rem; text-align: center;">
+                            <div class="img-placeholder" style="height: 300px; margin-bottom: 1.5rem;">Slide 1 Image</div>
+                            <h3>First Slide</h3>
+                            <p>This is the first slide in the carousel. Swipe or use arrows to navigate.</p>
+                        </div>
+                        <div class="antsand-card" style="min-width: 100%; padding: 3rem; text-align: center;">
+                            <div class="img-placeholder" style="height: 300px; margin-bottom: 1.5rem;">Slide 2 Image</div>
+                            <h3>Second Slide</h3>
+                            <p>Here's the second slide with different content.</p>
+                        </div>
+                        <div class="antsand-card" style="min-width: 100%; padding: 3rem; text-align: center;">
+                            <div class="img-placeholder" style="height: 300px; margin-bottom: 1.5rem;">Slide 3 Image</div>
+                            <h3>Third Slide</h3>
+                            <p>And the third slide completes the carousel.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-controls">
+                        <button class="carousel-control-prev" type="button" data-carousel-control="prev" aria-label="Previous">&#8249;</button>
+                        <button class="carousel-control-next" type="button" data-carousel-control="next" aria-label="Next">&#8250;</button>
+                    </div>
+
+                    <div class="carousel-indicators">
+                        <button class="carousel-indicator active" data-carousel-indicator="0"></button>
+                        <button class="carousel-indicator" data-carousel-indicator="1"></button>
+                        <button class="carousel-indicator" data-carousel-indicator="2"></button>
+                    </div>
+                </div>
+
+                <!-- Carousel Cards Variant -->
+                <h3 style="margin-bottom: 1rem; color: #4a5568;">Cards Variant</h3>
+                <div class="antsand-container carousel-cards"
+                     data-section-index="2"
+                     data-feature="carousel"
+                     data-carousel="true"
+                     data-carousel-variant="cards">
+
+                    <div class="data-track" data-track style="gap: 1.5rem;">
+                        <div class="antsand-card" style="min-width: calc(33.333% - 1rem); padding: 1.5rem;">
+                            <div class="avatar" style="margin-bottom: 1rem;">JD</div>
+                            <h4 style="margin-bottom: 0.5rem;">John Doe</h4>
+                            <p style="color: #718096; font-size: 0.875rem;">CEO, TechCorp</p>
+                            <p style="margin-top: 1rem;">"Amazing product! Transformed our workflow completely."</p>
+                        </div>
+                        <div class="antsand-card" style="min-width: calc(33.333% - 1rem); padding: 1.5rem;">
+                            <div class="avatar" style="margin-bottom: 1rem;">SM</div>
+                            <h4 style="margin-bottom: 0.5rem;">Sarah Miller</h4>
+                            <p style="color: #718096; font-size: 0.875rem;">Designer, Creative Co</p>
+                            <p style="margin-top: 1rem;">"The best tool we've ever used for web development."</p>
+                        </div>
+                        <div class="antsand-card" style="min-width: calc(33.333% - 1rem); padding: 1.5rem;">
+                            <div class="avatar" style="margin-bottom: 1rem;">MR</div>
+                            <h4 style="margin-bottom: 0.5rem;">Mike Ross</h4>
+                            <p style="color: #718096; font-size: 0.875rem;">Developer, StartupXYZ</p>
+                            <p style="margin-top: 1rem;">"Saved us hundreds of hours on projects."</p>
+                        </div>
+                        <div class="antsand-card" style="min-width: calc(33.333% - 1rem); padding: 1.5rem;">
+                            <div class="avatar" style="margin-bottom: 1rem;">AJ</div>
+                            <h4 style="margin-bottom: 0.5rem;">Amy Johnson</h4>
+                            <p style="color: #718096; font-size: 0.875rem;">PM, Enterprise Inc</p>
+                            <p style="margin-top: 1rem;">"Highly recommend for any team."</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-controls">
+                        <button class="carousel-control-prev" type="button" data-carousel-control="prev">&#8249;</button>
+                        <button class="carousel-control-next" type="button" data-carousel-control="next">&#8250;</button>
+                    </div>
+
+                    <div class="carousel-indicators">
+                        <button class="carousel-indicator active" data-carousel-indicator="0"></button>
+                        <button class="carousel-indicator" data-carousel-indicator="1"></button>
+                        <button class="carousel-indicator" data-carousel-indicator="2"></button>
+                        <button class="carousel-indicator" data-carousel-indicator="3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs Demo Section -->
+        <section class="demo-section" id="tabs-demo" style="background: white;">
+            <div class="antsand-container">
+                <div class="section-header">
+                    <span class="feature-badge">data-feature="tabs"</span>
+                    <h2>Tabs Feature Demo</h2>
+                    <p>Enable tabs on any section by adding <code>"feature": "tabs-pills"</code> to CSS config</p>
+                </div>
+
+                <!-- Pills Variant -->
+                <h3 style="margin-bottom: 1rem; color: #4a5568;">Pills Variant</h3>
+                <div data-feature="tabs" data-tabs="true" data-tabs-variant="pills" style="margin-bottom: 3rem;">
+                    <div class="tabs-header">
+                        <button class="tabs-item active" data-tab="pills-tab1">Overview</button>
+                        <button class="tabs-item" data-tab="pills-tab2">Features</button>
+                        <button class="tabs-item" data-tab="pills-tab3">Pricing</button>
+                    </div>
+                    <div class="tabs-content active" id="pills-tab1">
+                        <div class="antsand-card" style="padding: 2rem;">
+                            <h4>Product Overview</h4>
+                            <p>ANTSAND is a powerful DSL system for building websites. Create stunning, responsive pages without traditional coding.</p>
+                        </div>
+                    </div>
+                    <div class="tabs-content" id="pills-tab2">
+                        <div class="antsand-card" style="padding: 2rem;">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Prompt-to-code generation</li>
+                                <li>Universal feature system (carousel, tabs, accordion)</li>
+                                <li>Databoard integration</li>
+                                <li>Real-time preview</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tabs-content" id="pills-tab3">
+                        <div class="antsand-card" style="padding: 2rem;">
+                            <h4>Pricing Plans</h4>
+                            <p>Start free, upgrade as you grow. Plans from $9/month.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Steps Variant -->
+                <h3 style="margin-bottom: 1rem; color: #4a5568;">Steps Variant</h3>
+                <div data-feature="tabs" data-tabs="true" data-tabs-variant="steps">
+                    <div class="tabs-header">
+                        <button class="tabs-item active" data-tab="step-tab1">1</button>
+                        <button class="tabs-item" data-tab="step-tab2">2</button>
+                        <button class="tabs-item" data-tab="step-tab3">3</button>
+                        <button class="tabs-item" data-tab="step-tab4">4</button>
+                    </div>
+                    <div class="tabs-content active" id="step-tab1">
+                        <div class="antsand-card" style="padding: 2rem; text-align: center;">
+                            <h4>Step 1: Describe</h4>
+                            <p>Tell us what you want to build in plain English.</p>
+                        </div>
+                    </div>
+                    <div class="tabs-content" id="step-tab2">
+                        <div class="antsand-card" style="padding: 2rem; text-align: center;">
+                            <h4>Step 2: Generate</h4>
+                            <p>Our AI generates the DSL configuration.</p>
+                        </div>
+                    </div>
+                    <div class="tabs-content" id="step-tab3">
+                        <div class="antsand-card" style="padding: 2rem; text-align: center;">
+                            <h4>Step 3: Customize</h4>
+                            <p>Tweak colors, layouts, and content.</p>
+                        </div>
+                    </div>
+                    <div class="tabs-content" id="step-tab4">
+                        <div class="antsand-card" style="padding: 2rem; text-align: center;">
+                            <h4>Step 4: Deploy</h4>
+                            <p>Publish your site with one click.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DSL Example Section -->
+        <section class="demo-section" id="dsl-demo">
+            <div class="antsand-container">
+                <div class="section-header">
+                    <span class="feature-badge">DSL Configuration</span>
+                    <h2>How to Enable Features</h2>
+                    <p>Add the <code>feature</code> key to your CSS data config</p>
+                </div>
+
+                <div class="antsand-grid-3" style="gap: 2rem;">
+                    <div class="antsand-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary);">Carousel</h4>
+                        <pre style="background: #1a202c; color: #a0aec0; padding: 1rem; border-radius: 8px; font-size: 0.8rem; overflow: auto;"><code>{
+  "css": {
+    "data": {
+      "feature": "carousel",
+      "container": {
+        "css_class": "grid-3"
+      }
+    }
+  }
+}</code></pre>
+                        <p style="margin-top: 1rem; font-size: 0.875rem; color: #718096;">
+                            Variants: <code>carousel-cards</code>, <code>carousel-fade</code>, <code>carousel-cover</code>
+                        </p>
+                    </div>
+
+                    <div class="antsand-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary);">Tabs</h4>
+                        <pre style="background: #1a202c; color: #a0aec0; padding: 1rem; border-radius: 8px; font-size: 0.8rem; overflow: auto;"><code>{
+  "css": {
+    "data": {
+      "feature": "tabs-pills",
+      "container": {
+        "css_class": "container"
+      }
+    }
+  }
+}</code></pre>
+                        <p style="margin-top: 1rem; font-size: 0.875rem; color: #718096;">
+                            Variants: <code>tabs-underline</code>, <code>tabs-vertical</code>, <code>tabs-steps</code>
+                        </p>
+                    </div>
+
+                    <div class="antsand-card" style="padding: 1.5rem;">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary);">Accordion</h4>
+                        <pre style="background: #1a202c; color: #a0aec0; padding: 1rem; border-radius: 8px; font-size: 0.8rem; overflow: auto;"><code>{
+  "css": {
+    "data": {
+      "feature": "accordion",
+      "container": {
+        "css_class": "container"
+      }
+    }
+  }
+}</code></pre>
+                        <p style="margin-top: 1rem; font-size: 0.875rem; color: #718096;">
+                            Variants: <code>accordion-bordered</code>, <code>accordion-flush</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Load ANTSAND JS -->
+    <script type="module" src="js_v2/antsand-v2.js"></script>
+    <script>
+        function showDemo(type) {
+            const sections = document.querySelectorAll('.demo-section');
+            sections.forEach(s => s.style.display = 'block');
+
+            if (type !== 'all') {
+                sections.forEach(s => {
+                    if (!s.id.includes(type)) {
+                        s.style.display = 'none';
+                    }
+                });
+            }
+
+            // Update active button
+            document.querySelectorAll('.toolbar-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(type)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -7,7 +7,7 @@
  * Features:
  * - Tabs (all variants: pills, steps, vertical, underline, boxed)
  * - Tables (sortable, searchable, pagination)
- * - Carousel (coming soon)
+ * - Carousel (slide, fade, cards, cover variants)
  * - Forms validation (coming soon)
  *
  * ANTSAND Universal Structure:
@@ -15,7 +15,7 @@
  * - Child classes are consistent across variants
  * - Section > Header > Data > Footer hierarchy
  *
- * @version 2.0.0
+ * @version 2.1.0
  * @author ANTSAND
  */
 
@@ -24,6 +24,7 @@
 // =============================================================================
 import { AntsandTabs, initAllTabs } from './modules/tabs.js';
 import { AntsandTable, initAllTables } from './modules/table.js';
+import { AntsandCarousel, initAllCarousels } from './modules/carousel.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
@@ -35,14 +36,16 @@ import { AntsandTable, initAllTables } from './modules/table.js';
 function initAll() {
     const initialized = {
         tabs: initAllTabs(),
-        tables: initAllTables()
+        tables: initAllTables(),
+        carousels: initAllCarousels()
     };
 
     // Log initialization summary (development only)
     if (window.ANTSAND_DEBUG) {
         console.log('ANTSAND v2 initialized:', {
             tabs: initialized.tabs.length,
-            tables: initialized.tables.length
+            tables: initialized.tables.length,
+            carousels: initialized.carousels.length
         });
     }
 
@@ -96,15 +99,17 @@ onReady(() => {
  */
 const ANTSAND = {
     // Version
-    version: '2.0.0',
+    version: '2.1.0',
 
     // Component Classes
     Tabs: AntsandTabs,
     Table: AntsandTable,
+    Carousel: AntsandCarousel,
 
     // Initialization functions
     initTabs: initAllTabs,
     initTables: initAllTables,
+    initCarousels: initAllCarousels,
     initAll: initAll,
 
     // Configuration
@@ -136,8 +141,10 @@ export {
     ANTSAND,
     AntsandTabs,
     AntsandTable,
+    AntsandCarousel,
     initAllTabs,
     initAllTables,
+    initAllCarousels,
     initAll
 };
 

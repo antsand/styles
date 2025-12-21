@@ -102,3 +102,185 @@
         flex: 1;
     }
 }
+
+// ============================================
+// FEATURE-BASED TABS ACTIVATION
+// ============================================
+// Activates tabs mode on any template via data attributes:
+// - data-feature="tabs"           : Primary (auto-populated by volt from CSS config)
+// - data-tabs="true"              : Explicit flag
+// - data-tabs-variant="pills"     : Optional variant (pills, underline, vertical, boxed, steps)
+// - data-section-index="{n}"      : Section identifier for targeting
+//
+// These selectors apply base tabs styling when activated via data attributes
+
+[data-feature="tabs"],
+[data-tabs="true"] {
+    // Base tabs structure
+    .tabs-header {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $antsand-space-2;
+        border-bottom: 2px solid $antsand-gray-200;
+        margin-bottom: $antsand-space-4;
+    }
+
+    .tabs-item {
+        padding: $antsand-space-3 $antsand-space-4;
+        font-weight: $antsand-font-weight-medium;
+        color: $antsand-gray-600;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid transparent;
+        cursor: pointer;
+        transition: all $antsand-transition-base;
+        margin-bottom: -2px;
+
+        &:hover {
+            color: $antsand-primary;
+        }
+
+        &.active {
+            color: $antsand-primary;
+            border-bottom-color: $antsand-primary;
+        }
+    }
+
+    .tabs-content {
+        display: none;
+
+        &.active {
+            display: block;
+            animation: fadeIn $antsand-transition-base ease-in;
+        }
+    }
+}
+
+// Variant: Pills (data-tabs-variant="pills")
+[data-tabs-variant="pills"] {
+    .tabs-header {
+        border-bottom: none;
+    }
+
+    .tabs-item {
+        border-radius: $antsand-radius-md;
+        border-bottom: none;
+
+        &.active {
+            background: linear-gradient(135deg, $antsand-primary, darken($antsand-primary, 10%));
+            color: white;
+        }
+    }
+}
+
+// Variant: Underline (data-tabs-variant="underline")
+[data-tabs-variant="underline"] {
+    .tabs-header {
+        border-bottom: 1px solid $antsand-gray-200;
+    }
+
+    .tabs-item {
+        border-bottom: 3px solid transparent;
+        padding-bottom: $antsand-space-3;
+
+        &.active {
+            border-bottom-color: $antsand-primary;
+        }
+    }
+}
+
+// Variant: Vertical (data-tabs-variant="vertical")
+[data-tabs-variant="vertical"] {
+    display: flex;
+    gap: $antsand-space-4;
+
+    .tabs-header {
+        flex-direction: column;
+        border-bottom: none;
+        border-right: 2px solid $antsand-gray-200;
+        margin-bottom: 0;
+        padding-right: $antsand-space-4;
+    }
+
+    .tabs-item {
+        border-bottom: none;
+        border-right: 2px solid transparent;
+        margin-right: -2px;
+        text-align: left;
+
+        &.active {
+            border-right-color: $antsand-primary;
+        }
+    }
+
+    .tabs-content-wrapper {
+        flex: 1;
+    }
+}
+
+// Variant: Boxed (data-tabs-variant="boxed")
+[data-tabs-variant="boxed"] {
+    .tabs-header {
+        border-bottom: none;
+        background: $antsand-gray-100;
+        padding: $antsand-space-1;
+        border-radius: $antsand-radius-md;
+    }
+
+    .tabs-item {
+        border-radius: $antsand-radius-sm;
+        border-bottom: none;
+
+        &.active {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+// Variant: Steps (data-tabs-variant="steps")
+[data-tabs-variant="steps"] {
+    .tabs-header {
+        border-bottom: none;
+        justify-content: space-between;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: $antsand-gray-200;
+            z-index: 0;
+        }
+    }
+
+    .tabs-item {
+        position: relative;
+        z-index: 1;
+        background: white;
+        border: 2px solid $antsand-gray-300;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: $antsand-font-weight-bold;
+
+        &.active {
+            background: $antsand-primary;
+            border-color: $antsand-primary;
+            color: white;
+        }
+
+        &.completed {
+            background: $antsand-success;
+            border-color: $antsand-success;
+            color: white;
+        }
+    }
+}

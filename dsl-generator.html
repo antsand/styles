@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTSAND DSL Generator - Quick Test Tool</title>
+    <link rel="stylesheet" href="css/antsand-v2.css">
+    <link rel="stylesheet" href="css/antsand-v2-fonts.css">
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --dark: #1a202c;
+            --light: #f7fafc;
+            --gray: #718096;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Graphik', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            background: var(--light);
+            min-height: 100vh;
+        }
+
+        .generator-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .generator-header h1 {
+            margin: 0 0 0.5rem;
+            font-size: 2rem;
+        }
+
+        .generator-header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .generator-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .generator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .panel-header {
+            background: var(--dark);
+            color: white;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-header h2 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .panel-body {
+            padding: 1.5rem;
+        }
+
+        /* Prompt Input */
+        .prompt-input {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            transition: border-color 0.2s;
+        }
+
+        .prompt-input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Quick Templates */
+        .quick-templates {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .quick-btn {
+            padding: 0.5rem 1rem;
+            background: #edf2f7;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .quick-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .quick-btn.feature {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .quick-btn.feature:hover {
+            background: #48bb78;
+            color: white;
+        }
+
+        /* Feature Toggle */
+        .feature-toggles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .feature-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-toggle input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .feature-toggle label {
+            font-size: 0.875rem;
+            color: var(--dark);
+        }
+
+        .feature-toggle select {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        /* Generate Button */
+        .generate-btn {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        /* DSL Output */
+        .dsl-output {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            max-height: 400px;
+            overflow: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .dsl-output .key { color: #90cdf4; }
+        .dsl-output .string { color: #68d391; }
+        .dsl-output .number { color: #f6ad55; }
+        .dsl-output .boolean { color: #fc8181; }
+
+        /* Copy Button */
+        .copy-btn {
+            padding: 0.5rem 1rem;
+            background: #48bb78;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .copy-btn:hover {
+            background: #38a169;
+        }
+
+        /* Preview Panel */
+        .preview-frame {
+            width: 100%;
+            min-height: 500px;
+            border: none;
+            background: white;
+        }
+
+        /* Tabs for output/preview */
+        .output-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .output-tab {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            font-size: 0.875rem;
+            color: var(--gray);
+            transition: all 0.2s;
+        }
+
+        .output-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .output-content {
+            display: none;
+        }
+
+        .output-content.active {
+            display: block;
+        }
+
+        /* Examples */
+        .examples-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .examples-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: #f7fafc;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .examples-list li:hover {
+            background: #edf2f7;
+        }
+
+        .examples-list li strong {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--dark);
+        }
+
+        .examples-list li span {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+    </style>
+</head>
+<body>
+    <header class="generator-header">
+        <h1>ANTSAND DSL Generator</h1>
+        <p>Describe your webpage and generate DSL JSON instantly</p>
+    </header>
+
+    <div class="generator-container">
+        <!-- Input Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Describe Your Section</h2>
+            </div>
+            <div class="panel-body">
+                <textarea class="prompt-input" id="promptInput" placeholder="Example: Create a hero section with a gradient background, headline 'Welcome to ANTSAND', description about web development, and a 'Get Started' button..."></textarea>
+
+                <div class="quick-templates">
+                    <button class="quick-btn" onclick="setPrompt('hero')">Hero Section</button>
+                    <button class="quick-btn" onclick="setPrompt('features')">Features Grid</button>
+                    <button class="quick-btn" onclick="setPrompt('pricing')">Pricing Table</button>
+                    <button class="quick-btn" onclick="setPrompt('testimonials')">Testimonials</button>
+                    <button class="quick-btn" onclick="setPrompt('footer')">Footer</button>
+                    <button class="quick-btn" onclick="setPrompt('blog')">Blog Cards</button>
+                </div>
+
+                <div class="feature-toggles">
+                    <div class="feature-toggle">
+                        <input type="checkbox" id="featureCarousel">
+                        <label for="featureCarousel">Carousel</label>
+                        <select id="carouselVariant">
+                            <option value="">slide</option>
+                            <option value="cards">cards</option>
+                            <option value="fade">fade</option>
+                        </select>
+                    </div>
+
+                    <div class="feature-toggle">
+                        <input type="checkbox" id="featureTabs">
+                        <label for="featureTabs">Tabs</label>
+                        <select id="tabsVariant">
+                            <option value="">default</option>
+                            <option value="pills">pills</option>
+                            <option value="underline">underline</option>
+                            <option value="vertical">vertical</option>
+                            <option value="steps">steps</option>
+                        </select>
+                    </div>
+
+                    <div class="feature-toggle">
+                        <input type="checkbox" id="featureAccordion">
+                        <label for="featureAccordion">Accordion</label>
+                    </div>
+                </div>
+
+                <button class="generate-btn" onclick="generateDSL()">Generate DSL</button>
+
+                <h3 style="margin-top: 2rem; font-size: 0.9rem; color: var(--gray);">Example Prompts</h3>
+                <ul class="examples-list">
+                    <li onclick="loadExample('carousel-testimonials')">
+                        <strong>Testimonial Carousel</strong>
+                        <span>Customer reviews in a sliding carousel with cards variant</span>
+                    </li>
+                    <li onclick="loadExample('tabs-features')">
+                        <strong>Tabbed Features</strong>
+                        <span>Product features organized in pills tabs</span>
+                    </li>
+                    <li onclick="loadExample('accordion-faq')">
+                        <strong>FAQ Accordion</strong>
+                        <span>Frequently asked questions in collapsible sections</span>
+                    </li>
+                    <li onclick="loadExample('hero-gradient')">
+                        <strong>Gradient Hero</strong>
+                        <span>Bold landing page hero with CTA button</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Output Panel -->
+        <div class="panel">
+            <div class="panel-header">
+                <h2>Generated Output</h2>
+                <button class="copy-btn" onclick="copyDSL()">Copy JSON</button>
+            </div>
+            <div class="panel-body">
+                <div class="output-tabs">
+                    <button class="output-tab active" onclick="showTab('dsl')">DSL JSON</button>
+                    <button class="output-tab" onclick="showTab('css')">CSS Config</button>
+                    <button class="output-tab" onclick="showTab('data')">Sample Data</button>
+                </div>
+
+                <div id="dslOutput" class="output-content active">
+                    <pre class="dsl-output" id="dslCode">// Generated DSL will appear here...</pre>
+                </div>
+
+                <div id="cssOutput" class="output-content">
+                    <pre class="dsl-output" id="cssCode">// CSS config will appear here...</pre>
+                </div>
+
+                <div id="dataOutput" class="output-content">
+                    <pre class="dsl-output" id="dataCode">// Sample data will appear here...</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Quick prompt templates
+        const promptTemplates = {
+            hero: "Create a hero section with gradient background (purple to blue), main headline 'Build Amazing Websites', subtitle about modern web development, and a 'Get Started' CTA button.",
+            features: "Create a 3-column features grid with: 1) Lightning Fast - performance optimization, 2) Secure - enterprise security, 3) Easy to Use - intuitive interface. Each with icons.",
+            pricing: "Create a 3-tier pricing table: Basic ($9/mo), Pro ($29/mo - popular), Enterprise ($99/mo). Each with 5 features and a CTA button.",
+            testimonials: "Create customer testimonials section with 3 reviews from: John D. (CEO), Sarah M. (Designer), Mike R. (Developer). Include profile photos and company names.",
+            footer: "Create a 4-column footer with: About Us, Quick Links, Services, Contact. Include social media icons and copyright.",
+            blog: "Create a blog cards grid with 3 articles about web development, design trends, and productivity. Include thumbnail, title, excerpt, author, and date."
+        };
+
+        // Example configurations
+        const examples = {
+            'carousel-testimonials': {
+                prompt: "Customer testimonials carousel with 4 reviews. Each has photo, quote, name, and company.",
+                feature: 'carousel',
+                variant: 'cards'
+            },
+            'tabs-features': {
+                prompt: "Product features in 4 tabs: Overview, Performance, Security, Pricing. Each tab has title, description, and image.",
+                feature: 'tabs',
+                variant: 'pills'
+            },
+            'accordion-faq': {
+                prompt: "FAQ section with 5 questions about pricing, features, support, integrations, and getting started.",
+                feature: 'accordion',
+                variant: ''
+            },
+            'hero-gradient': {
+                prompt: "Bold hero with purple gradient, headline 'Transform Your Business', subheadline about digital solutions, and two CTAs: 'Start Free Trial' and 'Watch Demo'.",
+                feature: null,
+                variant: ''
+            }
+        };
+
+        function setPrompt(type) {
+            document.getElementById('promptInput').value = promptTemplates[type];
+        }
+
+        function loadExample(id) {
+            const example = examples[id];
+            document.getElementById('promptInput').value = example.prompt;
+
+            // Reset all checkboxes
+            document.getElementById('featureCarousel').checked = false;
+            document.getElementById('featureTabs').checked = false;
+            document.getElementById('featureAccordion').checked = false;
+
+            // Set the appropriate feature
+            if (example.feature === 'carousel') {
+                document.getElementById('featureCarousel').checked = true;
+                document.getElementById('carouselVariant').value = example.variant;
+            } else if (example.feature === 'tabs') {
+                document.getElementById('featureTabs').checked = true;
+                document.getElementById('tabsVariant').value = example.variant;
+            } else if (example.feature === 'accordion') {
+                document.getElementById('featureAccordion').checked = true;
+            }
+        }
+
+        function showTab(tab) {
+            document.querySelectorAll('.output-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.output-content').forEach(c => c.classList.remove('active'));
+
+            document.querySelector(`.output-tab[onclick="showTab('${tab}')"]`).classList.add('active');
+            document.getElementById(tab + 'Output').classList.add('active');
+        }
+
+        function generateDSL() {
+            const prompt = document.getElementById('promptInput').value;
+            const isCarousel = document.getElementById('featureCarousel').checked;
+            const isTabs = document.getElementById('featureTabs').checked;
+            const isAccordion = document.getElementById('featureAccordion').checked;
+            const carouselVariant = document.getElementById('carouselVariant').value;
+            const tabsVariant = document.getElementById('tabsVariant').value;
+
+            // Determine feature
+            let feature = null;
+            if (isCarousel) {
+                feature = carouselVariant ? `carousel-${carouselVariant}` : 'carousel';
+            } else if (isTabs) {
+                feature = tabsVariant ? `tabs-${tabsVariant}` : 'tabs';
+            } else if (isAccordion) {
+                feature = 'accordion';
+            }
+
+            // Parse prompt and generate DSL
+            const dsl = generateFromPrompt(prompt, feature);
+
+            // Display outputs
+            document.getElementById('dslCode').innerHTML = syntaxHighlight(JSON.stringify(dsl, null, 2));
+            document.getElementById('cssCode').innerHTML = syntaxHighlight(JSON.stringify(dsl.css || {}, null, 2));
+            document.getElementById('dataCode').innerHTML = syntaxHighlight(JSON.stringify(dsl.sample_data || {}, null, 2));
+        }
+
+        function generateFromPrompt(prompt, feature) {
+            const lowerPrompt = prompt.toLowerCase();
+
+            // Detect section type from prompt
+            let sectionType = 'generic';
+            if (lowerPrompt.includes('hero')) sectionType = 'hero';
+            else if (lowerPrompt.includes('feature')) sectionType = 'features';
+            else if (lowerPrompt.includes('pricing')) sectionType = 'pricing';
+            else if (lowerPrompt.includes('testimonial') || lowerPrompt.includes('review')) sectionType = 'testimonials';
+            else if (lowerPrompt.includes('footer')) sectionType = 'footer';
+            else if (lowerPrompt.includes('blog') || lowerPrompt.includes('article')) sectionType = 'blog';
+            else if (lowerPrompt.includes('faq') || lowerPrompt.includes('question')) sectionType = 'faq';
+
+            // Extract content hints from prompt
+            const hasGradient = lowerPrompt.includes('gradient');
+            const hasImage = lowerPrompt.includes('image') || lowerPrompt.includes('photo');
+            const hasCTA = lowerPrompt.includes('cta') || lowerPrompt.includes('button');
+
+            // Generate base DSL structure
+            const dsl = {
+                template_id: `${sectionType}-${Date.now()}`,
+                template_name: `${capitalize(sectionType)} Section`,
+                phalcon_template: "/antsand_bootstrap/project/common_views/services_products/service_3_modern.volt",
+
+                css: {
+                    header: {
+                        section: {
+                            css_class: "antsand-section py-16",
+                            css_styles: {
+                                style: hasGradient ? "background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" : "background: #f7fafc;"
+                            }
+                        },
+                        container: {
+                            css_class: "antsand-container"
+                        },
+                        h1: {
+                            css_class: hasGradient ? "text-4xl font-bold text-white mb-4" : "text-4xl font-bold text-gray-900 mb-4"
+                        },
+                        p: {
+                            css_class: hasGradient ? "text-lg text-white/80 mb-6" : "text-lg text-gray-600 mb-6"
+                        }
+                    },
+                    data: {
+                        container: {
+                            css_class: getContainerClass(sectionType)
+                        },
+                        sub_container: {
+                            css_class: getCardClass(sectionType)
+                        },
+                        h3: {
+                            css_class: "text-xl font-semibold mb-2"
+                        },
+                        p: {
+                            css_class: "text-gray-600"
+                        }
+                    }
+                },
+
+                sample_data: generateSampleData(sectionType, prompt)
+            };
+
+            // Add feature if specified
+            if (feature) {
+                dsl.css.data.feature = feature;
+            }
+
+            // Add CTA styling if detected
+            if (hasCTA) {
+                dsl.css.data.cta = {
+                    css_class: hasGradient ? "btn bg-white text-purple-600 px-6 py-3 rounded-lg font-semibold" : "btn bg-primary text-white px-6 py-3 rounded-lg font-semibold"
+                };
+            }
+
+            return dsl;
+        }
+
+        function getContainerClass(type) {
+            switch(type) {
+                case 'hero': return 'antsand-container flex items-center';
+                case 'features': return 'antsand-container antsand-grid-3 gap-8';
+                case 'pricing': return 'antsand-container antsand-grid-3 gap-6';
+                case 'testimonials': return 'antsand-container antsand-grid-3 gap-6';
+                case 'blog': return 'antsand-container antsand-grid-3 gap-8';
+                case 'footer': return 'antsand-container antsand-grid-4 gap-8';
+                default: return 'antsand-container';
+            }
+        }
+
+        function getCardClass(type) {
+            switch(type) {
+                case 'features': return 'antsand-card p-6 text-center';
+                case 'pricing': return 'antsand-card p-8 text-center hover:shadow-lg transition-shadow';
+                case 'testimonials': return 'antsand-card p-6';
+                case 'blog': return 'antsand-card overflow-hidden';
+                default: return 'p-4';
+            }
+        }
+
+        function generateSampleData(type, prompt) {
+            const baseData = {
+                header: {
+                    h1: extractHeadline(prompt) || getDefaultHeadline(type),
+                    p: extractDescription(prompt) || getDefaultDescription(type)
+                },
+                data: []
+            };
+
+            // Generate appropriate sample items
+            switch(type) {
+                case 'features':
+                    baseData.data = [
+                        { title: "Lightning Fast", description: "Optimized for maximum performance", img_src: "/icons/lightning.svg" },
+                        { title: "Secure", description: "Enterprise-grade security built-in", img_src: "/icons/shield.svg" },
+                        { title: "Easy to Use", description: "Intuitive interface for everyone", img_src: "/icons/puzzle.svg" }
+                    ];
+                    break;
+                case 'testimonials':
+                    baseData.data = [
+                        { title: "Amazing product!", description: "This has transformed our workflow completely.", h4: "John Doe", span: "CEO, TechCorp", img_src: "/avatars/john.jpg" },
+                        { title: "Highly recommended", description: "The best tool we've ever used for web development.", h4: "Sarah Smith", span: "Designer, Creative Co", img_src: "/avatars/sarah.jpg" },
+                        { title: "Game changer", description: "Saved us hundreds of hours on projects.", h4: "Mike Johnson", span: "Developer, StartupXYZ", img_src: "/avatars/mike.jpg" }
+                    ];
+                    break;
+                case 'pricing':
+                    baseData.data = [
+                        { title: "Basic", h2: "$9", span: "/month", description: "Perfect for individuals", features: ["5 Projects", "1GB Storage", "Email Support"] },
+                        { title: "Pro", h2: "$29", span: "/month", description: "Best for teams", features: ["Unlimited Projects", "10GB Storage", "Priority Support", "API Access"] },
+                        { title: "Enterprise", h2: "$99", span: "/month", description: "For large organizations", features: ["Everything in Pro", "Custom Integrations", "Dedicated Support", "SLA Guarantee", "White Label"] }
+                    ];
+                    break;
+                case 'blog':
+                    baseData.data = [
+                        { title: "Getting Started with ANTSAND", description: "Learn the basics of our DSL system...", img_src: "/blog/getting-started.jpg", span: "Dec 20, 2025", h4: "John Author" },
+                        { title: "Advanced Styling Techniques", description: "Take your designs to the next level...", img_src: "/blog/styling.jpg", span: "Dec 18, 2025", h4: "Sarah Writer" },
+                        { title: "Building Interactive Components", description: "Create carousels, tabs, and more...", img_src: "/blog/components.jpg", span: "Dec 15, 2025", h4: "Mike Dev" }
+                    ];
+                    break;
+                case 'faq':
+                    baseData.data = [
+                        { accordian_title: "What is ANTSAND?", description: "ANTSAND is a powerful DSL system for building websites without traditional coding." },
+                        { accordian_title: "How do I get started?", description: "Simply describe your page in natural language and our system generates the code." },
+                        { accordian_title: "Is there a free trial?", description: "Yes! You can try all features free for 14 days." }
+                    ];
+                    break;
+                default:
+                    baseData.data = [
+                        { title: "Item 1", description: "Description for item 1" },
+                        { title: "Item 2", description: "Description for item 2" },
+                        { title: "Item 3", description: "Description for item 3" }
+                    ];
+            }
+
+            return baseData;
+        }
+
+        function extractHeadline(prompt) {
+            // Try to extract quoted text as headline
+            const match = prompt.match(/['"]([^'"]+)['"]/);
+            return match ? match[1] : null;
+        }
+
+        function extractDescription(prompt) {
+            // Extract text after "about" or "describing"
+            const match = prompt.match(/(?:about|describing|subtitle)\s+(.+?)(?:\.|,|and)/i);
+            return match ? match[1] : null;
+        }
+
+        function getDefaultHeadline(type) {
+            const headlines = {
+                hero: "Build Something Amazing",
+                features: "Why Choose Us",
+                pricing: "Simple, Transparent Pricing",
+                testimonials: "What Our Customers Say",
+                blog: "Latest Articles",
+                footer: "Company Name",
+                faq: "Frequently Asked Questions"
+            };
+            return headlines[type] || "Section Title";
+        }
+
+        function getDefaultDescription(type) {
+            const descriptions = {
+                hero: "Create stunning websites with our powerful platform.",
+                features: "Everything you need to build modern web experiences.",
+                pricing: "Choose the plan that fits your needs.",
+                testimonials: "Join thousands of satisfied customers.",
+                blog: "Insights, tutorials, and updates.",
+                faq: "Find answers to common questions."
+            };
+            return descriptions[type] || "Section description goes here.";
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function syntaxHighlight(json) {
+            return json
+                .replace(/("[\w_-]+"):/g, '<span class="key">$1</span>:')
+                .replace(/: "([^"]*)"/g, ': <span class="string">"$1"</span>')
+                .replace(/: (\d+)/g, ': <span class="number">$1</span>')
+                .replace(/: (true|false)/g, ': <span class="boolean">$1</span>');
+        }
+
+        function copyDSL() {
+            const activeContent = document.querySelector('.output-content.active pre');
+            const text = activeContent.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy JSON', 2000);
+            });
+        }
+    </script>
+</body>
+</html>

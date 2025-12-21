@@ -421,3 +421,226 @@
     background: #667eea;
   }
 }
+
+// ============================================
+// Universal Carousel Feature
+// Activates carousel mode on any template via data attributes:
+// - data-feature="carousel"        : Primary (auto-populated by volt from CSS config)
+// - data-carousel="true"           : Explicit flag
+// - data-carousel-variant="cards"  : Optional variant (cards, fade, cover)
+// - data-section-index="{n}"       : Section identifier for targeting
+//
+// Legacy class support: feature-carousel-{n}
+// Structure: data-container > data-track > data-sub-container (items)
+// ============================================
+
+// ============================================
+// LAYOUT-CAROUSEL CLASS (auto-added by volt)
+// ============================================
+// When carousel feature is enabled, volt adds:
+// - .layout-carousel (base)
+// - .layout-carousel-cards (variant)
+// - .layout-carousel-fade (variant)
+// This provides clean CSS without !important overrides
+
+.layout-carousel {
+  position: relative;
+  overflow: hidden;
+  display: block; // Override any grid
+
+  // The data-track is the sliding container
+  .data-track,
+  [data-track] {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+
+    // Each child of data-track becomes a carousel item
+    > * {
+      min-width: 100%;
+      flex: 0 0 100%;
+      flex-shrink: 0;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  // Also support .carousel-item class directly
+  .carousel-item {
+    min-width: 100%;
+    flex: 0 0 100%;
+    flex-shrink: 0;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  // Carousel Controls
+  .carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    pointer-events: none;
+    z-index: 10;
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      border: none;
+      background: rgba(45, 55, 72, 0.85);
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      pointer-events: auto;
+      backdrop-filter: blur(4px);
+
+      &:hover {
+        background: rgba(26, 32, 44, 0.95);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // Carousel Indicators
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    margin-top: 1rem;
+
+    .carousel-indicator {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: #cbd5e0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      padding: 0;
+
+      &:hover {
+        background: #a0aec0;
+      }
+
+      &.active {
+        background: #667eea;
+        width: 2rem;
+        border-radius: 0.375rem;
+      }
+    }
+  }
+}
+
+// Cards variant - shows multiple items
+.layout-carousel-cards {
+  overflow: visible;
+
+  .data-track,
+  [data-track] {
+    gap: 1.5rem;
+  }
+
+  .carousel-item,
+  > .data-track > * {
+    min-width: calc(33.333% - 1rem);
+    flex: 0 0 calc(33.333% - 1rem);
+    border-radius: 0.75rem;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      min-width: 100%;
+      flex: 0 0 100%;
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      min-width: calc(50% - 0.75rem);
+      flex: 0 0 calc(50% - 0.75rem);
+    }
+  }
+}
+
+// Fade variant - crossfade transition
+.layout-carousel-fade {
+  .data-track,
+  [data-track] {
+    position: relative;
+  }
+
+  .carousel-item,
+  > .data-track > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    &.active {
+      opacity: 1;
+      position: relative;
+    }
+  }
+}
+
+// Cover variant - full width hero style
+.layout-carousel-cover {
+  .carousel-item,
+  > .data-track > * {
+    min-height: 60vh;
+  }
+}
+
+// ============================================
+// LEGACY SUPPORT - data attributes & classes
+// ============================================
+// Keep these for backward compatibility with old implementations
+[data-feature="carousel"],
+[data-carousel="true"],
+[class*="feature-carousel-"] {
+  @extend .layout-carousel;
+}
+
+[data-carousel-variant="cards"],
+.carousel-cards {
+  @extend .layout-carousel-cards;
+}
+
+[data-carousel-variant="fade"],
+.carousel-fade {
+  @extend .layout-carousel-fade;
+}
+
+// ============================================
+// Mobile Responsive
+// ============================================
+@media (max-width: 640px) {
+  .layout-carousel {
+    .carousel-controls {
+      padding: 0 0.5rem;
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+      }
+    }
+
+    .carousel-indicators {
+      margin-top: 0.5rem;
+      padding: 0.5rem 0;
+    }
+  }
+}
