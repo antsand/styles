@@ -82,8 +82,18 @@
     }
 
     > * {
-        flex: 0 0 320px;
+        // Responsive: 3 cards on desktop, 2 on tablet, 1 on mobile
+        flex: 0 0 calc(33.333% - 1rem);
+        min-width: 280px; // Minimum readable width
         scroll-snap-align: start;
+
+        @media (max-width: 1024px) {
+            flex: 0 0 calc(50% - 0.75rem);
+        }
+
+        @media (max-width: 640px) {
+            flex: 0 0 calc(100% - 1rem);
+        }
     }
 
     &.profileposts-carousel-scrollbar {
@@ -296,7 +306,7 @@
 // =============================================================================
 
 .profileposts-note {
-    flex: 0 0 320px;
+    // Width inherited from parent carousel/grid
     scroll-snap-align: start;
     background-color: #fafafa;
     border: 1px solid #e5e5e5;
@@ -351,7 +361,6 @@
     }
 
     @media (max-width: 576px) {
-        flex: 0 0 280px;
         padding: 1.5rem;
     }
 }
@@ -361,7 +370,7 @@
 // =============================================================================
 
 .profileposts-article {
-    flex: 0 0 340px;
+    // Width inherited from parent carousel/grid
     scroll-snap-align: start;
     background: #fff;
     border: 1px solid #e5e5e5;
@@ -410,7 +419,6 @@
     }
 
     @media (max-width: 576px) {
-        flex: 0 0 280px;
         padding: 1.5rem;
     }
 }
@@ -420,7 +428,7 @@
 // =============================================================================
 
 .profileposts-visual {
-    flex: 0 0 360px;
+    // Width inherited from parent carousel/grid
     scroll-snap-align: start;
     background: #fff;
     border: 1px solid #e5e5e5;
@@ -484,10 +492,6 @@
     .data-author-info .data-date {
         font-size: 0.8rem;
         color: #6c757d;
-    }
-
-    @media (max-width: 576px) {
-        flex: 0 0 280px;
     }
 }
 

@@ -1,0 +1,330 @@
+// =============================================================================
+// POST DETAIL - Social Media Card Style
+// =============================================================================
+// Individual post/micro-log detail page styling
+// Inspired by modern social media card designs
+// =============================================================================
+
+// Variables
+$post-card-border: #e5e7eb !default;
+$post-card-bg: #ffffff !default;
+$post-text-primary: #1a1a1a !default;
+$post-text-secondary: #6b7280 !default;
+$post-accent: #c74a22 !default;
+
+// =============================================================================
+// Container
+// =============================================================================
+.post-detail-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px 16px;
+}
+
+// =============================================================================
+// Navigation
+// =============================================================================
+.post-detail-nav {
+    margin-bottom: 16px;
+}
+
+.post-detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: $post-text-secondary;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+
+    &:hover {
+        color: $post-accent;
+    }
+
+    svg {
+        flex-shrink: 0;
+    }
+}
+
+// =============================================================================
+// The Card
+// =============================================================================
+.profile-card {
+    border: 1px solid $post-card-border;
+    border-radius: 12px;
+    overflow: hidden;
+    background: $post-card-bg;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+// =============================================================================
+// Card Header - Author Info
+// =============================================================================
+.card-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #f3f4f6;
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: $post-text-secondary;
+    font-size: 1.1rem;
+}
+
+.user-info {
+    min-width: 0; // Allow text truncation
+
+    h4 {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: $post-text-primary;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    span {
+        font-size: 0.85rem;
+        color: $post-text-secondary;
+    }
+}
+
+// =============================================================================
+// Media Section
+// =============================================================================
+.media-container {
+    width: 100%;
+    background: #f9fafb;
+}
+
+.post-media {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+// Video Container (YouTube embeds)
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    height: 0;
+    overflow: hidden;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+}
+
+// =============================================================================
+// Card Body - Content
+// =============================================================================
+.card-body {
+    padding: 16px;
+}
+
+.post-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $post-text-primary;
+    margin-bottom: 12px;
+
+    p {
+        margin: 0 0 0.75em 0;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // Handle long words/links
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+// =============================================================================
+// Tags
+// =============================================================================
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.tag {
+    color: $post-accent;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// =============================================================================
+// Meta (Timestamp)
+// =============================================================================
+.post-meta {
+    font-size: 0.85rem;
+    color: $post-text-secondary;
+}
+
+// =============================================================================
+// Card Footer - Share Actions
+// =============================================================================
+.card-footer {
+    padding: 12px 16px;
+    border-top: 1px solid $post-card-border;
+    display: flex;
+    gap: 16px;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: $post-text-secondary;
+    background: transparent;
+    text-decoration: none;
+    transition: all 0.2s;
+
+    &:hover {
+        color: $post-accent;
+        background: rgba($post-accent, 0.08);
+    }
+
+    svg {
+        flex-shrink: 0;
+    }
+}
+
+// =============================================================================
+// Error State
+// =============================================================================
+.post-detail-error {
+    text-align: center;
+    padding: 60px 24px;
+
+    h2 {
+        color: $post-text-primary;
+        margin-bottom: 8px;
+        font-size: 1.25rem;
+    }
+
+    p {
+        color: $post-text-secondary;
+        margin-bottom: 20px;
+    }
+}
+
+// =============================================================================
+// Mobile Adjustments
+// =============================================================================
+@media (max-width: 480px) {
+    .post-detail-section {
+        padding: 16px 12px;
+    }
+
+    .profile-card {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .card-header {
+        padding: 12px 16px;
+    }
+
+    .card-body {
+        padding: 12px 16px;
+    }
+
+    .card-footer {
+        padding: 10px 16px;
+    }
+}
+
+// =============================================================================
+// Dark Mode Support (Optional)
+// =============================================================================
+@media (prefers-color-scheme: dark) {
+    .profile-card {
+        // Uncomment to enable dark mode
+        // background: #1f2937;
+        // border-color: #374151;
+    }
+}
+
+// =============================================================================
+// POSTS TAG FILTER HEADER
+// =============================================================================
+// Shows when viewing posts filtered by tag (/posts?tag=xxx)
+// =============================================================================
+
+.posts-filter-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.posts-filter-label {
+    color: $post-text-secondary;
+}
+
+.posts-filter-tag {
+    color: $post-accent;
+    font-weight: 600;
+}
+
+.posts-filter-clear {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: $post-text-secondary;
+    text-decoration: none;
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: all 0.2s;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.1);
+        color: $post-text-primary;
+    }
+}

@@ -64,8 +64,8 @@ $blog-transition: all 0.3s ease;
         }
     }
 
-    // Cards grid
-    .data-container {
+    // Cards grid - skip when in carousel mode
+    .data-container:not(.layout-carousel):not(.layout-carousel-cards) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 32px;
@@ -759,12 +759,16 @@ $blog-transition: all 0.3s ease;
 // ============================================
 
 // Blog cards auto-styling (works with existing classes)
-.data-container:has(.blog-card-meta),
-.data-container:has(.blog-card-excerpt) {
+// Note: Skip grid when in carousel mode - carousel CSS handles layout
+.data-container:has(.blog-card-meta):not(.layout-carousel):not(.layout-carousel-cards),
+.data-container:has(.blog-card-excerpt):not(.layout-carousel):not(.layout-carousel-cards) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
+}
 
+.data-container:has(.blog-card-meta),
+.data-container:has(.blog-card-excerpt) {
     .data-sub-container,
     .sub-container {
         background: white;

@@ -137,7 +137,94 @@ class AntsandCarousel {
             this.items.forEach(item => item.classList.add('carousel-item'));
         }
 
+        // Ensure track has a wrapper for proper overflow clipping
+        this.ensureTrackWrapper();
+
         this.init();
+    }
+
+    /**
+     * Ensure the track has a wrapper element for overflow clipping
+     * If no wrapper exists, create one dynamically
+     * Also moves controls into wrapper so they position correctly over the image area
+     */
+    ensureTrackWrapper() {
+        if (!this.track) return;
+
+        // Check if track already has a wrapper
+        const parent = this.track.parentElement;
+        const hasWrapper = parent &&
+            (parent.classList.contains('data-track-wrapper') ||
+             parent.classList.contains('carousel-track-wrapper') ||
+             parent.classList.contains('carousel-body'));
+
+        if (!hasWrapper && parent === this.container) {
+            // Create wrapper and insert track into it
+            const wrapper = document.createElement('div');
+            wrapper.className = 'data-track-wrapper';
+            this.track.parentNode.insertBefore(wrapper, this.track);
+            wrapper.appendChild(this.track);
+            this.trackWrapper = wrapper;
+
+            // Move controls into wrapper if they exist at container level
+            const controls = this.container.querySelector('.carousel-controls');
+            if (controls && controls.parentElement === this.container) {
+                wrapper.appendChild(controls);
+            }
+        } else {
+            this.trackWrapper = parent;
+        }
+
+        // Apply gap from data attribute if specified
+        this.applyTrackGap();
+    }
+
+    /**
+     * Get the gap value for the track
+     * Priority: data-track-gap attribute > CSS gap > default 0
+     * @returns {number} Gap in pixels
+     */
+    getTrackGap() {
+        // 1. Check data-track-gap on track element
+        if (this.track?.dataset.trackGap) {
+            return parseFloat(this.track.dataset.trackGap) || 0;
+        }
+
+        // 2. Check data-carousel-gap on container
+        if (this.container.dataset.carouselGap) {
+            return parseFloat(this.container.dataset.carouselGap) || 0;
+        }
+
+        // 3. Fall back to CSS computed gap
+        if (this.track) {
+            const trackStyle = window.getComputedStyle(this.track);
+            const cssGap = parseFloat(trackStyle.gap) || parseFloat(trackStyle.columnGap) || 0;
+            if (cssGap > 0) return cssGap;
+        }
+
+        // 4. Default: no gap
+        return 0;
+    }
+
+    /**
+     * Apply gap to track element from data attribute
+     * This allows controlling gap via data-track-gap or data-carousel-gap
+     */
+    applyTrackGap() {
+        if (!this.track) return;
+
+        // Get gap from data attributes
+        const gapFromTrack = this.track.dataset.trackGap;
+        const gapFromContainer = this.container.dataset.carouselGap;
+        const gap = gapFromTrack || gapFromContainer;
+
+        if (gap) {
+            // Apply gap as inline style (pixels assumed if no unit)
+            const gapValue = gap.includes('px') || gap.includes('rem') || gap.includes('em')
+                ? gap
+                : `${gap}px`;
+            this.track.style.gap = gapValue;
+        }
     }
 
     init() {
@@ -164,6 +251,10 @@ class AntsandCarousel {
 
         // Set ARIA attributes
         this.setAccessibility();
+
+        // Handle window resize - recalculate positions
+        this.resizeHandler = () => this.updateDisplay();
+        window.addEventListener('resize', this.resizeHandler);
 
         // Mark as initialized
         this.container.dataset.carouselInit = 'true';
@@ -321,8 +412,16 @@ class AntsandCarousel {
     }
 
     updateDisplay() {
-        const isFadeVariant = this.container.classList.contains('antsand-carousel-fade');
-        const isCardsVariant = this.container.classList.contains('antsand-carousel-cards');
+        // Detect variant - check both old class names and new layout-* classes
+        const isFadeVariant = this.container.classList.contains('antsand-carousel-fade') ||
+                              this.container.classList.contains('layout-carousel-fade') ||
+                              this.variant === 'fade';
+        const isCardsVariant = this.container.classList.contains('antsand-carousel-cards') ||
+                               this.container.classList.contains('layout-carousel-cards') ||
+                               this.variant === 'cards';
+        const isCoverVariant = this.container.classList.contains('antsand-carousel-cover') ||
+                               this.container.classList.contains('layout-carousel-cover') ||
+                               this.variant === 'cover';
 
         // Update items
         this.items.forEach((item, index) => {
@@ -331,17 +430,33 @@ class AntsandCarousel {
             item.setAttribute('aria-hidden', !isActive);
         });
 
-        // Update track transform (for slide/cards variants)
+        // Update track transform (for slide/cards/cover variants)
         if (!isFadeVariant && this.track) {
-            if (isCardsVariant) {
-                const itemWidth = this.items[0]?.offsetWidth || 0;
-                const gap = 16;
-                const offset = this.state.currentIndex * (itemWidth + gap);
-                this.track.style.transform = `translateX(-${offset}px)`;
-            } else {
-                const offset = this.state.currentIndex * 100;
-                this.track.style.transform = `translateX(-${offset}%)`;
+            // Get gap from data attribute first, then CSS, then default
+            const gap = this.getTrackGap();
+
+            // Get the actual rendered width of the first item
+            // This works for both full-width slides AND partial-width cards
+            const itemWidth = this.items[0]?.offsetWidth || 0;
+
+            // Calculate slide step: item width + gap
+            const slideStep = itemWidth + gap;
+            const offset = this.state.currentIndex * slideStep;
+
+            // Debug logging
+            if (window.ANTSAND_DEBUG) {
+                console.log('Carousel Debug:', {
+                    itemWidth,
+                    gap,
+                    slideStep,
+                    currentIndex: this.state.currentIndex,
+                    offset,
+                    isCardsVariant,
+                    container: this.container.className
+                });
             }
+
+            this.track.style.transform = `translateX(-${offset}px)`;
         }
 
         // Update indicators
@@ -408,6 +523,9 @@ class AntsandCarousel {
     // Public API: Destroy instance
     destroy() {
         this.stopAutoplay();
+        if (this.resizeHandler) {
+            window.removeEventListener('resize', this.resizeHandler);
+        }
         delete this.container.dataset.carouselInit;
     }
 }

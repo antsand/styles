@@ -1,0 +1,938 @@
+// ============================================
+// ANTSAND Styles v2 - YouTube Video Component
+// Beautiful video embeds, thumbnails, and feeds
+// ============================================
+
+// YouTube-specific variables
+$youtube-red: #FF0000 !default;
+$youtube-dark: #0f0f0f !default;
+$youtube-dark-secondary: #272727 !default;
+$youtube-play-btn-size: 68px !default;
+$youtube-play-btn-size-sm: 48px !default;
+$youtube-duration-bg: rgba(0, 0, 0, 0.8) !default;
+$youtube-thumbnail-ratio: 56.25% !default; // 16:9
+
+// ============================================
+// LAYOUT VARIANTS
+// ============================================
+
+// Grid Layout (for thumbnail views on blog pages)
+.youtubepost-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $antsand-space-4;
+    padding: $antsand-space-3 0;
+
+    @media (max-width: $antsand-breakpoint-md) {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: $antsand-space-3;
+    }
+
+    @media (max-width: $antsand-breakpoint-sm) {
+        grid-template-columns: 1fr;
+        gap: $antsand-space-3;
+    }
+
+    // Compact variant - smaller cards, tighter grid
+    &--compact {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: $antsand-space-3;
+
+        .youtubepost-card {
+            .youtubepost-content {
+                padding: $antsand-space-2 0;
+            }
+
+            .youtubepost-title {
+                font-size: $antsand-font-size-sm;
+                -webkit-line-clamp: 2;
+            }
+        }
+    }
+
+    // Large variant - bigger cards
+    &--large {
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        gap: $antsand-space-5;
+    }
+}
+
+// Carousel Layout (horizontal scrolling)
+.youtubepost-carousel {
+    display: flex;
+    gap: $antsand-space-3;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: $antsand-space-3 0;
+    margin: 0 (-$antsand-space-3);
+    padding-left: $antsand-space-3;
+    padding-right: $antsand-space-3;
+
+    // Hide scrollbar but keep functionality
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .youtubepost-card {
+        flex: 0 0 320px;
+        scroll-snap-align: start;
+
+        @media (max-width: $antsand-breakpoint-md) {
+            flex: 0 0 280px;
+        }
+
+        @media (max-width: $antsand-breakpoint-sm) {
+            flex: 0 0 85vw;
+        }
+    }
+
+    // Carousel with navigation arrows
+    &-wrapper {
+        position: relative;
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: $antsand-gray-100;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: $antsand-shadow-md;
+            z-index: 10;
+            transition: all $antsand-transition-base;
+
+            &:hover {
+                background: white;
+                box-shadow: $antsand-shadow-lg;
+            }
+
+            &--prev {
+                left: -20px;
+            }
+
+            &--next {
+                right: -20px;
+            }
+
+            @media (max-width: $antsand-breakpoint-md) {
+                display: none;
+            }
+        }
+    }
+}
+
+// Feed Layout (infinite scroll / "scroll of doom")
+.youtubepost-feed {
+    display: flex;
+    flex-direction: column;
+    gap: $antsand-space-4;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: $antsand-space-4 $antsand-space-3;
+
+    .youtubepost-card {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: $antsand-space-3;
+        background: white;
+        border-radius: $antsand-radius-lg;
+        overflow: hidden;
+        transition: box-shadow $antsand-transition-base;
+
+        &:hover {
+            box-shadow: $antsand-shadow-md;
+        }
+
+        @media (max-width: $antsand-breakpoint-md) {
+            grid-template-columns: 1fr;
+        }
+
+        .youtubepost-thumbnail-container {
+            aspect-ratio: 16 / 9;
+        }
+
+        .youtubepost-content {
+            padding: $antsand-space-3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .youtubepost-description {
+            display: block;
+            margin-top: $antsand-space-2;
+            color: $antsand-gray-600;
+            font-size: $antsand-font-size-sm;
+            line-height: $antsand-line-height-normal;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+
+    // Loading skeleton for infinite scroll
+    .youtubepost-skeleton {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: $antsand-space-3;
+        background: $antsand-gray-50;
+        border-radius: $antsand-radius-lg;
+        padding: $antsand-space-3;
+
+        @media (max-width: $antsand-breakpoint-md) {
+            grid-template-columns: 1fr;
+        }
+
+        .skeleton-thumbnail {
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(90deg, $antsand-gray-200 25%, $antsand-gray-100 50%, $antsand-gray-200 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.5s infinite;
+            border-radius: $antsand-radius-md;
+        }
+
+        .skeleton-content {
+            display: flex;
+            flex-direction: column;
+            gap: $antsand-space-2;
+
+            .skeleton-line {
+                height: 16px;
+                background: linear-gradient(90deg, $antsand-gray-200 25%, $antsand-gray-100 50%, $antsand-gray-200 75%);
+                background-size: 200% 100%;
+                animation: skeleton-shimmer 1.5s infinite;
+                border-radius: $antsand-radius-sm;
+
+                &--title {
+                    width: 80%;
+                    height: 20px;
+                }
+
+                &--short {
+                    width: 40%;
+                }
+            }
+        }
+    }
+
+    // Load more button
+    .youtubepost-load-more {
+        display: flex;
+        justify-content: center;
+        padding: $antsand-space-4 0;
+
+        button {
+            padding: $antsand-space-2 $antsand-space-5;
+            background: $youtube-red;
+            color: white;
+            border: none;
+            border-radius: $antsand-radius-full;
+            font-size: $antsand-font-size-base;
+            font-weight: $antsand-font-weight-semibold;
+            cursor: pointer;
+            transition: all $antsand-transition-base;
+
+            &:hover {
+                background: darken($youtube-red, 10%);
+                transform: translateY(-2px);
+                box-shadow: $antsand-shadow-md;
+            }
+
+            &:disabled {
+                background: $antsand-gray-400;
+                cursor: not-allowed;
+                transform: none;
+            }
+        }
+    }
+}
+
+@keyframes skeleton-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+// ============================================
+// VIDEO CARD COMPONENT
+// ============================================
+
+.youtubepost-card {
+    background: white;
+    border-radius: $antsand-radius-lg;
+    overflow: hidden;
+    transition: all $antsand-transition-base;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $antsand-shadow-lg;
+
+        .youtubepost-play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 1;
+        }
+
+        .youtubepost-thumbnail img {
+            transform: scale(1.05);
+        }
+    }
+}
+
+// Thumbnail Container
+.youtubepost-thumbnail-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: $youtube-dark;
+}
+
+.youtubepost-thumbnail {
+    width: 100%;
+    height: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $antsand-transition-slow;
+    }
+}
+
+// Play Button Overlay
+.youtubepost-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $youtube-play-btn-size;
+    height: $youtube-play-btn-size;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    transition: all $antsand-transition-base;
+    z-index: 2;
+
+    // YouTube play icon (triangle)
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 12px 0 12px 20px;
+        border-color: transparent transparent transparent white;
+        margin-left: 4px;
+    }
+
+    // Red YouTube style variant
+    &--youtube {
+        background: $youtube-red;
+
+        &:hover {
+            background: darken($youtube-red, 10%);
+        }
+    }
+}
+
+// Duration Badge
+.youtubepost-duration {
+    position: absolute;
+    bottom: $antsand-space-2;
+    right: $antsand-space-2;
+    padding: 2px 6px;
+    background: $youtube-duration-bg;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: $antsand-font-weight-medium;
+    border-radius: $antsand-radius-sm;
+    font-family: $antsand-font-family-mono;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+// Progress Bar (for watch history)
+.youtubepost-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 2;
+
+    &-bar {
+        height: 100%;
+        background: $youtube-red;
+        transition: width $antsand-transition-base;
+    }
+}
+
+// Video Content Section
+.youtubepost-content {
+    padding: $antsand-space-3 0;
+    display: flex;
+    flex-direction: column;
+    gap: $antsand-space-2;
+}
+
+// Channel Info Row
+.youtubepost-channel {
+    display: flex;
+    align-items: flex-start;
+    gap: $antsand-space-2;
+
+    &-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, $youtube-red, darken($youtube-red, 20%));
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &-name {
+        font-size: $antsand-font-size-sm;
+        color: $antsand-gray-600;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &:hover {
+            color: $antsand-gray-800;
+        }
+    }
+}
+
+// Video Title
+.youtubepost-title {
+    font-size: $antsand-font-size-base;
+    font-weight: $antsand-font-weight-semibold;
+    color: $antsand-gray-900;
+    line-height: $antsand-line-height-tight;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: $youtube-red;
+        }
+    }
+}
+
+// Video Stats (views, date)
+.youtubepost-stats {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-gray-600;
+
+    .stat-separator {
+        &::before {
+            content: '\2022'; // bullet point
+        }
+    }
+}
+
+// ============================================
+// VIDEO DETAIL PAGE
+// ============================================
+
+.youtubepost-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $antsand-space-4;
+
+    @media (max-width: $antsand-breakpoint-lg) {
+        padding: $antsand-space-3;
+    }
+}
+
+// Main Player Section
+.youtubepost-player {
+    position: relative;
+    width: 100%;
+    background: $youtube-dark;
+    border-radius: $antsand-radius-lg;
+    overflow: hidden;
+
+    &-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: $youtube-thumbnail-ratio;
+        height: 0;
+
+        iframe,
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+}
+
+// Video Info Section
+.youtubepost-info {
+    padding: $antsand-space-4 0;
+
+    &-title {
+        font-size: $antsand-font-size-xl;
+        font-weight: $antsand-font-weight-bold;
+        color: $antsand-gray-900;
+        line-height: $antsand-line-height-tight;
+        margin: 0 0 $antsand-space-3 0;
+
+        @media (min-width: $antsand-breakpoint-md) {
+            font-size: $antsand-font-size-2xl;
+        }
+    }
+
+    &-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: $antsand-space-4;
+        padding-bottom: $antsand-space-3;
+        border-bottom: 1px solid $antsand-gray-200;
+        margin-bottom: $antsand-space-3;
+    }
+
+    &-stats {
+        display: flex;
+        align-items: center;
+        gap: $antsand-space-4;
+        color: $antsand-gray-600;
+        font-size: $antsand-font-size-sm;
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: $antsand-space-1;
+
+            svg, .icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    &-actions {
+        display: flex;
+        gap: $antsand-space-2;
+        margin-left: auto;
+
+        @media (max-width: $antsand-breakpoint-sm) {
+            width: 100%;
+            margin-left: 0;
+            margin-top: $antsand-space-2;
+        }
+    }
+}
+
+// Action Buttons
+.youtubepost-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $antsand-space-1;
+    padding: $antsand-space-2 $antsand-space-3;
+    background: $antsand-gray-100;
+    border: none;
+    border-radius: $antsand-radius-full;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-medium;
+    color: $antsand-gray-700;
+    cursor: pointer;
+    transition: all $antsand-transition-base;
+
+    &:hover {
+        background: $antsand-gray-200;
+    }
+
+    &--like {
+        &.active {
+            background: rgba($youtube-red, 0.1);
+            color: $youtube-red;
+        }
+    }
+
+    &--share {
+        &:hover {
+            background: $antsand-info;
+            color: white;
+        }
+    }
+}
+
+// Channel Section (in detail view)
+.youtubepost-channel-section {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-3;
+    padding: $antsand-space-3 0;
+    border-bottom: 1px solid $antsand-gray-200;
+
+    .channel-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .channel-info {
+        flex: 1;
+
+        .channel-name {
+            font-size: $antsand-font-size-base;
+            font-weight: $antsand-font-weight-semibold;
+            color: $antsand-gray-900;
+        }
+
+        .channel-subscribers {
+            font-size: $antsand-font-size-sm;
+            color: $antsand-gray-600;
+        }
+    }
+
+    .subscribe-btn {
+        padding: $antsand-space-2 $antsand-space-4;
+        background: $youtube-red;
+        color: white;
+        border: none;
+        border-radius: $antsand-radius-full;
+        font-size: $antsand-font-size-sm;
+        font-weight: $antsand-font-weight-semibold;
+        cursor: pointer;
+        transition: all $antsand-transition-base;
+
+        &:hover {
+            background: darken($youtube-red, 10%);
+        }
+
+        &.subscribed {
+            background: $antsand-gray-200;
+            color: $antsand-gray-700;
+        }
+    }
+}
+
+// Description Section
+.youtubepost-description {
+    padding: $antsand-space-3;
+    background: $antsand-gray-50;
+    border-radius: $antsand-radius-lg;
+    margin-top: $antsand-space-3;
+
+    &-header {
+        display: flex;
+        align-items: center;
+        gap: $antsand-space-3;
+        margin-bottom: $antsand-space-2;
+        font-size: $antsand-font-size-sm;
+        font-weight: $antsand-font-weight-medium;
+        color: $antsand-gray-900;
+    }
+
+    &-text {
+        font-size: $antsand-font-size-sm;
+        color: $antsand-gray-700;
+        line-height: $antsand-line-height-relaxed;
+        white-space: pre-wrap;
+
+        &.collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+
+    &-toggle {
+        display: inline-block;
+        margin-top: $antsand-space-2;
+        font-size: $antsand-font-size-sm;
+        font-weight: $antsand-font-weight-medium;
+        color: $antsand-gray-600;
+        cursor: pointer;
+
+        &:hover {
+            color: $antsand-gray-900;
+        }
+    }
+}
+
+// Tags Section
+.youtubepost-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $antsand-space-2;
+    margin-top: $antsand-space-3;
+
+    .tag {
+        padding: $antsand-space-1 $antsand-space-2;
+        background: $antsand-gray-100;
+        border-radius: $antsand-radius-full;
+        font-size: 0.75rem;
+        color: $antsand-info;
+        text-decoration: none;
+        transition: all $antsand-transition-base;
+
+        &:hover {
+            background: $antsand-info;
+            color: white;
+        }
+    }
+}
+
+// Related Videos Section
+.youtubepost-related {
+    margin-top: $antsand-space-6;
+
+    &-header {
+        font-size: $antsand-font-size-lg;
+        font-weight: $antsand-font-weight-bold;
+        margin-bottom: $antsand-space-4;
+    }
+}
+
+// ============================================
+// VIDEO MODAL (for inline playback)
+// ============================================
+
+.youtubepost-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: $antsand-z-modal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $antsand-space-4;
+    opacity: 0;
+    visibility: hidden;
+    transition: all $antsand-transition-base;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &-content {
+        position: relative;
+        width: 100%;
+        max-width: 1000px;
+        background: $youtube-dark;
+        border-radius: $antsand-radius-lg;
+        overflow: hidden;
+        transform: scale(0.9);
+        transition: transform $antsand-transition-base;
+    }
+
+    &.active &-content {
+        transform: scale(1);
+    }
+
+    &-close {
+        position: absolute;
+        top: -$antsand-space-6;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: $antsand-font-size-xl;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all $antsand-transition-base;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+    }
+
+    &-player {
+        position: relative;
+        width: 100%;
+        padding-bottom: $youtube-thumbnail-ratio;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    &-info {
+        padding: $antsand-space-3;
+        background: $youtube-dark-secondary;
+        color: white;
+
+        .modal-title {
+            font-size: $antsand-font-size-lg;
+            font-weight: $antsand-font-weight-semibold;
+            margin-bottom: $antsand-space-2;
+        }
+
+        .modal-channel {
+            font-size: $antsand-font-size-sm;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+}
+
+// ============================================
+// DARK THEME
+// ============================================
+
+.youtubepost--dark,
+[data-theme="dark"] {
+    .youtubepost-card {
+        background: $youtube-dark-secondary;
+
+        .youtubepost-title {
+            color: white;
+        }
+
+        .youtubepost-channel-name,
+        .youtubepost-stats {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .youtubepost-grid,
+    .youtubepost-carousel,
+    .youtubepost-feed {
+        background: $youtube-dark;
+    }
+
+    .youtubepost-description {
+        background: $youtube-dark-secondary;
+        color: rgba(255, 255, 255, 0.9);
+
+        &-text {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+}
+
+// ============================================
+// ANIMATION CLASSES
+// ============================================
+
+// Fade in animation for lazy loading
+.youtubepost-fade-in {
+    animation: youtubepost-fade 0.5s ease forwards;
+}
+
+@keyframes youtubepost-fade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Staggered animation for grid items
+.youtubepost-stagger {
+    .youtubepost-card {
+        opacity: 0;
+        animation: youtubepost-fade 0.5s ease forwards;
+
+        @for $i from 1 through 12 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{$i * 0.1}s;
+            }
+        }
+    }
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+// Hide on various screens
+.youtubepost-hide-mobile {
+    @media (max-width: $antsand-breakpoint-sm) {
+        display: none !important;
+    }
+}
+
+.youtubepost-hide-tablet {
+    @media (max-width: $antsand-breakpoint-md) {
+        display: none !important;
+    }
+}
+
+// Text utilities
+.youtubepost-text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Aspect ratio containers
+.youtubepost-aspect-16-9 {
+    aspect-ratio: 16 / 9;
+}
+
+.youtubepost-aspect-4-3 {
+    aspect-ratio: 4 / 3;
+}
+
+.youtubepost-aspect-1-1 {
+    aspect-ratio: 1 / 1;
+}

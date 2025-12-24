@@ -445,16 +445,69 @@
 
 .layout-carousel {
   position: relative;
-  overflow: hidden;
-  display: block; // Override any grid
+  display: block !important; // Override any grid/flex from parent selectors
 
-  // The data-track is the sliding container
+  // Track wrapper provides the overflow clipping
+  // This allows the track to transform inside while being clipped
+  .data-track-wrapper,
+  .carousel-track-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%; // Ensure wrapper takes full width of container
+
+    // Controls should be positioned within the track wrapper (over images)
+    .carousel-controls {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      pointer-events: none;
+      z-index: 10;
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: none;
+        background: rgba(45, 55, 72, 0.85);
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        pointer-events: auto;
+        backdrop-filter: blur(4px);
+
+        &:hover {
+          background: rgba(26, 32, 44, 0.95);
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  // The data-track is the sliding container - transforms for sliding
+  // Gap can be controlled via:
+  // 1. data-track-gap="32" on data-track element (JS applies it)
+  // 2. data-carousel-gap="32" on container (JS applies it)
+  // 3. CSS gap property (fallback)
   .data-track,
   [data-track] {
     display: flex;
     flex-wrap: nowrap;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
+    // Default gap - can be overridden by data attributes or inline styles
+    gap: 0;
 
     // Each child of data-track becomes a carousel item
     > * {
@@ -466,6 +519,7 @@
     }
   }
 
+
   // Also support .carousel-item class directly
   .carousel-item {
     min-width: 100%;
@@ -475,51 +529,16 @@
     transition: opacity 0.3s ease;
   }
 
-  // Carousel Controls
-  .carousel-controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    padding: 0 1rem;
-    pointer-events: none;
-    z-index: 10;
-
-    .carousel-control-prev,
-    .carousel-control-next {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      border: none;
-      background: rgba(45, 55, 72, 0.85);
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
-      pointer-events: auto;
-      backdrop-filter: blur(4px);
-
-      &:hover {
-        background: rgba(26, 32, 44, 0.95);
-        transform: scale(1.1);
-      }
-    }
-  }
-
-  // Carousel Indicators
+  // Carousel Indicators - positioned below the carousel (outside overflow area)
   .carousel-indicators {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
     padding: 1rem 0;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    position: relative;
+    z-index: 5;
 
     .carousel-indicator {
       width: 0.75rem;
@@ -541,33 +560,73 @@
         border-radius: 0.375rem;
       }
     }
+
+    // Brand red variant (shivasnotes)
+    &.carousel-indicators-brand,
+    &.carousel-indicators-red {
+      .carousel-indicator {
+        &:hover {
+          background: #e8a090;
+        }
+
+        &.active {
+          background: #c74a22;
+        }
+      }
+    }
+  }
+
+  // Parent-level brand variant - add .carousel-brand to the carousel container
+  &.carousel-brand,
+  &.carousel-red {
+    .carousel-indicators .carousel-indicator {
+      &:hover {
+        background: #e8a090;
+      }
+
+      &.active {
+        background: #c74a22;
+      }
+    }
   }
 }
 
-// Cards variant - shows multiple items
+// Support for gap on data-track
+.layout-carousel {
+  .data-track[style*="gap"],
+  [data-track][style*="gap"] {
+    // When gap is set inline, items need to account for it
+    > * {
+      // Flex basis will be calculated by JS based on gap
+    }
+  }
+}
+
+// Cards variant - shows multiple items (3 visible on desktop)
 .layout-carousel-cards {
   overflow: visible;
 
   .data-track,
   [data-track] {
     gap: 1.5rem;
-  }
 
-  .carousel-item,
-  > .data-track > * {
-    min-width: calc(33.333% - 1rem);
-    flex: 0 0 calc(33.333% - 1rem);
-    border-radius: 0.75rem;
-    overflow: hidden;
+    > .data-sub-container,
+    > .carousel-item,
+    > * {
+      min-width: calc(33.333% - 16px);
+      flex: 0 0 calc(33.333% - 16px);
+      border-radius: 0.75rem;
+      overflow: hidden;
 
-    @media (max-width: 768px) {
-      min-width: 100%;
-      flex: 0 0 100%;
-    }
+      @media (max-width: 768px) {
+        min-width: 100%;
+        flex: 0 0 100%;
+      }
 
-    @media (min-width: 769px) and (max-width: 1024px) {
-      min-width: calc(50% - 0.75rem);
-      flex: 0 0 calc(50% - 0.75rem);
+      @media (min-width: 769px) and (max-width: 1024px) {
+        min-width: calc(50% - 12px);
+        flex: 0 0 calc(50% - 12px);
+      }
     }
   }
 }
@@ -596,9 +655,72 @@
 
 // Cover variant - full width hero style
 .layout-carousel-cover {
-  .carousel-item,
-  > .data-track > * {
-    min-height: 60vh;
+  .data-track,
+  [data-track] {
+    > * {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      // Image should cover the entire slide
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
+
+      // Content wrapper should be above image
+      .data-content-wrapper,
+      .content-wrapper {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+        max-width: 800px;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  // Overlay for better text readability
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .carousel-controls {
+    z-index: 15;
+  }
+
+  .carousel-indicators {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    margin-top: 0;
+
+    .carousel-indicator {
+      background: rgba(255, 255, 255, 0.5);
+
+      &.active {
+        background: white;
+      }
+    }
   }
 }
 
@@ -620,6 +742,11 @@
 [data-carousel-variant="fade"],
 .carousel-fade {
   @extend .layout-carousel-fade;
+}
+
+[data-carousel-variant="cover"],
+.carousel-cover {
+  @extend .layout-carousel-cover;
 }
 
 // ============================================
