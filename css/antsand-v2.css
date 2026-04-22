@@ -1977,6 +1977,8 @@ button {
   padding: 1.5rem; }
   .antsand-card-shadow {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+  .antsand-card-shadow-lg {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
   .antsand-card-header {
     padding: 1.5rem;
     border-bottom: 1px solid #e9ecef;
@@ -1997,6 +1999,186 @@ button {
   .antsand-card-text {
     color: #495057;
     line-height: 1.75; }
+  .antsand-card-hover {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+    .antsand-card-hover:hover {
+      transform: translateY(-4px);
+      border-color: #3498db;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+  .antsand-card-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background: rgba(52, 152, 219, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: transform 0.2s ease; }
+  .antsand-card-category {
+    font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #3498db; }
+  .antsand-card-divider {
+    border: none;
+    border-top: 1px solid #e9ecef;
+    margin: 1rem 0; }
+  .antsand-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px dashed #e9ecef; }
+  .antsand-card-tag {
+    display: inline-block;
+    font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.5rem;
+    background: #f9fafb;
+    color: #212529;
+    border: 1px solid #e9ecef;
+    border-radius: 0.25rem; }
+  .antsand-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef; }
+
+.antsand-card-project {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+  .antsand-card-project .antsand-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem; }
+  .antsand-card-project .antsand-card-text {
+    flex-grow: 1;
+    font-style: italic;
+    margin-bottom: 1.5rem; }
+  .antsand-card-project:hover .antsand-card-icon {
+    transform: scale(1.1); }
+
+.antsand-card-feature {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .antsand-card-feature .antsand-card-icon {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    margin-bottom: 1rem; }
+  .antsand-card-feature .antsand-card-title {
+    font-size: 1.25rem; }
+
+.antsand-card-pricing {
+  text-align: center;
+  display: flex;
+  flex-direction: column; }
+  .antsand-card-pricing-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 1rem 0; }
+  .antsand-card-pricing-period {
+    font-size: 0.875rem;
+    color: #6c757d; }
+  .antsand-card-pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    text-align: left; }
+    .antsand-card-pricing-features li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f8f9fa;
+      color: #495057; }
+      .antsand-card-pricing-features li::before {
+        content: '✓';
+        color: #27ae60;
+        font-weight: bold;
+        margin-right: 0.5rem; }
+  .antsand-card-pricing.featured, .antsand-card-pricing.antsand-pricing-highlight {
+    border-color: #3498db;
+    box-shadow: 0 8px 30px rgba(52, 152, 219, 0.15);
+    position: relative; }
+
+.antsand-card-horizontal {
+  display: flex;
+  flex-direction: row;
+  padding: 0; }
+  .antsand-card-horizontal .antsand-card-img {
+    width: 40%;
+    min-height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem 0 0 0.5rem; }
+  .antsand-card-horizontal .antsand-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  @media (max-width: 768px) {
+    .antsand-card-horizontal {
+      flex-direction: column; }
+      .antsand-card-horizontal .antsand-card-img {
+        width: 100%;
+        min-height: 160px;
+        border-radius: 0.5rem 0.5rem 0 0; } }
+.antsand-card-testimonial .antsand-card-text {
+  font-style: italic;
+  font-size: 1.125rem;
+  position: relative;
+  padding-left: 1.5rem; }
+  .antsand-card-testimonial .antsand-card-text::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -0.25rem;
+    font-size: 2.5rem;
+    color: #3498db;
+    line-height: 1; }
+
+.antsand-card-testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem; }
+
+.antsand-card-testimonial-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover; }
+
+.antsand-card-testimonial-name {
+  font-weight: 600; }
+
+.antsand-card-testimonial-role {
+  font-size: 0.875rem;
+  color: #6c757d; }
+
+.antsand-card-stat {
+  text-align: center; }
+  .antsand-card-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3498db;
+    line-height: 1.25; }
+  .antsand-card-stat-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem; }
 
 /*
  * =========================================
@@ -3920,6 +4102,249 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
         .carousel-cards [data-track] > * {
           min-width: calc(50% - 12px);
           flex: 0 0 calc(50% - 12px); } }
+.layout-carousel-items-1 .data-track,
+.layout-carousel-items-1 [data-track] {
+  gap: 1.5rem; }
+  .layout-carousel-items-1 .data-track > .data-sub-container,
+  .layout-carousel-items-1 .data-track > .carousel-item,
+  .layout-carousel-items-1 .data-track > *,
+  .layout-carousel-items-1 [data-track] > .data-sub-container,
+  .layout-carousel-items-1 [data-track] > .carousel-item,
+  .layout-carousel-items-1 [data-track] > * {
+    min-width: 100%;
+    flex: 0 0 100%;
+    border-radius: 0.75rem;
+    overflow: hidden; }
+
+.layout-carousel-items-2 {
+  overflow: visible; }
+  .layout-carousel-items-2 .data-track,
+  .layout-carousel-items-2 [data-track] {
+    gap: 1.5rem; }
+    .layout-carousel-items-2 .data-track > .data-sub-container,
+    .layout-carousel-items-2 .data-track > .carousel-item,
+    .layout-carousel-items-2 .data-track > *,
+    .layout-carousel-items-2 [data-track] > .data-sub-container,
+    .layout-carousel-items-2 [data-track] > .carousel-item,
+    .layout-carousel-items-2 [data-track] > * {
+      min-width: calc(50% - 12px);
+      flex: 0 0 calc(50% - 12px);
+      border-radius: 0.75rem;
+      overflow: hidden; }
+  @media (max-width: 768px) {
+    .layout-carousel-items-2 .data-track,
+    .layout-carousel-items-2 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-2 .data-track > .data-sub-container,
+      .layout-carousel-items-2 .data-track > .carousel-item,
+      .layout-carousel-items-2 .data-track > *,
+      .layout-carousel-items-2 [data-track] > .data-sub-container,
+      .layout-carousel-items-2 [data-track] > .carousel-item,
+      .layout-carousel-items-2 [data-track] > * {
+        min-width: 100%;
+        flex: 0 0 100%;
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+.layout-carousel-items-3 {
+  overflow: visible; }
+  .layout-carousel-items-3 .data-track,
+  .layout-carousel-items-3 [data-track] {
+    gap: 1.5rem; }
+    .layout-carousel-items-3 .data-track > .data-sub-container,
+    .layout-carousel-items-3 .data-track > .carousel-item,
+    .layout-carousel-items-3 .data-track > *,
+    .layout-carousel-items-3 [data-track] > .data-sub-container,
+    .layout-carousel-items-3 [data-track] > .carousel-item,
+    .layout-carousel-items-3 [data-track] > * {
+      min-width: calc(33.3333333333% - 16px);
+      flex: 0 0 calc(33.3333333333% - 16px);
+      border-radius: 0.75rem;
+      overflow: hidden; }
+  @media (max-width: 768px) {
+    .layout-carousel-items-3 .data-track,
+    .layout-carousel-items-3 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-3 .data-track > .data-sub-container,
+      .layout-carousel-items-3 .data-track > .carousel-item,
+      .layout-carousel-items-3 .data-track > *,
+      .layout-carousel-items-3 [data-track] > .data-sub-container,
+      .layout-carousel-items-3 [data-track] > .carousel-item,
+      .layout-carousel-items-3 [data-track] > * {
+        min-width: 100%;
+        flex: 0 0 100%;
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .layout-carousel-items-3 .data-track,
+    .layout-carousel-items-3 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-3 .data-track > .data-sub-container,
+      .layout-carousel-items-3 .data-track > .carousel-item,
+      .layout-carousel-items-3 .data-track > *,
+      .layout-carousel-items-3 [data-track] > .data-sub-container,
+      .layout-carousel-items-3 [data-track] > .carousel-item,
+      .layout-carousel-items-3 [data-track] > * {
+        min-width: calc(50% - 12px);
+        flex: 0 0 calc(50% - 12px);
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+.layout-carousel-items-4 {
+  overflow: visible; }
+  .layout-carousel-items-4 .data-track,
+  .layout-carousel-items-4 [data-track] {
+    gap: 1.5rem; }
+    .layout-carousel-items-4 .data-track > .data-sub-container,
+    .layout-carousel-items-4 .data-track > .carousel-item,
+    .layout-carousel-items-4 .data-track > *,
+    .layout-carousel-items-4 [data-track] > .data-sub-container,
+    .layout-carousel-items-4 [data-track] > .carousel-item,
+    .layout-carousel-items-4 [data-track] > * {
+      min-width: calc(25% - 18px);
+      flex: 0 0 calc(25% - 18px);
+      border-radius: 0.75rem;
+      overflow: hidden; }
+  @media (max-width: 768px) {
+    .layout-carousel-items-4 .data-track,
+    .layout-carousel-items-4 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-4 .data-track > .data-sub-container,
+      .layout-carousel-items-4 .data-track > .carousel-item,
+      .layout-carousel-items-4 .data-track > *,
+      .layout-carousel-items-4 [data-track] > .data-sub-container,
+      .layout-carousel-items-4 [data-track] > .carousel-item,
+      .layout-carousel-items-4 [data-track] > * {
+        min-width: 100%;
+        flex: 0 0 100%;
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .layout-carousel-items-4 .data-track,
+    .layout-carousel-items-4 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-4 .data-track > .data-sub-container,
+      .layout-carousel-items-4 .data-track > .carousel-item,
+      .layout-carousel-items-4 .data-track > *,
+      .layout-carousel-items-4 [data-track] > .data-sub-container,
+      .layout-carousel-items-4 [data-track] > .carousel-item,
+      .layout-carousel-items-4 [data-track] > * {
+        min-width: calc(50% - 12px);
+        flex: 0 0 calc(50% - 12px);
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+.layout-carousel-items-5 {
+  overflow: visible; }
+  .layout-carousel-items-5 .data-track,
+  .layout-carousel-items-5 [data-track] {
+    gap: 1.5rem; }
+    .layout-carousel-items-5 .data-track > .data-sub-container,
+    .layout-carousel-items-5 .data-track > .carousel-item,
+    .layout-carousel-items-5 .data-track > *,
+    .layout-carousel-items-5 [data-track] > .data-sub-container,
+    .layout-carousel-items-5 [data-track] > .carousel-item,
+    .layout-carousel-items-5 [data-track] > * {
+      min-width: calc(20% - 19px);
+      flex: 0 0 calc(20% - 19px);
+      border-radius: 0.75rem;
+      overflow: hidden; }
+  @media (max-width: 768px) {
+    .layout-carousel-items-5 .data-track,
+    .layout-carousel-items-5 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-5 .data-track > .data-sub-container,
+      .layout-carousel-items-5 .data-track > .carousel-item,
+      .layout-carousel-items-5 .data-track > *,
+      .layout-carousel-items-5 [data-track] > .data-sub-container,
+      .layout-carousel-items-5 [data-track] > .carousel-item,
+      .layout-carousel-items-5 [data-track] > * {
+        min-width: 100%;
+        flex: 0 0 100%;
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .layout-carousel-items-5 .data-track,
+    .layout-carousel-items-5 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-5 .data-track > .data-sub-container,
+      .layout-carousel-items-5 .data-track > .carousel-item,
+      .layout-carousel-items-5 .data-track > *,
+      .layout-carousel-items-5 [data-track] > .data-sub-container,
+      .layout-carousel-items-5 [data-track] > .carousel-item,
+      .layout-carousel-items-5 [data-track] > * {
+        min-width: calc(33.3333333333% - 16px);
+        flex: 0 0 calc(33.3333333333% - 16px);
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .layout-carousel-items-5 .data-track,
+    .layout-carousel-items-5 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-5 .data-track > .data-sub-container,
+      .layout-carousel-items-5 .data-track > .carousel-item,
+      .layout-carousel-items-5 .data-track > *,
+      .layout-carousel-items-5 [data-track] > .data-sub-container,
+      .layout-carousel-items-5 [data-track] > .carousel-item,
+      .layout-carousel-items-5 [data-track] > * {
+        min-width: calc(25% - 18px);
+        flex: 0 0 calc(25% - 18px);
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+.layout-carousel-items-6 {
+  overflow: visible; }
+  .layout-carousel-items-6 .data-track,
+  .layout-carousel-items-6 [data-track] {
+    gap: 1.5rem; }
+    .layout-carousel-items-6 .data-track > .data-sub-container,
+    .layout-carousel-items-6 .data-track > .carousel-item,
+    .layout-carousel-items-6 .data-track > *,
+    .layout-carousel-items-6 [data-track] > .data-sub-container,
+    .layout-carousel-items-6 [data-track] > .carousel-item,
+    .layout-carousel-items-6 [data-track] > * {
+      min-width: calc(16.6666666667% - 20px);
+      flex: 0 0 calc(16.6666666667% - 20px);
+      border-radius: 0.75rem;
+      overflow: hidden; }
+  @media (max-width: 768px) {
+    .layout-carousel-items-6 .data-track,
+    .layout-carousel-items-6 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-6 .data-track > .data-sub-container,
+      .layout-carousel-items-6 .data-track > .carousel-item,
+      .layout-carousel-items-6 .data-track > *,
+      .layout-carousel-items-6 [data-track] > .data-sub-container,
+      .layout-carousel-items-6 [data-track] > .carousel-item,
+      .layout-carousel-items-6 [data-track] > * {
+        min-width: 100%;
+        flex: 0 0 100%;
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .layout-carousel-items-6 .data-track,
+    .layout-carousel-items-6 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-6 .data-track > .data-sub-container,
+      .layout-carousel-items-6 .data-track > .carousel-item,
+      .layout-carousel-items-6 .data-track > *,
+      .layout-carousel-items-6 [data-track] > .data-sub-container,
+      .layout-carousel-items-6 [data-track] > .carousel-item,
+      .layout-carousel-items-6 [data-track] > * {
+        min-width: calc(33.3333333333% - 16px);
+        flex: 0 0 calc(33.3333333333% - 16px);
+        border-radius: 0.75rem;
+        overflow: hidden; } }
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    .layout-carousel-items-6 .data-track,
+    .layout-carousel-items-6 [data-track] {
+      gap: 1.5rem; }
+      .layout-carousel-items-6 .data-track > .data-sub-container,
+      .layout-carousel-items-6 .data-track > .carousel-item,
+      .layout-carousel-items-6 .data-track > *,
+      .layout-carousel-items-6 [data-track] > .data-sub-container,
+      .layout-carousel-items-6 [data-track] > .carousel-item,
+      .layout-carousel-items-6 [data-track] > * {
+        min-width: calc(25% - 18px);
+        flex: 0 0 calc(25% - 18px);
+        border-radius: 0.75rem;
+        overflow: hidden; } }
 .layout-carousel-fade .data-track, [data-carousel-variant="fade"] .data-track,
 .carousel-fade .data-track,
 .layout-carousel-fade [data-track],
