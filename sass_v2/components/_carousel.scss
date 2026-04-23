@@ -603,6 +603,7 @@
 }
 
 // Cards variant - shows multiple items (3 visible on desktop)
+// Default behavior when no items-per-slide is specified
 .layout-carousel-cards {
   overflow: visible;
 
@@ -628,6 +629,126 @@
         flex: 0 0 calc(50% - 12px);
       }
     }
+  }
+}
+
+// =====================================================
+// ITEMS-PER-SLIDE CLASSES
+// =====================================================
+// Dynamic items-per-slide control via .layout-carousel-items-N
+// These override the default card widths when applied alongside
+// .layout-carousel or .layout-carousel-cards
+// Usage: <div class="layout-carousel layout-carousel-items-3">
+//
+// The carousel JS reads item offsetWidth dynamically, so changing
+// the CSS width here automatically makes the JS calculate correct offsets.
+
+// Helper mixin for items-per-slide
+@mixin carousel-items-per-slide($count, $gap: 1.5rem) {
+  $gap-px: 16px; // Approximate gap deduction per item
+  @if $count == 1 {
+    $gap-px: 0px;
+  } @else if $count == 2 {
+    $gap-px: 12px;
+  } @else if $count == 3 {
+    $gap-px: 16px;
+  } @else if $count == 4 {
+    $gap-px: 18px;
+  } @else if $count == 5 {
+    $gap-px: 19px;
+  } @else if $count == 6 {
+    $gap-px: 20px;
+  }
+
+  .data-track,
+  [data-track] {
+    gap: $gap;
+
+    > .data-sub-container,
+    > .carousel-item,
+    > * {
+      @if $count == 1 {
+        min-width: 100%;
+        flex: 0 0 100%;
+      } @else {
+        min-width: calc(#{percentage(1 / $count)} - #{$gap-px});
+        flex: 0 0 calc(#{percentage(1 / $count)} - #{$gap-px});
+      }
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+  }
+}
+
+// Items-per-slide responsive breakpoints:
+// - Desktop: show N items
+// - Tablet (769-1024px): show min(N, 2) items
+// - Mobile (<=768px): show 1 item
+
+.layout-carousel-items-1 {
+  @include carousel-items-per-slide(1);
+}
+
+.layout-carousel-items-2 {
+  overflow: visible;
+  @include carousel-items-per-slide(2);
+
+  @media (max-width: 768px) {
+    @include carousel-items-per-slide(1);
+  }
+}
+
+.layout-carousel-items-3 {
+  overflow: visible;
+  @include carousel-items-per-slide(3);
+
+  @media (max-width: 768px) {
+    @include carousel-items-per-slide(1);
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @include carousel-items-per-slide(2);
+  }
+}
+
+.layout-carousel-items-4 {
+  overflow: visible;
+  @include carousel-items-per-slide(4);
+
+  @media (max-width: 768px) {
+    @include carousel-items-per-slide(1);
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @include carousel-items-per-slide(2);
+  }
+}
+
+.layout-carousel-items-5 {
+  overflow: visible;
+  @include carousel-items-per-slide(5);
+
+  @media (max-width: 768px) {
+    @include carousel-items-per-slide(1);
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @include carousel-items-per-slide(3);
+  }
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    @include carousel-items-per-slide(4);
+  }
+}
+
+.layout-carousel-items-6 {
+  overflow: visible;
+  @include carousel-items-per-slide(6);
+
+  @media (max-width: 768px) {
+    @include carousel-items-per-slide(1);
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @include carousel-items-per-slide(3);
+  }
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    @include carousel-items-per-slide(4);
   }
 }
 

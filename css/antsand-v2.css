@@ -2058,13 +2058,67 @@ button {
   display: flex;
   flex-direction: column;
   height: 100%; }
-  .antsand-card-project .antsand-card-title {
+  .antsand-card-project .antsand-card-title,
+  .antsand-card-project .title,
+  .antsand-card-project .antsand-feature-title,
+  .antsand-card-project .antsand-hero-title {
     font-size: 1.5rem;
     margin-bottom: 0.5rem; }
-  .antsand-card-project .antsand-card-text {
+  .antsand-card-project .antsand-card-text,
+  .antsand-card-project .description,
+  .antsand-card-project .antsand-feature-desc,
+  .antsand-card-project .antsand-hero-subtitle {
     flex-grow: 1;
     font-style: italic;
     margin-bottom: 1.5rem; }
+  .antsand-card-project .antsand-card-meta,
+  .antsand-card-project .meta-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef; }
+  .antsand-card-project .antsand-card-category,
+  .antsand-card-project .meta {
+    font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #3498db; }
+  .antsand-card-project .antsand-card-tags,
+  .antsand-card-project .cta-container,
+  .antsand-card-project .antsand-hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px dashed #e9ecef; }
+  .antsand-card-project .antsand-card-tag,
+  .antsand-card-project .cta,
+  .antsand-card-project .antsand-pricing-cta {
+    display: inline-block;
+    font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.5rem;
+    background: #f9fafb;
+    color: #212529;
+    border: 1px solid #e9ecef;
+    border-radius: 0.25rem;
+    text-decoration: none; }
+  .antsand-card-project .title a, .antsand-card-project .antsand-feature-title a, .antsand-card-project .antsand-hero-title a,
+  .antsand-card-project .cta:hover,
+  .antsand-card-project .antsand-pricing-cta:hover,
+  .antsand-card-project .cta:focus-visible,
+  .antsand-card-project .antsand-pricing-cta:focus-visible {
+    color: inherit; }
+  .antsand-card-project .title a, .antsand-card-project .antsand-feature-title a, .antsand-card-project .antsand-hero-title a {
+    text-decoration: none; }
   .antsand-card-project:hover .antsand-card-icon {
     transform: scale(1.1); }
 
