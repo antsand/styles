@@ -910,3 +910,41 @@ $blog-transition: all 0.3s ease;
         color: #9ca3af;
     }
 }
+
+// Hero sections also contain blog-card descendants, but they should remain
+// a single featured surface instead of inheriting the generic white card grid.
+.blog-hero {
+    .data-container {
+        display: block;
+    }
+
+    .data-sub-container,
+    .sub-container {
+        background: transparent;
+        border-radius: 0;
+        overflow: visible;
+        box-shadow: none;
+        transition: none;
+        display: block;
+
+        &:hover {
+            transform: none;
+            box-shadow: none;
+        }
+    }
+
+    .data-content-wrapper,
+    .content-wrapper {
+        padding: 0;
+    }
+
+    .blog-card-footer {
+        border-top-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .blog-card-author-name,
+    .blog-card-date,
+    .blog-card-read-time {
+        color: rgba(255, 255, 255, 0.82);
+    }
+}

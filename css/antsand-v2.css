@@ -2061,26 +2061,38 @@ button {
   .antsand-card-project .antsand-card-title,
   .antsand-card-project .title,
   .antsand-card-project .antsand-feature-title,
-  .antsand-card-project .antsand-hero-title {
+  .antsand-card-project .antsand-hero-title,
+  .antsand-card-project .data-h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem; }
   .antsand-card-project .antsand-card-text,
   .antsand-card-project .description,
   .antsand-card-project .antsand-feature-desc,
-  .antsand-card-project .antsand-hero-subtitle {
+  .antsand-card-project .antsand-hero-subtitle,
+  .antsand-card-project .data-p {
     flex-grow: 1;
     font-style: italic;
     margin-bottom: 1.5rem; }
   .antsand-card-project .antsand-card-meta,
-  .antsand-card-project .meta-container {
+  .antsand-card-project .meta-container,
+  .antsand-card-project .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #e9ecef; }
+  .antsand-card-project .icon-container.antsand-card-icon,
+  .antsand-card-project .antsand-card-icon {
+    background: rgba(52, 152, 219, 0.08);
+    color: #3498db; }
+  .antsand-card-project .antsand-card-icon-symbol,
+  .antsand-card-project .icon,
+  .antsand-card-project .antsand-feature-icon {
+    line-height: 1; }
   .antsand-card-project .antsand-card-category,
-  .antsand-card-project .meta {
+  .antsand-card-project .meta,
+  .antsand-card-project .category {
     font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.75rem;
     font-weight: 700;
@@ -2088,8 +2100,7 @@ button {
     letter-spacing: 0.1em;
     color: #3498db; }
   .antsand-card-project .antsand-card-tags,
-  .antsand-card-project .cta-container,
-  .antsand-card-project .antsand-hero-cta {
+  .antsand-card-project .tags-container {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
@@ -2097,8 +2108,7 @@ button {
     padding-top: 1rem;
     border-top: 1px dashed #e9ecef; }
   .antsand-card-project .antsand-card-tag,
-  .antsand-card-project .cta,
-  .antsand-card-project .antsand-pricing-cta {
+  .antsand-card-project .tag {
     display: inline-block;
     font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.625rem;
@@ -2110,6 +2120,16 @@ button {
     color: #212529;
     border: 1px solid #e9ecef;
     border-radius: 0.25rem;
+    text-decoration: none; }
+  .antsand-card-project .antsand-card-actions,
+  .antsand-card-project .cta-container,
+  .antsand-card-project .antsand-hero-cta {
+    margin-top: 1rem; }
+  .antsand-card-project .antsand-card-link,
+  .antsand-card-project .cta,
+  .antsand-card-project .antsand-pricing-cta {
+    color: #3498db;
+    font-weight: 600;
     text-decoration: none; }
   .antsand-card-project .title a, .antsand-card-project .antsand-feature-title a, .antsand-card-project .antsand-hero-title a,
   .antsand-card-project .cta:hover,
@@ -9775,6 +9795,40 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
 .data-container:has(.blog-card-excerpt) .blog-card-date {
   font-size: 0.8125rem;
   color: #9ca3af; }
+
+.blog-hero .data-container {
+  display: block; }
+
+.blog-hero .data-sub-container,
+.blog-hero .sub-container,
+.blog-hero .antsand-feature-item,
+.blog-hero .antsand-pricing-card,
+.blog-hero .antsand-footer-column {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  transition: none;
+  display: block; }
+  .blog-hero .data-sub-container:hover,
+  .blog-hero .sub-container:hover,
+  .blog-hero .antsand-feature-item:hover,
+  .blog-hero .antsand-pricing-card:hover,
+  .blog-hero .antsand-footer-column:hover {
+    transform: none;
+    box-shadow: none; }
+
+.blog-hero .data-content-wrapper,
+.blog-hero .content-wrapper {
+  padding: 0; }
+
+.blog-hero .blog-card-footer {
+  border-top-color: rgba(255, 255, 255, 0.12); }
+
+.blog-hero .blog-card-author-name,
+.blog-hero .blog-card-date,
+.blog-hero .blog-card-read-time {
+  color: rgba(255, 255, 255, 0.82); }
 
 .antsand-bg-gradient-sunset {
   background-image: linear-gradient(45deg, #ff8c00, #ff0080); }

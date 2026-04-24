@@ -144,20 +144,23 @@
     height: 100%;
 
     .antsand-card-title,
-    .title {
+    .title,
+    .data-h3 {
         font-size: $antsand-font-size-2xl;
         margin-bottom: $antsand-space-2;
     }
 
     .antsand-card-text,
-    .description {
+    .description,
+    .data-p {
         flex-grow: 1;
         font-style: italic;
         margin-bottom: $antsand-space-4;
     }
 
     .antsand-card-meta,
-    .meta-container {
+    .meta-container,
+    .card-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -166,8 +169,20 @@
         border-bottom: 1px solid $antsand-gray-200;
     }
 
+    .icon-container.antsand-card-icon,
+    .antsand-card-icon {
+        background: rgba($antsand-primary, 0.08);
+        color: $antsand-primary;
+    }
+
+    .antsand-card-icon-symbol,
+    .icon {
+        line-height: 1;
+    }
+
     .antsand-card-category,
-    .meta {
+    .meta,
+    .category {
         font-family: $antsand-font-family-mono;
         font-size: 0.75rem;
         font-weight: $antsand-font-weight-bold;
@@ -177,7 +192,7 @@
     }
 
     .antsand-card-tags,
-    .cta-container {
+    .tags-container {
         display: flex;
         flex-wrap: wrap;
         gap: $antsand-space-2;
@@ -187,7 +202,7 @@
     }
 
     .antsand-card-tag,
-    .cta {
+    .tag {
         display: inline-block;
         font-family: $antsand-font-family-mono;
         font-size: 0.625rem;
@@ -199,6 +214,18 @@
         color: $antsand-gray-900;
         border: 1px solid $antsand-gray-200;
         border-radius: $antsand-radius-sm;
+        text-decoration: none;
+    }
+
+    .antsand-card-actions,
+    .cta-container {
+        margin-top: $antsand-space-3;
+    }
+
+    .antsand-card-link,
+    .cta {
+        color: $antsand-primary;
+        font-weight: $antsand-font-weight-semibold;
         text-decoration: none;
     }
 
