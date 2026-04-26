@@ -9034,6 +9034,24 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
 .antsand-footer-copyright {
   font-size: 0.875rem; }
 
+.antsand-blog-detail-title {
+  color: #1a1a1a;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  overflow-wrap: anywhere; }
+
+.blog-media-header .antsand-blog-detail-title,
+.research-header .antsand-blog-detail-title,
+.video-header .antsand-blog-detail-title {
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35); }
+
+@media (max-width: 768px) {
+  .antsand-blog-detail-title {
+    font-size: clamp(1.65rem, 8vw, 2.25rem); } }
+
 .blog-1 {
   padding: 80px 0;
   background: #f9fafb; }

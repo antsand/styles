@@ -32,6 +32,31 @@ $blog-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 $blog-card-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
 $blog-transition: all 0.3s ease;
 
+// Blog detail defaults. Apply through Databoard CSS parameters, not inline Volt.
+.antsand-blog-detail-title {
+    color: #1a1a1a;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    overflow-wrap: anywhere;
+}
+
+.blog-media-header,
+.research-header,
+.video-header {
+    .antsand-blog-detail-title {
+        color: #fff;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+}
+
+@media (max-width: 768px) {
+    .antsand-blog-detail-title {
+        font-size: clamp(1.65rem, 8vw, 2.25rem);
+    }
+}
+
 // ============================================
 // BLOG-1: Cards Grid (Default)
 // 3-column responsive grid with image cards
