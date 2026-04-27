@@ -3,38 +3,53 @@
 // Body renderers used by service_3_modern.
 // ============================================
 //
+// Theme system:
+//   .resume-full-container                         → default (clean professional)
+//   .resume-full-container.resume-theme-executive   → serif, dark accents
+//   .resume-full-container.resume-theme-minimal     → ultra-clean, monochrome
+//   .resume-full-container.resume-theme-creative    → accent stripe, card sections
+//
 // Contract:
 // - service_3_modern owns wrapper/header/footer and data mapping.
 // - Resume renderers own semantic body HTML only.
 // - Databoard parameter files choose these classes; Sass V2 owns visuals.
+
+// ── Accent colour variable (overridden per theme) ──
+$_resume-accent: $antsand-info;
+
+// ─────────────────────────────────────────────
+//  DEFAULT THEME — clean professional
+// ─────────────────────────────────────────────
 
 .resume-full-container {
     max-width: 800px;
     margin: 0 auto;
     font-family: $antsand-font-family;
     color: $antsand-gray-800;
+    line-height: 1.6;
 }
 
 .resume-full-header {
     text-align: center;
     padding: $antsand-space-5 $antsand-space-4 $antsand-space-4;
     border-bottom: 2px solid $antsand-gray-300;
-    margin-bottom: $antsand-space-4;
+    margin-bottom: $antsand-space-5;
 }
 
 .resume-full-name {
-    font-size: $antsand-font-size-3xl;
+    font-size: 2.25rem;
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     margin: 0 0 6px;
     color: $antsand-gray-900;
+    line-height: 1.1;
 }
 
 .resume-full-headline {
     font-size: $antsand-font-size-lg;
-    color: $antsand-gray-700;
+    color: $_resume-accent;
     margin: 0 0 $antsand-space-2;
-    font-weight: $antsand-font-weight-medium;
+    font-weight: $antsand-font-weight-semibold;
 }
 
 .resume-full-contact {
@@ -47,7 +62,7 @@
     margin-bottom: $antsand-space-2;
 
     a {
-        color: $antsand-info;
+        color: $_resume-accent;
         text-decoration: none;
 
         &:hover {
@@ -66,15 +81,16 @@
 
 .resume-full-link {
     font-size: 0.8rem;
-    color: $antsand-info;
+    color: $_resume-accent;
     text-decoration: none;
     padding: 2px 10px;
-    border: 1px solid lighten($antsand-info, 35%);
+    border: 1px solid lighten($_resume-accent, 35%);
     border-radius: $antsand-radius-full;
-    background: lighten($antsand-info, 55%);
+    background: lighten($_resume-accent, 55%);
+    transition: background $antsand-transition-fast;
 
     &:hover {
-        background: lighten($antsand-info, 48%);
+        background: lighten($_resume-accent, 48%);
     }
 }
 
@@ -88,15 +104,17 @@
 }
 
 .resume-full-section {
-    margin-bottom: 28px;
+    margin-bottom: 32px;
 }
 
 .resume-section-title {
-    font-size: $antsand-font-size-lg;
-    font-weight: $antsand-font-weight-bold;
-    color: $antsand-gray-900;
-    border-bottom: 2px solid $antsand-gray-300;
-    padding-bottom: $antsand-space-2;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: $_resume-accent;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    border-bottom: 1px solid $antsand-gray-300;
+    padding-bottom: 6px;
     margin: 0 0 $antsand-space-3;
 }
 
@@ -121,7 +139,7 @@
     font-size: $antsand-font-size-base;
     font-weight: $antsand-font-weight-bold;
     margin: 0;
-    color: $antsand-gray-800;
+    color: $antsand-gray-900;
 }
 
 .resume-card-org {
@@ -141,7 +159,7 @@
 
 .resume-card-date,
 .resume-entry-date {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: $antsand-gray-600;
     background: $antsand-gray-100;
     padding: 2px 10px;
@@ -162,7 +180,7 @@
 
 .resume-card-link {
     font-size: 0.8rem;
-    color: $antsand-info;
+    color: $_resume-accent;
     text-decoration: none;
 
     &:hover {
@@ -181,7 +199,7 @@
         padding-left: $antsand-space-3;
         font-size: 0.87rem;
         color: $antsand-gray-700;
-        line-height: 1.6;
+        line-height: 1.65;
 
         &::before {
             content: '▸';
@@ -202,12 +220,13 @@
 
 .resume-skill-tag,
 .resume-entry-tag {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     padding: 2px 8px;
     border-radius: $antsand-radius-full;
     background: lighten($antsand-success, 52%);
     color: darken($antsand-success, 15%);
     border: 1px solid lighten($antsand-success, 35%);
+    font-weight: $antsand-font-weight-medium;
 }
 
 .resume-skills-grid {
@@ -237,6 +256,8 @@
         border-radius: $antsand-radius-md;
     }
 }
+
+// ── Timeline renderer ──
 
 .resume-timeline-container {
     position: relative;
@@ -330,6 +351,313 @@
     margin-top: $antsand-space-1;
 }
 
+// ─────────────────────────────────────────────
+//  THEME: Executive — serif, dark header, classic
+// ─────────────────────────────────────────────
+
+.resume-theme-executive {
+    font-family: Georgia, "Times New Roman", serif;
+
+    .resume-full-header {
+        background: #172033;
+        color: #fff;
+        border-bottom: none;
+        border-radius: 6px 6px 0 0;
+        padding: $antsand-space-5 $antsand-space-4;
+        margin: 0 0 $antsand-space-5;
+    }
+
+    .resume-full-name {
+        color: #fff;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 2.4rem;
+        letter-spacing: -0.02em;
+    }
+
+    .resume-full-headline {
+        color: #94b8d8;
+        font-weight: $antsand-font-weight-medium;
+    }
+
+    .resume-full-contact {
+        color: rgba(255,255,255,0.7);
+
+        a {
+            color: #a3c4e0;
+
+            &:hover { color: #fff; }
+        }
+    }
+
+    .resume-full-link {
+        color: #a3c4e0;
+        border-color: rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.08);
+
+        &:hover { background: rgba(255,255,255,0.15); }
+    }
+
+    .resume-section-title {
+        color: #172033;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: $antsand-font-size-lg;
+        font-weight: $antsand-font-weight-bold;
+        text-transform: none;
+        letter-spacing: -0.01em;
+        border-bottom: 2px solid #172033;
+        padding-bottom: 4px;
+    }
+
+    .resume-card-title,
+    .resume-entry-title {
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .resume-skill-tag,
+    .resume-entry-tag {
+        background: #eef2f7;
+        color: #334155;
+        border-color: #d7dde8;
+    }
+
+    .resume-timeline-dot {
+        box-shadow: 0 0 0 4px white, 0 0 0 6px #172033;
+    }
+
+    .resume-card-highlights li::before,
+    .resume-entry-highlights li::before {
+        content: '—';
+        font-weight: bold;
+        color: #172033;
+    }
+}
+
+// ─────────────────────────────────────────────
+//  THEME: Minimal — monochrome, spacious
+// ─────────────────────────────────────────────
+
+.resume-theme-minimal {
+    max-width: 720px;
+    font-family: "Inter", $antsand-font-family;
+
+    .resume-full-header {
+        text-align: left;
+        border-bottom: 1px solid $antsand-gray-300;
+        padding: 0 0 $antsand-space-4;
+        margin-bottom: $antsand-space-5;
+    }
+
+    .resume-full-name {
+        font-size: $antsand-font-size-2xl;
+        font-weight: $antsand-font-weight-bold;
+        letter-spacing: -0.02em;
+    }
+
+    .resume-full-headline {
+        color: $antsand-gray-500;
+        font-size: $antsand-font-size-sm;
+        font-weight: normal;
+    }
+
+    .resume-full-contact {
+        justify-content: flex-start;
+        gap: $antsand-space-2;
+        font-size: 0.8rem;
+        color: $antsand-gray-500;
+    }
+
+    .resume-full-links { justify-content: flex-start; }
+
+    .resume-full-link {
+        border: none;
+        background: none;
+        padding: 0;
+        color: $antsand-gray-600;
+        text-decoration: underline;
+        font-size: 0.78rem;
+
+        &:hover { color: $antsand-gray-900; }
+    }
+
+    .resume-section-title {
+        font-size: 0.7rem;
+        color: $antsand-gray-500;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin: 0 0 $antsand-space-2;
+    }
+
+    .resume-card {
+        border-bottom-color: $antsand-gray-100;
+        padding: $antsand-space-2 0;
+    }
+
+    .resume-card-title,
+    .resume-entry-title {
+        font-size: $antsand-font-size-sm;
+        font-weight: $antsand-font-weight-semibold;
+    }
+
+    .resume-card-org,
+    .resume-entry-org {
+        font-size: 0.8rem;
+        font-weight: normal;
+        color: $antsand-gray-500;
+    }
+
+    .resume-card-date,
+    .resume-entry-date {
+        background: none;
+        padding: 0;
+        font-size: 0.75rem;
+        color: $antsand-gray-500;
+    }
+
+    .resume-card-highlights li,
+    .resume-entry-highlights li {
+        font-size: 0.82rem;
+        color: $antsand-gray-600;
+    }
+
+    .resume-card-highlights li::before,
+    .resume-entry-highlights li::before {
+        content: '·';
+        color: $antsand-gray-400;
+    }
+
+    .resume-skill-tag,
+    .resume-entry-tag {
+        background: none;
+        border: 1px solid $antsand-gray-300;
+        color: $antsand-gray-600;
+        font-size: 0.7rem;
+    }
+
+    .resume-timeline-entry {
+        border: none;
+        box-shadow: none;
+        border-left: 2px solid $antsand-gray-200;
+        border-radius: 0;
+        padding: $antsand-space-2 $antsand-space-3;
+
+        &:hover {
+            box-shadow: none;
+            transform: none;
+            border-left-color: $antsand-gray-500;
+        }
+    }
+
+    .resume-timeline-dot {
+        width: 10px;
+        height: 10px;
+        background: $antsand-gray-400;
+        box-shadow: 0 0 0 3px white;
+        left: -38px;
+    }
+
+    .resume-timeline-icon { display: none; }
+
+    .resume-timeline-container::before {
+        background: $antsand-gray-200;
+        width: 1px;
+    }
+}
+
+// ─────────────────────────────────────────────
+//  THEME: Creative — accent stripe, card sections
+// ─────────────────────────────────────────────
+
+$_creative-accent: #4f46e5; // indigo
+
+.resume-theme-creative {
+    .resume-full-header {
+        text-align: left;
+        border-bottom: none;
+        border-left: 5px solid $_creative-accent;
+        padding: $antsand-space-4 $antsand-space-4;
+        margin-bottom: $antsand-space-5;
+        background: linear-gradient(135deg, lighten($_creative-accent, 48%) 0%, #fff 60%);
+        border-radius: $antsand-radius-md;
+    }
+
+    .resume-full-name {
+        color: $_creative-accent;
+        font-size: 2.4rem;
+    }
+
+    .resume-full-headline {
+        color: darken($_creative-accent, 8%);
+        font-weight: $antsand-font-weight-bold;
+    }
+
+    .resume-full-contact {
+        justify-content: flex-start;
+
+        a { color: $_creative-accent; }
+    }
+
+    .resume-full-links { justify-content: flex-start; }
+
+    .resume-full-link {
+        color: $_creative-accent;
+        border-color: lighten($_creative-accent, 30%);
+        background: lighten($_creative-accent, 46%);
+
+        &:hover { background: lighten($_creative-accent, 40%); }
+    }
+
+    .resume-section-title {
+        color: $_creative-accent;
+        border-bottom: 2px solid $_creative-accent;
+    }
+
+    .resume-full-section {
+        background: #fff;
+        border: 1px solid $antsand-gray-100;
+        border-radius: $antsand-radius-lg;
+        padding: $antsand-space-4;
+        box-shadow: $antsand-shadow-sm;
+        margin-bottom: $antsand-space-4;
+    }
+
+    .resume-card {
+        border-bottom-color: $antsand-gray-100;
+    }
+
+    .resume-skill-tag,
+    .resume-entry-tag {
+        background: lighten($_creative-accent, 46%);
+        color: $_creative-accent;
+        border-color: lighten($_creative-accent, 30%);
+    }
+
+    .resume-certs-grid .resume-card {
+        border-color: lighten($_creative-accent, 30%);
+    }
+
+    .resume-card-highlights li::before,
+    .resume-entry-highlights li::before {
+        color: $_creative-accent;
+    }
+
+    .resume-timeline-dot {
+        background: $_creative-accent;
+        box-shadow: 0 0 0 4px white, 0 0 0 6px $_creative-accent;
+    }
+
+    .resume-timeline-entry:hover {
+        border-color: lighten($_creative-accent, 28%);
+    }
+
+    .resume-timeline-container::before {
+        background: linear-gradient(to bottom, $_creative-accent, lighten($_creative-accent, 28%));
+    }
+}
+
+// ─────────────────────────────────────────────
+//  Responsive (applies to all themes)
+// ─────────────────────────────────────────────
+
 @media (max-width: $antsand-breakpoint-sm) {
     .resume-full-name {
         font-size: $antsand-font-size-2xl;
@@ -374,5 +702,9 @@
 
     .resume-timeline-entry {
         padding: 14px $antsand-space-3;
+    }
+
+    .resume-theme-creative .resume-full-section {
+        padding: $antsand-space-3;
     }
 }
