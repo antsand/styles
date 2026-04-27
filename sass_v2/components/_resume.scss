@@ -1,0 +1,378 @@
+// ============================================
+// ANTSAND Styles v2 - Resume Components
+// Body renderers used by service_3_modern.
+// ============================================
+//
+// Contract:
+// - service_3_modern owns wrapper/header/footer and data mapping.
+// - Resume renderers own semantic body HTML only.
+// - Databoard parameter files choose these classes; Sass V2 owns visuals.
+
+.resume-full-container {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: $antsand-font-family;
+    color: $antsand-gray-800;
+}
+
+.resume-full-header {
+    text-align: center;
+    padding: $antsand-space-5 $antsand-space-4 $antsand-space-4;
+    border-bottom: 2px solid $antsand-gray-300;
+    margin-bottom: $antsand-space-4;
+}
+
+.resume-full-name {
+    font-size: $antsand-font-size-3xl;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 6px;
+    color: $antsand-gray-900;
+}
+
+.resume-full-headline {
+    font-size: $antsand-font-size-lg;
+    color: $antsand-gray-700;
+    margin: 0 0 $antsand-space-2;
+    font-weight: $antsand-font-weight-medium;
+}
+
+.resume-full-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $antsand-space-3;
+    font-size: $antsand-font-size-sm;
+    color: $antsand-gray-600;
+    margin-bottom: $antsand-space-2;
+
+    a {
+        color: $antsand-info;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.resume-full-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: $antsand-space-2 0;
+}
+
+.resume-full-link {
+    font-size: 0.8rem;
+    color: $antsand-info;
+    text-decoration: none;
+    padding: 2px 10px;
+    border: 1px solid lighten($antsand-info, 35%);
+    border-radius: $antsand-radius-full;
+    background: lighten($antsand-info, 55%);
+
+    &:hover {
+        background: lighten($antsand-info, 48%);
+    }
+}
+
+.resume-full-summary {
+    max-width: 640px;
+    margin: $antsand-space-3 auto 0;
+    font-size: $antsand-font-size-sm;
+    line-height: $antsand-line-height-relaxed;
+    color: $antsand-gray-700;
+    text-align: left;
+}
+
+.resume-full-section {
+    margin-bottom: 28px;
+}
+
+.resume-section-title {
+    font-size: $antsand-font-size-lg;
+    font-weight: $antsand-font-weight-bold;
+    color: $antsand-gray-900;
+    border-bottom: 2px solid $antsand-gray-300;
+    padding-bottom: $antsand-space-2;
+    margin: 0 0 $antsand-space-3;
+}
+
+.resume-card {
+    padding: $antsand-space-3 0;
+    border-bottom: 1px solid $antsand-gray-100;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.resume-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $antsand-space-3;
+    flex-wrap: wrap;
+}
+
+.resume-card-title {
+    font-size: $antsand-font-size-base;
+    font-weight: $antsand-font-weight-bold;
+    margin: 0;
+    color: $antsand-gray-800;
+}
+
+.resume-card-org {
+    font-size: $antsand-font-size-sm;
+    color: $antsand-gray-700;
+    font-weight: $antsand-font-weight-semibold;
+    margin-top: 2px;
+}
+
+.resume-card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.resume-card-date,
+.resume-entry-date {
+    font-size: 0.8rem;
+    color: $antsand-gray-600;
+    background: $antsand-gray-100;
+    padding: 2px 10px;
+    border-radius: $antsand-radius-full;
+    display: inline-block;
+    width: fit-content;
+}
+
+.resume-card-date {
+    white-space: nowrap;
+}
+
+.resume-card-location,
+.resume-entry-location {
+    font-size: 0.78rem;
+    color: $antsand-gray-500;
+}
+
+.resume-card-link {
+    font-size: 0.8rem;
+    color: $antsand-info;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.resume-card-highlights,
+.resume-entry-highlights {
+    list-style: none;
+    padding: 0;
+    margin: $antsand-space-2 0 0;
+
+    li {
+        position: relative;
+        padding-left: $antsand-space-3;
+        font-size: 0.87rem;
+        color: $antsand-gray-700;
+        line-height: 1.6;
+
+        &::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: $antsand-gray-500;
+        }
+    }
+}
+
+.resume-card-tags,
+.resume-entry-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: $antsand-space-2;
+}
+
+.resume-skill-tag,
+.resume-entry-tag {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: $antsand-radius-full;
+    background: lighten($antsand-success, 52%);
+    color: darken($antsand-success, 15%);
+    border: 1px solid lighten($antsand-success, 35%);
+}
+
+.resume-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: $antsand-space-3;
+}
+
+.resume-skill-group-title {
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-bold;
+    color: $antsand-gray-700;
+    margin: 0 0 $antsand-space-2;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.resume-certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $antsand-space-3;
+
+    .resume-card {
+        padding: 14px $antsand-space-3;
+        background: $antsand-gray-50;
+        border: 1px solid $antsand-gray-300;
+        border-radius: $antsand-radius-md;
+    }
+}
+
+.resume-timeline-container {
+    position: relative;
+    padding: 0 0 0 48px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, $antsand-gray-300, $antsand-gray-400);
+    }
+}
+
+.resume-timeline-entry {
+    position: relative;
+    padding: 20px $antsand-space-4;
+    margin-bottom: $antsand-space-3;
+    background: white;
+    border-radius: $antsand-radius-lg;
+    border: 1px solid $antsand-gray-300;
+    box-shadow: $antsand-shadow-sm;
+    transition: box-shadow $antsand-transition-fast, transform $antsand-transition-fast;
+
+    &:hover {
+        box-shadow: $antsand-shadow-md;
+        transform: translateX(4px);
+    }
+}
+
+.resume-timeline-dot {
+    position: absolute;
+    left: -40px;
+    top: $antsand-space-4;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--dot-color, #{$antsand-gray-600});
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    box-shadow: 0 0 0 4px white, 0 0 0 6px var(--dot-color, #{$antsand-gray-600});
+}
+
+.resume-timeline-icon {
+    font-size: 12px;
+    line-height: 1;
+}
+
+.resume-entry-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.resume-entry-title {
+    font-size: $antsand-font-size-lg;
+    font-weight: $antsand-font-weight-bold;
+    color: $antsand-gray-800;
+    margin: 0;
+}
+
+.resume-entry-subtitle {
+    display: flex;
+    gap: $antsand-space-3;
+    flex-wrap: wrap;
+    font-size: $antsand-font-size-sm;
+}
+
+.resume-entry-org {
+    color: $antsand-gray-700;
+    font-weight: $antsand-font-weight-semibold;
+}
+
+.resume-entry-desc {
+    color: $antsand-gray-700;
+    font-size: $antsand-font-size-sm;
+    line-height: 1.6;
+    margin: $antsand-space-1 0;
+}
+
+.resume-entry-kind {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--kind-color, #{$antsand-gray-600});
+    font-weight: $antsand-font-weight-bold;
+    margin-top: $antsand-space-1;
+}
+
+@media (max-width: $antsand-breakpoint-sm) {
+    .resume-full-name {
+        font-size: $antsand-font-size-2xl;
+    }
+
+    .resume-full-contact {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .resume-card-header {
+        flex-direction: column;
+    }
+
+    .resume-card-meta {
+        align-items: flex-start;
+    }
+
+    .resume-skills-grid,
+    .resume-certs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-timeline-container {
+        padding-left: 36px;
+
+        &::before {
+            left: 14px;
+        }
+    }
+
+    .resume-timeline-dot {
+        left: -30px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .resume-timeline-icon {
+        font-size: 10px;
+    }
+
+    .resume-timeline-entry {
+        padding: 14px $antsand-space-3;
+    }
+}
