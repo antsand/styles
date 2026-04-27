@@ -188,6 +188,15 @@ $_resume-accent: $antsand-info;
     }
 }
 
+// Certification issuer logos (inline SVGs injected by resume_renderer)
+.resume-cert-logo {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
 .resume-card-highlights,
 .resume-entry-highlights {
     list-style: none;
