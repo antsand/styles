@@ -7333,6 +7333,262 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
   .resume-theme-creative .resume-full-section {
     padding: 1rem; } }
 
+.ecommerce-store-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem; }
+
+.ecommerce-store-header {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  text-align: center; }
+
+.ecommerce-store-kicker {
+  margin: 0 0 0.5rem;
+  color: #27ae60;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase; }
+
+.ecommerce-store-name {
+  margin: 0;
+  color: #212529;
+  font-size: 2.5rem;
+  line-height: 1.25; }
+
+.ecommerce-store-description {
+  margin: 1rem 0 0;
+  color: #495057;
+  font-size: 1.125rem;
+  line-height: 1.75; }
+
+.ecommerce-billing-toggle {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin: 2rem auto 0;
+  padding: 0.25rem;
+  border: 1px solid #e9ecef;
+  border-radius: 9999px;
+  background: #f8f9fa; }
+
+.ecommerce-billing-toggle button {
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: #6c757d;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.45rem 1.15rem;
+  transition: background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease; }
+
+.ecommerce-billing-toggle button.is-active {
+  background: #fff;
+  color: #212529;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); }
+
+.ecommerce-section-heading {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  text-align: center; }
+  .ecommerce-section-heading h3 {
+    margin: 0 0 0.25rem;
+    color: #212529;
+    font-size: 1.5rem;
+    font-weight: 700; }
+  .ecommerce-section-heading p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1rem; }
+
+.ecommerce-pricing-grid,
+.ecommerce-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+  max-width: 960px;
+  margin: 0 auto; }
+
+.ecommerce-products-grid {
+  margin-top: 3rem;
+  max-width: 1280px; }
+
+.ecommerce-plan-card,
+.ecommerce-product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 2rem 2rem 3rem;
+  border: 1px solid #e9ecef;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease; }
+
+.ecommerce-plan-card:hover,
+.ecommerce-product-card:hover {
+  border-color: rgba(39, 174, 96, 0.45);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px); }
+
+.ecommerce-plan-featured {
+  border-color: #27ae60;
+  border-width: 2px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+
+.ecommerce-plan-badge {
+  position: absolute;
+  top: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  background: #27ae60;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase; }
+
+.ecommerce-plan-eyebrow {
+  margin: 0 0 0.25rem;
+  color: #ced4da;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: lowercase; }
+
+.ecommerce-plan-title,
+.ecommerce-product-title {
+  margin: 0 0 0.5rem;
+  color: #212529;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25; }
+
+.ecommerce-plan-description,
+.ecommerce-product-description {
+  margin: 0 0 1.5rem;
+  color: #6c757d;
+  font-size: 1rem;
+  line-height: 1.75; }
+
+.ecommerce-plan-price,
+.ecommerce-product-price {
+  margin: 0 0 1.5rem;
+  color: #212529;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em; }
+  .ecommerce-plan-price span,
+  .ecommerce-product-price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #6c757d; }
+
+.ecommerce-plan-savings {
+  margin: -1rem 0 1.5rem;
+  color: #27ae60;
+  font-size: 0.875rem;
+  font-weight: 600; }
+
+.ecommerce-plan-benefits {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+  flex: 1; }
+
+.ecommerce-plan-benefits li {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
+  color: #495057;
+  font-size: 1rem;
+  line-height: 1.5; }
+
+.ecommerce-plan-benefits li::before {
+  content: "✓";
+  color: #27ae60;
+  font-weight: 700;
+  flex-shrink: 0; }
+
+.ecommerce-content-rules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem; }
+
+.ecommerce-content-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(39, 174, 96, 0.1);
+  color: #1e8449;
+  font-size: 0.875rem;
+  font-weight: 600; }
+
+.ecommerce-plan-cta,
+.ecommerce-product-link {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: auto;
+  padding: 0.85rem 1.25rem;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  background: #27ae60;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.12s ease; }
+
+.ecommerce-plan-card:not(.ecommerce-plan-featured) .ecommerce-plan-cta {
+  border: 2px solid #e9ecef;
+  background: #fff;
+  color: #212529; }
+
+.ecommerce-plan-card:not(.ecommerce-plan-featured) .ecommerce-plan-cta:hover {
+  border-color: #27ae60;
+  background: rgba(39, 174, 96, 0.06);
+  color: #1c7c44; }
+
+.ecommerce-plan-featured .ecommerce-plan-cta:hover,
+.ecommerce-product-link:hover {
+  background: #208d4e;
+  color: #fff;
+  transform: translateY(-1px); }
+
+.ecommerce-product-image {
+  width: 100%;
+  margin: -2rem -2rem 1.5rem;
+  border-radius: 0.75rem 0.75rem 0 0; }
+
+.ecommerce-product-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column; }
+
+.ecommerce-store-compact {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem; }
+  .ecommerce-store-compact .ecommerce-store-header {
+    margin-bottom: 1.5rem; }
+  .ecommerce-store-compact .ecommerce-plan-card,
+  .ecommerce-store-compact .ecommerce-product-card {
+    padding: 1.5rem; }
+
+@media (max-width: 640px) {
+  .ecommerce-store-container {
+    padding: 1.5rem 1rem; }
+  .ecommerce-store-name {
+    font-size: 2rem; }
+  .ecommerce-pricing-grid {
+    grid-template-columns: 1fr; } }
+
 .hero-1, .antsand-hero-gradient {
   position: relative;
   min-height: 70vh;

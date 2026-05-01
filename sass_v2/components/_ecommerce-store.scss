@@ -1,0 +1,306 @@
+// ============================================
+// Ecommerce Store Catalog / Pricing Renderer
+// ============================================
+
+.ecommerce-store-container {
+    max-width: $antsand-container-xl;
+    margin: 0 auto;
+    padding: $antsand-space-6 $antsand-space-4;
+}
+
+.ecommerce-store-header {
+    max-width: 760px;
+    margin: 0 auto $antsand-space-6;
+    text-align: center;
+}
+
+.ecommerce-store-kicker {
+    margin: 0 0 $antsand-space-2;
+    color: $antsand-success;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.ecommerce-store-name {
+    margin: 0;
+    color: $antsand-gray-900;
+    font-size: $antsand-font-size-4xl;
+    line-height: $antsand-line-height-tight;
+}
+
+.ecommerce-store-description {
+    margin: $antsand-space-3 0 0;
+    color: $antsand-gray-700;
+    font-size: $antsand-font-size-lg;
+    line-height: $antsand-line-height-relaxed;
+}
+
+.ecommerce-billing-toggle {
+    display: inline-flex;
+    gap: 0.25rem;
+    margin: $antsand-space-5 auto 0;
+    padding: 0.25rem;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-full;
+    background: $antsand-gray-100;
+}
+
+.ecommerce-billing-toggle button {
+    border: 0;
+    border-radius: $antsand-radius-full;
+    background: transparent;
+    color: $antsand-gray-600;
+    cursor: pointer;
+    font: inherit;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-bold;
+    padding: 0.45rem 1.15rem;
+    transition: background 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+}
+
+.ecommerce-billing-toggle button.is-active {
+    background: #fff;
+    color: $antsand-gray-900;
+    box-shadow: $antsand-shadow-sm;
+}
+
+.ecommerce-section-heading {
+    max-width: 760px;
+    margin: 0 auto $antsand-space-5;
+    text-align: center;
+
+    h3 {
+        margin: 0 0 $antsand-space-1;
+        color: $antsand-gray-900;
+        font-size: $antsand-font-size-2xl;
+        font-weight: $antsand-font-weight-bold;
+    }
+
+    p {
+        margin: 0;
+        color: $antsand-gray-600;
+        font-size: $antsand-font-size-base;
+    }
+}
+
+.ecommerce-pricing-grid,
+.ecommerce-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $antsand-space-5;
+    align-items: stretch;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.ecommerce-products-grid {
+    margin-top: $antsand-space-6;
+    max-width: $antsand-container-xl;
+}
+
+.ecommerce-plan-card,
+.ecommerce-product-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: $antsand-space-5 $antsand-space-5 $antsand-space-6;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-lg;
+    background: #fff;
+    box-shadow: $antsand-shadow-sm;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.ecommerce-plan-card:hover,
+.ecommerce-product-card:hover {
+    border-color: rgba($antsand-success, 0.45);
+    box-shadow: $antsand-shadow-lg;
+    transform: translateY(-2px);
+}
+
+.ecommerce-plan-featured {
+    border-color: $antsand-success;
+    border-width: 2px;
+    box-shadow: $antsand-shadow-lg;
+}
+
+.ecommerce-plan-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: $antsand-space-1 $antsand-space-3;
+    border-radius: $antsand-radius-full;
+    background: $antsand-success;
+    color: #fff;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-bold;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.ecommerce-plan-eyebrow {
+    margin: 0 0 $antsand-space-1;
+    color: $antsand-gray-400;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-semibold;
+    text-transform: lowercase;
+}
+
+.ecommerce-plan-title,
+.ecommerce-product-title {
+    margin: 0 0 $antsand-space-2;
+    color: $antsand-gray-900;
+    font-size: $antsand-font-size-xl;
+    font-weight: $antsand-font-weight-bold;
+    line-height: $antsand-line-height-tight;
+}
+
+.ecommerce-plan-description,
+.ecommerce-product-description {
+    margin: 0 0 $antsand-space-4;
+    color: $antsand-gray-600;
+    font-size: $antsand-font-size-base;
+    line-height: $antsand-line-height-relaxed;
+}
+
+.ecommerce-plan-price,
+.ecommerce-product-price {
+    margin: 0 0 $antsand-space-4;
+    color: $antsand-gray-900;
+    font-size: 1.75rem;
+    font-weight: $antsand-font-weight-bold;
+    letter-spacing: -0.02em;
+
+    span {
+        font-size: $antsand-font-size-base;
+        font-weight: $antsand-font-weight-normal;
+        color: $antsand-gray-600;
+    }
+}
+
+.ecommerce-plan-savings {
+    margin: -$antsand-space-3 0 $antsand-space-4;
+    color: $antsand-success;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-semibold;
+}
+
+.ecommerce-plan-benefits {
+    margin: 0 0 $antsand-space-5;
+    padding: 0;
+    list-style: none;
+    flex: 1;
+}
+
+.ecommerce-plan-benefits li {
+    display: flex;
+    gap: $antsand-space-2;
+    margin-bottom: 0.625rem;
+    color: $antsand-gray-700;
+    font-size: $antsand-font-size-base;
+    line-height: 1.5;
+}
+
+.ecommerce-plan-benefits li::before {
+    content: "✓";
+    color: $antsand-success;
+    font-weight: $antsand-font-weight-bold;
+    flex-shrink: 0;
+}
+
+.ecommerce-content-rules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $antsand-space-2;
+    margin: 0 0 $antsand-space-4;
+}
+
+.ecommerce-content-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.55rem;
+    border-radius: $antsand-radius-full;
+    background: rgba($antsand-success, 0.1);
+    color: darken($antsand-success, 10%);
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-semibold;
+}
+
+.ecommerce-plan-cta,
+.ecommerce-product-link {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: auto;
+    padding: 0.85rem 1.25rem;
+    border: 2px solid transparent;
+    border-radius: $antsand-radius-md;
+    background: $antsand-success;
+    color: #fff;
+    font-size: $antsand-font-size-base;
+    font-weight: $antsand-font-weight-bold;
+    text-decoration: none;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.ecommerce-plan-card:not(.ecommerce-plan-featured) .ecommerce-plan-cta {
+    border: 2px solid $antsand-gray-200;
+    background: #fff;
+    color: $antsand-gray-900;
+}
+
+.ecommerce-plan-card:not(.ecommerce-plan-featured) .ecommerce-plan-cta:hover {
+    border-color: $antsand-success;
+    background: rgba($antsand-success, 0.06);
+    color: darken($antsand-success, 12%);
+}
+
+.ecommerce-plan-featured .ecommerce-plan-cta:hover,
+.ecommerce-product-link:hover {
+    background: darken($antsand-success, 8%);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+.ecommerce-product-image {
+    width: 100%;
+    margin: -$antsand-space-5 (-$antsand-space-5) $antsand-space-4;
+    border-radius: $antsand-radius-lg $antsand-radius-lg 0 0;
+}
+
+.ecommerce-product-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.ecommerce-store-compact {
+    padding-top: $antsand-space-4;
+    padding-bottom: $antsand-space-4;
+
+    .ecommerce-store-header {
+        margin-bottom: $antsand-space-4;
+    }
+
+    .ecommerce-plan-card,
+    .ecommerce-product-card {
+        padding: $antsand-space-4;
+    }
+}
+
+@media (max-width: $antsand-breakpoint-sm) {
+    .ecommerce-store-container {
+        padding: $antsand-space-4 $antsand-space-3;
+    }
+
+    .ecommerce-store-name {
+        font-size: $antsand-font-size-3xl;
+    }
+
+    .ecommerce-pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}
