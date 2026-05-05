@@ -66,6 +66,10 @@
     line-height: $antsand-line-height-tight;
 }
 
+.payment-checkout-product {
+    margin-bottom: $antsand-space-4;
+}
+
 .payment-checkout-store-name {
     margin-top: $antsand-space-2;
     color: rgba($antsand-gray-900, .62);
@@ -224,8 +228,8 @@
 
     &:focus {
         outline: none;
-        border-color: $antsand-primary;
-        box-shadow: 0 0 0 3px rgba($antsand-primary, .12);
+        border-color: $antsand-gray-900;
+        box-shadow: 0 0 0 3px rgba($antsand-gray-900, .08);
     }
 
     &.error {
@@ -339,5 +343,26 @@
     &:disabled {
         opacity: .5;
         cursor: not-allowed;
+    }
+}
+
+// --- Error messages ---
+
+.pco-error-message,
+.error_form_antsand {
+    margin-top: $antsand-space-3;
+    padding: 0;
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: $antsand-font-weight-medium;
+    text-align: center;
+    line-height: 1.5;
+}
+
+// --- Stripe Element overrides ---
+
+.antsand-stripe-payment-element {
+    .StripeElement--invalid {
+        border-color: #dc2626;
     }
 }
