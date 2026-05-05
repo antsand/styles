@@ -136,6 +136,30 @@
     gap: 0;
 }
 
+// --- Sign-in banner ---
+
+.pco-signin-banner {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    padding: $antsand-space-3 $antsand-space-4;
+    margin-bottom: $antsand-space-4;
+    border-radius: $antsand-radius-md;
+    background: rgba($antsand-primary, .06);
+    font-size: $antsand-font-size-sm;
+    color: rgba($antsand-gray-900, .7);
+}
+
+.pco-signin-link {
+    color: $antsand-primary;
+    font-weight: $antsand-font-weight-semibold;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 // --- Sections ---
 
 .pco-section {
