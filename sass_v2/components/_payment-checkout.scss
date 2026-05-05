@@ -1,0 +1,319 @@
+// ============================================
+// Payment Checkout Renderer
+// ============================================
+
+.payment-checkout-shell {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, .72fr);
+    gap: clamp(22px, 4vw, 54px);
+    align-items: start;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 48px) 0;
+}
+
+.payment-checkout-form-panel,
+.payment-checkout-summary-card {
+    background: #fff;
+    border: 1px solid rgba($antsand-gray-900, .12);
+    border-radius: 22px;
+    box-shadow: 0 18px 42px rgba($antsand-gray-900, .08);
+}
+
+.payment-checkout-form-panel {
+    padding: clamp(20px, 3vw, 34px);
+}
+
+.payment-checkout-panel-kicker,
+.payment-checkout-summary-label {
+    margin-bottom: $antsand-space-4;
+    color: #b90000;
+    font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.payment-checkout-summary-panel {
+    position: sticky;
+    top: 24px;
+}
+
+.payment-checkout-summary-panel.is-stuck .payment-checkout-summary-card {
+    box-shadow: 0 22px 52px rgba($antsand-gray-900, .12);
+}
+
+.payment-checkout-summary-card {
+    padding: clamp(18px, 3vw, 30px);
+    background: linear-gradient(180deg, #fff 0%, #f9f9f7 100%);
+    transition: box-shadow .18s ease;
+}
+
+.payment-checkout-summary-image {
+    width: 100%;
+    max-height: 220px;
+    margin-bottom: $antsand-space-4;
+    border: 1px solid rgba($antsand-gray-900, .1);
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.payment-checkout-product-name {
+    color: $antsand-gray-900;
+    font-family: Merriweather, Georgia, serif;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: $antsand-font-weight-bold;
+    line-height: $antsand-line-height-tight;
+}
+
+.payment-checkout-store-name {
+    margin-top: $antsand-space-2;
+    color: rgba($antsand-gray-900, .62);
+    font-weight: $antsand-font-weight-bold;
+}
+
+.payment-checkout-description {
+    margin: $antsand-space-3 0 0;
+    color: rgba($antsand-gray-900, .72);
+    line-height: $antsand-line-height-relaxed;
+}
+
+.payment-checkout-summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: $antsand-space-4;
+    padding: $antsand-space-4 0;
+    border-top: 1px solid rgba($antsand-gray-900, .1);
+    color: rgba($antsand-gray-900, .7);
+}
+
+.payment-checkout-summary-row strong {
+    color: $antsand-gray-900;
+    text-align: right;
+}
+
+.payment-checkout-total {
+    color: $antsand-gray-900;
+    font-size: $antsand-font-size-lg;
+}
+
+.payment-checkout-trust-note,
+.payment-checkout-empty {
+    margin-top: $antsand-space-4;
+    padding: $antsand-space-3 $antsand-space-4;
+    border-radius: 14px;
+    background: #fff0f0;
+    color: rgba($antsand-gray-900, .74);
+    font-size: $antsand-font-size-sm;
+    line-height: $antsand-line-height-relaxed;
+}
+
+@media (max-width: 860px) {
+    .payment-checkout-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-checkout-summary-panel {
+        position: static;
+        order: -1;
+    }
+}
+
+// ============================================
+// Payment Checkout Form (pco-*) — checkout composite component
+// Sections: Contact → Billing → Shipping → Payment → Pay now
+// ============================================
+
+.pco-form {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    color: $antsand-gray-900;
+}
+
+.pco-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+// --- Sections ---
+
+.pco-section {
+    padding: $antsand-space-5 0;
+    border-bottom: 1px solid rgba($antsand-gray-900, .1);
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-of-type {
+        border-bottom: none;
+    }
+}
+
+.pco-section-header {
+    margin-bottom: $antsand-space-4;
+}
+
+.pco-section-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: $antsand-font-weight-bold;
+    letter-spacing: -.01em;
+    line-height: 1.3;
+}
+
+.pco-section-note {
+    margin: $antsand-space-1 0 0;
+    color: rgba($antsand-gray-900, .55);
+    font-size: $antsand-font-size-sm;
+}
+
+.pco-section-hint {
+    margin: $antsand-space-2 0 0;
+    padding: $antsand-space-2 $antsand-space-3;
+    border-radius: $antsand-radius-md;
+    background: #fffbe6;
+    color: #92400e;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+// --- Inputs ---
+
+.pco-input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: $antsand-gray-900;
+    background: #fff;
+    border: 1px solid rgba($antsand-gray-900, .22);
+    border-radius: $antsand-radius-md;
+    transition: border-color .15s ease, box-shadow .15s ease;
+
+    &::placeholder {
+        color: rgba($antsand-gray-900, .42);
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $antsand-primary;
+        box-shadow: 0 0 0 3px rgba($antsand-primary, .12);
+    }
+
+    &.error {
+        border-color: #dc2626;
+        box-shadow: 0 0 0 3px rgba(#dc2626, .1);
+    }
+}
+
+.pco-label {
+    margin-bottom: $antsand-space-1;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-medium;
+    color: rgba($antsand-gray-900, .72);
+}
+
+// --- Multi-column field rows ---
+
+.pco-row {
+    display: grid;
+    gap: $antsand-space-3;
+    margin-bottom: $antsand-space-3;
+}
+
+.pco-row-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.pco-row-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (max-width: 560px) {
+    .pco-row-2,
+    .pco-row-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pco-field-inline {
+    margin: 0;
+
+    .input-container {
+        margin: 0;
+    }
+}
+
+// Inside pco-sections, tighten generic form-row spacing
+.pco-section .form-row {
+    margin-bottom: $antsand-space-3;
+}
+
+.pco-section .form-elements {
+    margin: 0;
+}
+
+.pco-section .label-container {
+    display: none;
+}
+
+// --- Checkboxes ---
+
+.pco-checkbox {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    margin-top: $antsand-space-3;
+    cursor: pointer;
+    font-size: $antsand-font-size-sm;
+    color: rgba($antsand-gray-900, .78);
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: $antsand-primary;
+        border-radius: 4px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+}
+
+.pco-same-as-billing {
+    margin-top: $antsand-space-2;
+    font-weight: $antsand-font-weight-medium;
+}
+
+// --- Pay button ---
+
+.pco-pay-btn {
+    display: block;
+    width: 100%;
+    margin-top: $antsand-space-5;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: $antsand-font-weight-bold;
+    line-height: 1;
+    color: #fff;
+    background: $antsand-gray-900;
+    border: none;
+    border-radius: $antsand-radius-lg;
+    cursor: pointer;
+    transition: background .15s ease, transform .1s ease;
+
+    &:hover {
+        background: lighten($antsand-gray-900, 12%);
+    }
+
+    &:active {
+        transform: scale(.985);
+    }
+
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
