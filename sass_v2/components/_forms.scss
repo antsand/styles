@@ -360,3 +360,79 @@ textarea.antsand-form-control {
 .form-padding {
     padding: 45px 0px;
 }
+
+// Login / Intro banner form slot.
+// Keep these styles in sass_v2 rather than inline Volt attributes so templates
+// remain portable and Databoard can attach any Forms record to the intro slot.
+.login_intro_form_container {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba($antsand-gray-900, 0.08);
+    border-radius: $antsand-radius-lg;
+    box-shadow: $antsand-shadow-xl;
+    padding: clamp(1.25rem, 3vw, 2rem);
+
+    .form-default,
+    .form_container {
+        width: 100%;
+    }
+
+    .form_title_sub_container {
+        margin-bottom: $antsand-space-4;
+    }
+
+    .default-btn,
+    .sn-auth-submit {
+        width: 100%;
+        margin-top: $antsand-space-3;
+        padding: 0.85rem 1rem;
+        border-radius: $antsand-radius-md;
+        font-weight: $antsand-font-weight-semibold;
+    }
+
+    .sn-auth-links {
+        display: flex;
+        justify-content: space-between;
+        gap: $antsand-space-3;
+        flex-wrap: wrap;
+        margin-top: $antsand-space-4;
+        font-size: $antsand-font-size-sm;
+    }
+
+    .sn-auth-link {
+        color: $antsand-gray-700;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+}
+
+// Auth / Account and Subscribe / Newsletter section form slots.
+// These are visual wrappers only. The attached Forms record and HMVC action
+// contract decide login/signup/reset/subscribe behavior.
+.auth_account_form_container,
+.subscribe_modern_form_container {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba($antsand-gray-900, 0.08);
+    border-radius: $antsand-radius-lg;
+    box-shadow: $antsand-shadow-lg;
+    padding: clamp(1.15rem, 2.5vw, 1.75rem);
+
+    .form-default,
+    .form_container {
+        width: 100%;
+    }
+
+    .form-row {
+        margin-bottom: $antsand-space-3;
+    }
+
+    .default-btn,
+    .sn-auth-submit {
+        width: 100%;
+        border-radius: $antsand-radius-md;
+    }
+}
+
+.subscribe_modern_form_container {
+    border-color: rgba($antsand-primary, 0.16);
+    box-shadow: 0 18px 36px rgba($antsand-primary, 0.08);
+}

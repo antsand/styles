@@ -25,6 +25,7 @@
 import { AntsandTabs, initAllTabs } from './modules/tabs.js';
 import { AntsandTable, initAllTables } from './modules/table.js';
 import { AntsandCarousel, initAllCarousels } from './modules/carousel.js';
+import { AntsandCheckout, initAllCheckouts } from './modules/checkout.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
@@ -37,7 +38,8 @@ function initAll() {
     const initialized = {
         tabs: initAllTabs(),
         tables: initAllTables(),
-        carousels: initAllCarousels()
+        carousels: initAllCarousels(),
+        checkouts: initAllCheckouts()
     };
 
     // Log initialization summary (development only)
@@ -45,7 +47,8 @@ function initAll() {
         console.log('ANTSAND v2 initialized:', {
             tabs: initialized.tabs.length,
             tables: initialized.tables.length,
-            carousels: initialized.carousels.length
+            carousels: initialized.carousels.length,
+            checkouts: initialized.checkouts.length
         });
     }
 
@@ -105,11 +108,13 @@ const ANTSAND = {
     Tabs: AntsandTabs,
     Table: AntsandTable,
     Carousel: AntsandCarousel,
+    Checkout: AntsandCheckout,
 
     // Initialization functions
     initTabs: initAllTabs,
     initTables: initAllTables,
     initCarousels: initAllCarousels,
+    initCheckouts: initAllCheckouts,
     initAll: initAll,
 
     // Configuration
@@ -142,9 +147,11 @@ export {
     AntsandTabs,
     AntsandTable,
     AntsandCarousel,
+    AntsandCheckout,
     initAllTabs,
     initAllTables,
     initAllCarousels,
+    initAllCheckouts,
     initAll
 };
 
