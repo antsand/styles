@@ -1,0 +1,195 @@
+// ============================================
+// ANTSAND Styles v2 - Generated Top Navigation
+// ============================================
+//
+// Contract:
+// - Databoard menu/topnav JSON must render through detected_type = "nav".
+// - common_section_body_modern.volt adds .antsand-topnav-menu.
+// - nav_renderer.volt adds .antsand-topnav-item.
+// - header.nav_theme = "dark" adds .antsand-topnav-dark.
+// - header.nav_sticky = true or header.nav_position = "sticky" adds
+//   utility classes "sticky top-0 z-50". Sticky is opt-in because persistent
+//   nav consumes reading space on content-heavy sites.
+//
+// Keep topnav styling here in sass_v2. Do not hardcode inline styles in Volt
+// templates or deployment code; the compiler should emit semantic classes and
+// SASS should own visual layout.
+
+section:has(.antsand-topnav-menu) {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(33, 37, 41, 0.08);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    backdrop-filter: blur(14px);
+
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $antsand-space-4;
+        width: unquote("min(100%, 1180px)");
+        min-height: 72px;
+        margin: 0 auto;
+        padding: $antsand-space-2 $antsand-space-4;
+    }
+
+    // The service_3_modern shell renders the logo through the normal header
+    // partial. In nav sections that header is the brand slot, not a hero.
+    [class*="header"] {
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    img {
+        display: block;
+        width: auto;
+        max-height: 42px;
+    }
+}
+
+section:has(.antsand-topnav-dark) {
+    background: linear-gradient(135deg, $antsand-gray-900 0%, darken($antsand-gray-900, 6%) 100%);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+
+    [class*="header"] {
+        color: white;
+    }
+
+    img {
+        filter: none;
+    }
+}
+
+.antsand-topnav-menu {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+.antsand-topnav-dark {
+    .antsand-topnav-item {
+        > a {
+            color: rgba(255, 255, 255, 0.78);
+
+            &:hover,
+            &:focus-visible {
+                color: white;
+                background: rgba(255, 255, 255, 0.10);
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+            }
+        }
+
+        &:last-child > a {
+            color: white;
+            background: rgba(0, 0, 0, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+
+            &:hover,
+            &:focus-visible {
+                color: white;
+                background: $antsand-primary;
+                border-color: $antsand-primary;
+            }
+        }
+    }
+}
+
+.antsand-topnav-item {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        min-height: 38px;
+        padding: 0.45rem 0.75rem;
+        border: 1px solid transparent;
+        border-radius: $antsand-radius-full;
+        color: $antsand-gray-700;
+        font-size: $antsand-font-size-sm;
+        font-weight: $antsand-font-weight-semibold;
+        line-height: 1;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color $antsand-transition-fast,
+                    background-color $antsand-transition-fast,
+                    box-shadow $antsand-transition-fast;
+
+        &:hover,
+        &:focus-visible {
+            color: $antsand-gray-900;
+            background: $antsand-gray-100;
+            box-shadow: inset 0 0 0 1px rgba(33, 37, 41, 0.06);
+            outline: none;
+        }
+    }
+
+    &:last-child > a {
+        color: white;
+        background: $antsand-gray-900;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+
+        &:hover,
+        &:focus-visible {
+            color: white;
+            background: $antsand-primary;
+        }
+    }
+}
+
+// Legacy .antsand-nav rules also match generated topnav markup because the
+// shared shell section intentionally carries .antsand-nav for old template
+// compatibility. When .antsand-topnav-menu is present, this newer generated
+// topnav contract must win over .data-sub-container > a { display:block; }.
+.antsand-nav,
+.antsand-nav-v2,
+.antsand-nav-style {
+    .antsand-topnav-menu {
+        .antsand-topnav-item {
+            > a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+            }
+        }
+    }
+}
+
+@media (max-width: $antsand-breakpoint-md) {
+    section:has(.antsand-topnav-menu) {
+        position: relative;
+
+        > div {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: $antsand-space-2;
+            min-height: 0;
+            padding: $antsand-space-3;
+        }
+    }
+
+    .antsand-topnav-menu {
+        justify-content: flex-start;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: $antsand-space-1;
+        scrollbar-width: thin;
+    }
+}

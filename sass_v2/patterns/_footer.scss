@@ -197,44 +197,105 @@
     @include footer-base;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: $antsand-gray-300;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 -16px 38px rgba(0, 0, 0, 0.28);
+
+    // Shared Databoard footers should feel like the dark header: compact,
+    // quiet, and navigation-oriented. Keep this in sass_v2 instead of
+    // hardcoding footer template styles so every referenced footer updates.
+    padding: $antsand-space-6 0 $antsand-space-6 0;
+
+    .container,
+    .data-container {
+        gap: $antsand-space-4;
+        row-gap: $antsand-space-5;
+    }
+
+    .header-section {
+        display: none;
+    }
 
     .sub-container {
+        &:first-child {
+            min-width: unquote("min(100%, 20rem)");
+        }
+
+        .content-wrapper {
+            max-width: 34rem;
+        }
+
         .title {
             color: white;
+            font-size: $antsand-font-size-base;
+            letter-spacing: 0.01em;
+            margin-bottom: $antsand-space-2;
         }
 
         .description {
             color: $antsand-gray-400;
+            font-size: $antsand-font-size-sm;
+            line-height: $antsand-line-height-relaxed;
+            margin-bottom: $antsand-space-2;
         }
 
         li a {
             color: $antsand-gray-400;
+            font-size: $antsand-font-size-sm;
+            line-height: $antsand-line-height-normal;
 
             &:hover {
                 color: white;
             }
         }
 
+        .social-container {
+            gap: $antsand-space-2;
+            flex-wrap: wrap;
+            margin-top: $antsand-space-2;
+        }
+
+        .social-container .social,
+        .social-container .social > a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 999px;
+        }
+
         .social-container .social {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.08);
             color: $antsand-gray-400;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
             &:hover {
-                background-color: $antsand-primary;
+                background-color: rgba(255, 255, 255, 0.14);
                 color: white;
+                border-color: rgba(255, 255, 255, 0.24);
+            }
+
+            svg {
+                width: 1rem;
+                height: 1rem;
             }
         }
     }
 
     .footer-section {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: $antsand-space-3;
+        margin-top: $antsand-space-3;
 
         .title {
             color: $antsand-gray-500;
+            font-size: 0.75rem;
         }
 
         .cta {
             color: $antsand-gray-500;
+            font-size: 0.75rem;
 
             &:hover {
                 color: white;

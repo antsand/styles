@@ -626,3 +626,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem; }
+
+.antsand-nav .antsand-topnav-menu .antsand-topnav-item > a,
+.antsand-nav-v2 .antsand-topnav-menu .antsand-topnav-item > a,
+.antsand-nav-style .antsand-topnav-menu .antsand-topnav-item > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center; }

@@ -58,3 +58,23 @@ $antsand-z-fixed: 1030 !default;
 
 // Import enhanced navigation with click-based dropdowns
 @import 'nav-v2-enhanced';
+
+// Generated Databoard topnav guardrail.
+// The legacy nav-v2 selectors intentionally style .antsand-nav
+// .data-sub-container > a as block links. Generated shared-shell topnavs reuse
+// .antsand-nav for compatibility but add .antsand-topnav-menu/.antsand-topnav-item.
+// In that case the topnav contract owns anchor layout and must stay flex.
+.antsand-nav,
+.antsand-nav-v2,
+.antsand-nav-style {
+    .antsand-topnav-menu {
+        .antsand-topnav-item {
+            > a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                align-self: center;
+            }
+        }
+    }
+}

@@ -1353,6 +1353,21 @@ button {
 .sticky {
   position: sticky; }
 
+.top-0 {
+  top: 0; }
+
+.right-0 {
+  right: 0; }
+
+.bottom-0 {
+  bottom: 0; }
+
+.left-0 {
+  left: 0; }
+
+.inset-0 {
+  inset: 0; }
+
 .z-0 {
   z-index: 0; }
 
@@ -2748,6 +2763,172 @@ button {
     height: 32px;
     color: #3498db; }
 
+/*
+ * =========================================
+ * BLOG SECTION — Generic Renderer Overrides
+ * Targets `.blog_section` wrapper class used
+ * by service_3_modern when rendering blog data
+ * =========================================
+ */
+.blog_section .data-sub-container {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column; }
+  .blog_section .data-sub-container:hover {
+    border-color: #3498db;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px); }
+
+.blog_section .data-h3,
+.blog_section .title,
+.blog_section .antsand-feature-title,
+.blog_section .antsand-hero-title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #212529;
+  margin-bottom: 0.5rem; }
+  .blog_section .data-h3 a,
+  .blog_section .title a,
+  .blog_section .antsand-feature-title a,
+  .blog_section .antsand-hero-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease; }
+    .blog_section .data-h3 a:hover,
+    .blog_section .title a:hover,
+    .blog_section .antsand-feature-title a:hover,
+    .blog_section .antsand-hero-title a:hover {
+      color: #3498db; }
+
+.blog_section .data-p,
+.blog_section .description,
+.blog_section .antsand-feature-desc,
+.blog_section .antsand-hero-subtitle {
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden; }
+
+.blog_section .data-span,
+.blog_section .meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.04em; }
+
+.blog_section .data-cta,
+.blog_section .cta,
+.blog_section .antsand-pricing-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3498db;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding-top: 0.5rem; }
+  .blog_section .data-cta::after,
+  .blog_section .cta::after,
+  .blog_section .antsand-pricing-cta::after {
+    content: '→';
+    transition: transform 0.2s ease; }
+  .blog_section .data-cta:hover,
+  .blog_section .cta:hover,
+  .blog_section .antsand-pricing-cta:hover {
+    text-decoration: underline; }
+    .blog_section .data-cta:hover::after,
+    .blog_section .cta:hover::after,
+    .blog_section .antsand-pricing-cta:hover::after {
+      transform: translateX(3px); }
+
+.blog_section .data-container {
+  flex-wrap: wrap; }
+
+.blog_section .data-sub-container:first-child {
+  border-left: 4px solid #3498db; }
+
+/*
+ * =========================================
+ * BLOG ARTICLE MEDIA HEADER
+ * Enhance text readability on article detail
+ * pages with header images — stronger gradient
+ * and text shadow, no layout changes.
+ * =========================================
+ */
+.blog-media-header .media-header-overlay {
+  height: 75% !important;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 40%, transparent 100%) !important; }
+
+.blog-media-header .article-header-overlay .header-h1,
+.blog-media-header .article-header-overlay .title,
+.blog-media-header .article-header-overlay .antsand-feature-title,
+.blog-media-header .article-header-overlay .antsand-hero-title {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.6) !important; }
+
+.blog-media-header .article-header-overlay .article-category,
+.blog-media-header .article-header-overlay .article-meta,
+.blog-media-header .article-header-overlay .article-meta a {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6) !important; }
+
+/*
+ * BLOG HERO (homepage) — text readability
+ * The hero uses white text on dark bg (#111) but
+ * cards with cover images need text shadow to stay readable.
+ */
+.blog-hero .data-container h3, .blog-hero .data-container h3 a {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.7); }
+
+.blog-hero .data-container .blog-card-excerpt {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7); }
+
+.blog-hero .data-container .blog-card-date,
+.blog-hero .data-container .blog-card-author-name,
+.blog-hero .data-container .blog-card-read-time {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6); }
+
+/*
+ * Blog Article Section — detail page body override
+ */
+.blog-article-section .data-sub-container {
+  border: none;
+  padding: 0;
+  background: transparent; }
+  .blog-article-section .data-sub-container:hover {
+    transform: none;
+    box-shadow: none; }
+
+.blog-article-section .data-h3,
+.blog-article-section .title,
+.blog-article-section .antsand-feature-title,
+.blog-article-section .antsand-hero-title {
+  font-family: 'Merriweather', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #212529;
+  line-height: 1.4; }
+
+.blog-article-section .data-p,
+.blog-article-section .description,
+.blog-article-section .antsand-feature-desc,
+.blog-article-section .antsand-hero-subtitle {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #212529;
+  -webkit-line-clamp: unset;
+  overflow: visible; }
+
 .profileposts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -3512,6 +3693,128 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
 .subscribe_modern_form_container {
   border-color: rgba(52, 152, 219, 0.16);
   box-shadow: 0 18px 36px rgba(52, 152, 219, 0.08); }
+
+section:has(.antsand-topnav-menu) {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(33, 37, 41, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(14px); }
+  section:has(.antsand-topnav-menu) > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    width: min(100%, 1180px);
+    min-height: 72px;
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem; }
+  section:has(.antsand-topnav-menu) [class*="header"] {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    background: transparent;
+    box-shadow: none; }
+  section:has(.antsand-topnav-menu) img {
+    display: block;
+    width: auto;
+    max-height: 42px; }
+
+section:has(.antsand-topnav-dark) {
+  background: linear-gradient(135deg, #212529 0%, #131618 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28); }
+  section:has(.antsand-topnav-dark) [class*="header"] {
+    color: white; }
+  section:has(.antsand-topnav-dark) img {
+    filter: none; }
+
+.antsand-topnav-menu {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0; }
+
+.antsand-topnav-dark .antsand-topnav-item > a {
+  color: rgba(255, 255, 255, 0.78); }
+  .antsand-topnav-dark .antsand-topnav-item > a:hover, .antsand-topnav-dark .antsand-topnav-item > a:focus-visible {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1); }
+
+.antsand-topnav-dark .antsand-topnav-item:last-child > a {
+  color: white;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22); }
+  .antsand-topnav-dark .antsand-topnav-item:last-child > a:hover, .antsand-topnav-dark .antsand-topnav-item:last-child > a:focus-visible {
+    color: white;
+    background: #3498db;
+    border-color: #3498db; }
+
+.antsand-topnav-item {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .antsand-topnav-item > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    min-height: 38px;
+    padding: 0.45rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    color: #495057;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 150ms ease, background-color 150ms ease, box-shadow 150ms ease; }
+    .antsand-topnav-item > a:hover, .antsand-topnav-item > a:focus-visible {
+      color: #212529;
+      background: #f8f9fa;
+      box-shadow: inset 0 0 0 1px rgba(33, 37, 41, 0.06);
+      outline: none; }
+  .antsand-topnav-item:last-child > a {
+    color: white;
+    background: #212529;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18); }
+    .antsand-topnav-item:last-child > a:hover, .antsand-topnav-item:last-child > a:focus-visible {
+      color: white;
+      background: #3498db; }
+
+.antsand-nav .antsand-topnav-menu .antsand-topnav-item > a,
+.antsand-nav-v2 .antsand-topnav-menu .antsand-topnav-item > a,
+.antsand-nav-style .antsand-topnav-menu .antsand-topnav-item > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center; }
+
+@media (max-width: 768px) {
+  section:has(.antsand-topnav-menu) {
+    position: relative; }
+    section:has(.antsand-topnav-menu) > div {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-height: 0;
+      padding: 1rem; }
+  .antsand-topnav-menu {
+    justify-content: flex-start;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+    scrollbar-width: thin; } }
 
 .antsand-accordion {
   border: 1px solid #e9ecef;
@@ -9639,7 +9942,10 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
 .footer-1, .antsand-footer {
   padding: 4rem 0 1.5rem 0;
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  color: #dee2e6; }
+  color: #dee2e6;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -16px 38px rgba(0, 0, 0, 0.28);
+  padding: 3rem 0 3rem 0; }
   .footer-1 .container, .footer-1 .antsand-footer-grid, .antsand-footer .container, .antsand-footer .antsand-footer-grid, .footer-1 .data-container, .antsand-footer .data-container {
     max-width: 1280px;
     margin: 0 auto;
@@ -9716,26 +10022,82 @@ textarea.antsand-form-control, textarea.antsand-textarea, textarea.antsand-input
         font-size: 0.875rem;
         text-decoration: none;
         transition: color 250ms ease; }
+  .footer-1 .container, .footer-1 .antsand-footer-grid, .antsand-footer .container, .antsand-footer .antsand-footer-grid,
+  .footer-1 .data-container,
+  .antsand-footer .data-container {
+    gap: 1.5rem;
+    row-gap: 2rem; }
+  .footer-1 .header-section, .antsand-footer .header-section {
+    display: none; }
+  .footer-1 .sub-container:first-child, .footer-1 .antsand-footer-column:first-child, .antsand-footer .sub-container:first-child, .antsand-footer .antsand-footer-column:first-child, .footer-1 .antsand-feature-item:first-child, .antsand-footer .antsand-feature-item:first-child, .footer-1 .antsand-pricing-card:first-child, .antsand-footer .antsand-pricing-card:first-child {
+    min-width: min(100%, 20rem); }
+  .footer-1 .sub-container .content-wrapper, .footer-1 .antsand-footer-column .content-wrapper, .antsand-footer .sub-container .content-wrapper, .antsand-footer .antsand-footer-column .content-wrapper, .footer-1 .antsand-feature-item .content-wrapper, .antsand-footer .antsand-feature-item .content-wrapper, .footer-1 .antsand-pricing-card .content-wrapper, .antsand-footer .antsand-pricing-card .content-wrapper {
+    max-width: 34rem; }
   .footer-1 .sub-container .title, .footer-1 .antsand-footer-column .title, .antsand-footer .sub-container .title, .antsand-footer .antsand-footer-column .title, .footer-1 .antsand-feature-item .title, .antsand-footer .antsand-feature-item .title, .footer-1 .antsand-pricing-card .title, .antsand-footer .antsand-pricing-card .title, .footer-1 .sub-container .antsand-hero-title, .footer-1 .antsand-footer-column .antsand-hero-title, .antsand-footer .sub-container .antsand-hero-title, .antsand-footer .antsand-footer-column .antsand-hero-title, .footer-1 .antsand-feature-item .antsand-hero-title, .antsand-footer .antsand-feature-item .antsand-hero-title, .footer-1 .antsand-pricing-card .antsand-hero-title, .antsand-footer .antsand-pricing-card .antsand-hero-title, .footer-1 .sub-container .antsand-feature-title, .footer-1 .antsand-footer-column .antsand-feature-title, .antsand-footer .sub-container .antsand-feature-title, .antsand-footer .antsand-footer-column .antsand-feature-title, .footer-1 .antsand-feature-item .antsand-feature-title, .antsand-footer .antsand-feature-item .antsand-feature-title, .footer-1 .antsand-pricing-card .antsand-feature-title, .antsand-footer .antsand-pricing-card .antsand-feature-title {
-    color: white; }
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.5rem; }
   .footer-1 .sub-container .description, .footer-1 .antsand-footer-column .description, .antsand-footer .sub-container .description, .antsand-footer .antsand-footer-column .description, .footer-1 .antsand-feature-item .description, .antsand-footer .antsand-feature-item .description, .footer-1 .antsand-pricing-card .description, .antsand-footer .antsand-pricing-card .description, .footer-1 .sub-container .antsand-hero-subtitle, .footer-1 .antsand-footer-column .antsand-hero-subtitle, .antsand-footer .sub-container .antsand-hero-subtitle, .antsand-footer .antsand-footer-column .antsand-hero-subtitle, .footer-1 .antsand-feature-item .antsand-hero-subtitle, .antsand-footer .antsand-feature-item .antsand-hero-subtitle, .footer-1 .antsand-pricing-card .antsand-hero-subtitle, .antsand-footer .antsand-pricing-card .antsand-hero-subtitle, .footer-1 .sub-container .antsand-feature-desc, .footer-1 .antsand-footer-column .antsand-feature-desc, .antsand-footer .sub-container .antsand-feature-desc, .antsand-footer .antsand-footer-column .antsand-feature-desc, .footer-1 .antsand-feature-item .antsand-feature-desc, .antsand-footer .antsand-feature-item .antsand-feature-desc, .footer-1 .antsand-pricing-card .antsand-feature-desc, .antsand-footer .antsand-pricing-card .antsand-feature-desc {
-    color: #ced4da; }
+    color: #ced4da;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    margin-bottom: 0.5rem; }
   .footer-1 .sub-container li a, .footer-1 .antsand-footer-column li a, .antsand-footer .sub-container li a, .antsand-footer .antsand-footer-column li a, .footer-1 .antsand-feature-item li a, .antsand-footer .antsand-feature-item li a, .footer-1 .antsand-pricing-card li a, .antsand-footer .antsand-pricing-card li a {
-    color: #ced4da; }
+    color: #ced4da;
+    font-size: 0.875rem;
+    line-height: 1.5; }
     .footer-1 .sub-container li a:hover, .footer-1 .antsand-footer-column li a:hover, .antsand-footer .sub-container li a:hover, .antsand-footer .antsand-footer-column li a:hover, .footer-1 .antsand-feature-item li a:hover, .antsand-footer .antsand-feature-item li a:hover, .footer-1 .antsand-pricing-card li a:hover, .antsand-footer .antsand-pricing-card li a:hover {
       color: white; }
+  .footer-1 .sub-container .social-container, .footer-1 .sub-container .antsand-footer-social, .footer-1 .antsand-footer-column .social-container, .footer-1 .antsand-footer-column .antsand-footer-social, .antsand-footer .sub-container .social-container, .antsand-footer .sub-container .antsand-footer-social, .antsand-footer .antsand-footer-column .social-container, .antsand-footer .antsand-footer-column .antsand-footer-social, .footer-1 .antsand-feature-item .social-container, .footer-1 .antsand-feature-item .antsand-footer-social, .antsand-footer .antsand-feature-item .social-container, .antsand-footer .antsand-feature-item .antsand-footer-social, .footer-1 .antsand-pricing-card .social-container, .footer-1 .antsand-pricing-card .antsand-footer-social, .antsand-footer .antsand-pricing-card .social-container, .antsand-footer .antsand-pricing-card .antsand-footer-social {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem; }
+  .footer-1 .sub-container .social-container .social, .footer-1 .sub-container .antsand-footer-social .social, .footer-1 .antsand-footer-column .social-container .social, .footer-1 .antsand-footer-column .antsand-footer-social .social, .antsand-footer .sub-container .social-container .social, .antsand-footer .sub-container .antsand-footer-social .social, .antsand-footer .antsand-footer-column .social-container .social, .antsand-footer .antsand-footer-column .antsand-footer-social .social, .footer-1 .antsand-feature-item .social-container .social, .footer-1 .antsand-feature-item .antsand-footer-social .social, .antsand-footer .antsand-feature-item .social-container .social, .antsand-footer .antsand-feature-item .antsand-footer-social .social, .footer-1 .antsand-pricing-card .social-container .social, .footer-1 .antsand-pricing-card .antsand-footer-social .social, .antsand-footer .antsand-pricing-card .social-container .social, .antsand-footer .antsand-pricing-card .antsand-footer-social .social,
+  .footer-1 .sub-container .social-container .social > a,
+  .footer-1 .sub-container .antsand-footer-social .social > a,
+  .footer-1 .antsand-footer-column .social-container .social > a,
+  .footer-1 .antsand-footer-column .antsand-footer-social .social > a,
+  .antsand-footer .sub-container .social-container .social > a,
+  .antsand-footer .sub-container .antsand-footer-social .social > a,
+  .antsand-footer .antsand-footer-column .social-container .social > a,
+  .antsand-footer .antsand-footer-column .antsand-footer-social .social > a,
+  .footer-1 .antsand-feature-item .social-container .social > a,
+  .footer-1 .antsand-feature-item .antsand-footer-social .social > a,
+  .antsand-footer .antsand-feature-item .social-container .social > a,
+  .antsand-footer .antsand-feature-item .antsand-footer-social .social > a,
+  .footer-1 .antsand-pricing-card .social-container .social > a,
+  .footer-1 .antsand-pricing-card .antsand-footer-social .social > a,
+  .antsand-footer .antsand-pricing-card .social-container .social > a,
+  .antsand-footer .antsand-pricing-card .antsand-footer-social .social > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px; }
   .footer-1 .sub-container .social-container .social, .footer-1 .sub-container .antsand-footer-social .social, .footer-1 .antsand-footer-column .social-container .social, .footer-1 .antsand-footer-column .antsand-footer-social .social, .antsand-footer .sub-container .social-container .social, .antsand-footer .sub-container .antsand-footer-social .social, .antsand-footer .antsand-footer-column .social-container .social, .antsand-footer .antsand-footer-column .antsand-footer-social .social, .footer-1 .antsand-feature-item .social-container .social, .footer-1 .antsand-feature-item .antsand-footer-social .social, .antsand-footer .antsand-feature-item .social-container .social, .antsand-footer .antsand-feature-item .antsand-footer-social .social, .footer-1 .antsand-pricing-card .social-container .social, .footer-1 .antsand-pricing-card .antsand-footer-social .social, .antsand-footer .antsand-pricing-card .social-container .social, .antsand-footer .antsand-pricing-card .antsand-footer-social .social {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ced4da; }
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ced4da;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06); }
     .footer-1 .sub-container .social-container .social:hover, .footer-1 .sub-container .antsand-footer-social .social:hover, .footer-1 .antsand-footer-column .social-container .social:hover, .footer-1 .antsand-footer-column .antsand-footer-social .social:hover, .antsand-footer .sub-container .social-container .social:hover, .antsand-footer .sub-container .antsand-footer-social .social:hover, .antsand-footer .antsand-footer-column .social-container .social:hover, .antsand-footer .antsand-footer-column .antsand-footer-social .social:hover, .footer-1 .antsand-feature-item .social-container .social:hover, .footer-1 .antsand-feature-item .antsand-footer-social .social:hover, .antsand-footer .antsand-feature-item .social-container .social:hover, .antsand-footer .antsand-feature-item .antsand-footer-social .social:hover, .footer-1 .antsand-pricing-card .social-container .social:hover, .footer-1 .antsand-pricing-card .antsand-footer-social .social:hover, .antsand-footer .antsand-pricing-card .social-container .social:hover, .antsand-footer .antsand-pricing-card .antsand-footer-social .social:hover {
-      background-color: #3498db;
-      color: white; }
+      background-color: rgba(255, 255, 255, 0.14);
+      color: white;
+      border-color: rgba(255, 255, 255, 0.24); }
+    .footer-1 .sub-container .social-container .social svg, .footer-1 .sub-container .antsand-footer-social .social svg, .footer-1 .antsand-footer-column .social-container .social svg, .footer-1 .antsand-footer-column .antsand-footer-social .social svg, .antsand-footer .sub-container .social-container .social svg, .antsand-footer .sub-container .antsand-footer-social .social svg, .antsand-footer .antsand-footer-column .social-container .social svg, .antsand-footer .antsand-footer-column .antsand-footer-social .social svg, .footer-1 .antsand-feature-item .social-container .social svg, .footer-1 .antsand-feature-item .antsand-footer-social .social svg, .antsand-footer .antsand-feature-item .social-container .social svg, .antsand-footer .antsand-feature-item .antsand-footer-social .social svg, .footer-1 .antsand-pricing-card .social-container .social svg, .footer-1 .antsand-pricing-card .antsand-footer-social .social svg, .antsand-footer .antsand-pricing-card .social-container .social svg, .antsand-footer .antsand-pricing-card .antsand-footer-social .social svg {
+      width: 1rem;
+      height: 1rem; }
   .footer-1 .footer-section, .footer-1 .antsand-footer-bottom, .antsand-footer .footer-section, .antsand-footer .antsand-footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    margin-top: 1rem; }
     .footer-1 .footer-section .title, .footer-1 .antsand-footer-bottom .title, .antsand-footer .footer-section .title, .antsand-footer .antsand-footer-bottom .title, .footer-1 .footer-section .antsand-hero-title, .footer-1 .antsand-footer-bottom .antsand-hero-title, .antsand-footer .footer-section .antsand-hero-title, .antsand-footer .antsand-footer-bottom .antsand-hero-title, .footer-1 .footer-section .antsand-feature-title, .footer-1 .antsand-footer-bottom .antsand-feature-title, .antsand-footer .footer-section .antsand-feature-title, .antsand-footer .antsand-footer-bottom .antsand-feature-title {
-      color: #adb5bd; }
+      color: #adb5bd;
+      font-size: 0.75rem; }
     .footer-1 .footer-section .cta, .footer-1 .antsand-footer-bottom .cta, .antsand-footer .footer-section .cta, .antsand-footer .antsand-footer-bottom .cta, .footer-1 .footer-section .antsand-pricing-cta, .footer-1 .antsand-footer-bottom .antsand-pricing-cta, .antsand-footer .footer-section .antsand-pricing-cta, .antsand-footer .antsand-footer-bottom .antsand-pricing-cta {
-      color: #adb5bd; }
+      color: #adb5bd;
+      font-size: 0.75rem; }
       .footer-1 .footer-section .cta:hover, .footer-1 .antsand-footer-bottom .cta:hover, .antsand-footer .footer-section .cta:hover, .antsand-footer .antsand-footer-bottom .cta:hover, .footer-1 .footer-section .antsand-pricing-cta:hover, .footer-1 .antsand-footer-bottom .antsand-pricing-cta:hover, .antsand-footer .footer-section .antsand-pricing-cta:hover, .antsand-footer .antsand-footer-bottom .antsand-pricing-cta:hover {
         color: white; }
 
