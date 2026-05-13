@@ -79,3 +79,68 @@
         box-shadow: $antsand-shadow-xl;
     }
 }
+
+// ============================================
+// ACCESSIBILITY MIXINS
+// FOR AGENTS: Use these mixins in components for consistent a11y behavior.
+// @include focus-ring;         → adds keyboard-only focus outline
+// @include motion-safe { }    → wrap animations so they respect prefers-reduced-motion
+// @include high-contrast { }  → override styles for high-contrast users
+// @include touch-target;      → ensures min 44px tap area
+// ============================================
+
+// Focus ring — keyboard-only visible focus
+@mixin focus-ring($color: $antsand-focus-ring-color, $width: $antsand-focus-ring-width) {
+    &:focus-visible {
+        outline: $width solid $color;
+        outline-offset: $antsand-focus-ring-offset;
+        box-shadow: 0 0 0 $width $color;
+    }
+}
+
+// Motion-safe wrapper — content inside runs ONLY if user hasn't reduced motion
+@mixin motion-safe {
+    @media (prefers-reduced-motion: no-preference) {
+        @content;
+    }
+}
+
+// Reduced motion — force-disable motion
+@mixin motion-reduce {
+    @media (prefers-reduced-motion: reduce) {
+        @content;
+    }
+}
+
+// High contrast mode override
+@mixin high-contrast {
+    @media (prefers-contrast: more) {
+        @content;
+    }
+}
+
+// Dark mode
+@mixin dark-mode {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
+
+// Touch target — minimum WCAG 2.5.5 tappable area
+@mixin touch-target($size: $antsand-touch-target-min) {
+    min-height: $size;
+    min-width: $size;
+}
+
+// Screen-reader only (visually hidden but accessible)
+@mixin sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

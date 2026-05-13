@@ -448,3 +448,51 @@ textarea.antsand-form-control {
     border-color: rgba($antsand-primary, 0.16);
     box-shadow: 0 18px 36px rgba($antsand-primary, 0.08);
 }
+
+// ============================================
+// FORM ACCESSIBILITY
+// FOR AGENTS: Form controls auto-get focus-visible rings from reset.
+// Use aria-invalid="true" for validation errors (auto-styled red border).
+// Use aria-required="true" for required indicator (left accent border).
+// Checkboxes/radios get 44px touch targets for mobile.
+// High-contrast mode auto-thickens all form borders.
+// ============================================
+
+.antsand-form-control {
+    @include focus-ring;
+
+    &[aria-disabled="true"] {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: $antsand-gray-100;
+    }
+}
+
+// Touch targets for checkboxes and radios
+.antsand-form-check input[type="checkbox"],
+.antsand-form-check input[type="radio"] {
+    @include touch-target;
+    cursor: pointer;
+
+    &:focus-visible {
+        outline: $antsand-focus-ring-width solid $antsand-focus-ring-color;
+        outline-offset: $antsand-focus-ring-offset;
+    }
+}
+
+// High contrast forms
+@media (prefers-contrast: more) {
+    .antsand-form-control {
+        border-width: 2px;
+    }
+
+    .antsand-form-control[aria-invalid="true"] {
+        border-width: 3px;
+    }
+}
+
+// Focus-within label highlighting
+.antsand-form-group:focus-within .antsand-form-label {
+    color: $antsand-primary;
+    font-weight: $antsand-font-weight-semibold;
+}

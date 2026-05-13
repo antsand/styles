@@ -25,6 +25,20 @@
 //   → Keep common/stable utilities here; let Databoard generate site-specific
 //     utility rules from the classes actually used by a board.
 //
+// LAYER OWNERSHIP (do not collapse these into one concept):
+//   Sass v2 = shared ANTSAND framework: tokens, components, shared utilities,
+//             reusable themes/presets, and broad defaults for all sites.
+//   parameter_files.json = section/template defaults: which class slots and
+//             default classes a Databoard section starts with.
+//   common_init_modern.volt + service_3_modern.volt = runtime contract:
+//             read saved Databoard CSS and apply it to the fixed H/B/F DOM.
+//   Databoard field CSS = per-page/per-section/per-field class assignment:
+//             section.container, data.container, data.sub_container, data.h3,
+//             data.p, data.img, data.cta, footer.cta, etc.
+//   Databoard Sass/common_styles = per-site CSS and generated board-local
+//             utility rules. Use it for one website's branding or overrides,
+//             not for reusable Sass v2 framework changes.
+//
 // AGENT WORKFLOW:
 //   1. Create a root class in a component SCSS file (Tier 1)
 //   2. Define descendant selectors for the section pattern
@@ -84,3 +98,4 @@
 
 // Themes
 @import 'themes/modern';
+@import 'themes/presets';

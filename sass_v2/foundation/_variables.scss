@@ -114,3 +114,29 @@ $antsand-z-dropdown: 1000 !default;
 $antsand-z-sticky: 1020 !default;
 $antsand-z-fixed: 1030 !default;
 $antsand-z-modal: 1050 !default;
+
+// ============================================
+// ACCESSIBILITY TOKENS
+// FOR AGENTS: These tokens power high-contrast mode and motion preferences.
+// Use $antsand-focus-ring-* for focus-visible styles.
+// Use $antsand-*-hc for high-contrast overrides.
+// ============================================
+
+// Focus ring
+$antsand-focus-ring-color: rgba(59, 130, 246, 0.5) !default;
+$antsand-focus-ring-width: 3px !default;
+$antsand-focus-ring-offset: 2px !default;
+
+// High-contrast color variants (WCAG AAA: 7:1 ratio)
+$antsand-primary-hc: #0056b3 !default;
+$antsand-danger-hc: #a91b0d !default;
+$antsand-success-hc: #1b4620 !default;
+$antsand-warning-hc: #8b4513 !default;
+
+// Motion defaults
+$antsand-motion-duration: 0.3s !default;
+$antsand-motion-duration-reduced: 0.01ms !default;
+
+// Touch target minimums (WCAG 2.5.5)
+$antsand-touch-target-min: 44px !default;
+$antsand-touch-target-comfortable: 48px !default;

@@ -1267,3 +1267,393 @@
 .list-disc { list-style-type: disc; }
 .list-decimal { list-style-type: decimal; }
 .list-inside { list-style-position: inside; }
+
+// ============================================
+// ACCESSIBILITY UTILITIES
+// FOR AGENTS: These classes handle a11y concerns. Use sr-only for labels
+// that must exist for screen readers but not visually. Use skip-to-content
+// as the first element in <body>. Use focus-ring-* for custom focus styles.
+// ARIA selectors auto-style elements based on their ARIA state — no extra classes needed.
+// ============================================
+
+// Screen-reader only (visually hidden, accessible to assistive tech)
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+// Undo sr-only (e.g. on focus for skip links)
+.not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+// Skip to main content (first element in body)
+.skip-to-content {
+    @extend .sr-only;
+    z-index: $antsand-z-modal + 10;
+    padding: $antsand-space-3 $antsand-space-4;
+    background: $antsand-dark;
+    color: white;
+    font-weight: $antsand-font-weight-semibold;
+    border-radius: $antsand-radius-md;
+    text-decoration: none;
+
+    &:focus,
+    &:focus-visible {
+        position: fixed;
+        top: $antsand-space-3;
+        left: $antsand-space-3;
+        width: auto;
+        height: auto;
+        clip: auto;
+        overflow: visible;
+        white-space: normal;
+        margin: 0;
+    }
+}
+
+// Focus ring utilities (for custom focus styling)
+.focus-ring         { @include focus-ring; }
+.focus-ring-primary { @include focus-ring($antsand-primary); }
+.focus-ring-danger  { @include focus-ring($antsand-danger); }
+.focus-ring-success { @include focus-ring($antsand-success); }
+.focus-ring-inset {
+    &:focus-visible {
+        outline: none;
+        box-shadow: inset 0 0 0 $antsand-focus-ring-width $antsand-focus-ring-color;
+    }
+}
+
+// ARIA-based auto-styling (elements get styled by their ARIA state)
+[aria-invalid="true"] {
+    border-color: $antsand-danger !important;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($antsand-danger, 0.2);
+    }
+}
+
+[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+[aria-hidden="true"] {
+    display: none;
+}
+
+[aria-expanded="false"] + [data-expandable] {
+    display: none;
+}
+
+[aria-current="page"] {
+    font-weight: $antsand-font-weight-bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+[aria-pressed="true"] {
+    font-weight: $antsand-font-weight-semibold;
+}
+
+// Touch target utilities (WCAG 2.5.5 — 44px min)
+.touch-target {
+    min-height: $antsand-touch-target-min;
+    min-width: $antsand-touch-target-min;
+}
+
+.touch-target-lg {
+    min-height: $antsand-touch-target-comfortable;
+    min-width: $antsand-touch-target-comfortable;
+}
+
+// ============================================
+// REDUCED MOTION
+// FOR AGENTS: This block auto-disables all animations and transitions
+// for users who set "Reduce motion" in OS settings. You don't need to
+// add these classes — they apply globally via media query.
+// ============================================
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .animate-spin,
+    .animate-pulse,
+    .animate-bounce,
+    .animate-fade-in,
+    .animate-slide-up {
+        animation: none !important;
+    }
+
+    .hover\:scale-105:hover,
+    .hover\:-translate-y-1:hover,
+    .hover\:-translate-y-2:hover {
+        transform: none !important;
+    }
+
+    .antsand-card-hover:hover {
+        transform: none;
+    }
+}
+
+// Motion-safe utility (only animate if user allows it)
+.motion-safe\:animate-fade-in {
+    @include motion-safe {
+        animation: fadeIn 0.3s ease-out;
+    }
+}
+
+.motion-safe\:animate-slide-up {
+    @include motion-safe {
+        animation: slideUp 0.4s ease-out;
+    }
+}
+
+.motion-safe\:transition-all {
+    @include motion-safe {
+        transition: all $antsand-motion-duration ease;
+    }
+}
+
+// ============================================
+// HIGH CONTRAST MODE
+// FOR AGENTS: Auto-applies when user has "Increase contrast" in OS.
+// Thickens borders, strengthens focus rings, darkens muted text.
+// No classes needed — it's all media-query driven.
+// ============================================
+
+@media (prefers-contrast: more) {
+    button,
+    .antsand-btn,
+    [role="button"] {
+        border: 2px solid currentColor;
+        font-weight: $antsand-font-weight-semibold;
+    }
+
+    input,
+    textarea,
+    select,
+    .antsand-form-control {
+        border-width: 2px;
+    }
+
+    *:focus-visible {
+        outline-width: 3px;
+        outline-style: solid;
+    }
+
+    .antsand-text-muted,
+    .opacity-75 {
+        opacity: 1;
+        color: $antsand-gray-800;
+    }
+
+    .antsand-card,
+    .data-sub-container {
+        border: 2px solid $antsand-gray-700;
+    }
+}
+
+// ============================================
+// PRINT STYLESHEET
+// FOR AGENTS: @media print rules auto-apply on Ctrl+P / Cmd+P.
+// Use .no-print to hide elements. Use .print-only for print-exclusive content.
+// Links auto-show their URL. Shadows/backgrounds are stripped.
+// ============================================
+
+@media print {
+    // Hide interactive/nav elements
+    .no-print,
+    nav,
+    .topnav,
+    .navbar,
+    .dropdown,
+    .modal,
+    .carousel,
+    footer,
+    .skip-to-content {
+        display: none !important;
+    }
+
+    // Show print-only elements
+    .print-only {
+        display: block !important;
+    }
+
+    // Base print optimization
+    body {
+        font-size: 12pt;
+        line-height: 1.6;
+        color: #000;
+        background: white !important;
+    }
+
+    // Show URLs after links
+    a[href]:not([href^="#"]):not([href^="javascript"]):after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #555;
+    }
+
+    // Page break control
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+
+    img, .antsand-card, .data-sub-container {
+        page-break-inside: avoid;
+    }
+
+    // Remove cosmetic effects
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .antsand-card,
+    .data-sub-container {
+        border: 1px solid #333;
+    }
+}
+
+// ============================================
+// FLUID TYPOGRAPHY
+// FOR AGENTS: Use text-fluid-* for responsive font sizes that smoothly
+// scale between mobile and desktop. Uses CSS clamp() — no breakpoints needed.
+// Tier 2 utility: add to data-h3, data-p etc. for auto-responsive text.
+// ============================================
+
+.text-fluid-xs  { font-size: clamp(0.75rem, 1.2vw, 0.875rem); }
+.text-fluid-sm  { font-size: clamp(0.875rem, 1.5vw, 1rem); }
+.text-fluid-base { font-size: clamp(1rem, 2vw, 1.125rem); }
+.text-fluid-lg  { font-size: clamp(1.125rem, 2.5vw, 1.5rem); }
+.text-fluid-xl  { font-size: clamp(1.25rem, 3vw, 1.875rem); }
+.text-fluid-2xl { font-size: clamp(1.5rem, 3.5vw, 2.25rem); }
+.text-fluid-3xl { font-size: clamp(1.875rem, 4vw, 3rem); }
+.text-fluid-4xl { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+.text-fluid-5xl { font-size: clamp(3rem, 6vw, 4.5rem); }
+
+// ============================================
+// FORM FOCUS-WITHIN
+// FOR AGENTS: .antsand-form-group highlights its label when ANY child
+// input has focus. ARIA-invalid/required auto-style form controls.
+// ============================================
+
+.antsand-form-group:focus-within {
+    label {
+        color: $antsand-primary;
+        font-weight: $antsand-font-weight-semibold;
+    }
+}
+
+.antsand-form-control[aria-invalid="true"] {
+    border-color: $antsand-danger;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($antsand-danger, 0.15);
+        border-color: $antsand-danger;
+    }
+}
+
+.antsand-form-control[aria-invalid="false"] {
+    border-color: $antsand-success;
+
+    &:focus {
+        box-shadow: 0 0 0 3px rgba($antsand-success, 0.15);
+    }
+}
+
+.antsand-form-control[aria-required="true"] {
+    border-left: 3px solid $antsand-primary;
+}
+
+// ============================================
+// EXTENDED RESPONSIVE UTILITIES
+// FOR AGENTS: Additional breakpoint-specific utilities for spacing,
+// text size, and viewport sizing beyond what's in the base responsive set.
+// ============================================
+
+// sm: additions
+@media (min-width: $antsand-breakpoint-sm) {
+    .sm\:text-sm   { font-size: $antsand-font-size-sm; }
+    .sm\:text-base { font-size: $antsand-font-size-base; }
+    .sm\:text-lg   { font-size: $antsand-font-size-lg; }
+    .sm\:p-4 { padding: $antsand-space-4; }
+    .sm\:p-6 { padding: $antsand-space-6; }
+    .sm\:px-4 { padding-left: $antsand-space-4; padding-right: $antsand-space-4; }
+    .sm\:py-4 { padding-top: $antsand-space-4; padding-bottom: $antsand-space-4; }
+    .sm\:gap-4 { gap: $antsand-space-4; }
+    .sm\:gap-6 { gap: $antsand-space-6; }
+    .sm\:hidden { display: none; }
+    .sm\:block  { display: block; }
+    .sm\:flex   { display: flex; }
+}
+
+// lg: additions
+@media (min-width: $antsand-breakpoint-lg) {
+    .lg\:text-xl  { font-size: $antsand-font-size-xl; }
+    .lg\:text-2xl { font-size: $antsand-font-size-2xl; }
+    .lg\:text-5xl { font-size: 3rem; }
+    .lg\:text-6xl { font-size: 3.75rem; }
+    .lg\:p-8    { padding: $antsand-space-8; }
+    .lg\:p-12   { padding: 3rem; }
+    .lg\:px-8   { padding-left: $antsand-space-8; padding-right: $antsand-space-8; }
+    .lg\:py-8   { padding-top: $antsand-space-8; padding-bottom: $antsand-space-8; }
+    .lg\:gap-8  { gap: $antsand-space-8; }
+    .lg\:gap-12 { gap: 3rem; }
+    .lg\:hidden { display: none; }
+    .lg\:block  { display: block; }
+    .lg\:flex   { display: flex; }
+    .lg\:w-screen { width: 100vw; }
+    .lg\:h-screen { height: 100vh; }
+}
+
+// Responsive touch targets (larger on desktop where precision matters less)
+@media (min-width: $antsand-breakpoint-md) {
+    .md\:touch-target-lg {
+        min-height: $antsand-touch-target-comfortable;
+        min-width: $antsand-touch-target-comfortable;
+    }
+}
+
+// Responsive visibility (print-aware)
+.print-only { display: none; }
+.screen-only {
+    @media print { display: none !important; }
+}
+
+// Container query support (progressive enhancement)
+.container-inline {
+    container-type: inline-size;
+}
+
+@container (min-width: 400px) {
+    .cq\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .cq\:flex-row { flex-direction: row; }
+}
+
+@container (min-width: 700px) {
+    .cq\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+}

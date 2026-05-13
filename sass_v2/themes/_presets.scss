@@ -1,0 +1,362 @@
+// ============================================
+// ANTSAND Styles v2 - Theme Presets
+// ============================================
+//
+// ACTIVATION: Append ONE theme class to section.container in Databoard.
+// The theme automatically cascades to all descendants — no need to
+// add classes to individual fields. The hierarchy handles it.
+// These presets are shared Sass v2 section themes. For one website's custom
+// brand, page CSS, or one-off overrides, use Databoard Sass/common_styles
+// instead of adding site-specific rules to this file.
+//
+// HOW IT WORKS:
+//   section.container = "antsand-section theme-dark-corporate"
+//   → Databoard inserts this at root level
+//   → All .data-container, .data-sub-container, .data-h3, .data-p, etc.
+//     inside that section inherit the theme styles via descendant selectors.
+//
+// AVAILABLE THEMES:
+//   .theme-dark-corporate   — Dark navy bg, indigo accent, white text
+//   .theme-warm-editorial   — Cream bg, serif headings, warm tones
+//   .theme-minimal-clean    — White bg, thin borders, muted colors
+//   .theme-bold-gradient    — Gradient bg, bright accent, high contrast
+//
+// COMBINE WITH TIER 1 + TIER 2:
+//   section.container = "antsand-section theme-dark-corporate" ← theme activation
+//   data.container    = "antsand-grid md:grid-cols-3"    ← layout (Tier 1)
+//   data.sub_container = "transition-all hover:scale-105" ← motion (Tier 2)
+//   data.h3           = "line-clamp-2"                    ← truncation (Tier 2)
+//   → Theme handles colors, fonts, card style automatically.
+//
+// ============================================
+
+
+// ─────────────────────────────────────────────
+// THEME 1: Dark Corporate
+// Dark navy background, indigo/purple accent, clean white text.
+// Good for: tech, SaaS, fintech, portfolio, agency.
+// ─────────────────────────────────────────────
+.theme-dark-corporate {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    padding: $antsand-space-7 $antsand-space-4;
+
+    @include antsand-md {
+        padding: $antsand-space-8 $antsand-space-6;
+    }
+
+    // Header scope
+    .data-h1, h1 { color: #f8fafc; font-weight: 800; }
+    .data-h2, h2 { color: #f1f5f9; font-weight: 700; }
+    .data-h3, h3 { color: #f1f5f9; font-weight: 600; }
+    .data-p, p { color: #94a3b8; }
+    .data-span, span { color: #64748b; }
+
+    // Body scope — cards
+    .data-sub-container {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: $antsand-radius-lg;
+        padding: $antsand-space-5;
+        transition: all $antsand-transition-base;
+
+        &:hover {
+            border-color: #6366f1;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+            transform: translateY(-2px);
+        }
+    }
+
+    .data-content-wrapper {
+        background: transparent;
+    }
+
+    // Images
+    .data-img-container {
+        border-radius: $antsand-radius-md;
+        overflow: hidden;
+    }
+
+    // Actions
+    .data-cta, .antsand-btn-primary {
+        background: #6366f1;
+        border-color: #6366f1;
+        color: white;
+
+        &:hover {
+            background: #4f46e5;
+            border-color: #4f46e5;
+        }
+    }
+
+    .antsand-btn-outline-primary {
+        border-color: #6366f1;
+        color: #6366f1;
+
+        &:hover {
+            background: #6366f1;
+            color: white;
+        }
+    }
+
+    // Dividers
+    hr, .divide-y > * + * { border-color: #334155; }
+}
+
+
+// ─────────────────────────────────────────────
+// THEME 2: Warm Editorial
+// Cream/ivory background, serif headings, warm accent.
+// Good for: blogs, magazines, restaurants, books, personal sites.
+// ─────────────────────────────────────────────
+.theme-warm-editorial {
+    background: #faf8f5;
+    color: #3d3d3d;
+    padding: $antsand-space-7 $antsand-space-4;
+
+    @include antsand-md {
+        padding: $antsand-space-8 $antsand-space-6;
+    }
+
+    // Headings in serif
+    .data-h1, h1, .data-h2, h2, .data-h3, h3 {
+        font-family: 'Merriweather', 'Georgia', serif;
+        color: #2c2c2c;
+        letter-spacing: -0.02em;
+    }
+
+    .data-h1, h1 { font-weight: 700; }
+    .data-h2, h2 { font-weight: 700; }
+    .data-h3, h3 { font-weight: 600; }
+
+    .data-p, p {
+        color: #5c5c5c;
+        line-height: 1.8;
+        font-size: 1.0625rem;
+    }
+
+    .data-span, span {
+        color: #8b7355;
+        font-size: $antsand-font-size-sm;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    // Body scope — cards
+    .data-sub-container {
+        background: white;
+        border: 1px solid #e8e2d9;
+        border-radius: $antsand-radius-md;
+        padding: $antsand-space-5;
+        transition: all $antsand-transition-base;
+
+        &:hover {
+            box-shadow: 0 8px 30px rgba(139, 115, 85, 0.08);
+            border-color: #d4c9b8;
+        }
+    }
+
+    // Images — subtle rounded treatment
+    .data-img-container {
+        border-radius: $antsand-radius-sm;
+        overflow: hidden;
+    }
+
+    // Actions — warm tones
+    .data-cta, .antsand-btn-primary {
+        background: #c67b3c;
+        border-color: #c67b3c;
+        color: white;
+        border-radius: 2px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+
+        &:hover {
+            background: #a86530;
+            border-color: #a86530;
+        }
+    }
+
+    .antsand-btn-outline-primary {
+        border-color: #c67b3c;
+        color: #c67b3c;
+
+        &:hover {
+            background: #c67b3c;
+            color: white;
+        }
+    }
+
+    // Dividers — warm tone
+    hr, .divide-y > * + * { border-color: #e8e2d9; }
+
+    // Accent bar on first card
+    .data-sub-container:first-child {
+        border-top: 3px solid #c67b3c;
+    }
+}
+
+
+// ─────────────────────────────────────────────
+// THEME 3: Minimal Clean
+// Pure white, thin borders, generous whitespace, muted palette.
+// Good for: portfolios, product pages, documentation, startups.
+// ─────────────────────────────────────────────
+.theme-minimal-clean {
+    background: #ffffff;
+    color: #374151;
+    padding: $antsand-space-7 $antsand-space-4;
+
+    @include antsand-md {
+        padding: $antsand-space-8 $antsand-space-6;
+    }
+
+    .data-h1, h1, .data-h2, h2 {
+        color: #111827;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+    }
+
+    .data-h3, h3 {
+        color: #1f2937;
+        font-weight: 600;
+    }
+
+    .data-p, p {
+        color: #6b7280;
+        line-height: 1.75;
+    }
+
+    .data-span, span {
+        color: #9ca3af;
+        font-size: $antsand-font-size-sm;
+    }
+
+    // Body scope — subtle cards
+    .data-sub-container {
+        background: #ffffff;
+        border: 1px solid #f3f4f6;
+        border-radius: $antsand-radius-lg;
+        padding: $antsand-space-5;
+        transition: all $antsand-transition-base;
+
+        &:hover {
+            border-color: #e5e7eb;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+    }
+
+    // Images
+    .data-img-container {
+        border-radius: $antsand-radius-lg;
+        overflow: hidden;
+    }
+
+    // Actions — understated
+    .data-cta, .antsand-btn-primary {
+        background: #111827;
+        border-color: #111827;
+        color: white;
+        border-radius: $antsand-radius-md;
+
+        &:hover {
+            background: #374151;
+            border-color: #374151;
+        }
+    }
+
+    .antsand-btn-outline-primary {
+        border-color: #d1d5db;
+        color: #374151;
+
+        &:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+        }
+    }
+
+    // Dividers
+    hr, .divide-y > * + * { border-color: #f3f4f6; }
+}
+
+
+// ─────────────────────────────────────────────
+// THEME 4: Bold Gradient
+// Gradient background, high contrast, bright accent.
+// Good for: marketing, events, gaming, creative agencies, launches.
+// ─────────────────────────────────────────────
+.theme-bold-gradient {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #e2e8f0;
+    padding: $antsand-space-7 $antsand-space-4;
+    position: relative;
+
+    @include antsand-md {
+        padding: $antsand-space-8 $antsand-space-6;
+    }
+
+    .data-h1, h1, .data-h2, h2 {
+        color: white;
+        font-weight: 800;
+    }
+
+    .data-h3, h3 {
+        color: #f8fafc;
+        font-weight: 700;
+    }
+
+    .data-p, p { color: #cbd5e1; }
+    .data-span, span { color: #94a3b8; }
+
+    // Body scope — glass cards
+    .data-sub-container {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: $antsand-radius-lg;
+        padding: $antsand-space-5;
+        transition: all $antsand-transition-base;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    // Images
+    .data-img-container {
+        border-radius: $antsand-radius-md;
+        overflow: hidden;
+    }
+
+    // Actions — bright gradient CTA
+    .data-cta, .antsand-btn-primary {
+        background: linear-gradient(135deg, #f15b2a 0%, #ff7a4d 100%);
+        border: none;
+        color: white;
+        border-radius: $antsand-radius-md;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(241, 91, 42, 0.3);
+
+        &:hover {
+            box-shadow: 0 8px 25px rgba(241, 91, 42, 0.5);
+            transform: translateY(-1px);
+        }
+    }
+
+    .antsand-btn-outline-primary {
+        border-color: rgba(241, 91, 42, 0.5);
+        color: #ff7a4d;
+
+        &:hover {
+            background: rgba(241, 91, 42, 0.1);
+            border-color: #f15b2a;
+        }
+    }
+
+    // Dividers
+    hr, .divide-y > * + * { border-color: rgba(255, 255, 255, 0.08); }
+}

@@ -328,6 +328,53 @@
     }
 }
 
+// ============================================
+// CARD ACCESSIBILITY
+// FOR AGENTS: Cards get focus-visible when they contain interactive content.
+// Motion is disabled for prefers-reduced-motion users.
+// High-contrast mode thickens borders. aria-current highlights active card.
+// ============================================
+
+// Card link focus (when card wraps an <a> or has focusable content)
+.antsand-card:focus-within {
+    outline: $antsand-focus-ring-width solid $antsand-focus-ring-color;
+    outline-offset: $antsand-focus-ring-offset;
+}
+
+.antsand-card a:focus-visible,
+.antsand-card .data-cta:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+// ARIA current card (e.g. active item in a list)
+.antsand-card[aria-current="true"],
+.data-sub-container[aria-current="true"] {
+    border: 2px solid $antsand-primary;
+    background-color: rgba($antsand-primary, 0.02);
+}
+
+// Reduced motion — no card hover lift
+@media (prefers-reduced-motion: reduce) {
+    .antsand-card-hover:hover,
+    .data-sub-container:hover {
+        transform: none;
+        transition: none;
+    }
+}
+
+// High contrast cards
+@media (prefers-contrast: more) {
+    .antsand-card,
+    .data-sub-container {
+        border: 2px solid $antsand-gray-700;
+    }
+
+    .antsand-card-shadow {
+        box-shadow: 0 0 0 2px $antsand-gray-700;
+    }
+}
+
 // ── Card Variant: Testimonial ────────────────
 .antsand-card-testimonial {
     .antsand-card-text {
