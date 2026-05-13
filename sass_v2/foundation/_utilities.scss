@@ -1,6 +1,40 @@
 // ============================================
 // ANTSAND Styles v2 - Utilities
-// Bootstrap-style utility classes
+// Two-tier utility system for semantic + fine-tuning
+// ============================================
+//
+// USAGE GUIDE FOR AGENTS:
+//
+// These utility classes are TIER 2 — they ENHANCE Tier 1 semantic classes.
+// Never use utilities alone to build a section. Always pair with a root class.
+//
+// ✅ CORRECT: semantic root + utility modifiers
+//   <div class="pricing-grid">                              ← Tier 1 root
+//     <div class="antsand-card shadow transition-all        ← Tier 1 + Tier 2
+//                 hover:-translate-y-1 hover:shadow-lg">    ← Tier 2 motion
+//       <div class="aspect-video">                          ← Tier 2 media
+//         <img class="object-cover" />
+//       </div>
+//       <h3 class="line-clamp-2 md:text-xl">Title</h3>     ← Tier 2 text
+//       <p class="line-clamp-3 opacity-75">Excerpt</p>     ← Tier 2 truncation
+//     </div>
+//   </div>
+//
+// ❌ WRONG: pure utilities without semantic identity
+//   <div class="flex flex-wrap gap-4 p-8 bg-white rounded-lg shadow-lg">
+//     ...no design identity, inconsistent across site...
+//   </div>
+//
+// DUAL NAMING: Most utilities have both antsand-prefixed (Bootstrap-style)
+// and unprefixed (Tailwind-compatible) versions:
+//   antsand-text-center  OR  text-center
+//   antsand-flex-center  OR  items-center + justify-center
+//   antsand-shadow-lg    OR  shadow-lg
+//
+// RESPONSIVE PREFIXES (mobile-first, at bottom of this file):
+//   sm: (640px+), md: (768px+), lg: (1024px+)
+//   Examples: md:grid-cols-3, lg:text-4xl, md:hidden, sm:flex
+//
 // ============================================
 
 // TEXT UTILITIES
@@ -812,3 +846,413 @@
 .font-size-16-all {
     font-size: 16px;
 }
+
+// ============================================
+// RESPONSIVE UTILITIES
+// Breakpoint-prefixed overrides (mobile-first)
+// sm: 640px, md: 768px, lg: 1024px, xl: 1280px
+// ============================================
+
+// Responsive display
+@media (min-width: $antsand-breakpoint-sm) {
+    .sm\:block { display: block; }
+    .sm\:hidden { display: none; }
+    .sm\:flex { display: flex; }
+    .sm\:grid { display: grid; }
+    .sm\:inline { display: inline; }
+}
+
+@media (min-width: $antsand-breakpoint-md) {
+    .md\:block { display: block; }
+    .md\:hidden { display: none; }
+    .md\:flex { display: flex; }
+    .md\:flex-row { flex-direction: row; }
+    .md\:flex-col { flex-direction: column; }
+    .md\:grid { display: grid; }
+    .md\:inline { display: inline; }
+    .md\:text-left { text-align: left; }
+    .md\:text-center { text-align: center; }
+    .md\:text-right { text-align: right; }
+}
+
+@media (min-width: $antsand-breakpoint-lg) {
+    .lg\:block { display: block; }
+    .lg\:hidden { display: none; }
+    .lg\:flex { display: flex; }
+    .lg\:flex-row { flex-direction: row; }
+    .lg\:grid { display: grid; }
+    .lg\:inline { display: inline; }
+    .lg\:text-left { text-align: left; }
+    .lg\:text-center { text-align: center; }
+}
+
+// Responsive grid columns
+@media (min-width: $antsand-breakpoint-sm) {
+    .sm\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+    .sm\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: $antsand-breakpoint-md) {
+    .md\:grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: $antsand-breakpoint-lg) {
+    .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+    .lg\:grid-cols-5 { grid-template-columns: repeat(5, 1fr); }
+    .lg\:grid-cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+// Responsive spacing (most commonly needed)
+@media (min-width: $antsand-breakpoint-md) {
+    .md\:p-4 { padding: $antsand-space-4; }
+    .md\:p-6 { padding: $antsand-space-6; }
+    .md\:p-8 { padding: $antsand-space-8; }
+    .md\:px-6 { padding-left: $antsand-space-6; padding-right: $antsand-space-6; }
+    .md\:py-6 { padding-top: $antsand-space-6; padding-bottom: $antsand-space-6; }
+    .md\:gap-4 { gap: $antsand-space-4; }
+    .md\:gap-6 { gap: $antsand-space-6; }
+    .md\:gap-8 { gap: $antsand-space-8; }
+}
+
+// Responsive text sizes
+@media (min-width: $antsand-breakpoint-md) {
+    .md\:text-lg { font-size: 1.125rem; }
+    .md\:text-xl { font-size: 1.25rem; }
+    .md\:text-2xl { font-size: 1.5rem; }
+    .md\:text-3xl { font-size: 1.875rem; }
+    .md\:text-4xl { font-size: 2.25rem; }
+}
+
+@media (min-width: $antsand-breakpoint-lg) {
+    .lg\:text-2xl { font-size: 1.5rem; }
+    .lg\:text-3xl { font-size: 1.875rem; }
+    .lg\:text-4xl { font-size: 2.25rem; }
+    .lg\:text-5xl { font-size: 3rem; }
+}
+
+// ============================================
+// TRANSITION & ANIMATION UTILITIES
+// ============================================
+
+.transition-none { transition: none; }
+.transition-all { transition: all $antsand-transition-base; }
+.transition-fast { transition: all $antsand-transition-fast; }
+.transition-slow { transition: all $antsand-transition-slow; }
+.transition-colors { transition: color $antsand-transition-base, background-color $antsand-transition-base, border-color $antsand-transition-base; }
+.transition-opacity { transition: opacity $antsand-transition-base; }
+.transition-shadow { transition: box-shadow $antsand-transition-base; }
+.transition-transform { transition: transform $antsand-transition-base; }
+
+.duration-75 { transition-duration: 75ms; }
+.duration-100 { transition-duration: 100ms; }
+.duration-150 { transition-duration: 150ms; }
+.duration-200 { transition-duration: 200ms; }
+.duration-300 { transition-duration: 300ms; }
+.duration-500 { transition-duration: 500ms; }
+
+.ease-linear { transition-timing-function: linear; }
+.ease-in { transition-timing-function: ease-in; }
+.ease-out { transition-timing-function: ease-out; }
+.ease-in-out { transition-timing-function: ease-in-out; }
+
+// Transform utilities
+.scale-95 { transform: scale(0.95); }
+.scale-100 { transform: scale(1); }
+.scale-105 { transform: scale(1.05); }
+.scale-110 { transform: scale(1.1); }
+.-translate-y-1 { transform: translateY(-0.25rem); }
+.-translate-y-2 { transform: translateY(-0.5rem); }
+.translate-y-0 { transform: translateY(0); }
+
+// Hover transforms (for cards, buttons, links)
+.hover\:scale-105:hover { transform: scale(1.05); }
+.hover\:-translate-y-1:hover { transform: translateY(-0.25rem); }
+.hover\:-translate-y-2:hover { transform: translateY(-0.5rem); }
+.hover\:shadow-lg:hover { box-shadow: $antsand-shadow-lg; }
+.hover\:shadow-xl:hover { box-shadow: $antsand-shadow-xl; }
+
+// Animations
+@keyframes antsand-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes antsand-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes antsand-bounce {
+    0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+    50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}
+
+@keyframes antsand-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes antsand-slide-up {
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-spin { animation: antsand-spin 1s linear infinite; }
+.animate-pulse { animation: antsand-pulse 2s ease-in-out infinite; }
+.animate-bounce { animation: antsand-bounce 1s infinite; }
+.animate-fade-in { animation: antsand-fade-in 0.3s ease-out; }
+.animate-slide-up { animation: antsand-slide-up 0.4s ease-out; }
+
+// ============================================
+// ASPECT RATIO UTILITIES
+// Critical for image/video containers in sections
+// ============================================
+
+.aspect-auto { aspect-ratio: auto; }
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-video { aspect-ratio: 16 / 9; }
+.aspect-photo { aspect-ratio: 4 / 3; }
+.aspect-portrait { aspect-ratio: 3 / 4; }
+.aspect-wide { aspect-ratio: 21 / 9; }
+
+// Object fit (for img/video inside aspect containers)
+.object-cover { object-fit: cover; }
+.object-contain { object-fit: contain; }
+.object-fill { object-fit: fill; }
+.object-none { object-fit: none; }
+.object-center { object-position: center; }
+.object-top { object-position: top; }
+.object-bottom { object-position: bottom; }
+
+// ============================================
+// LINE CLAMP (text truncation for excerpts)
+// ============================================
+
+.line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-none {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// ============================================
+// OPACITY UTILITIES
+// ============================================
+
+.opacity-0 { opacity: 0; }
+.opacity-5 { opacity: 0.05; }
+.opacity-10 { opacity: 0.1; }
+.opacity-20 { opacity: 0.2; }
+.opacity-25 { opacity: 0.25; }
+.opacity-30 { opacity: 0.3; }
+.opacity-40 { opacity: 0.4; }
+.opacity-50 { opacity: 0.5; }
+.opacity-60 { opacity: 0.6; }
+.opacity-70 { opacity: 0.7; }
+.opacity-75 { opacity: 0.75; }
+.opacity-80 { opacity: 0.8; }
+.opacity-90 { opacity: 0.9; }
+.opacity-100 { opacity: 1; }
+
+.hover\:opacity-75:hover { opacity: 0.75; }
+.hover\:opacity-100:hover { opacity: 1; }
+
+// ============================================
+// DIVIDE UTILITIES (borders between children)
+// For list items, card grids, meta rows
+// ============================================
+
+.divide-y > * + * {
+    border-top: 1px solid $antsand-gray-200;
+}
+
+.divide-x > * + * {
+    border-left: 1px solid $antsand-gray-200;
+}
+
+.divide-dashed > * + * {
+    border-style: dashed;
+}
+
+.divide-primary > * + * {
+    border-color: $antsand-primary;
+}
+
+.divide-gray-100 > * + * {
+    border-color: $antsand-gray-100;
+}
+
+.divide-gray-300 > * + * {
+    border-color: $antsand-gray-300;
+}
+
+// Spacing between children (gap alternative for non-grid)
+.space-y-1 > * + * { margin-top: $antsand-space-1; }
+.space-y-2 > * + * { margin-top: $antsand-space-2; }
+.space-y-3 > * + * { margin-top: $antsand-space-3; }
+.space-y-4 > * + * { margin-top: $antsand-space-4; }
+.space-y-5 > * + * { margin-top: $antsand-space-5; }
+.space-y-6 > * + * { margin-top: $antsand-space-6; }
+.space-y-8 > * + * { margin-top: $antsand-space-8; }
+
+.space-x-1 > * + * { margin-left: $antsand-space-1; }
+.space-x-2 > * + * { margin-left: $antsand-space-2; }
+.space-x-3 > * + * { margin-left: $antsand-space-3; }
+.space-x-4 > * + * { margin-left: $antsand-space-4; }
+.space-x-6 > * + * { margin-left: $antsand-space-6; }
+
+// ============================================
+// RING / FOCUS UTILITIES (accessibility)
+// ============================================
+
+.ring {
+    box-shadow: 0 0 0 3px rgba($antsand-primary, 0.3);
+}
+
+.ring-primary {
+    box-shadow: 0 0 0 3px rgba($antsand-primary, 0.4);
+}
+
+.ring-danger {
+    box-shadow: 0 0 0 3px rgba($antsand-danger, 0.4);
+}
+
+.ring-success {
+    box-shadow: 0 0 0 3px rgba($antsand-success, 0.4);
+}
+
+.focus\:ring:focus {
+    box-shadow: 0 0 0 3px rgba($antsand-primary, 0.3);
+    outline: none;
+}
+
+.focus\:ring-primary:focus {
+    box-shadow: 0 0 0 3px rgba($antsand-primary, 0.4);
+    outline: none;
+}
+
+// Focus-visible (keyboard only, not click)
+.focus-visible\:ring:focus-visible {
+    box-shadow: 0 0 0 3px rgba($antsand-primary, 0.3);
+    outline: none;
+}
+
+// ============================================
+// BACKDROP / GLASS UTILITIES
+// For overlays, modals, frosted panels
+// ============================================
+
+.backdrop-blur-sm { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.backdrop-blur { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.backdrop-blur-lg { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.backdrop-blur-xl { backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+
+.bg-white\/50 { background-color: rgba(255, 255, 255, 0.5); }
+.bg-white\/75 { background-color: rgba(255, 255, 255, 0.75); }
+.bg-white\/85 { background-color: rgba(255, 255, 255, 0.85); }
+.bg-white\/90 { background-color: rgba(255, 255, 255, 0.9); }
+.bg-black\/25 { background-color: rgba(0, 0, 0, 0.25); }
+.bg-black\/50 { background-color: rgba(0, 0, 0, 0.5); }
+.bg-black\/75 { background-color: rgba(0, 0, 0, 0.75); }
+
+// ============================================
+// MIN/MAX HEIGHT UTILITIES
+// For hero sections, image containers
+// ============================================
+
+.min-h-0 { min-height: 0; }
+.min-h-screen { min-height: 100vh; }
+.min-h-\[200px\] { min-height: 200px; }
+.min-h-\[300px\] { min-height: 300px; }
+.min-h-\[400px\] { min-height: 400px; }
+
+.max-h-\[300px\] { max-height: 300px; }
+.max-h-\[400px\] { max-height: 400px; }
+.max-h-\[500px\] { max-height: 500px; }
+.max-h-screen { max-height: 100vh; }
+.max-h-\[50vh\] { max-height: 50vh; }
+.max-h-\[70vh\] { max-height: 70vh; }
+
+.h-screen { height: 100vh; }
+.h-\[50vh\] { height: 50vh; }
+.h-\[70vh\] { height: 70vh; }
+
+// ============================================
+// WHITESPACE & WORD BREAK
+// ============================================
+
+.whitespace-normal { white-space: normal; }
+.whitespace-nowrap { white-space: nowrap; }
+.whitespace-pre { white-space: pre; }
+.whitespace-pre-wrap { white-space: pre-wrap; }
+.break-words { word-break: break-word; overflow-wrap: break-word; }
+.break-all { word-break: break-all; }
+
+// ============================================
+// SCROLL UTILITIES
+// For carousel sections, horizontal scroll
+// ============================================
+
+.scroll-smooth { scroll-behavior: smooth; }
+.snap-x { scroll-snap-type: x mandatory; }
+.snap-y { scroll-snap-type: y mandatory; }
+.snap-start { scroll-snap-align: start; }
+.snap-center { scroll-snap-align: center; }
+.scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar { display: none; }
+}
+
+// ============================================
+// LIST UTILITIES
+// ============================================
+
+.list-none { list-style: none; padding: 0; margin: 0; }
+.list-disc { list-style-type: disc; }
+.list-decimal { list-style-type: decimal; }
+.list-inside { list-style-position: inside; }

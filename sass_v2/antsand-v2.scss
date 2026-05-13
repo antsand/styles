@@ -2,6 +2,35 @@
 // ANTSAND Styles v2 - Master File
 // Bootstrap philosophy, modern CSS
 // ============================================
+//
+// TWO-TIER CSS SYSTEM (for agents and developers):
+//
+// Tier 1 — SEMANTIC CLASSES (primary, for design identity):
+//   Components: antsand-btn-primary, antsand-card, antsand-section-dark
+//   Grid: antsand-grid-3, antsand-flex-between
+//   Custom: one root class + descendant selectors per section
+//   → Use Tier 1 to define WHAT a section IS.
+//
+// Tier 2 — UTILITY CLASSES (modifier, for fine-tuning):
+//   Spacing: p-4, gap-6, mx-auto
+//   Typography: text-xl, font-bold, line-clamp-3
+//   Visual: opacity-75, shadow, rounded-lg
+//   Responsive: md:grid-cols-3, lg:text-4xl
+//   Motion: transition-all, hover:-translate-y-1, animate-fade-in
+//   Media: aspect-video, object-cover, backdrop-blur
+//   → Use Tier 2 to ENHANCE individual fields within a Tier 1 structure.
+//
+// AGENT WORKFLOW:
+//   1. Create a root class in a component SCSS file (Tier 1)
+//   2. Define descendant selectors for the section pattern
+//   3. In Databoard field mappings, combine semantic + utility classes:
+//      data.container    = "my-section antsand-grid-3"       ← Tier 1
+//      data.sub_container = "antsand-card transition-all"    ← Tier 1 + Tier 2
+//      data.h3           = "line-clamp-2 md:text-xl"         ← Tier 2 only (fine-tune)
+//      data.img_container = "aspect-video"                   ← Tier 2 only (media)
+//      data.cta          = "antsand-btn antsand-btn-primary" ← Tier 1 only (identity)
+//
+// ============================================
 
 // Foundation
 @import 'foundation/variables';

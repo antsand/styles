@@ -1,6 +1,17 @@
 // ============================================
 // ANTSAND Styles v2 - Section
-// Page section wrappers
+// Page section wrappers — Tier 1 semantic class
+// ============================================
+//
+// FOR AGENTS — Sections are the outermost Tier 1 shell:
+//   antsand-section            → standard padding
+//   antsand-section-sm/lg      → compact or spacious
+//   antsand-section-light/dark → background variants
+//   antsand-section-primary    → branded background
+//
+// Enhance with Tier 2 for responsive spacing:
+//   section.container = "antsand-section antsand-section-light md:py-6"
+//
 // ============================================
 
 .antsand-section {

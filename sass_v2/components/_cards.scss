@@ -1,6 +1,19 @@
 // ============================================
 // ANTSAND Styles v2 - Cards
-// Card component (consistent)
+// Card component — Tier 1 semantic class
+// ============================================
+//
+// FOR AGENTS — Cards are Tier 1 (identity) classes:
+//   antsand-card              → base card (bg, border, radius, padding)
+//   antsand-card-shadow       → with shadow
+//   antsand-card-hover        → with hover lift effect
+//
+// Enhance with Tier 2 utilities on the Databoard field:
+//   data.sub_container = "antsand-card antsand-card-shadow transition-all hover:-translate-y-1"
+//   data.img_container = "aspect-video"
+//   data.h3 = "line-clamp-2"
+//   data.p = "line-clamp-3 opacity-75"
+//
 // ============================================
 
 // ── Base Card ────────────────────────────────

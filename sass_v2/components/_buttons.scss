@@ -1,6 +1,17 @@
 // ============================================
 // ANTSAND Styles v2 - Buttons
-// Consistent button styles (NOT Tailwind chaos)
+// Consistent button styles — Tier 1 semantic class
+// ============================================
+//
+// FOR AGENTS — Buttons are ALWAYS Tier 1 (never pure utilities):
+//   antsand-btn antsand-btn-primary     → primary action
+//   antsand-btn antsand-btn-outline-*   → outline variant
+//   antsand-btn antsand-btn-sm/lg       → size variants
+//   antsand-btn antsand-btn-block       → full width
+//
+// Enhance with Tier 2 only for motion:
+//   data.cta = "antsand-btn antsand-btn-primary transition-all hover:scale-105"
+//
 // ============================================
 
 .antsand-btn {

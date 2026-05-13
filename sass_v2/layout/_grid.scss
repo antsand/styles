@@ -2,6 +2,17 @@
 // ANTSAND Styles v2 - Grid System
 // Modern CSS Grid + Flexbox (no float!)
 // ============================================
+//
+// FOR AGENTS — Grid classes are Tier 1 (semantic):
+//   antsand-grid-3        → fixed 3-column grid
+//   antsand-grid-auto     → auto-responsive (no media queries needed)
+//   antsand-flex-between  → flexbox with space-between
+//
+// Enhance with Tier 2 responsive utilities:
+//   <div class="antsand-grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+//   This gives: 1 col mobile → 2 col tablet → 4 col desktop
+//
+// ============================================
 
 // Container
 .antsand-container {

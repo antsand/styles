@@ -1,6 +1,24 @@
 // ============================================
 // ANTSAND Styles v2 - Variables
-// Bootstrap philosophy: semantic, consistent
+// Design tokens — the single source of truth
+// ============================================
+//
+// FOR AGENTS: All variables use !default — sites can override any token
+// in their sass_parameters without touching this file.
+//
+// These tokens power both Tier 1 (semantic components) and Tier 2 (utilities).
+// When building a new component SCSS, always use $antsand-* variables
+// instead of hardcoded values so the design system stays consistent.
+//
+// Key token groups:
+//   Colors:     $antsand-primary, $antsand-danger, $antsand-gray-100..900
+//   Spacing:    $antsand-space-0..8 (0, 0.25rem, 0.5rem, 1rem..6rem)
+//   Typography: $antsand-font-size-sm..5xl, $antsand-font-weight-*
+//   Radius:     $antsand-radius-sm, md, lg, full
+//   Shadows:    $antsand-shadow-sm, md, lg, xl
+//   Breakpoints: $antsand-breakpoint-sm (640), md (768), lg (1024), xl (1280)
+//   Transitions: $antsand-transition-base, fast, slow
+//
 // ============================================
 
 // Colors - Semantic naming (not arbitrary)

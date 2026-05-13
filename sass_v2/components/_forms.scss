@@ -1,6 +1,18 @@
 // ============================================
 // ANTSAND Styles v2 - Forms
-// Form elements (consistent styling)
+// Form elements — Tier 1 semantic class
+// ============================================
+//
+// FOR AGENTS — Form classes are Tier 1 (always semantic):
+//   antsand-form-group    → wrapper with bottom margin
+//   antsand-form-label    → label styling
+//   antsand-form-control  → input/textarea/select styling
+//   antsand-form-text     → helper text below inputs
+//   antsand-form-check    → checkbox/radio wrapper
+//
+// Enhance with Tier 2 for focus:
+//   <input class="antsand-form-control focus:ring-primary transition-colors" />
+//
 // ============================================
 
 .antsand-form-group {

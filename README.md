@@ -253,15 +253,94 @@ Use in parameter files:
 
 ## Why Not Tailwind?
 
-**Tailwind = Chaos:**
-- `px-4` in one place, `px-7` in another → Inconsistent
-- `bg-blue-500` vs `bg-blue-600` → No design system
-- `text-sm` vs `text-base` vs `text-lg` → Arbitrary sizes
+**ANTSAND uses a two-tier system — not Tailwind, not just Bootstrap.**
 
-**ANTSAND = Consistency:**
-- `.antsand-btn-primary` → Always same padding (0.5rem 1.5rem)
-- Colors from semantic variables ($antsand-primary)
-- Font sizes from scale ($antsand-font-size-base, -lg, -xl)
+### Tier 1: Semantic Classes (Primary — Design Identity)
+One root class + descendant selectors. This is the ANTSAND way.
+
+```html
+<!-- ✅ ANTSAND — Consistent, reusable, semantic -->
+<div class="pricing-grid">
+  <div class="antsand-card antsand-card-shadow">
+    <h3 class="antsand-card-title">Plan Name</h3>
+    <p class="antsand-card-text">Description</p>
+    <button class="antsand-btn antsand-btn-primary">Choose</button>
+  </div>
+</div>
+```
+
+### Tier 2: Utility Classes (Modifier — Fine-tuning)
+Augment semantic fields, never replace them. Available in `antsand-v2.css`.
+
+```html
+<!-- ✅ Utilities AUGMENT semantic structure -->
+<div class="pricing-grid">
+  <div class="antsand-card shadow transition-all hover:-translate-y-1">
+    <div class="aspect-video"><img class="object-cover" /></div>
+    <h3 class="antsand-card-title line-clamp-2">Title</h3>
+    <p class="antsand-card-text line-clamp-3 opacity-75">Excerpt</p>
+    <button class="antsand-btn antsand-btn-primary">Read More</button>
+  </div>
+</div>
+
+<!-- ❌ WRONG — pure utilities without semantic identity -->
+<div class="flex flex-wrap gap-4 p-8 bg-white rounded-lg shadow-lg">
+  ...no design identity, inconsistent across site...
+</div>
+```
+
+### Available Utility Classes
+
+| Category | Classes |
+|----------|---------|
+| **Spacing** | `p-1`..`p-8`, `px-*`, `py-*`, `m-1`..`m-8`, `mx-auto`, `gap-1`..`gap-8` |
+| **Display** | `block`, `hidden`, `flex`, `grid`, `inline`, `inline-flex` |
+| **Flexbox** | `flex-row`, `flex-col`, `flex-wrap`, `items-center`, `justify-between`, `justify-center` |
+| **Typography** | `text-sm`..`text-5xl`, `font-bold`, `font-semibold`, `text-center`, `text-left`, `text-right` |
+| **Line Clamp** | `line-clamp-1`..`line-clamp-5`, `truncate` |
+| **Borders** | `rounded`, `rounded-lg`, `rounded-full`, `border`, `border-0` |
+| **Shadows** | `shadow-sm`, `shadow`, `shadow-md`, `shadow-lg`, `shadow-xl` |
+| **Opacity** | `opacity-0`, `opacity-25`, `opacity-50`, `opacity-75`, `opacity-100` |
+| **Aspect Ratio** | `aspect-video` (16:9), `aspect-square` (1:1), `aspect-photo` (4:3), `aspect-portrait` (3:4) |
+| **Object Fit** | `object-cover`, `object-contain`, `object-center`, `object-top`, `object-bottom` |
+| **Transitions** | `transition-all`, `transition-colors`, `transition-opacity`, `duration-150`..`duration-500`, `ease-in-out` |
+| **Hover** | `hover:scale-105`, `hover:-translate-y-1`, `hover:shadow-lg`, `hover:opacity-100` |
+| **Backdrop** | `backdrop-blur`, `backdrop-blur-lg`, `bg-white/85`, `bg-black/50` |
+| **Divide** | `divide-y`, `divide-x`, `space-y-1`..`space-y-8`, `space-x-1`..`space-x-6` |
+| **Focus/Ring** | `ring`, `ring-primary`, `focus:ring`, `focus-visible:ring` |
+| **Responsive** | `sm:*`, `md:*`, `lg:*` prefixes for display, grid, flex, spacing, text |
+| **Animation** | `animate-fade-in`, `animate-slide-up`, `animate-spin`, `animate-pulse` |
+| **Scroll** | `scroll-smooth`, `snap-x`, `snap-start`, `scrollbar-hide` |
+| **Height** | `min-h-screen`, `max-h-[500px]`, `h-screen`, `h-[50vh]` |
+| **Whitespace** | `whitespace-nowrap`, `whitespace-pre-wrap`, `break-words` |
+
+### When to Use What
+
+| Use Case | Tier | Example |
+|----------|------|---------|
+| Design pattern for a section | **Tier 1** | `.project-showcase { .data-sub-container { ... } }` |
+| Card hover lift effect | **Tier 2** | `transition-all hover:-translate-y-1 hover:shadow-lg` |
+| Grid column count | **Tier 1** | `antsand-grid-3` or root class with grid rules |
+| Responsive grid override | **Tier 2** | `md:grid-cols-3 lg:grid-cols-4` |
+| Truncate excerpt text | **Tier 2** | `line-clamp-3` |
+| Image container ratio | **Tier 2** | `aspect-video object-cover` |
+| Section background | **Tier 1** | `antsand-section-dark` |
+| Frosted glass overlay | **Tier 2** | `backdrop-blur bg-white/85` |
+
+### In Databoard Context
+
+When the Databoard agent styles a section:
+1. **Root class** (Tier 1) → defines the section's design identity in SCSS
+2. **Field modifiers** (Tier 2) → utility classes on individual Databoard fields
+
+```
+data.container    = "project-showcase antsand-grid-3 md:gap-6"     ← root + responsive
+data.sub_container = "antsand-card shadow transition-all"           ← semantic + modifier
+data.img_container = "aspect-video"                                 ← utility
+data.h3           = "line-clamp-2 md:text-xl"                      ← utility
+data.p            = "line-clamp-3 opacity-75"                       ← utility
+data.cta          = "antsand-btn antsand-btn-primary"              ← pure semantic
+```
 
 ## License
 
