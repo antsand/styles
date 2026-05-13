@@ -4,7 +4,8 @@
 //
 // Contract:
 // - Databoard menu/topnav JSON must render through detected_type = "nav".
-// - common_section_body_modern.volt adds .antsand-topnav-menu.
+// - common_section_body_modern.volt adds .antsand-topnav-shell and
+//   .antsand-topnav-menu. The shell owns brand + menu as one component.
 // - nav_renderer.volt adds .antsand-topnav-item.
 // - header.nav_theme = "dark" adds .antsand-topnav-dark.
 // - header.nav_sticky = true or header.nav_position = "sticky" adds
@@ -49,6 +50,39 @@ section:has(.antsand-topnav-menu) {
     }
 }
 
+.antsand-topnav-shell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $antsand-space-4;
+    width: 100%;
+}
+
+.antsand-topnav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    min-width: 0;
+    color: $antsand-gray-900;
+    font-size: $antsand-font-size-lg;
+    font-weight: $antsand-font-weight-bold;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+        color: $antsand-primary;
+        outline: none;
+    }
+}
+
+.antsand-topnav-title {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+}
+
 section:has(.antsand-topnav-dark) {
     background: linear-gradient(135deg, $antsand-gray-900 0%, darken($antsand-gray-900, 6%) 100%);
     border-bottom-color: rgba(255, 255, 255, 0.08);
@@ -60,6 +94,17 @@ section:has(.antsand-topnav-dark) {
 
     img {
         filter: none;
+    }
+}
+
+.antsand-topnav-dark {
+    .antsand-topnav-brand {
+        color: white;
+
+        &:hover,
+        &:focus-visible {
+            color: rgba(255, 255, 255, 0.86);
+        }
     }
 }
 
@@ -170,6 +215,11 @@ section:has(.antsand-topnav-dark) {
             }
         }
     }
+
+    .antsand-topnav-brand {
+        display: inline-flex;
+        align-items: center;
+    }
 }
 
 @media (max-width: $antsand-breakpoint-md) {
@@ -197,6 +247,14 @@ section:has(.antsand-topnav-dark) {
         &.nav-open {
             display: flex;
         }
+    }
+
+    .antsand-topnav-shell {
+        flex-wrap: wrap;
+    }
+
+    .antsand-topnav-brand {
+        min-height: 44px;
     }
 
     .antsand-topnav-item {
