@@ -19,6 +19,11 @@
 //   Motion: transition-all, hover:-translate-y-1, animate-fade-in
 //   Media: aspect-video, object-cover, backdrop-blur
 //   → Use Tier 2 to ENHANCE individual fields within a Tier 1 structure.
+//   → In Databoard, utilities are consumed through each field's css_class.
+//   → The Databoard Sass utility scanner can read those datalist css_class
+//     values and generate the site-local _utilities.scss during integration.
+//   → Keep common/stable utilities here; let Databoard generate site-specific
+//     utility rules from the classes actually used by a board.
 //
 // AGENT WORKFLOW:
 //   1. Create a root class in a component SCSS file (Tier 1)
@@ -29,6 +34,8 @@
 //      data.h3           = "line-clamp-2 md:text-xl"         ← Tier 2 only (fine-tune)
 //      data.img_container = "aspect-video"                   ← Tier 2 only (media)
 //      data.cta          = "antsand-btn antsand-btn-primary" ← Tier 1 only (identity)
+//   4. If a utility class is not part of shared Sass v2, define/compile it
+//      through Databoard Sass so the deployed site owns the generated rule.
 //
 // ============================================
 

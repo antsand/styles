@@ -270,7 +270,8 @@ One root class + descendant selectors. This is the ANTSAND way.
 ```
 
 ### Tier 2: Utility Classes (Modifier — Fine-tuning)
-Augment semantic fields, never replace them. Available in `antsand-v2.css`.
+Augment semantic fields, never replace them. Common/stable utilities are available in `antsand-v2.css`.
+Board-specific utility rules should be generated through Databoard Sass by scanning the datalist field `css_class` values.
 
 ```html
 <!-- ✅ Utilities AUGMENT semantic structure -->
@@ -332,6 +333,7 @@ Augment semantic fields, never replace them. Available in `antsand-v2.css`.
 When the Databoard agent styles a section:
 1. **Root class** (Tier 1) → defines the section's design identity in SCSS
 2. **Field modifiers** (Tier 2) → utility classes on individual Databoard fields
+3. **Databoard Sass utilities** → scan datalist `css_class` values and compile the site-local `_utilities.scss` when a utility rule is board-specific
 
 ```
 data.container    = "project-showcase antsand-grid-3 md:gap-6"     ← root + responsive
@@ -340,6 +342,16 @@ data.img_container = "aspect-video"                                 ← utility
 data.h3           = "line-clamp-2 md:text-xl"                      ← utility
 data.p            = "line-clamp-3 opacity-75"                       ← utility
 data.cta          = "antsand-btn antsand-btn-primary"              ← pure semantic
+```
+
+Integration loop:
+
+```
+sass_v2/foundation/_utilities.scss  → shared utilities in antsand-v2.css
+Databoard field CSS panel           → where agents assign class names
+Databoard Sass utility scanner      → scans datalist css_class values
+Databoard _utilities.scss           → site-local generated utility rules
+Compile/deploy                      → generated site receives the CSS
 ```
 
 ## License

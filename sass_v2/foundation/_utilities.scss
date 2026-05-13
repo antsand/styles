@@ -8,6 +8,17 @@
 // These utility classes are TIER 2 — they ENHANCE Tier 1 semantic classes.
 // Never use utilities alone to build a section. Always pair with a root class.
 //
+// IMPORTANT DATABOARD FLOW:
+//   - Sass v2 _utilities.scss defines shared, stable utility rules.
+//   - Databoard field CSS panels consume those class names:
+//       data.title = "line-clamp-2 md:text-xl"
+//       data.sub_container = "antsand-card shadow transition-all"
+//   - Databoard also has a Sass utility scanner/generator. During integration,
+//     it scans datalist css_class values and writes a site-local _utilities.scss
+//     for board-specific utility rules that are not meant to live globally.
+//   - Agents should therefore type utility class names on the correct Databoard
+//     field, then compile/generate utilities through Databoard when needed.
+//
 // ✅ CORRECT: semantic root + utility modifiers
 //   <div class="pricing-grid">                              ← Tier 1 root
 //     <div class="antsand-card shadow transition-all        ← Tier 1 + Tier 2
