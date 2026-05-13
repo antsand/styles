@@ -4830,17 +4830,66 @@ section:has(.antsand-topnav-dark) {
   section:has(.antsand-topnav-menu) {
     position: relative; }
     section:has(.antsand-topnav-menu) > div {
-      align-items: flex-start;
-      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 0.5rem;
       min-height: 0;
       padding: 1rem; }
   .antsand-topnav-menu {
-    justify-content: flex-start;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
     width: 100%;
-    overflow-x: auto;
-    padding-bottom: 0.25rem;
-    scrollbar-width: thin; } }
+    padding: 0.5rem 0 0;
+    border-top: 1px solid rgba(33, 37, 41, 0.08); }
+    .antsand-topnav-menu.active, .antsand-topnav-menu.nav-open {
+      display: flex; }
+  .antsand-topnav-item {
+    width: 100%; }
+    .antsand-topnav-item > a {
+      width: 100%;
+      justify-content: flex-start;
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      white-space: normal; }
+    .antsand-topnav-item:last-child > a {
+      margin-top: 0.25rem;
+      border-radius: 0.25rem;
+      justify-content: center; }
+  .antsand-topnav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    margin-left: auto; }
+    .antsand-topnav-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #495057;
+      border-radius: 2px;
+      transition: all 150ms ease; }
+    .antsand-topnav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px); }
+    .antsand-topnav-toggle.active span:nth-child(2) {
+      opacity: 0; }
+    .antsand-topnav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px); }
+  .antsand-topnav-dark .antsand-topnav-toggle span {
+    background: rgba(255, 255, 255, 0.8); }
+  section:has(.antsand-topnav-dark) .antsand-topnav-menu {
+    border-top-color: rgba(255, 255, 255, 0.08); } }
+
+@media (min-width: 768px) {
+  .antsand-topnav-toggle {
+    display: none !important; } }
 
 .antsand-accordion {
   border: 1px solid #e9ecef;
@@ -6725,7 +6774,8 @@ section:has(.antsand-topnav-dark) {
       background-color: white;
       border-bottom: 1px solid #e9ecef;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem 0; }
+      padding: 0.5rem 0;
+      z-index: 1000; }
       .antsand-navbar-nav.active, .active.antsand-nav-items {
         display: flex; } }
 .antsand-navbar-item,
@@ -6734,7 +6784,10 @@ section:has(.antsand-topnav-dark) {
   color: #495057;
   text-decoration: none;
   border-radius: 0.25rem;
-  transition: all 250ms ease; }
+  transition: all 250ms ease;
+  min-height: 44px;
+  display: flex;
+  align-items: center; }
   .antsand-navbar-item:hover,
   .antsand-nav-link:hover {
     background-color: #f8f9fa;
@@ -6743,7 +6796,13 @@ section:has(.antsand-topnav-dark) {
   .antsand-nav-link.active {
     color: #3498db;
     font-weight: 600; }
-
+  @media (max-width: 768px) {
+    .antsand-navbar-item,
+    .antsand-nav-link {
+      padding: 1rem 1.5rem;
+      border-radius: 0;
+      border-bottom: 1px solid #f8f9fa;
+      width: 100%; } }
 .antsand-navbar-toggle {
   display: none;
   align-items: center;
@@ -6795,7 +6854,10 @@ section:has(.antsand-topnav-dark) {
     background-color: white; }
   @media (max-width: 768px) {
     .antsand-navbar-dark .antsand-navbar-nav, .antsand-navbar-dark .antsand-nav-items {
-      background-color: #212529; } }
+      background-color: #212529;
+      border-bottom-color: #343a40; }
+    .antsand-navbar-dark .antsand-navbar-item {
+      border-bottom-color: #343a40; } }
 .antsand-navbar-primary {
   background-color: #3498db;
   border-bottom-color: #217dbb; }
@@ -6812,7 +6874,10 @@ section:has(.antsand-topnav-dark) {
     background-color: white; }
   @media (max-width: 768px) {
     .antsand-navbar-primary .antsand-navbar-nav, .antsand-navbar-primary .antsand-nav-items {
-      background-color: #3498db; } }
+      background-color: #3498db;
+      border-bottom-color: #217dbb; }
+    .antsand-navbar-primary .antsand-navbar-item {
+      border-bottom-color: #258cd1; } }
 .antsand-navbar-fixed {
   position: fixed;
   top: 0;

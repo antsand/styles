@@ -509,3 +509,117 @@
         @extend .antsand-nav-v2__dropdown;
     }
 }
+
+// ============================================
+// MOBILE RESPONSIVE — Base .antsand-nav
+// ============================================
+@media (max-width: $antsand-breakpoint-md) {
+    .antsand-nav {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 60px;
+
+        // Stack the data-container (menu) below logo on mobile
+        .data-container {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            gap: 0;
+            padding: $antsand-space-2 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+            &.nav-open,
+            &.active {
+                display: flex;
+            }
+
+            .data-sub-container {
+                width: 100%;
+
+                > a {
+                    padding: $antsand-space-3 $antsand-space-4;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                    border-radius: 0;
+                }
+
+                // Dropdowns become full-width stacked on mobile
+                .data-nested-container {
+                    position: static;
+                    width: 100%;
+                    min-width: unset !important;
+                    margin: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                    grid-template-columns: 1fr;
+                    padding: $antsand-space-2 $antsand-space-3;
+                    background: rgba(255, 255, 255, 0.05);
+                    border-left: 3px solid $antsand-primary;
+                }
+            }
+        }
+
+        // Nav hamburger toggle for base .antsand-nav
+        .antsand-nav__toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 30px;
+            height: 24px;
+            justify-content: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: $antsand-z-fixed + 1;
+
+            span {
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: white;
+                border-radius: 2px;
+                transition: all $antsand-transition-base;
+            }
+
+            &.active,
+            &--active {
+                span:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+                span:nth-child(2) {
+                    opacity: 0;
+                }
+                span:nth-child(3) {
+                    transform: rotate(-45deg) translate(5px, -5px);
+                }
+            }
+        }
+    }
+
+    // Light theme mobile adjustments
+    .antsand-nav.antsand-nav--light {
+        .data-container {
+            border-top-color: $antsand-gray-200;
+
+            .data-sub-container > a {
+                color: $antsand-gray-900;
+                border-bottom-color: $antsand-gray-100;
+            }
+
+            .data-nested-container {
+                background: $antsand-gray-50;
+            }
+        }
+
+        .antsand-nav__toggle span {
+            background: $antsand-gray-900;
+        }
+    }
+}
+
+// Desktop: hide the toggle
+@media (min-width: $antsand-breakpoint-md) {
+    .antsand-nav .antsand-nav__toggle {
+        display: none;
+    }
+}

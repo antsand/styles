@@ -177,8 +177,8 @@ section:has(.antsand-topnav-dark) {
         position: relative;
 
         > div {
-            align-items: flex-start;
-            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
             gap: $antsand-space-2;
             min-height: 0;
             padding: $antsand-space-3;
@@ -186,10 +186,89 @@ section:has(.antsand-topnav-dark) {
     }
 
     .antsand-topnav-menu {
-        justify-content: flex-start;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
         width: 100%;
-        overflow-x: auto;
-        padding-bottom: $antsand-space-1;
-        scrollbar-width: thin;
+        padding: $antsand-space-2 0 0;
+        border-top: 1px solid rgba(33, 37, 41, 0.08);
+
+        &.active,
+        &.nav-open {
+            display: flex;
+        }
+    }
+
+    .antsand-topnav-item {
+        width: 100%;
+
+        > a {
+            width: 100%;
+            justify-content: flex-start;
+            min-height: 44px;
+            padding: $antsand-space-2 $antsand-space-3;
+            border-radius: $antsand-radius-sm;
+            white-space: normal;
+        }
+
+        // Remove special last-child CTA styling on mobile — stack like others
+        &:last-child > a {
+            margin-top: $antsand-space-1;
+            border-radius: $antsand-radius-sm;
+            justify-content: center;
+        }
+    }
+
+    // Hamburger toggle for topnav
+    .antsand-topnav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+        margin-left: auto;
+
+        span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: $antsand-gray-700;
+            border-radius: 2px;
+            transition: all $antsand-transition-fast;
+        }
+
+        &.active {
+            span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            span:nth-child(2) {
+                opacity: 0;
+            }
+            span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    }
+
+    // Dark variant toggle
+    .antsand-topnav-dark .antsand-topnav-toggle span {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    // Dark variant mobile menu border
+    section:has(.antsand-topnav-dark) .antsand-topnav-menu {
+        border-top-color: rgba(255, 255, 255, 0.08);
+    }
+}
+
+// Desktop: hide topnav toggle
+@media (min-width: $antsand-breakpoint-md) {
+    .antsand-topnav-toggle {
+        display: none !important;
     }
 }

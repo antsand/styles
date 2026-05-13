@@ -302,6 +302,76 @@
   width: 100%;
   position: relative; }
 
+@media (max-width: 768px) {
+  .antsand-nav, .antsand-nav-v2, .antsand-nav-style, .antsand-nav-style .nav_bar {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 60px; }
+    .antsand-nav .data-container, .antsand-nav-v2 .data-container, .antsand-nav-style .data-container {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.5rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1); }
+      .antsand-nav .data-container.nav-open, .antsand-nav-v2 .data-container.nav-open, .antsand-nav-style .data-container.nav-open, .antsand-nav .data-container.active, .antsand-nav-v2 .data-container.active, .antsand-nav-style .data-container.active {
+        display: flex; }
+      .antsand-nav .data-container .data-sub-container, .antsand-nav .data-container .drop-down-container, .antsand-nav-v2 .data-container .data-sub-container, .antsand-nav-v2 .data-container .drop-down-container, .antsand-nav-style .data-container .data-sub-container, .antsand-nav-style .data-container .drop-down-container {
+        width: 100%; }
+        .antsand-nav .data-container .data-sub-container > a, .antsand-nav .data-container .drop-down-container > a, .antsand-nav .data-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav .data-container .antsand-nav-style .drop-down-container > a, .antsand-nav-v2 .data-container .data-sub-container > a, .antsand-nav-v2 .data-container .antsand-nav .drop-down-container > a, .antsand-nav-v2 .data-container .drop-down-container > a, .antsand-nav-v2 .data-container .antsand-nav-style .drop-down-container > a, .antsand-nav-style .data-container .data-sub-container > a, .antsand-nav-style .data-container .antsand-nav .drop-down-container > a, .antsand-nav-style .data-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .data-container .drop-down-container > a {
+          padding: 1rem 1.5rem;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          border-radius: 0; }
+        .antsand-nav .data-container .data-sub-container .data-nested-container, .antsand-nav .data-container .data-sub-container .drop-down, .antsand-nav .data-container .drop-down-container .data-nested-container, .antsand-nav .data-container .drop-down-container .drop-down, .antsand-nav-v2 .data-container .data-sub-container .data-nested-container, .antsand-nav-v2 .data-container .data-sub-container .drop-down, .antsand-nav-v2 .data-container .drop-down-container .data-nested-container, .antsand-nav-v2 .data-container .drop-down-container .drop-down, .antsand-nav-style .data-container .data-sub-container .data-nested-container, .antsand-nav-style .data-container .data-sub-container .drop-down, .antsand-nav-style .data-container .drop-down-container .data-nested-container, .antsand-nav-style .data-container .drop-down-container .drop-down {
+          position: static;
+          width: 100%;
+          min-width: unset !important;
+          margin: 0;
+          border-radius: 0;
+          box-shadow: none;
+          grid-template-columns: 1fr;
+          padding: 0.5rem 1rem;
+          background: rgba(255, 255, 255, 0.05);
+          border-left: 3px solid #3498db; }
+    .antsand-nav .antsand-nav__toggle, .antsand-nav-v2 .antsand-nav__toggle, .antsand-nav-style .antsand-nav__toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 30px;
+      height: 24px;
+      justify-content: center;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 1031; }
+      .antsand-nav .antsand-nav__toggle span, .antsand-nav-v2 .antsand-nav__toggle span, .antsand-nav-style .antsand-nav__toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: white;
+        border-radius: 2px;
+        transition: all 250ms ease; }
+      .antsand-nav .antsand-nav__toggle.active span:nth-child(1), .antsand-nav-v2 .antsand-nav__toggle.active span:nth-child(1), .antsand-nav-style .antsand-nav__toggle.active span:nth-child(1), .antsand-nav .antsand-nav__toggle--active span:nth-child(1), .antsand-nav-v2 .antsand-nav__toggle--active span:nth-child(1), .antsand-nav-style .antsand-nav__toggle--active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); }
+      .antsand-nav .antsand-nav__toggle.active span:nth-child(2), .antsand-nav-v2 .antsand-nav__toggle.active span:nth-child(2), .antsand-nav-style .antsand-nav__toggle.active span:nth-child(2), .antsand-nav .antsand-nav__toggle--active span:nth-child(2), .antsand-nav-v2 .antsand-nav__toggle--active span:nth-child(2), .antsand-nav-style .antsand-nav__toggle--active span:nth-child(2) {
+        opacity: 0; }
+      .antsand-nav .antsand-nav__toggle.active span:nth-child(3), .antsand-nav-v2 .antsand-nav__toggle.active span:nth-child(3), .antsand-nav-style .antsand-nav__toggle.active span:nth-child(3), .antsand-nav .antsand-nav__toggle--active span:nth-child(3), .antsand-nav-v2 .antsand-nav__toggle--active span:nth-child(3), .antsand-nav-style .antsand-nav__toggle--active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px); }
+  .antsand-nav.antsand-nav--light .data-container, .antsand-nav--light.antsand-nav-v2 .data-container, .antsand-nav--light.antsand-nav-style .data-container, .antsand-nav-style .antsand-nav--light.nav_bar .data-container {
+    border-top-color: #e9ecef; }
+    .antsand-nav.antsand-nav--light .data-container .data-sub-container > a, .antsand-nav.antsand-nav--light .data-container .drop-down-container > a, .antsand-nav.antsand-nav--light .data-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav.antsand-nav--light .data-container .antsand-nav-style .drop-down-container > a, .antsand-nav--light.antsand-nav-v2 .data-container .data-sub-container > a, .antsand-nav--light.antsand-nav-v2 .data-container .antsand-nav .drop-down-container > a, .antsand-nav--light.antsand-nav-v2 .data-container .drop-down-container > a, .antsand-nav--light.antsand-nav-v2 .data-container .antsand-nav-style .drop-down-container > a, .antsand-nav--light.antsand-nav-style .data-container .data-sub-container > a, .antsand-nav--light.antsand-nav-style .data-container .antsand-nav .drop-down-container > a, .antsand-nav--light.antsand-nav-style .data-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav--light.antsand-nav-style .data-container .drop-down-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .data-container .data-sub-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .data-container .antsand-nav .drop-down-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .data-container .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .antsand-nav--light.nav_bar .data-container .drop-down-container > a {
+      color: #212529;
+      border-bottom-color: #f8f9fa; }
+    .antsand-nav.antsand-nav--light .data-container .data-nested-container, .antsand-nav.antsand-nav--light .data-container .drop-down, .antsand-nav--light.antsand-nav-v2 .data-container .data-nested-container, .antsand-nav--light.antsand-nav-v2 .data-container .drop-down, .antsand-nav--light.antsand-nav-style .data-container .data-nested-container, .antsand-nav--light.antsand-nav-style .data-container .drop-down, .antsand-nav-style .antsand-nav--light.nav_bar .data-container .data-nested-container, .antsand-nav-style .antsand-nav--light.nav_bar .data-container .drop-down {
+      background: #f9fafb; }
+  .antsand-nav.antsand-nav--light .antsand-nav__toggle span, .antsand-nav--light.antsand-nav-v2 .antsand-nav__toggle span, .antsand-nav--light.antsand-nav-style .antsand-nav__toggle span, .antsand-nav-style .antsand-nav--light.nav_bar .antsand-nav__toggle span {
+    background: #212529; } }
+
+@media (min-width: 768px) {
+  .antsand-nav .antsand-nav__toggle, .antsand-nav-v2 .antsand-nav__toggle, .antsand-nav-style .antsand-nav__toggle {
+    display: none; } }
+
 .antsand-nav.antsand-nav-enhanced .data-sub-container, .antsand-nav.antsand-nav-enhanced .drop-down-container, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container, .antsand-nav-enhanced.antsand-nav-v2 .drop-down-container, .antsand-nav-enhanced.antsand-nav-style .data-sub-container, .antsand-nav-enhanced.antsand-nav-style .drop-down-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down-container {
   position: relative; }
   .antsand-nav.antsand-nav-enhanced .data-sub-container > a, .antsand-nav.antsand-nav-enhanced .drop-down-container > a, .antsand-nav.antsand-nav-enhanced .antsand-nav-v2 .drop-down-container > a, .antsand-nav.antsand-nav-enhanced .antsand-nav-style .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .data-sub-container > a, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-v2 .antsand-nav-style .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .data-sub-container > a, .antsand-nav-enhanced.antsand-nav-style .antsand-nav .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .antsand-nav-v2 .drop-down-container > a, .antsand-nav-enhanced.antsand-nav-style .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-sub-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .antsand-nav-v2 .drop-down-container > a, .antsand-nav-style .antsand-nav-enhanced.nav_bar .drop-down-container > a {
@@ -351,6 +421,7 @@
   top: 100%;
   left: 0;
   min-width: 600px;
+  max-width: 90vw;
   background: white;
   color: #2c3e50;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
@@ -363,10 +434,11 @@
   gap: 1rem; }
   .antsand-nav.antsand-nav-enhanced .data-nested-container.narrow, .antsand-nav.antsand-nav-enhanced .narrow.drop-down, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-container.narrow, .antsand-nav-enhanced.antsand-nav-v2 .narrow.drop-down, .antsand-nav-enhanced.antsand-nav-style .data-nested-container.narrow, .antsand-nav-enhanced.antsand-nav-style .narrow.drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-container.narrow, .antsand-nav-style .antsand-nav-enhanced.nav_bar .narrow.drop-down {
     min-width: 400px;
+    max-width: 90vw;
     grid-template-columns: 1fr; }
   .antsand-nav.antsand-nav-enhanced .data-nested-container.wide, .antsand-nav.antsand-nav-enhanced .wide.drop-down, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-container.wide, .antsand-nav-enhanced.antsand-nav-v2 .wide.drop-down, .antsand-nav-enhanced.antsand-nav-style .data-nested-container.wide, .antsand-nav-enhanced.antsand-nav-style .wide.drop-down, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-container.wide, .antsand-nav-style .antsand-nav-enhanced.nav_bar .wide.drop-down {
     min-width: 800px;
-    max-width: 900px;
+    max-width: 90vw;
     grid-template-columns: repeat(3, 1fr); }
 
 .antsand-nav.antsand-nav-enhanced .data-nested-item, .antsand-nav-enhanced.antsand-nav-v2 .data-nested-item, .antsand-nav-enhanced.antsand-nav-style .data-nested-item, .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-item {
@@ -626,7 +698,13 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem; }
-
+    @media (max-width: 768px) {
+      .antsand-nav.antsand-nav-enhanced .dropdown-tab-content.active, .antsand-nav-enhanced.antsand-nav-v2 .dropdown-tab-content.active, .antsand-nav-enhanced.antsand-nav-style .dropdown-tab-content.active, .antsand-nav-style .antsand-nav-enhanced.nav_bar .dropdown-tab-content.active,
+      .antsand-nav.antsand-nav-enhanced .data-nested-tab-content.active,
+      .antsand-nav-enhanced.antsand-nav-v2 .data-nested-tab-content.active,
+      .antsand-nav-enhanced.antsand-nav-style .data-nested-tab-content.active,
+      .antsand-nav-style .antsand-nav-enhanced.nav_bar .data-nested-tab-content.active {
+        grid-template-columns: 1fr; } }
 .antsand-nav .antsand-topnav-menu .antsand-topnav-item > a,
 .antsand-nav-v2 .antsand-topnav-menu .antsand-topnav-item > a,
 .antsand-nav-style .antsand-topnav-menu .antsand-topnav-item > a {

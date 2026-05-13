@@ -46,6 +46,7 @@
         border-bottom: 1px solid $antsand-gray-200;
         box-shadow: $antsand-shadow-md;
         padding: $antsand-space-2 0;
+        z-index: $antsand-z-dropdown;
 
         &.active {
             display: flex;
@@ -60,6 +61,9 @@
     text-decoration: none;
     border-radius: $antsand-radius-sm;
     transition: all $antsand-transition-base;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 
     &:hover {
         background-color: $antsand-gray-100;
@@ -69,6 +73,13 @@
     &.active {
         color: $antsand-primary;
         font-weight: $antsand-font-weight-semibold;
+    }
+
+    @media (max-width: $antsand-breakpoint-md) {
+        padding: $antsand-space-3 $antsand-space-4;
+        border-radius: 0;
+        border-bottom: 1px solid $antsand-gray-100;
+        width: 100%;
     }
 }
 
@@ -157,6 +168,11 @@
     @media (max-width: $antsand-breakpoint-md) {
         .antsand-navbar-nav {
             background-color: $antsand-gray-900;
+            border-bottom-color: $antsand-gray-800;
+        }
+
+        .antsand-navbar-item {
+            border-bottom-color: $antsand-gray-800;
         }
     }
 }
@@ -189,6 +205,11 @@
     @media (max-width: $antsand-breakpoint-md) {
         .antsand-navbar-nav {
             background-color: $antsand-primary;
+            border-bottom-color: darken($antsand-primary, 10%);
+        }
+
+        .antsand-navbar-item {
+            border-bottom-color: darken($antsand-primary, 5%);
         }
     }
 }

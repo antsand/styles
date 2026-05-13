@@ -7,6 +7,8 @@
 $antsand-primary: #3498db !default;
 $antsand-gray-50: #f9fafb !default;
 $antsand-gray-100: #f8f9fa !default;
+$antsand-gray-200: #e9ecef !default;
+$antsand-gray-300: #dee2e6 !default;
 $antsand-gray-600: #6c757d !default;
 $antsand-gray-700: #495057 !default;
 $antsand-gray-800: #343a40 !default;
@@ -40,6 +42,7 @@ $antsand-breakpoint-md: 768px !default;   // Tablet
 
 // Transitions
 $antsand-transition-base: 250ms ease !default;
+$antsand-transition-fast: 150ms ease !default;
 
 // Z-index
 $antsand-z-dropdown: 1000 !default;
