@@ -1,0 +1,167 @@
+// ============================================
+// ANTSAND Styles v2 - Animations
+// Named keyframes + utility classes
+// ============================================
+//
+// FOR AGENTS: Use .animate-* classes as Tier 2 utilities on Databoard fields.
+// All animations respect prefers-reduced-motion automatically.
+//
+// Usage in Databoard CSS:
+//   data.sub_container = "antsand-card animate-fade-in"
+//   data.img_container = "animate-slide-up"
+//
+// ============================================
+
+// --- Keyframes ---
+
+@keyframes antsand-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes antsand-fade-in-up {
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes antsand-fade-in-down {
+    from { opacity: 0; transform: translateY(-1rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes antsand-slide-up {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes antsand-slide-down {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes antsand-slide-in-left {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes antsand-slide-in-right {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes antsand-scale-in {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes antsand-zoom-in {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes antsand-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes antsand-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes antsand-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-25%); }
+}
+
+@keyframes antsand-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+// --- Utility classes ---
+// All wrapped in motion-safe so they auto-disable for reduced-motion users
+
+@media (prefers-reduced-motion: no-preference) {
+    .animate-fade-in {
+        animation: antsand-fade-in 0.3s ease both;
+    }
+
+    .animate-fade-in-up {
+        animation: antsand-fade-in-up 0.4s ease both;
+    }
+
+    .animate-fade-in-down {
+        animation: antsand-fade-in-down 0.4s ease both;
+    }
+
+    .animate-slide-up {
+        animation: antsand-slide-up 0.3s ease both;
+    }
+
+    .animate-slide-down {
+        animation: antsand-slide-down 0.3s ease both;
+    }
+
+    .animate-slide-in-left {
+        animation: antsand-slide-in-left 0.3s ease both;
+    }
+
+    .animate-slide-in-right {
+        animation: antsand-slide-in-right 0.3s ease both;
+    }
+
+    .animate-scale-in {
+        animation: antsand-scale-in 0.3s ease both;
+    }
+
+    .animate-zoom-in {
+        animation: antsand-zoom-in 0.3s ease both;
+    }
+
+    .animate-spin {
+        animation: antsand-spin 1s linear infinite;
+    }
+
+    .animate-pulse {
+        animation: antsand-pulse 2s ease-in-out infinite;
+    }
+
+    .animate-bounce {
+        animation: antsand-bounce 1s ease infinite;
+    }
+
+    // Delay modifiers
+    .animate-delay-100 { animation-delay: 100ms; }
+    .animate-delay-200 { animation-delay: 200ms; }
+    .animate-delay-300 { animation-delay: 300ms; }
+    .animate-delay-500 { animation-delay: 500ms; }
+    .animate-delay-700 { animation-delay: 700ms; }
+    .animate-delay-1000 { animation-delay: 1s; }
+
+    // Duration modifiers
+    .animate-fast { animation-duration: 150ms; }
+    .animate-slow { animation-duration: 600ms; }
+}
+
+// Reduced motion: collapse all animations to instant
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-fade-in-up,
+    .animate-fade-in-down,
+    .animate-slide-up,
+    .animate-slide-down,
+    .animate-slide-in-left,
+    .animate-slide-in-right,
+    .animate-scale-in,
+    .animate-zoom-in {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .animate-spin,
+    .animate-pulse,
+    .animate-bounce {
+        animation: none !important;
+    }
+}

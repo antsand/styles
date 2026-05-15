@@ -8,6 +8,7 @@
  * - Tabs (all variants: pills, steps, vertical, underline, boxed)
  * - Tables (sortable, searchable, pagination)
  * - Carousel (slide, fade, cards, cover variants)
+ * - Accordion, dropdown, topnav, modal, alert progressive enhancement
  * - Forms validation (coming soon)
  *
  * ANTSAND Universal Structure:
@@ -26,6 +27,12 @@ import { AntsandTabs, initAllTabs } from './modules/tabs.js';
 import { AntsandTable, initAllTables } from './modules/table.js';
 import { AntsandCarousel, initAllCarousels } from './modules/carousel.js';
 import { AntsandCheckout, initAllCheckouts } from './modules/checkout.js';
+import { AntsandAccordion, initAllAccordions } from './modules/accordion.js';
+import { AntsandDropdown, initAllDropdowns } from './modules/dropdown.js';
+import { AntsandTopnav, initAllTopnavs } from './modules/topnav.js';
+import { AntsandModal, initAllModals, openModal, closeModal } from './modules/modal.js';
+import { AntsandAlert, initAllAlerts } from './modules/alert.js';
+import { AntsandGallery, initAllGalleries } from './modules/gallery.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
@@ -39,7 +46,13 @@ function initAll() {
         tabs: initAllTabs(),
         tables: initAllTables(),
         carousels: initAllCarousels(),
-        checkouts: initAllCheckouts()
+        checkouts: initAllCheckouts(),
+        accordions: initAllAccordions(),
+        dropdowns: initAllDropdowns(),
+        topnavs: initAllTopnavs(),
+        modals: initAllModals(),
+        alerts: initAllAlerts(),
+        galleries: initAllGalleries()
     };
 
     // Log initialization summary (development only)
@@ -48,7 +61,13 @@ function initAll() {
             tabs: initialized.tabs.length,
             tables: initialized.tables.length,
             carousels: initialized.carousels.length,
-            checkouts: initialized.checkouts.length
+            checkouts: initialized.checkouts.length,
+            accordions: initialized.accordions.length,
+            dropdowns: initialized.dropdowns.length,
+            topnavs: initialized.topnavs.length,
+            modals: initialized.modals.length,
+            alerts: initialized.alerts.length,
+            galleries: initialized.galleries.length
         });
     }
 
@@ -109,12 +128,26 @@ const ANTSAND = {
     Table: AntsandTable,
     Carousel: AntsandCarousel,
     Checkout: AntsandCheckout,
+    Accordion: AntsandAccordion,
+    Dropdown: AntsandDropdown,
+    Topnav: AntsandTopnav,
+    Modal: AntsandModal,
+    Alert: AntsandAlert,
+    Gallery: AntsandGallery,
 
     // Initialization functions
     initTabs: initAllTabs,
     initTables: initAllTables,
     initCarousels: initAllCarousels,
     initCheckouts: initAllCheckouts,
+    initAccordions: initAllAccordions,
+    initDropdowns: initAllDropdowns,
+    initTopnavs: initAllTopnavs,
+    initModals: initAllModals,
+    initAlerts: initAllAlerts,
+    initGalleries: initAllGalleries,
+    openModal,
+    closeModal,
     initAll: initAll,
 
     // Configuration
@@ -148,10 +181,24 @@ export {
     AntsandTable,
     AntsandCarousel,
     AntsandCheckout,
+    AntsandAccordion,
+    AntsandDropdown,
+    AntsandTopnav,
+    AntsandModal,
+    AntsandAlert,
+    AntsandGallery,
     initAllTabs,
     initAllTables,
     initAllCarousels,
     initAllCheckouts,
+    initAllAccordions,
+    initAllDropdowns,
+    initAllTopnavs,
+    initAllModals,
+    initAllAlerts,
+    initAllGalleries,
+    openModal,
+    closeModal,
     initAll
 };
 

@@ -1,0 +1,409 @@
+// ============================================
+// ANTSAND Styles v2 - Code Blocks
+// Reusable H/B/F code object renderer.
+// ============================================
+//
+// Data contract:
+//   data[].code = "..."
+//   data[].code_block = {
+//     label: "section.volt",
+//     language: "html",
+//     code: "<section>...</section>"
+//   }
+//
+// The Volt renderer escapes code by default. Use this component for API
+// examples, AI prompts, snippets, and documentation blocks.
+
+.antsand-code-block {
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: $antsand-radius-lg;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.22);
+    color: #e5e7eb;
+    margin: $antsand-space-4 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.antsand-code-header {
+    align-items: center;
+    background: #0b1020;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+    color: #cbd5e1;
+    display: flex;
+    font-family: $antsand-font-family-mono;
+    font-size: 0.78rem;
+    gap: $antsand-space-2;
+    justify-content: space-between;
+    letter-spacing: 0.01em;
+    min-height: 2.75rem;
+    padding: 0 $antsand-space-3 0 $antsand-space-5;
+    position: relative;
+
+    &::before {
+        background: #ef4444;
+        border-radius: $antsand-radius-full;
+        box-shadow: 1.1rem 0 0 #f59e0b, 2.2rem 0 0 #22c55e;
+        content: "";
+        height: 0.72rem;
+        left: $antsand-space-3;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.72rem;
+    }
+}
+
+.antsand-code-label {
+    color: #f8fafc;
+    font-weight: $antsand-font-weight-semibold;
+    margin-left: 3.6rem;
+}
+
+.antsand-code-language {
+    background: rgba(148, 163, 184, 0.14);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: $antsand-radius-full;
+    color: #94a3b8;
+    font-size: 0.72rem;
+    padding: 0.15rem 0.55rem;
+    text-transform: uppercase;
+}
+
+.antsand-code-pre {
+    background: transparent;
+    color: #dbeafe;
+    font-family: $antsand-font-family-mono;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: $antsand-space-4;
+    tab-size: 2;
+    text-align: left;
+    white-space: pre;
+    overflow-wrap: normal;
+    height: auto;
+    min-height: 0;
+    max-height: 70vh;
+    -webkit-overflow-scrolling: touch;
+
+    code {
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        padding: 0;
+        text-align: inherit;
+    }
+}
+
+// Wrap long examples instead of forcing horizontal overflow. Use this on the
+// code_pre slot when documentation snippets should fit the card width.
+.antsand-code-wrap {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.antsand-code-block-light {
+    background: #ffffff;
+    border-color: $antsand-gray-200;
+    box-shadow: $antsand-shadow-lg;
+    color: $antsand-gray-900;
+
+    .antsand-code-header {
+        background: $antsand-gray-50;
+        border-color: $antsand-gray-200;
+        color: $antsand-gray-700;
+    }
+
+    .antsand-code-label {
+        color: $antsand-gray-900;
+    }
+
+    .antsand-code-pre {
+        color: $antsand-gray-900;
+    }
+}
+
+.antsand-code-block-compact {
+    margin: $antsand-space-3 0;
+
+    .antsand-code-header {
+        min-height: 2.25rem;
+    }
+
+    .antsand-code-pre {
+        font-size: 0.82rem;
+        padding: $antsand-space-3;
+    }
+}
+
+// Premium terminal-style preview used by documentation and generated
+// code-heavy pages. Add this class to the code_block CSS slot:
+//   data.code_block = "antsand-code-preview"
+// The renderer still owns the stable DOM: .antsand-code-block >
+// .antsand-code-header + .antsand-code-pre.
+.antsand-code-preview {
+    background: #1b1b2f;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.2);
+    color: #d8dee9;
+    margin: $antsand-space-5 auto;
+    max-width: 1200px;
+    overflow: hidden;
+    width: 100%;
+
+    .antsand-code-header {
+        background: #0e0f1a;
+        border: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+        color: #7f8ca6;
+        font-size: 0.78rem;
+        font-weight: $antsand-font-weight-medium;
+        justify-content: flex-start;
+        min-height: 52px;
+        padding: 0 $antsand-space-4 0 6.2rem;
+
+        &::before {
+            background: #ff5f57;
+            box-shadow: 1.35rem 0 0 #ffbd2e, 2.7rem 0 0 #28c840;
+            height: 0.76rem;
+            left: $antsand-space-4;
+            width: 0.76rem;
+        }
+    }
+
+    .antsand-code-label {
+        color: #7f8ca6;
+        font-weight: $antsand-font-weight-medium;
+        margin-left: 0;
+    }
+
+    .antsand-code-language {
+        background: transparent;
+        border: 0;
+        color: #536079;
+        font-size: 0.72rem;
+        margin-left: auto;
+        padding: 0;
+        text-transform: uppercase;
+    }
+
+    .antsand-code-pre {
+        background: #1b1b2f;
+        color: #d8dee9;
+        font-size: 0.9rem;
+        line-height: 1.65;
+        min-height: 0;
+        max-height: 70vh;
+        height: auto;
+        overflow-x: auto;
+        overflow-y: auto;
+        padding: $antsand-space-5 $antsand-space-5 $antsand-space-4;
+        white-space: pre;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    code {
+        color: inherit;
+    }
+}
+
+.antsand-code-preview-compact {
+    max-width: 920px;
+
+    .antsand-code-pre {
+        min-height: 0;
+        max-height: none;
+        padding: $antsand-space-4;
+    }
+}
+
+// ── Syntax highlighting tokens ──
+// Use <span class="syn-tag"> inside .antsand-code-pre
+.antsand-code-block,
+.antsand-code-preview {
+    .syn-tag    { color: #f15b2a; }
+    .syn-attr   { color: #94a3b8; }
+    .syn-str    { color: #ffd93d; }
+    .syn-cmt    { color: #64748b; font-style: italic; }
+    .syn-kw     { color: #c792ea; }
+    .syn-fn     { color: #82aaff; }
+    .syn-num    { color: #f78c6c; }
+    .syn-var    { color: #e2e8f0; }
+    .syn-op     { color: #89ddff; }
+    .syn-sel    { color: #c3e88d; }
+}
+
+// Light theme syntax tokens
+.antsand-code-block-light {
+    .syn-tag    { color: #22863a; }
+    .syn-attr   { color: #6f42c1; }
+    .syn-str    { color: #032f62; }
+    .syn-cmt    { color: #6a737d; font-style: italic; }
+    .syn-kw     { color: #d73a49; }
+    .syn-fn     { color: #6f42c1; }
+    .syn-num    { color: #005cc5; }
+    .syn-var    { color: #24292e; }
+    .syn-op     { color: #d73a49; }
+    .syn-sel    { color: #22863a; }
+}
+
+// ── Terminal theme ──
+.antsand-code-block-terminal {
+    background: #0c0c0c;
+    border-color: #333;
+
+    .antsand-code-header {
+        background: #1a1a1a;
+        border-color: #333;
+        &::before {
+            background: #ff5f56;
+            box-shadow: 0.7rem 0 0 #ffbd2e, 1.4rem 0 0 #22c55e;
+        }
+    }
+
+    .antsand-code-label {
+        color: #666;
+        &::before {
+            content: '❯ ';
+            color: #00ff41;
+        }
+    }
+
+    .antsand-code-pre {
+        color: #00ff41;
+    }
+
+    .syn-tag    { color: #ff5f56; }
+    .syn-attr   { color: #bd93f9; }
+    .syn-str    { color: #f1fa8c; }
+    .syn-cmt    { color: #6272a4; font-style: italic; }
+    .syn-kw     { color: #ff79c6; }
+    .syn-fn     { color: #50fa7b; }
+    .syn-num    { color: #ffb86c; }
+    .syn-var    { color: #f8f8f2; }
+    .syn-op     { color: #8be9fd; }
+    .syn-sel    { color: #50fa7b; }
+}
+
+// ── Copy button ──
+.antsand-code-copy {
+    background: transparent;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: $antsand-radius-sm;
+    color: #94a3b8;
+    cursor: pointer;
+    font-family: $antsand-font-family-mono;
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.625rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+
+    &:hover {
+        background: rgba(255,255,255,0.08);
+        color: #e2e8f0;
+        border-color: rgba(255,255,255,0.2);
+    }
+    &:focus-visible {
+        outline: 2px solid #f15b2a;
+        outline-offset: 2px;
+    }
+    &.copied {
+        color: #22c55e;
+        border-color: rgba(34,197,94,0.3);
+    }
+}
+
+// ── Scrollbar styling ──
+.antsand-code-pre {
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.15);
+        border-radius: 3px;
+        &:hover {
+            background: rgba(255,255,255,0.25);
+        }
+    }
+}
+
+// ── Responsive ──
+@media (max-width: 768px) {
+    .antsand-code-block,
+    .antsand-code-preview {
+        border-radius: $antsand-radius-lg;
+
+        .antsand-code-header {
+            min-height: 2.25rem;
+            padding-left: $antsand-space-4;
+        }
+
+        .antsand-code-pre {
+            font-size: 0.78rem;
+            padding: $antsand-space-3;
+            max-height: 60vh;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .antsand-code-block,
+    .antsand-code-preview {
+        border-radius: $antsand-radius-sm;
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+
+        .antsand-code-pre {
+            font-size: 0.72rem;
+            padding: $antsand-space-2;
+            max-height: 50vh;
+        }
+    }
+}
+
+// ── Accessibility ──
+@media (prefers-reduced-motion: reduce) {
+    .antsand-code-copy {
+        transition: none;
+    }
+}
+
+@media (prefers-contrast: more) {
+    .antsand-code-block,
+    .antsand-code-preview {
+        border-width: 2px;
+        .antsand-code-pre { color: #ffffff; }
+        .syn-cmt { color: #9ca3af; }
+        .syn-attr { color: #a0c4ff; }
+    }
+}
+
+// ── Print ──
+@media print {
+    .antsand-code-block,
+    .antsand-code-preview {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        background: white;
+        break-inside: avoid;
+        page-break-inside: avoid;
+
+        .antsand-code-pre {
+            color: #1a1a1a;
+            max-height: none;
+            white-space: pre-wrap;
+        }
+
+        .antsand-code-copy { display: none; }
+        .antsand-code-header::before { display: none; }
+    }
+}

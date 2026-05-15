@@ -56,6 +56,14 @@
     }
 }
 
+// H/B/F compatibility: some generated/raw Databoard examples toggle state on
+// the button first. Keep the content contract tolerant while templates are
+// migrated to explicit dropdown sections.
+.antsand-dropdown-toggle.active + .antsand-dropdown-menu {
+    display: block;
+    animation: dropdownSlide $antsand-transition-base ease-out;
+}
+
 .antsand-dropdown-item {
     display: block;
     width: 100%;

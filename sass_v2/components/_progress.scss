@@ -1,0 +1,89 @@
+// ============================================
+// ANTSAND Styles v2 - Progress Bar
+// Horizontal completion indicators
+// ============================================
+//
+// FOR AGENTS: Use for skill levels, upload %, course progress, steps.
+//
+// Structure:
+//   .antsand-progress                        (container)
+//     └── .antsand-progress-bar              (fill — set width via style="width: 75%")
+//         └── optional label text inside
+//
+// Variants: color (primary/success/danger/warning/info), striped, animated
+// Sizes: antsand-progress-sm, antsand-progress-lg
+// Stacked: multiple .antsand-progress-bar inside one .antsand-progress
+//
+// ============================================
+
+.antsand-progress {
+    display: flex;
+    height: 1rem;
+    overflow: hidden;
+    font-size: 0.7rem;
+    background-color: $antsand-gray-200;
+    border-radius: $antsand-radius-full;
+}
+
+.antsand-progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $antsand-primary;
+    border-radius: $antsand-radius-full;
+    transition: width 0.6s ease;
+}
+
+// Size variants
+.antsand-progress-sm {
+    height: 0.5rem;
+    font-size: 0;
+}
+
+.antsand-progress-lg {
+    height: 1.5rem;
+    font-size: 0.8rem;
+}
+
+// Color variants
+.antsand-progress-bar-success { background-color: $antsand-success; }
+.antsand-progress-bar-danger  { background-color: $antsand-danger; }
+.antsand-progress-bar-warning { background-color: $antsand-warning; color: $antsand-gray-900; }
+.antsand-progress-bar-info    { background-color: $antsand-info; }
+.antsand-progress-bar-dark    { background-color: $antsand-gray-800; }
+
+// Striped variant
+.antsand-progress-bar-striped {
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.15) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 1rem 1rem;
+}
+
+// Animated stripes
+.antsand-progress-bar-animated {
+    @extend .antsand-progress-bar-striped;
+    animation: antsand-progress-stripes 1s linear infinite;
+}
+
+@keyframes antsand-progress-stripes {
+    from { background-position: 1rem 0; }
+    to { background-position: 0 0; }
+}
+
+// Label inside bar
+.antsand-progress-label {
+    padding: 0 $antsand-space-2;
+    font-weight: $antsand-font-weight-semibold;
+}

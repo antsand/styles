@@ -9,7 +9,8 @@
 // ============================================
 
 // Base structure - no variant-specific styling
-[data-tabs] {
+[data-tabs],
+.antsand-tabs {
   position: relative;
 
   .tabs-header {
@@ -244,7 +245,8 @@
 // Mobile Responsive (applies to all variants)
 // ============================================
 @media (max-width: 768px) {
-  [data-tabs] {
+  [data-tabs],
+  .antsand-tabs {
     .tabs-header {
       flex-direction: column;
       gap: 0.5rem;

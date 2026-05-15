@@ -109,11 +109,15 @@ $antsand-transition-fast: 150ms ease !default;
 $antsand-transition-base: 250ms ease !default;
 $antsand-transition-slow: 350ms ease !default;
 
-// Z-index
+// Z-index (full stack — never use raw numbers, always tokens)
 $antsand-z-dropdown: 1000 !default;
 $antsand-z-sticky: 1020 !default;
 $antsand-z-fixed: 1030 !default;
+$antsand-z-offcanvas: 1040 !default;
 $antsand-z-modal: 1050 !default;
+$antsand-z-popover: 1060 !default;
+$antsand-z-tooltip: 1070 !default;
+$antsand-z-toast: 1090 !default;
 
 // ============================================
 // ACCESSIBILITY TOKENS

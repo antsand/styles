@@ -1,97 +1,489 @@
 // ============================================
 // ANTSAND Styles v2 - Buttons
-// Consistent button styles — Tier 1 semantic class
+// Comprehensive button system — Tier 1 semantic class
 // ============================================
 //
 // FOR AGENTS — Buttons are ALWAYS Tier 1 (never pure utilities):
 //   antsand-btn antsand-btn-primary     → primary action
-//   antsand-btn antsand-btn-outline-*   → outline variant
-//   antsand-btn antsand-btn-sm/lg       → size variants
+//   antsand-btn antsand-btn-outline-*   → outline variant (all 8 colors)
+//   antsand-btn antsand-btn-ghost       → transparent link-style
+//   antsand-btn antsand-btn-xs/sm/lg/xl → size variants
 //   antsand-btn antsand-btn-block       → full width
+//   antsand-btn antsand-btn-icon        → square icon-only button
+//   antsand-btn antsand-btn-loading     → loading spinner state
+//   antsand-btn-group                    → grouped button bar
+//   antsand-btn-close                    → dismiss/close button
 //
 // Enhance with Tier 2 only for motion:
 //   data.cta = "antsand-btn antsand-btn-primary transition-all hover:scale-105"
 //
+// CSS Custom Properties (override at runtime):
+//   --antsand-btn-bg, --antsand-btn-color, --antsand-btn-border,
+//   --antsand-btn-hover-bg, --antsand-btn-padding-x, --antsand-btn-padding-y,
+//   --antsand-btn-font-size, --antsand-btn-radius
+//
 // ============================================
 
+// ── Base ─────────────────────────────────────
 .antsand-btn {
-    @include antsand-btn-base;
-    padding: $antsand-space-2 $antsand-space-4;
-    font-size: $antsand-font-size-base;
-    border-radius: $antsand-radius-md;
+    // CSS custom properties for runtime theming
+    --antsand-btn-bg: transparent;
+    --antsand-btn-color: #{$antsand-gray-900};
+    --antsand-btn-border: #{$antsand-gray-300};
+    --antsand-btn-hover-bg: #{$antsand-gray-100};
+    --antsand-btn-hover-color: #{$antsand-gray-900};
+    --antsand-btn-hover-border: #{$antsand-gray-400};
+    --antsand-btn-active-bg: #{$antsand-gray-200};
+    --antsand-btn-padding-x: #{$antsand-space-4};
+    --antsand-btn-padding-y: #{$antsand-space-2};
+    --antsand-btn-font-size: #{$antsand-font-size-base};
+    --antsand-btn-radius: #{$antsand-radius-md};
+    --antsand-btn-gap: 0.5em;
 
-    // Sizes (consistent, not arbitrary!)
+    @include antsand-btn-base;
+    padding: var(--antsand-btn-padding-y) var(--antsand-btn-padding-x);
+    font-size: var(--antsand-btn-font-size);
+    border-radius: var(--antsand-btn-radius);
+    background-color: var(--antsand-btn-bg);
+    color: var(--antsand-btn-color);
+    border-color: var(--antsand-btn-border);
+    gap: var(--antsand-btn-gap);
+    text-decoration: none;
+    line-height: $antsand-line-height-normal;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+
+    &:hover:not(:disabled):not(.disabled) {
+        background-color: var(--antsand-btn-hover-bg);
+        color: var(--antsand-btn-hover-color);
+        border-color: var(--antsand-btn-hover-border);
+        text-decoration: none;
+    }
+
+    &:active:not(:disabled):not(.disabled) {
+        background-color: var(--antsand-btn-active-bg);
+        transform: translateY(1px);
+    }
+
+    // ── Sizes ────────────────────────────────
+    &-xs {
+        --antsand-btn-padding-x: #{$antsand-space-2};
+        --antsand-btn-padding-y: 0.15rem;
+        --antsand-btn-font-size: 0.75rem;
+        --antsand-btn-radius: #{$antsand-radius-sm};
+        --antsand-btn-gap: 0.3em;
+    }
+
     &-sm {
-        padding: $antsand-space-1 $antsand-space-3;
-        font-size: $antsand-font-size-sm;
+        --antsand-btn-padding-x: #{$antsand-space-3};
+        --antsand-btn-padding-y: #{$antsand-space-1};
+        --antsand-btn-font-size: #{$antsand-font-size-sm};
+        --antsand-btn-gap: 0.4em;
     }
 
     &-lg {
-        padding: $antsand-space-3 $antsand-space-5;
-        font-size: $antsand-font-size-lg;
+        --antsand-btn-padding-x: #{$antsand-space-5};
+        --antsand-btn-padding-y: #{$antsand-space-3};
+        --antsand-btn-font-size: #{$antsand-font-size-lg};
     }
 
-    // Variants
+    &-xl {
+        --antsand-btn-padding-x: #{$antsand-space-6};
+        --antsand-btn-padding-y: #{$antsand-space-4};
+        --antsand-btn-font-size: #{$antsand-font-size-xl};
+    }
+
+    // ── Solid Variants ───────────────────────
     &-primary {
-        @include antsand-btn-variant($antsand-primary);
+        --antsand-btn-bg: #{$antsand-primary};
+        --antsand-btn-color: white;
+        --antsand-btn-border: #{$antsand-primary};
+        --antsand-btn-hover-bg: #{darken($antsand-primary, 10%)};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{darken($antsand-primary, 12%)};
+        --antsand-btn-active-bg: #{darken($antsand-primary, 15%)};
     }
 
     &-secondary {
-        @include antsand-btn-variant($antsand-secondary);
+        --antsand-btn-bg: #{$antsand-secondary};
+        --antsand-btn-color: white;
+        --antsand-btn-border: #{$antsand-secondary};
+        --antsand-btn-hover-bg: #{darken($antsand-secondary, 10%)};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{darken($antsand-secondary, 12%)};
+        --antsand-btn-active-bg: #{darken($antsand-secondary, 15%)};
     }
 
     &-success {
-        @include antsand-btn-variant($antsand-success);
+        --antsand-btn-bg: #{$antsand-success};
+        --antsand-btn-color: white;
+        --antsand-btn-border: #{$antsand-success};
+        --antsand-btn-hover-bg: #{darken($antsand-success, 10%)};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{darken($antsand-success, 12%)};
+        --antsand-btn-active-bg: #{darken($antsand-success, 15%)};
     }
 
     &-danger {
-        @include antsand-btn-variant($antsand-danger);
+        --antsand-btn-bg: #{$antsand-danger};
+        --antsand-btn-color: white;
+        --antsand-btn-border: #{$antsand-danger};
+        --antsand-btn-hover-bg: #{darken($antsand-danger, 10%)};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{darken($antsand-danger, 12%)};
+        --antsand-btn-active-bg: #{darken($antsand-danger, 15%)};
     }
 
     &-warning {
-        @include antsand-btn-variant($antsand-warning);
+        --antsand-btn-bg: #{$antsand-warning};
+        --antsand-btn-color: #{$antsand-gray-900};
+        --antsand-btn-border: #{$antsand-warning};
+        --antsand-btn-hover-bg: #{darken($antsand-warning, 10%)};
+        --antsand-btn-hover-color: #{$antsand-gray-900};
+        --antsand-btn-hover-border: #{darken($antsand-warning, 12%)};
+        --antsand-btn-active-bg: #{darken($antsand-warning, 15%)};
+    }
+
+    &-info {
+        --antsand-btn-bg: #{$antsand-info};
+        --antsand-btn-color: white;
+        --antsand-btn-border: #{$antsand-info};
+        --antsand-btn-hover-bg: #{darken($antsand-info, 10%)};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{darken($antsand-info, 12%)};
+        --antsand-btn-active-bg: #{darken($antsand-info, 15%)};
     }
 
     &-light {
-        @include antsand-btn-variant($antsand-light, $antsand-gray-900);
+        --antsand-btn-bg: #{$antsand-light};
+        --antsand-btn-color: #{$antsand-gray-900};
+        --antsand-btn-border: #{$antsand-light};
+        --antsand-btn-hover-bg: #{darken($antsand-light, 8%)};
+        --antsand-btn-hover-color: #{$antsand-gray-900};
+        --antsand-btn-hover-border: #{darken($antsand-light, 12%)};
+        --antsand-btn-active-bg: #{darken($antsand-light, 15%)};
     }
 
     &-dark {
-        @include antsand-btn-variant($antsand-dark);
+        --antsand-btn-bg: #{$antsand-dark};
+        --antsand-btn-color: white;
+        --antsand-btn-border: #{$antsand-dark};
+        --antsand-btn-hover-bg: #{darken($antsand-dark, 10%)};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{darken($antsand-dark, 12%)};
+        --antsand-btn-active-bg: #{darken($antsand-dark, 15%)};
     }
 
-    // Outline variants
+    // ── Outline Variants ─────────────────────
     &-outline-primary {
-        background: transparent;
-        color: $antsand-primary;
-        border-color: $antsand-primary;
-
-        &:hover:not(:disabled) {
-            background: $antsand-primary;
-            color: white;
-        }
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-primary};
+        --antsand-btn-border: #{$antsand-primary};
+        --antsand-btn-hover-bg: #{$antsand-primary};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{$antsand-primary};
+        --antsand-btn-active-bg: #{darken($antsand-primary, 10%)};
     }
 
     &-outline-secondary {
-        background: transparent;
-        color: $antsand-secondary;
-        border-color: $antsand-secondary;
-
-        &:hover:not(:disabled) {
-            background: $antsand-secondary;
-            color: white;
-        }
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-secondary};
+        --antsand-btn-border: #{$antsand-secondary};
+        --antsand-btn-hover-bg: #{$antsand-secondary};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{$antsand-secondary};
+        --antsand-btn-active-bg: #{darken($antsand-secondary, 10%)};
     }
 
-    // Block button
+    &-outline-success {
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-success};
+        --antsand-btn-border: #{$antsand-success};
+        --antsand-btn-hover-bg: #{$antsand-success};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{$antsand-success};
+        --antsand-btn-active-bg: #{darken($antsand-success, 10%)};
+    }
+
+    &-outline-danger {
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-danger};
+        --antsand-btn-border: #{$antsand-danger};
+        --antsand-btn-hover-bg: #{$antsand-danger};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{$antsand-danger};
+        --antsand-btn-active-bg: #{darken($antsand-danger, 10%)};
+    }
+
+    &-outline-warning {
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-warning};
+        --antsand-btn-border: #{$antsand-warning};
+        --antsand-btn-hover-bg: #{$antsand-warning};
+        --antsand-btn-hover-color: #{$antsand-gray-900};
+        --antsand-btn-hover-border: #{$antsand-warning};
+        --antsand-btn-active-bg: #{darken($antsand-warning, 10%)};
+    }
+
+    &-outline-info {
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-info};
+        --antsand-btn-border: #{$antsand-info};
+        --antsand-btn-hover-bg: #{$antsand-info};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{$antsand-info};
+        --antsand-btn-active-bg: #{darken($antsand-info, 10%)};
+    }
+
+    &-outline-light {
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-light};
+        --antsand-btn-border: #{$antsand-light};
+        --antsand-btn-hover-bg: #{$antsand-light};
+        --antsand-btn-hover-color: #{$antsand-gray-900};
+        --antsand-btn-hover-border: #{$antsand-light};
+        --antsand-btn-active-bg: #{darken($antsand-light, 10%)};
+    }
+
+    &-outline-dark {
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-dark};
+        --antsand-btn-border: #{$antsand-dark};
+        --antsand-btn-hover-bg: #{$antsand-dark};
+        --antsand-btn-hover-color: white;
+        --antsand-btn-hover-border: #{$antsand-dark};
+        --antsand-btn-active-bg: #{darken($antsand-dark, 10%)};
+    }
+
+    // ── Ghost / Link Variants ────────────────
+    &-ghost {
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-primary};
+        --antsand-btn-border: transparent;
+        --antsand-btn-hover-bg: rgba(52, 152, 219, 0.08);
+        --antsand-btn-hover-color: #{darken($antsand-primary, 10%)};
+        --antsand-btn-hover-border: transparent;
+        --antsand-btn-active-bg: rgba(52, 152, 219, 0.15);
+        text-decoration: none;
+        font-weight: $antsand-font-weight-normal;
+    }
+
+    &-link {
+        --antsand-btn-bg: transparent;
+        --antsand-btn-color: #{$antsand-primary};
+        --antsand-btn-border: transparent;
+        --antsand-btn-hover-bg: transparent;
+        --antsand-btn-hover-color: #{darken($antsand-primary, 15%)};
+        --antsand-btn-hover-border: transparent;
+        --antsand-btn-active-bg: transparent;
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+        font-weight: $antsand-font-weight-normal;
+        padding-left: $antsand-space-1;
+        padding-right: $antsand-space-1;
+    }
+
+    // ── Shape Modifiers ──────────────────────
     &-block {
         display: flex;
         width: 100%;
     }
 
-    // Pill shape
     &-pill {
-        border-radius: $antsand-radius-full;
+        --antsand-btn-radius: #{$antsand-radius-full};
+    }
+
+    &-square {
+        --antsand-btn-radius: 0;
+    }
+
+    // ── Icon Button (square, equal padding) ──
+    &-icon {
+        --antsand-btn-padding-x: #{$antsand-space-2};
+        --antsand-btn-padding-y: #{$antsand-space-2};
+        --antsand-btn-gap: 0;
+        aspect-ratio: 1;
+        justify-content: center;
+
+        &.antsand-btn-sm {
+            --antsand-btn-padding-x: #{$antsand-space-1};
+            --antsand-btn-padding-y: #{$antsand-space-1};
+        }
+
+        &.antsand-btn-lg {
+            --antsand-btn-padding-x: #{$antsand-space-3};
+            --antsand-btn-padding-y: #{$antsand-space-3};
+        }
+    }
+
+    // ── Loading State ────────────────────────
+    &-loading {
+        color: transparent !important;
+        pointer-events: none;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1.2em;
+            height: 1.2em;
+            margin: -0.6em 0 0 -0.6em;
+            border: 2px solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: antsand-btn-spin 0.6s linear infinite;
+            opacity: 1;
+            color: var(--antsand-btn-border);
+        }
+    }
+
+    // ── Active/Toggle State ──────────────────
+    &.active,
+    &.is-active,
+    &[aria-pressed="true"] {
+        font-weight: $antsand-font-weight-semibold;
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        filter: brightness(0.96);
+    }
+
+    // ── Disabled (class-based for <a> elements) ──
+    &.disabled,
+    &:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+// Spinner animation
+@keyframes antsand-btn-spin {
+    to { transform: rotate(360deg); }
+}
+
+// ── Close Button ─────────────────────────────
+.antsand-btn-close {
+    @include antsand-btn-base;
+    --antsand-btn-close-size: 2rem;
+    padding: 0;
+    width: var(--antsand-btn-close-size);
+    height: var(--antsand-btn-close-size);
+    border-radius: $antsand-radius-sm;
+    background: transparent;
+    border: none;
+    color: $antsand-gray-600;
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: 0.65;
+
+    &::before {
+        content: '\00D7'; // ×
+        display: block;
+    }
+
+    &:hover:not(:disabled) {
+        opacity: 1;
+        background: $antsand-gray-100;
+    }
+
+    &:focus-visible {
+        outline: $antsand-focus-ring-width solid $antsand-focus-ring-color;
+        outline-offset: $antsand-focus-ring-offset;
+    }
+
+    // White variant for dark backgrounds
+    &-white {
+        color: white;
+        &:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.15);
+        }
+    }
+
+    // Small variant
+    &-sm {
+        --antsand-btn-close-size: 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+// ── Button Group ─────────────────────────────
+.antsand-btn-group {
+    display: inline-flex;
+    vertical-align: middle;
+
+    > .antsand-btn {
+        position: relative;
+        flex: 0 1 auto;
+        border-radius: 0;
+
+        // Remove double borders
+        &:not(:first-child) {
+            margin-left: -1px;
+        }
+
+        // First button rounded left
+        &:first-child {
+            border-top-left-radius: var(--antsand-btn-radius, #{$antsand-radius-md});
+            border-bottom-left-radius: var(--antsand-btn-radius, #{$antsand-radius-md});
+        }
+
+        // Last button rounded right
+        &:last-child {
+            border-top-right-radius: var(--antsand-btn-radius, #{$antsand-radius-md});
+            border-bottom-right-radius: var(--antsand-btn-radius, #{$antsand-radius-md});
+        }
+
+        // Hover z-index so border shows on top
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            z-index: 1;
+        }
+    }
+
+    // Vertical group
+    &-vertical {
+        flex-direction: column;
+        align-items: stretch;
+
+        > .antsand-btn {
+            width: 100%;
+            border-radius: 0;
+
+            &:not(:first-child) {
+                margin-left: 0;
+                margin-top: -1px;
+            }
+
+            &:first-child {
+                border-top-left-radius: var(--antsand-btn-radius, #{$antsand-radius-md});
+                border-top-right-radius: var(--antsand-btn-radius, #{$antsand-radius-md});
+            }
+
+            &:last-child {
+                border-bottom-left-radius: var(--antsand-btn-radius, #{$antsand-radius-md});
+                border-bottom-right-radius: var(--antsand-btn-radius, #{$antsand-radius-md});
+            }
+        }
+    }
+}
+
+// ── Button Row (flex wrapper with gap) ───────
+.antsand-btn-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $antsand-space-2;
+}
+
+// ── Responsive Block ─────────────────────────
+@media (max-width: $antsand-breakpoint-md) {
+    .antsand-btn-block-mobile {
+        display: flex;
+        width: 100%;
     }
 }
 
@@ -113,18 +505,14 @@
         pointer-events: none;
     }
 
-    &[aria-pressed="true"] {
-        font-weight: $antsand-font-weight-semibold;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
-    }
-
     &[aria-expanded="true"] {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
 }
 
-.antsand-btn-lg {
+.antsand-btn-lg,
+.antsand-btn-xl {
     @include touch-target($antsand-touch-target-comfortable);
 }
 
@@ -132,6 +520,9 @@
 @media (prefers-reduced-motion: reduce) {
     .antsand-btn {
         transition: none;
+    }
+    @keyframes antsand-btn-spin {
+        to { transform: rotate(360deg); }
     }
 }
 

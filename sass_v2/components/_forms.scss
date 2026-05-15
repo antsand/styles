@@ -81,11 +81,13 @@ textarea.antsand-form-control {
     align-items: center;
     gap: $antsand-space-2;
     margin-bottom: $antsand-space-2;
+    min-height: $antsand-touch-target-min;
 
     input[type="checkbox"],
     input[type="radio"] {
         width: 1.125rem;
         height: 1.125rem;
+        flex: 0 0 1.125rem;
         cursor: pointer;
     }
 
@@ -131,6 +133,652 @@ textarea.antsand-form-control {
     margin-top: $antsand-space-1;
     font-size: $antsand-font-size-sm;
     color: $antsand-success;
+}
+
+// ============================================
+// FORM SIZES
+// FOR AGENTS — Add to parent form or individual controls:
+//   antsand-form-control-sm → compact inputs (32px)
+//   antsand-form-control-lg → large inputs (48px)
+//   antsand-form-sm         → on parent, shrinks ALL controls
+//   antsand-form-lg         → on parent, enlarges ALL controls
+// ============================================
+
+.antsand-form-control-sm {
+    padding: 6px 10px;
+    font-size: $antsand-font-size-sm;
+    border-radius: $antsand-radius-sm;
+}
+
+.antsand-form-control-lg {
+    padding: 14px 18px;
+    font-size: $antsand-font-size-lg;
+    border-radius: $antsand-radius-md;
+}
+
+// Parent-level size control
+.antsand-form-sm {
+    .antsand-form-control,
+    .antsand-form-select,
+    .antsand-input,
+    .antsand-textarea,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        padding: 6px 10px;
+        font-size: $antsand-font-size-sm;
+        border-radius: $antsand-radius-sm;
+    }
+
+    .antsand-form-label,
+    .label {
+        font-size: $antsand-font-size-sm;
+        margin-bottom: $antsand-space-1;
+    }
+
+    .antsand-form-group,
+    .form-elements {
+        margin-bottom: $antsand-space-2;
+    }
+}
+
+.antsand-form-lg {
+    .antsand-form-control,
+    .antsand-form-select,
+    .antsand-input,
+    .antsand-textarea,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        padding: 14px 18px;
+        font-size: $antsand-font-size-lg;
+        border-radius: $antsand-radius-md;
+    }
+
+    .antsand-form-label,
+    .label {
+        font-size: $antsand-font-size-lg;
+        margin-bottom: $antsand-space-3;
+    }
+
+    .antsand-form-group,
+    .form-elements {
+        margin-bottom: $antsand-space-5;
+    }
+}
+
+// ============================================
+// FLOATING LABELS
+// FOR AGENTS — Wrap input + label in antsand-form-floating:
+//   <div class="antsand-form-floating">
+//     <input class="antsand-form-control" placeholder=" " />
+//     <label>Email address</label>
+//   </div>
+// Label sits inside input, floats up on focus/filled.
+// Works with auto-generated forms by adding parent class.
+// ============================================
+
+.antsand-form-floating {
+    position: relative;
+
+    .antsand-form-control,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    textarea {
+        padding: 1.625rem 0.875rem 0.625rem;
+        height: auto;
+    }
+
+    .antsand-form-label,
+    label,
+    .label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 1rem 0.875rem;
+        pointer-events: none;
+        border: 1px solid transparent;
+        transform-origin: 0 0;
+        transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+        color: $antsand-gray-500;
+        font-weight: $antsand-font-weight-normal;
+        margin-bottom: 0;
+    }
+
+    // Float label when input focused or has content
+    .antsand-form-control:focus ~ label,
+    .antsand-form-control:focus ~ .label,
+    .antsand-form-control:focus ~ .antsand-form-label,
+    .antsand-form-control:not(:placeholder-shown) ~ label,
+    .antsand-form-control:not(:placeholder-shown) ~ .label,
+    .antsand-form-control:not(:placeholder-shown) ~ .antsand-form-label,
+    input:focus ~ label,
+    input:focus ~ .label,
+    input:not(:placeholder-shown) ~ label,
+    input:not(:placeholder-shown) ~ .label {
+        opacity: 0.85;
+        transform: scale(0.8) translateY(-0.5rem) translateX(0.15rem);
+        color: $antsand-primary;
+    }
+}
+
+// ============================================
+// SWITCH TOGGLE
+// FOR AGENTS — CSS-only toggle switch from checkbox:
+//   <div class="antsand-form-switch">
+//     <input type="checkbox" id="toggle1" />
+//     <label for="toggle1">Enable notifications</label>
+//   </div>
+// ============================================
+
+.antsand-form-switch {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    min-height: $antsand-touch-target-min;
+
+    input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 2.5rem;
+        height: 1.375rem;
+        background-color: $antsand-gray-300;
+        border-radius: 9999px;
+        position: relative;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        flex-shrink: 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 1.125rem;
+            height: 1.125rem;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        &:checked {
+            background-color: $antsand-primary;
+
+            &::before {
+                transform: translateX(1.125rem);
+            }
+        }
+
+        &:focus-visible {
+            outline: $antsand-focus-ring-width solid $antsand-focus-ring-color;
+            outline-offset: $antsand-focus-ring-offset;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    label {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    // Size variants
+    &-sm input[type="checkbox"] {
+        width: 1.875rem;
+        height: 1rem;
+
+        &::before {
+            width: 0.75rem;
+            height: 0.75rem;
+        }
+
+        &:checked::before {
+            transform: translateX(0.875rem);
+        }
+    }
+
+    &-lg input[type="checkbox"] {
+        width: 3.25rem;
+        height: 1.75rem;
+
+        &::before {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        &:checked::before {
+            transform: translateX(1.5rem);
+        }
+    }
+}
+
+// ============================================
+// INPUT GROUPS
+// FOR AGENTS — Prepend/append text or icon to inputs:
+//   <div class="antsand-input-group">
+//     <span class="antsand-input-group-text">@</span>
+//     <input class="antsand-form-control" />
+//   </div>
+//   <div class="antsand-input-group">
+//     <input class="antsand-form-control" />
+//     <span class="antsand-input-group-text">.00</span>
+//   </div>
+// ============================================
+
+.antsand-input-group {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+
+    .antsand-form-control,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="number"],
+    select {
+        flex: 1 1 auto;
+        width: 1%; // force flex shrink
+        min-width: 0;
+        border-radius: 0;
+    }
+
+    // First child gets left radius
+    > :first-child {
+        border-radius: $antsand-radius-md 0 0 $antsand-radius-md;
+    }
+
+    // Last child gets right radius
+    > :last-child {
+        border-radius: 0 $antsand-radius-md $antsand-radius-md 0;
+    }
+
+    // Only child gets full radius
+    > :only-child {
+        border-radius: $antsand-radius-md;
+    }
+
+    // Prevent double borders
+    > :not(:first-child) {
+        margin-left: -1px;
+    }
+
+    // Input focus sits on top
+    .antsand-form-control:focus,
+    input:focus {
+        z-index: 3;
+        position: relative;
+    }
+}
+
+.antsand-input-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.875rem;
+    font-size: 14px;
+    font-weight: $antsand-font-weight-medium;
+    color: $antsand-gray-700;
+    white-space: nowrap;
+    background-color: $antsand-gray-100;
+    border: 1px solid $antsand-gray-300;
+}
+
+// ============================================
+// FORM LAYOUTS
+// FOR AGENTS — Change form layout with parent class:
+//   antsand-form-inline     → all fields in one row
+//   antsand-form-horizontal → label left, input right (2-col)
+// ============================================
+
+.antsand-form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: $antsand-space-3;
+
+    .antsand-form-group,
+    .form-elements {
+        flex: 1 1 auto;
+        margin-bottom: 0;
+    }
+
+    .antsand-form-label,
+    .label {
+        margin-bottom: $antsand-space-1;
+    }
+}
+
+.antsand-form-horizontal {
+    .antsand-form-group,
+    .form-elements {
+        display: flex;
+        align-items: center;
+        gap: $antsand-space-4;
+    }
+
+    .antsand-form-label,
+    .label-container,
+    .label {
+        flex: 0 0 30%;
+        max-width: 30%;
+        text-align: right;
+        margin-bottom: 0;
+    }
+
+    .input-container,
+    .antsand-form-control,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+        flex: 1 1 70%;
+    }
+
+    @media (max-width: 640px) {
+        .antsand-form-group,
+        .form-elements {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .antsand-form-label,
+        .label-container,
+        .label {
+            flex: none;
+            max-width: 100%;
+            text-align: left;
+        }
+    }
+}
+
+// ============================================
+// RANGE SLIDER
+// FOR AGENTS — Custom styled range input:
+//   <input type="range" class="antsand-form-range" min="0" max="100" />
+// ============================================
+
+.antsand-form-range {
+    width: 100%;
+    height: 1.5rem;
+    padding: 0;
+    background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+
+    &::-webkit-slider-track {
+        width: 100%;
+        height: 0.375rem;
+        background-color: $antsand-gray-200;
+        border-radius: 9999px;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 1.125rem;
+        width: 1.125rem;
+        border-radius: 50%;
+        background-color: $antsand-primary;
+        border: 2px solid white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        margin-top: -0.375rem;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    &::-moz-range-track {
+        width: 100%;
+        height: 0.375rem;
+        background-color: $antsand-gray-200;
+        border-radius: 9999px;
+        border: none;
+    }
+
+    &::-moz-range-thumb {
+        height: 1.125rem;
+        width: 1.125rem;
+        border-radius: 50%;
+        background-color: $antsand-primary;
+        border: 2px solid white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    &:focus-visible {
+        outline: none;
+
+        &::-webkit-slider-thumb {
+            box-shadow: 0 0 0 3px rgba($antsand-primary, 0.25);
+        }
+
+        &::-moz-range-thumb {
+            box-shadow: 0 0 0 3px rgba($antsand-primary, 0.25);
+        }
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+// ============================================
+// FILE UPLOAD
+// FOR AGENTS — Styled file input:
+//   <input type="file" class="antsand-form-file" />
+// ============================================
+
+.antsand-form-file {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 14px;
+    color: $antsand-gray-700;
+    background-color: white;
+    border: 1px solid $antsand-gray-300;
+    border-radius: $antsand-radius-md;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+
+    &::file-selector-button {
+        padding: 0.5rem 1rem;
+        margin-right: $antsand-space-3;
+        color: white;
+        background-color: $antsand-gray-800;
+        border: 0;
+        border-radius: $antsand-radius-sm;
+        font-size: 14px;
+        font-weight: $antsand-font-weight-medium;
+        cursor: pointer;
+        transition: background-color 0.15s ease;
+    }
+
+    &:hover::file-selector-button {
+        background-color: $antsand-gray-700;
+    }
+
+    &:focus-visible {
+        outline: $antsand-focus-ring-width solid $antsand-focus-ring-color;
+        outline-offset: $antsand-focus-ring-offset;
+        border-color: $antsand-primary;
+    }
+}
+
+// Drop zone for drag-and-drop file upload
+.antsand-form-dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $antsand-space-2;
+    padding: $antsand-space-6;
+    border: 2px dashed $antsand-gray-300;
+    border-radius: $antsand-radius-lg;
+    background-color: $antsand-gray-50;
+    color: $antsand-gray-600;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+
+    &:hover,
+    &.is-dragover {
+        border-color: $antsand-primary;
+        background-color: rgba($antsand-primary, 0.04);
+        color: $antsand-primary;
+    }
+}
+
+// ============================================
+// FIELDSET & LEGEND
+// FOR AGENTS — Group related fields:
+//   <fieldset class="antsand-fieldset">
+//     <legend class="antsand-legend">Personal Info</legend>
+//     ...fields...
+//   </fieldset>
+// ============================================
+
+.antsand-fieldset {
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-md;
+    padding: $antsand-space-5;
+    margin-bottom: $antsand-space-5;
+}
+
+.antsand-legend {
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $antsand-gray-700;
+    padding: 0 $antsand-space-2;
+    margin-left: -$antsand-space-2;
+}
+
+// ============================================
+// REQUIRED INDICATOR (modern)
+// FOR AGENTS — Mark required fields:
+//   <label class="antsand-form-label antsand-required">Email</label>
+// ============================================
+
+.antsand-required::after {
+    content: '*';
+    color: $antsand-danger;
+    margin-left: 0.25em;
+    font-weight: $antsand-font-weight-bold;
+}
+
+// Required accent on left border of input
+.antsand-form-control[aria-required="true"],
+.antsand-form-control[required] {
+    border-left: 3px solid $antsand-primary;
+    padding-left: 12px;
+}
+
+// ============================================
+// FORM CARD (form inside a card shell)
+// FOR AGENTS — Wrap form in a card:
+//   <div class="antsand-form-card">
+//     <div class="antsand-form-card-header">Sign Up</div>
+//     <div class="antsand-form-card-body">...fields...</div>
+//     <div class="antsand-form-card-footer">...submit...</div>
+//   </div>
+// Follows H/B/F: header=title, body=fields, footer=actions
+// ============================================
+
+.antsand-form-card {
+    @include antsand-card;
+    @include antsand-shadow(md);
+    max-width: 32rem;
+    margin: 0 auto;
+
+    &-header {
+        padding: $antsand-space-5 $antsand-space-5 0;
+        font-size: $antsand-font-size-xl;
+        font-weight: $antsand-font-weight-bold;
+        color: $antsand-gray-900;
+    }
+
+    &-body {
+        padding: $antsand-space-5;
+    }
+
+    &-footer {
+        padding: 0 $antsand-space-5 $antsand-space-5;
+        display: flex;
+        gap: $antsand-space-3;
+        justify-content: flex-end;
+
+        // Full-width submit
+        &.full-width {
+            flex-direction: column;
+
+            .antsand-btn,
+            button,
+            .default-btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// ============================================
+// MULTI-COLUMN FORM ROWS
+// FOR AGENTS — Put fields side by side:
+//   <div class="antsand-form-row-2">
+//     <div class="antsand-form-group">First name</div>
+//     <div class="antsand-form-group">Last name</div>
+//   </div>
+// ============================================
+
+.antsand-form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $antsand-space-4;
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.antsand-form-row-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: $antsand-space-4;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Uneven columns (e.g., wide left + narrow right)
+.antsand-form-row-2-1 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $antsand-space-4;
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 // ============================================
@@ -468,10 +1116,18 @@ textarea.antsand-form-control {
     }
 }
 
-// Touch targets for checkboxes and radios
+// Touch targets for checkboxes and radios.
+// Keep the visual control small and put the 44px target on the label row.
+// Applying touch-target directly to the input makes checkboxes/radios render
+// as giant controls in docs and generated forms.
+.antsand-form-check {
+    @include touch-target;
+}
+
 .antsand-form-check input[type="checkbox"],
 .antsand-form-check input[type="radio"] {
-    @include touch-target;
+    min-height: 1.125rem;
+    min-width: 1.125rem;
     cursor: pointer;
 
     &:focus-visible {

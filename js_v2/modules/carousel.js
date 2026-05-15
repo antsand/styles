@@ -144,6 +144,74 @@ class AntsandCarousel {
     }
 
     /**
+     * Determine if this carousel is using the multi-card layout.
+     * Cards show multiple items at once, so navigation must stop at the
+     * last complete viewport instead of treating every item as a full slide.
+     */
+    isCardsVariant() {
+        return this.container.classList.contains('antsand-carousel-cards') ||
+               this.container.classList.contains('layout-carousel-cards') ||
+               this.variant === 'cards';
+    }
+
+    /**
+     * Resolve how many cards should be visible at the current breakpoint.
+     * Source order: explicit data attribute, layout-carousel-items-N class,
+     * then the cards default of 3.
+     */
+    getItemsPerView() {
+        let count = parseInt(
+            this.container.dataset.carouselItems ||
+            this.container.dataset.carouselItemsPerSlide ||
+            '',
+            10
+        );
+
+        if (!count) {
+            const classMatch = String(this.container.className || '').match(/layout-carousel-items-(\d+)/);
+            if (classMatch) {
+                count = parseInt(classMatch[1], 10);
+            }
+        }
+
+        if (!count) {
+            count = this.isCardsVariant() ? 3 : 1;
+        }
+
+        if (window.innerWidth <= 768) {
+            return 1;
+        }
+        if (window.innerWidth <= 1024) {
+            return Math.min(count, 2);
+        }
+        return Math.max(1, count);
+    }
+
+    getMaxIndex() {
+        if (!this.isCardsVariant()) {
+            return Math.max(0, this.items.length - 1);
+        }
+        return Math.max(0, this.items.length - this.getItemsPerView());
+    }
+
+    applyCardsSizing() {
+        if (!this.isCardsVariant() || !this.items.length) return;
+
+        const itemsPerView = this.getItemsPerView();
+        const gap = this.getTrackGap();
+        const totalGap = Math.max(0, itemsPerView - 1) * gap;
+        const basis = itemsPerView === 1
+            ? '100%'
+            : `calc((100% - ${totalGap}px) / ${itemsPerView})`;
+
+        this.items.forEach((item) => {
+            item.style.minWidth = basis;
+            item.style.flex = `0 0 ${basis}`;
+            item.style.maxWidth = basis;
+        });
+    }
+
+    /**
      * Ensure the track has a wrapper element for overflow clipping
      * If no wrapper exists, create one dynamically
      * Also moves controls into wrapper so they position correctly over the image area
@@ -378,34 +446,38 @@ class AntsandCarousel {
     prev() {
         let newIndex = this.state.currentIndex - 1;
         if (newIndex < 0) {
-            newIndex = this.options.wrap ? this.items.length - 1 : 0;
+            newIndex = this.options.wrap ? this.getMaxIndex() : 0;
         }
         this.goTo(newIndex);
     }
 
     next() {
         let newIndex = this.state.currentIndex + 1;
-        if (newIndex >= this.items.length) {
-            newIndex = this.options.wrap ? 0 : this.items.length - 1;
+        const maxIndex = this.getMaxIndex();
+        if (newIndex > maxIndex) {
+            newIndex = this.options.wrap ? 0 : maxIndex;
         }
         this.goTo(newIndex);
     }
 
     goTo(index) {
-        if (index < 0 || index >= this.items.length || index === this.state.currentIndex) {
+        const maxIndex = this.getMaxIndex();
+        const targetIndex = Math.max(0, Math.min(index, maxIndex));
+
+        if (targetIndex === this.state.currentIndex) {
             return;
         }
 
         const prevIndex = this.state.currentIndex;
-        this.state.currentIndex = index;
+        this.state.currentIndex = targetIndex;
         this.updateDisplay();
 
         // Dispatch custom event
         this.container.dispatchEvent(new CustomEvent('antsand:carousel:changed', {
             detail: {
-                currentIndex: index,
+                currentIndex: targetIndex,
                 previousIndex: prevIndex,
-                item: this.items[index]
+                item: this.items[targetIndex]
             },
             bubbles: true
         }));
@@ -422,6 +494,12 @@ class AntsandCarousel {
         const isCoverVariant = this.container.classList.contains('antsand-carousel-cover') ||
                                this.container.classList.contains('layout-carousel-cover') ||
                                this.variant === 'cover';
+
+        this.applyCardsSizing();
+        const maxIndex = this.getMaxIndex();
+        if (this.state.currentIndex > maxIndex) {
+            this.state.currentIndex = maxIndex;
+        }
 
         // Update items
         this.items.forEach((item, index) => {
@@ -461,9 +539,12 @@ class AntsandCarousel {
 
         // Update indicators
         this.indicators.forEach((indicator, index) => {
-            const isActive = index === this.state.currentIndex;
+            const isReachable = index <= maxIndex;
+            const isActive = isReachable && index === this.state.currentIndex;
             indicator.classList.toggle('active', isActive);
             indicator.setAttribute('aria-selected', isActive);
+            indicator.hidden = !isReachable;
+            indicator.setAttribute('aria-hidden', !isReachable);
         });
 
         // Update controls disabled state (when wrap is false)
@@ -472,7 +553,7 @@ class AntsandCarousel {
                 this.prevBtn.disabled = this.state.currentIndex === 0;
             }
             if (this.nextBtn) {
-                this.nextBtn.disabled = this.state.currentIndex === this.items.length - 1;
+                this.nextBtn.disabled = this.state.currentIndex === this.getMaxIndex();
             }
         }
     }

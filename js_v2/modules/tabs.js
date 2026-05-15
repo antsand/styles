@@ -64,6 +64,8 @@ class AntsandTabs {
         this.tabsHeader = this.container.querySelector('.tabs-header');
         this.tabs = this.container.querySelectorAll('.tabs-item');
         this.contents = this.container.querySelectorAll('.tabs-content');
+        this.instanceId = this.container.id || `antsand-tabs-${Math.random().toString(36).slice(2, 10)}`;
+        this.singlePaneMode = this.contents.length === 1 && this.tabs.length > 1;
 
         if (this.tabs.length === 0) {
             console.warn('AntsandTabs: No .tabs-item found in container');
@@ -75,7 +77,17 @@ class AntsandTabs {
 
     init() {
         // Bind click events
-        this.tabs.forEach(tab => {
+        this.tabs.forEach((tab, index) => {
+            if (tab.tagName === 'BUTTON' && !tab.hasAttribute('type')) {
+                tab.setAttribute('type', 'button');
+            }
+            if (!tab.dataset.tab) {
+                const content = this.contents[index] || this.contents[0];
+                if (content) {
+                    content.id = content.id || `${this.instanceId}-panel-${index}`;
+                    tab.dataset.tab = content.id;
+                }
+            }
             tab.addEventListener('click', (e) => this.handleTabClick(e, tab));
             tab.addEventListener('keydown', (e) => this.handleKeydown(e, tab));
         });
@@ -105,14 +117,20 @@ class AntsandTabs {
         tab.setAttribute('aria-selected', 'true');
         tab.setAttribute('tabindex', '0');
 
-        // Deactivate all content panes
-        this.contents.forEach(content => {
-            content.classList.remove('active');
-            content.setAttribute('aria-hidden', 'true');
-        });
+        // Some docs/demo sections use multiple tab buttons as style examples with
+        // one shared content pane. Keep that pane visible instead of blanking it.
+        const targetContent = this.singlePaneMode
+            ? this.contents[0]
+            : (document.getElementById(targetId) || this.contents[Array.from(this.tabs).indexOf(tab)] || this.contents[0]);
+
+        if (!this.singlePaneMode) {
+            this.contents.forEach(content => {
+                content.classList.remove('active');
+                content.setAttribute('aria-hidden', 'true');
+            });
+        }
 
         // Activate target content
-        const targetContent = document.getElementById(targetId);
         if (targetContent) {
             targetContent.classList.add('active');
             targetContent.setAttribute('aria-hidden', 'false');
@@ -243,6 +261,7 @@ function initAllTabs() {
         '[data-feature="tabs"]',   // Primary: auto-populated by volt
         '[data-tabs="true"]',      // Explicit flag
         '[data-tabs]',             // Legacy attribute
+        '.antsand-tabs',
         '.antsand-tabs-pills',
         '.antsand-tabs-steps',
         '.antsand-tabs-vertical',
@@ -262,6 +281,59 @@ function initAllTabs() {
     return instances;
 }
 
+function findTabsContainerFromTab(tab) {
+    return tab ? tab.closest('[data-feature="tabs"], [data-tabs], .antsand-tabs, .antsand-tabs-pills, .antsand-tabs-steps, .antsand-tabs-vertical, .antsand-tabs-underline, .antsand-tabs-boxed') : null;
+}
+
+function activateTabElement(tab) {
+    const container = findTabsContainerFromTab(tab);
+    if (!container) return;
+
+    if (container.dataset.tabsInit !== 'true') {
+        new AntsandTabs(container);
+    }
+
+    const targetId = tab.dataset.tab;
+    const tabs = Array.from(container.querySelectorAll('.tabs-item'));
+    const contents = Array.from(container.querySelectorAll('.tabs-content'));
+    const singlePaneMode = contents.length === 1 && tabs.length > 1;
+    const targetContent = singlePaneMode
+        ? contents[0]
+        : (targetId ? document.getElementById(targetId) : null) || contents[tabs.indexOf(tab)] || contents[0];
+
+    tabs.forEach(item => {
+        item.classList.remove('active');
+        item.setAttribute('aria-selected', 'false');
+        item.setAttribute('tabindex', '-1');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    tab.setAttribute('tabindex', '0');
+
+    if (!singlePaneMode) {
+        contents.forEach(content => {
+            content.classList.remove('active');
+            content.setAttribute('aria-hidden', 'true');
+        });
+    }
+
+    if (targetContent) {
+        targetContent.classList.add('active');
+        targetContent.setAttribute('aria-hidden', 'false');
+    }
+}
+
+document.addEventListener('click', (event) => {
+    const tab = event.target.closest('.tabs-item');
+    if (!tab) return;
+
+    const container = findTabsContainerFromTab(tab);
+    if (!container) return;
+
+    event.preventDefault();
+    activateTabElement(tab);
+});
+
 // Export for ES6 module usage
-export { AntsandTabs, initAllTabs };
+export { AntsandTabs, initAllTabs, activateTabElement };
 export default AntsandTabs;

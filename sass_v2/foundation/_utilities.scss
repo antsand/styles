@@ -275,6 +275,21 @@
 .antsand-shadow { box-shadow: $antsand-shadow-md; }
 .antsand-shadow-lg { box-shadow: $antsand-shadow-lg; }
 .antsand-shadow-xl { box-shadow: $antsand-shadow-xl; }
+.antsand-shadow-glow {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 24px 70px rgba(15, 23, 42, 0.36);
+}
+.antsand-shadow-glow-sm {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.055), 0 14px 36px rgba(15, 23, 42, 0.28);
+}
+.antsand-shadow-glow-lg {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 36px 100px rgba(15, 23, 42, 0.45);
+}
+.antsand-shadow-glow-primary {
+    box-shadow: 0 0 0 1px rgba($antsand-primary, 0.18), 0 24px 70px rgba($antsand-primary, 0.2);
+}
+.antsand-shadow-glow-brand {
+    box-shadow: 0 0 0 1px rgba(241, 91, 42, 0.2), 0 24px 70px rgba(241, 91, 42, 0.18);
+}
 
 // ============================================
 // TAILWIND-STYLE UTILITIES (No prefix)
@@ -618,6 +633,21 @@
 .shadow-md { box-shadow: $antsand-shadow-md; }
 .shadow-lg { box-shadow: $antsand-shadow-lg; }
 .shadow-xl { box-shadow: $antsand-shadow-xl; }
+.shadow-glow {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 24px 70px rgba(15, 23, 42, 0.36);
+}
+.shadow-glow-sm {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.055), 0 14px 36px rgba(15, 23, 42, 0.28);
+}
+.shadow-glow-lg {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 36px 100px rgba(15, 23, 42, 0.45);
+}
+.shadow-glow-primary {
+    box-shadow: 0 0 0 1px rgba($antsand-primary, 0.18), 0 24px 70px rgba($antsand-primary, 0.2);
+}
+.shadow-glow-brand {
+    box-shadow: 0 0 0 1px rgba(241, 91, 42, 0.2), 0 24px 70px rgba(241, 91, 42, 0.18);
+}
 
 // POSITIONING UTILITIES (Tailwind style)
 // ============================================
@@ -987,6 +1017,12 @@
 .hover\:-translate-y-2:hover { transform: translateY(-0.5rem); }
 .hover\:shadow-lg:hover { box-shadow: $antsand-shadow-lg; }
 .hover\:shadow-xl:hover { box-shadow: $antsand-shadow-xl; }
+.hover\:shadow-glow:hover {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 24px 70px rgba(15, 23, 42, 0.36);
+}
+.hover\:shadow-glow-brand:hover {
+    box-shadow: 0 0 0 1px rgba(241, 91, 42, 0.2), 0 24px 70px rgba(241, 91, 42, 0.18);
+}
 
 // Animations
 @keyframes antsand-spin {

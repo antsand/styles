@@ -19,6 +19,7 @@
 // ── Base Card ────────────────────────────────
 .antsand-card {
     @include antsand-card;
+    min-width: 0;
 
     &-shadow {
         @include antsand-shadow(md);
@@ -45,7 +46,10 @@
     }
 
     &-img {
+        display: block;
         width: 100%;
+        height: auto;
+        object-fit: cover;
         border-radius: $antsand-radius-md $antsand-radius-md 0 0;
     }
 
@@ -58,6 +62,57 @@
     &-text {
         color: $antsand-gray-700;
         line-height: $antsand-line-height-relaxed;
+    }
+
+    // HTML-shaped list slots for H/B/F data.
+    // Databoard data uses ul/ol, then maps:
+    //   data.list        = antsand-card-list
+    //   data.list_item   = antsand-card-list-item
+    //   data.list_marker = antsand-card-list-marker
+    //   data.list_text   = antsand-card-list-text
+    &-list {
+        display: grid;
+        gap: $antsand-space-2;
+        list-style: none;
+        margin: $antsand-space-4 0 0;
+        padding: 0;
+    }
+
+    &-list-item {
+        align-items: flex-start;
+        color: $antsand-gray-700;
+        display: flex;
+        gap: $antsand-space-2;
+        line-height: $antsand-line-height-relaxed;
+    }
+
+    &-list-marker {
+        align-items: center;
+        background: rgba($antsand-success, 0.12);
+        border-radius: 50%;
+        color: $antsand-success;
+        display: inline-flex;
+        flex: 0 0 auto;
+        font-size: 0.72rem;
+        font-weight: $antsand-font-weight-bold;
+        height: 1.25rem;
+        justify-content: center;
+        line-height: 1;
+        margin-top: 0.15rem;
+        width: 1.25rem;
+    }
+
+    &-list-text {
+        min-width: 0;
+    }
+
+    &-note {
+        border-top: 1px dashed $antsand-gray-200;
+        color: $antsand-gray-500;
+        font-size: $antsand-font-size-sm;
+        line-height: $antsand-line-height-relaxed;
+        margin-top: auto;
+        padding-top: $antsand-space-4;
     }
 
     // ── Hover Variants ───────────────────────
@@ -137,6 +192,63 @@
         margin-bottom: $antsand-space-4;
         padding-bottom: $antsand-space-3;
         border-bottom: 1px solid $antsand-gray-200;
+    }
+}
+
+// ── Databoard H/B/F compatibility ───────────
+// Direct HTML can use:
+//   <div class="antsand-card"><div class="antsand-card-body">...</div></div>
+// Databoard renders fixed slots instead:
+//   data.sub_container/content_wrapper/h3/p/img_src/cta...
+// These aliases keep Sass v2 semantic classes useful without changing the
+// generated service_3_modern hierarchy.
+.antsand-card {
+    > .data-content-wrapper,
+    > .content-wrapper {
+        min-width: 0;
+        padding: $antsand-space-4;
+    }
+
+    .data-card-header,
+    .card-header,
+    > .data-content-wrapper > .data-card-header,
+    > .content-wrapper > .data-card-header {
+        padding-bottom: $antsand-space-3;
+        border-bottom: 1px solid $antsand-gray-200;
+        font-weight: $antsand-font-weight-semibold;
+    }
+
+    .data-h2,
+    .data-h3,
+    .data-title,
+    .title {
+        @extend .antsand-card-title;
+    }
+
+    .data-p,
+    .data-description,
+    .description {
+        @extend .antsand-card-text;
+    }
+
+    .data-img-container,
+    .img-container {
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .data-img-src,
+    .data-img,
+    .img-src {
+        @extend .antsand-card-img;
+    }
+
+    .data-cta-container,
+    .cta-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $antsand-space-2;
+        margin-top: $antsand-space-3;
     }
 }
 
@@ -248,6 +360,123 @@
     .antsand-card-title {
         font-size: $antsand-font-size-xl;
     }
+}
+
+// ── Card Variant: Media ──────────────────────
+// Image/media-first card for blogs, products, and docs examples.
+// Databoard mapping:
+//   data.sub_container  = "antsand-card antsand-card-media"
+//   data.img_container  = "antsand-card-media-frame"
+//   data.img            = "antsand-card-media-img"
+//   data.content_wrapper= "antsand-card-body"
+.antsand-card-media {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+
+    .antsand-card-media-frame,
+    .data-img-container,
+    .img-container {
+        aspect-ratio: 16 / 9;
+        background: $antsand-gray-100;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .antsand-card-media-img,
+    .data-img,
+    img {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.28s ease;
+        width: 100%;
+    }
+
+    .antsand-card-body,
+    .data-content-wrapper,
+    .content-wrapper {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        gap: $antsand-space-3;
+        padding: $antsand-space-5;
+    }
+
+    &:hover img {
+        transform: scale(1.025);
+    }
+}
+
+// ── Card Variant: CTA ────────────────────────
+// Centered call-to-action card, similar to app/download/product cards.
+.antsand-card-cta {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: $antsand-space-4;
+    padding: $antsand-space-6;
+    text-align: center;
+
+    .antsand-card-title,
+    .data-h3,
+    .title {
+        font-size: $antsand-font-size-2xl;
+        margin-bottom: 0;
+    }
+
+    .antsand-card-text,
+    .data-p,
+    .description {
+        color: $antsand-gray-600;
+        margin: 0;
+        max-width: 34rem;
+    }
+
+    .data-cta-container,
+    .cta-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $antsand-space-3;
+        justify-content: center;
+        margin-top: $antsand-space-2;
+    }
+}
+
+// ── Card Variant: Dark ───────────────────────
+// Explicit contrast for dark-on-dark layouts.
+.antsand-card-dark {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    border-color: rgba(255, 255, 255, 0.09);
+    color: #f8fafc;
+
+    .antsand-card-title,
+    .data-h3,
+    .title {
+        color: #f8fafc;
+    }
+
+    .antsand-card-text,
+    .data-p,
+    .description {
+        color: #cbd5e1;
+    }
+
+    .antsand-card-tag,
+    .data-span,
+    .meta {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.12);
+        color: #fbbf24;
+    }
+}
+
+// ── Card Variant: Utility Demo ───────────────
+// A thin semantic shell used by docs to demonstrate utility-composed cards.
+.antsand-card-utility-demo {
+    background: transparent;
+    border-style: dashed;
 }
 
 // ── Card Variant: Pricing ────────────────────

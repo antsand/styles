@@ -1,0 +1,737 @@
+// ============================================
+// ANTSAND Styles v2 - Gallery & Lightbox
+// Image gallery component with lightbox overlay
+// ============================================
+//
+// CLASS HIERARCHY (BEM — all descend from .antsand-gallery):
+//
+//   .antsand-gallery                      // Component root + variant class
+//     .antsand-gallery__controls          // Top toolbar (filter/search)
+//       .antsand-gallery__search          // Search input wrapper
+//       .antsand-gallery__filter          // Filter pills container
+//         .antsand-gallery__filter-btn    // Individual filter button
+//       .antsand-gallery__count           // Item count badge
+//     .antsand-gallery__grid              // Grid container
+//       .antsand-gallery__item            // Single gallery item
+//         .antsand-gallery__image         // Image wrapper (aspect ratio)
+//           img                           // Actual image element
+//           .antsand-gallery__overlay     // Hover overlay with icon/text
+//         .antsand-gallery__caption       // Caption below image
+//           .antsand-gallery__title       // Item title
+//           .antsand-gallery__desc        // Item description
+//           .antsand-gallery__meta        // Meta info (date, size, etc.)
+//     .antsand-gallery__lightbox          // Fullscreen overlay
+//       .antsand-gallery__lightbox-backdrop
+//       .antsand-gallery__lightbox-content
+//       .antsand-gallery__lightbox-img
+//       .antsand-gallery__lightbox-close
+//       .antsand-gallery__lightbox-prev
+//       .antsand-gallery__lightbox-next
+//       .antsand-gallery__lightbox-counter
+//       .antsand-gallery__lightbox-info
+//       .antsand-gallery__lightbox-title
+//       .antsand-gallery__lightbox-desc
+//       .antsand-gallery__lightbox-thumbs
+//       .antsand-gallery__lightbox-thumb
+//
+// VARIANTS (modifier class on .ant-gallery):
+//   .grid       — Standard responsive grid (default)
+//   .masonry    — CSS-column masonry layout
+//   .cards      — Card-style with captions + shadows
+//   .minimal    — Borderless, tight gaps
+//   .showcase   — Large hero + smaller grid below
+//   .dark       — Dark theme (combinable with any variant)
+//
+// ============================================
+
+// ── Variables ──────────────────────────────────────────────────────────────────
+$_gallery-radius: 8px;
+$_gallery-radius-lg: 12px;
+$_gallery-gap: 16px;
+$_gallery-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+$_gallery-overlay-bg: rgba(0, 0, 0, 0.5);
+$_gallery-lightbox-bg: rgba(0, 0, 0, 0.92);
+
+// ── Base Styles ────────────────────────────────────────────────────────────────
+.ant-gallery {
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+// ── Controls Bar ───────────────────────────────────────────────────────────────
+.ant-gallery__controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    flex-wrap: wrap;
+}
+
+.ant-gallery__search {
+    position: relative;
+    flex: 1;
+    max-width: 280px;
+
+    input {
+        width: 100%;
+        padding: 10px 16px 10px 40px;
+        border: 1px solid $antsand-gray-200;
+        border-radius: $_gallery-radius;
+        font-size: $antsand-font-size-sm;
+        background: white;
+        transition: $_gallery-transition;
+
+        &:focus {
+            outline: none;
+            border-color: $antsand-primary;
+            box-shadow: 0 0 0 3px rgba($antsand-primary, 0.1);
+        }
+
+        &::placeholder { color: $antsand-gray-400; }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background: $antsand-gray-400;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'/%3E%3C/svg%3E") no-repeat center;
+    }
+}
+
+.ant-gallery__filter {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.ant-gallery__filter-btn {
+    padding: 6px 14px;
+    border: 1px solid $antsand-gray-200;
+    border-radius: 100px;
+    background: white;
+    font-size: 13px;
+    font-weight: 500;
+    color: $antsand-gray-600;
+    cursor: pointer;
+    transition: $_gallery-transition;
+
+    &:hover {
+        border-color: $antsand-primary;
+        color: $antsand-primary;
+    }
+
+    &.active {
+        background: $antsand-primary;
+        border-color: $antsand-primary;
+        color: white;
+    }
+}
+
+.ant-gallery__count {
+    font-size: 12px;
+    color: $antsand-gray-500;
+    font-weight: 500;
+    padding: 4px 10px;
+    background: $antsand-gray-100;
+    border-radius: 12px;
+    margin-left: auto;
+}
+
+// ── Grid ───────────────────────────────────────────────────────────────────────
+.ant-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: $_gallery-gap;
+
+    @media (max-width: $antsand-breakpoint-sm) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+}
+
+// ── Item ───────────────────────────────────────────────────────────────────────
+.ant-gallery__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: $_gallery-radius;
+    cursor: pointer;
+    transition: $_gallery-transition;
+
+    &:hover {
+        .ant-gallery__overlay {
+            opacity: 1;
+        }
+
+        .ant-gallery__image img {
+            transform: scale(1.05);
+        }
+    }
+}
+
+// ── Image Wrapper ──────────────────────────────────────────────────────────────
+.ant-gallery__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: $antsand-gray-100;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+// ── Hover Overlay ──────────────────────────────────────────────────────────────
+.ant-gallery__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $_gallery-overlay-bg;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    // Zoom icon
+    &::after {
+        content: '';
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23333'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7'/%3E%3C/svg%3E") no-repeat center;
+        mask-size: 28px;
+        transition: transform 0.2s ease;
+    }
+
+    &:hover::after {
+        transform: scale(1.15);
+    }
+}
+
+// ── Caption ────────────────────────────────────────────────────────────────────
+.ant-gallery__caption {
+    padding: 10px 0 4px;
+}
+
+.ant-gallery__title {
+    font-size: $antsand-font-size-sm;
+    font-weight: 600;
+    color: $antsand-gray-900;
+    margin: 0 0 2px;
+    line-height: 1.3;
+}
+
+.ant-gallery__desc {
+    font-size: 12px;
+    color: $antsand-gray-500;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.ant-gallery__meta {
+    font-size: 11px;
+    color: $antsand-gray-400;
+    margin-top: 4px;
+}
+
+
+// =============================================================================
+// LIGHTBOX
+// =============================================================================
+.ant-gallery__lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: $antsand-z-modal + 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+        display: flex;
+    }
+}
+
+.ant-gallery__lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: $_gallery-lightbox-bg;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.ant-gallery__lightbox-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 60px 80px;
+
+    @media (max-width: $antsand-breakpoint-md) {
+        padding: 50px 16px;
+    }
+}
+
+.ant-gallery__lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    animation: lightboxZoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+
+    &.zoomed {
+        cursor: zoom-out;
+        max-width: none;
+        max-height: none;
+    }
+}
+
+// ── Lightbox Navigation ────────────────────────────────────────────────────────
+.ant-gallery__lightbox-close,
+.ant-gallery__lightbox-prev,
+.ant-gallery__lightbox-next {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    cursor: pointer;
+    transition: $_gallery-transition;
+    backdrop-filter: blur(8px);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
+.ant-gallery__lightbox-close {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.ant-gallery__lightbox-prev,
+.ant-gallery__lightbox-next {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 24px;
+
+    @media (max-width: $antsand-breakpoint-sm) {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+}
+
+.ant-gallery__lightbox-prev { left: 16px; }
+.ant-gallery__lightbox-next { right: 16px; }
+
+// ── Lightbox Info ──────────────────────────────────────────────────────────────
+.ant-gallery__lightbox-counter {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.5px;
+}
+
+.ant-gallery__lightbox-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 24px 24px 20px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+}
+
+.ant-gallery__lightbox-title {
+    font-size: $antsand-font-size-lg;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 4px;
+}
+
+.ant-gallery__lightbox-desc {
+    font-size: $antsand-font-size-sm;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+// ── Thumbnail Strip ────────────────────────────────────────────────────────────
+.ant-gallery__lightbox-thumbs {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    gap: 6px;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    max-width: 80%;
+    overflow-x: auto;
+
+    // Hide scrollbar
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+
+    @media (max-width: $antsand-breakpoint-sm) {
+        display: none;
+    }
+}
+
+.ant-gallery__lightbox-thumb {
+    flex-shrink: 0;
+    width: 56px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.5;
+    border: 2px solid transparent;
+    transition: $_gallery-transition;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &.active {
+        opacity: 1;
+        border-color: white;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// ── Animations ─────────────────────────────────────────────────────────────────
+@keyframes lightboxZoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+// =============================================================================
+// VARIANT: GRID (default — standard responsive grid)
+// =============================================================================
+.ant-gallery.grid {
+    .ant-gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .ant-gallery__item {
+        border-radius: $_gallery-radius;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+    }
+}
+
+// =============================================================================
+// VARIANT: MASONRY (CSS columns)
+// =============================================================================
+.ant-gallery.masonry {
+    .ant-gallery__grid {
+        display: block;
+        column-count: 4;
+        column-gap: $_gallery-gap;
+
+        @media (max-width: $antsand-breakpoint-lg) { column-count: 3; }
+        @media (max-width: $antsand-breakpoint-md) { column-count: 2; }
+        @media (max-width: $antsand-breakpoint-sm) { column-count: 2; }
+    }
+
+    .ant-gallery__item {
+        break-inside: avoid;
+        margin-bottom: $_gallery-gap;
+        border-radius: $_gallery-radius-lg;
+    }
+
+    .ant-gallery__image {
+        aspect-ratio: auto;
+    }
+}
+
+// =============================================================================
+// VARIANT: CARDS (with captions + elevated card style)
+// =============================================================================
+.ant-gallery.cards {
+    .ant-gallery__grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .ant-gallery__item {
+        background: white;
+        border-radius: $_gallery-radius-lg;
+        box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.06),
+            0 4px 12px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        transition: $_gallery-transition;
+
+        &:hover {
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.08),
+                0 12px 28px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+    }
+
+    .ant-gallery__image {
+        border-radius: 0;
+    }
+
+    .ant-gallery__caption {
+        padding: 14px 16px 16px;
+    }
+
+    .ant-gallery__title {
+        font-size: $antsand-font-size-base;
+    }
+}
+
+// =============================================================================
+// VARIANT: MINIMAL (tight, no borders, flush)
+// =============================================================================
+.ant-gallery.minimal {
+    .ant-gallery__grid {
+        gap: 4px;
+    }
+
+    .ant-gallery__item {
+        border-radius: 2px;
+    }
+
+    .ant-gallery__image {
+        aspect-ratio: 1;
+    }
+
+    .ant-gallery__overlay {
+        background: rgba(0, 0, 0, 0.3);
+
+        &::after {
+            display: none;
+        }
+    }
+
+    .ant-gallery__caption {
+        display: none;
+    }
+}
+
+// =============================================================================
+// VARIANT: SHOWCASE (hero + grid)
+// =============================================================================
+.ant-gallery.showcase {
+    .ant-gallery__grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+
+        @media (max-width: $antsand-breakpoint-md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .ant-gallery__item:first-child {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+
+        .ant-gallery__image {
+            aspect-ratio: auto;
+            height: 100%;
+        }
+
+        @media (max-width: $antsand-breakpoint-md) {
+            grid-column: 1 / -1;
+            grid-row: auto;
+
+            .ant-gallery__image {
+                aspect-ratio: 16 / 9;
+                height: auto;
+            }
+        }
+    }
+
+    .ant-gallery__item {
+        border-radius: $_gallery-radius;
+        overflow: hidden;
+
+        &:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+
+// =============================================================================
+// DARK MODE
+// =============================================================================
+.ant-gallery.dark {
+    .ant-gallery__search input {
+        background: #1e1e1e;
+        border-color: #333;
+        color: #e5e5e5;
+
+        &::placeholder { color: #666; }
+
+        &:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+        }
+    }
+
+    .ant-gallery__search::before {
+        background: #666;
+    }
+
+    .ant-gallery__filter-btn {
+        background: #1e1e1e;
+        border-color: #333;
+        color: #a0a0a0;
+
+        &:hover {
+            border-color: #60a5fa;
+            color: #60a5fa;
+        }
+
+        &.active {
+            background: #60a5fa;
+            border-color: #60a5fa;
+            color: white;
+        }
+    }
+
+    .ant-gallery__count {
+        background: rgba(255, 255, 255, 0.06);
+        color: #888;
+    }
+
+    .ant-gallery__item {
+        background: #1e1e1e;
+    }
+
+    .ant-gallery__image {
+        background: #252525;
+    }
+
+    .ant-gallery__title { color: #e5e5e5; }
+    .ant-gallery__desc { color: #888; }
+    .ant-gallery__meta { color: #666; }
+
+    // Dark cards variant
+    &.cards .ant-gallery__item {
+        background: #1e1e1e;
+        box-shadow:
+            0 1px 3px rgba(0, 0, 0, 0.2),
+            0 4px 12px rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.3),
+                0 12px 28px rgba(0, 0, 0, 0.25);
+        }
+    }
+}
+
+
+// =============================================================================
+// RESPONSIVE
+// =============================================================================
+@media (max-width: $antsand-breakpoint-sm) {
+    .ant-gallery__controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ant-gallery__search {
+        max-width: none;
+    }
+
+    .ant-gallery__filter {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar { display: none; }
+    }
+
+    .ant-gallery__lightbox-content {
+        padding: 50px 8px;
+    }
+}
+
+// =============================================================================
+// ANTSAND-NAMESPACE ALIASES
+// =============================================================================
+// The original gallery prototype used .ant-gallery*. Keep those selectors as
+// implementation aliases, but expose .antsand-gallery* as the canonical public
+// contract for Databoard templates and agent-generated sections.
+.antsand-gallery { @extend .ant-gallery; }
+.antsand-gallery__controls { @extend .ant-gallery__controls; }
+.antsand-gallery__search { @extend .ant-gallery__search; }
+.antsand-gallery__filter { @extend .ant-gallery__filter; }
+.antsand-gallery__filter-btn { @extend .ant-gallery__filter-btn; }
+.antsand-gallery__count { @extend .ant-gallery__count; }
+.antsand-gallery__grid { @extend .ant-gallery__grid; }
+.antsand-gallery__item { @extend .ant-gallery__item; }
+.antsand-gallery__image { @extend .ant-gallery__image; }
+.antsand-gallery__overlay { @extend .ant-gallery__overlay; }
+.antsand-gallery__caption { @extend .ant-gallery__caption; }
+.antsand-gallery__title { @extend .ant-gallery__title; }
+.antsand-gallery__desc { @extend .ant-gallery__desc; }
+.antsand-gallery__meta { @extend .ant-gallery__meta; }
+.antsand-gallery__lightbox { @extend .ant-gallery__lightbox; }
+.antsand-gallery__lightbox-backdrop { @extend .ant-gallery__lightbox-backdrop; }
+.antsand-gallery__lightbox-content { @extend .ant-gallery__lightbox-content; }
+.antsand-gallery__lightbox-img { @extend .ant-gallery__lightbox-img; }
+.antsand-gallery__lightbox-close { @extend .ant-gallery__lightbox-close; }
+.antsand-gallery__lightbox-prev { @extend .ant-gallery__lightbox-prev; }
+.antsand-gallery__lightbox-next { @extend .ant-gallery__lightbox-next; }
+.antsand-gallery__lightbox-counter { @extend .ant-gallery__lightbox-counter; }
+.antsand-gallery__lightbox-info { @extend .ant-gallery__lightbox-info; }
+.antsand-gallery__lightbox-title { @extend .ant-gallery__lightbox-title; }
+.antsand-gallery__lightbox-desc { @extend .ant-gallery__lightbox-desc; }
+.antsand-gallery__lightbox-thumbs { @extend .ant-gallery__lightbox-thumbs; }
+.antsand-gallery__lightbox-thumb { @extend .ant-gallery__lightbox-thumb; }

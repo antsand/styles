@@ -222,6 +222,8 @@
 
     .carousel-item {
       min-width: calc(33.333% - 0.667rem);
+      flex: 0 0 calc(33.333% - 0.667rem);
+      max-width: calc(33.333% - 0.667rem);
       border-radius: 0.75rem;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -257,6 +259,29 @@
         }
       }
     }
+  }
+}
+
+// Universal carousel compatibility for linked cards.
+// Profile/post renderers often wrap cards in anchors; the anchor is the track
+// item, so it must stretch like a card while the actual card fills the anchor.
+.layout-carousel,
+[data-feature="carousel"],
+[data-carousel="true"] {
+  [data-track] > .profileposts-card-link,
+  .data-track > .profileposts-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  [data-track] > .profileposts-card-link > .profileposts-card,
+  [data-track] > .profileposts-card-link > .data-sub-container,
+  .data-track > .profileposts-card-link > .profileposts-card,
+  .data-track > .profileposts-card-link > .data-sub-container {
+    width: 100% !important;
+    height: 100%;
+    max-width: 100%;
   }
 }
 

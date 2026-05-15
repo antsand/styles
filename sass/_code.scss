@@ -1,3 +1,4 @@
+// Legacy syntax highlighting tokens
 .syntax {
   span {
    // line-height:1.5;
@@ -20,8 +21,22 @@
  }
 }
 
+// Legacy inline code
 .code {
     font-size: 87.5%;
     color: #e83e8c;
     word-break: break-word;
 }
+
+// ── Enhanced syntax tokens (v2) ──
+// Use inside any dark code container
+.syn-tag    { color: #f15b2a; }
+.syn-attr   { color: #94a3b8; }
+.syn-str    { color: #ffd93d; }
+.syn-cmt    { color: #64748b; font-style: italic; }
+.syn-kw     { color: #c792ea; }
+.syn-fn     { color: #82aaff; }
+.syn-num    { color: #f78c6c; }
+.syn-var    { color: #e2e8f0; }
+.syn-op     { color: #89ddff; }
+.syn-sel    { color: #c3e88d; }

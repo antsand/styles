@@ -535,6 +535,178 @@
     }
 }
 
+// -----------------------------
+// Footer 6 - ANTSAND Branded Dark
+// background: linear-gradient(180deg, #0c1222, #0f172a)
+// title: white, uppercase, tracked, orange underline accent
+// description: gray-400 | links: gray-400 → orange (primary)
+// social: dark pill bg | brand column with logo + badge
+// Matches the stylesdoc.antsand.com branded footer
+// -----------------------------
+.footer-6 {
+    @include footer-base;
+    background: linear-gradient(180deg, #0c1222 0%, #0f172a 100%);
+    color: $antsand-gray-400;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: $antsand-space-8 0 $antsand-space-4 0;
+
+    .container,
+    .data-container {
+        grid-template-columns: 1.4fr repeat(3, 1fr);
+        gap: $antsand-space-6;
+        row-gap: $antsand-space-5;
+
+        @media (max-width: $antsand-breakpoint-md) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: $antsand-breakpoint-sm) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .header-section {
+        display: none;
+    }
+
+    // Brand column (first sub-container)
+    .sub-container {
+        &:first-child {
+            .title {
+                color: white;
+                font-size: 1.35rem;
+                font-weight: 800;
+                letter-spacing: -0.02em;
+                margin-bottom: $antsand-space-1;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .description {
+                color: $antsand-gray-400;
+                font-size: $antsand-font-size-sm;
+                line-height: $antsand-line-height-relaxed;
+                max-width: 28rem;
+                margin-bottom: $antsand-space-3;
+            }
+        }
+
+        // Link column titles
+        .title {
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: $antsand-space-3;
+            padding-bottom: $antsand-space-2;
+            border-bottom: 2px solid $antsand-primary;
+            display: inline-block;
+        }
+
+        .description {
+            color: $antsand-gray-400;
+            font-size: $antsand-font-size-sm;
+            line-height: $antsand-line-height-relaxed;
+        }
+
+        li a, .h4 a {
+            color: $antsand-gray-400;
+            font-size: $antsand-font-size-sm;
+
+            &:hover {
+                color: $antsand-primary;
+            }
+        }
+
+        .social-container {
+            gap: $antsand-space-2;
+            margin-top: $antsand-space-3;
+        }
+
+        .social-container .social,
+        .social-container .social > a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 50%;
+        }
+
+        .social-container .social {
+            background-color: rgba(255, 255, 255, 0.06);
+            color: $antsand-gray-400;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all $antsand-transition-base;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.12);
+                color: white;
+                border-color: rgba(255, 255, 255, 0.2);
+                transform: translateY(-2px);
+            }
+
+            svg {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+
+        // Badge (e.g., "Open Source & Free Forever")
+        .cta-container {
+            margin-top: $antsand-space-3;
+
+            .cta {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 0.75rem;
+                color: #22c55e;
+                background: rgba(34, 197, 94, 0.08);
+                border: 1px solid rgba(34, 197, 94, 0.2);
+                border-radius: 999px;
+                padding: 0.35rem 0.85rem;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        }
+    }
+
+    // Copyright bar
+    .footer-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: $antsand-space-3;
+        margin-top: $antsand-space-4;
+
+        .title {
+            color: $antsand-gray-500;
+            font-size: 0.78rem;
+            border-bottom: none;
+            padding-bottom: 0;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 400;
+            display: block;
+
+            strong, b {
+                color: $antsand-primary;
+                font-weight: 700;
+            }
+        }
+
+        .cta {
+            color: $antsand-gray-500;
+            font-size: 0.78rem;
+
+            &:hover {
+                color: $antsand-primary;
+            }
+        }
+    }
+}
+
 // ============================================
 // LEGACY SUPPORT - Keep old classes working
 // ============================================

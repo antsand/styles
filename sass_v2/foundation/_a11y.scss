@@ -1,0 +1,113 @@
+// ============================================
+// ANTSAND Styles v2 - Accessibility
+// Global focus rings, skip links, screen-reader utilities
+// ============================================
+//
+// FOR AGENTS: This file applies globally. You do NOT need to add focus
+// styles to individual components — they inherit from here.
+//
+// Components that override focus MUST use @include focus-ring to stay
+// consistent with the system.
+//
+// ============================================
+
+// --- Skip to main content link ---
+.antsand-skip-link {
+    @include sr-only;
+
+    &:focus {
+        position: fixed;
+        top: $antsand-space-2;
+        left: $antsand-space-2;
+        z-index: $antsand-z-toast + 10;
+        width: auto;
+        height: auto;
+        padding: $antsand-space-2 $antsand-space-4;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        background: var(--antsand-surface, #fff);
+        color: var(--antsand-body-color, #{$antsand-gray-900});
+        border: 2px solid var(--antsand-primary, #{$antsand-primary});
+        border-radius: $antsand-radius-md;
+        box-shadow: $antsand-shadow-lg;
+        font-weight: $antsand-font-weight-semibold;
+        text-decoration: none;
+    }
+}
+
+// --- Global focus-visible rings ---
+// Applied to all interactive elements via :focus-visible (keyboard only).
+// Mouse clicks do NOT trigger these outlines.
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible:not([tabindex="-1"]),
+summary:focus-visible {
+    outline: $antsand-focus-ring-width solid var(--antsand-focus-ring-color, #{$antsand-focus-ring-color});
+    outline-offset: $antsand-focus-ring-offset;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: $antsand-focus-ring-width solid var(--antsand-focus-ring-color, #{$antsand-focus-ring-color});
+    outline-offset: 0;
+}
+
+// --- Screen-reader only ---
+.sr-only,
+.antsand-sr-only {
+    @include sr-only;
+}
+
+// Show on focus (for skip links and hidden controls)
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+// --- High contrast mode ---
+@media (prefers-contrast: more) {
+    // Thicken all borders for visibility
+    button,
+    a,
+    input,
+    textarea,
+    select,
+    [role="button"] {
+        border-width: 2px;
+    }
+
+    // Ensure links are always underlined
+    a {
+        text-decoration: underline;
+    }
+
+    // Force solid focus outlines
+    *:focus-visible {
+        outline-style: solid !important;
+        outline-width: 3px !important;
+    }
+}
+
+// --- Reduced motion ---
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

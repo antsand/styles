@@ -1,0 +1,65 @@
+// ============================================
+// ANTSAND Styles v2 - Spinner
+// CSS-only loading indicators
+// ============================================
+//
+// FOR AGENTS: Two spinner styles + size variants.
+//   antsand-spinner-border  → ring spinner (rotating border)
+//   antsand-spinner-grow    → pulsing dot
+//
+// Size variants: antsand-spinner-sm, antsand-spinner-lg
+// Inside buttons: <button class="antsand-btn antsand-btn-primary">
+//                   <span class="antsand-spinner-border antsand-spinner-sm"></span> Loading...
+//                 </button>
+//
+// Color: inherits from parent's `color` property.
+// ============================================
+
+.antsand-spinner-border {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: -0.125em;
+    border: 0.2em solid currentColor;
+    border-right-color: transparent;
+    border-radius: $antsand-radius-full;
+    animation: antsand-spin 0.75s linear infinite;
+}
+
+.antsand-spinner-grow {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: -0.125em;
+    background-color: currentColor;
+    border-radius: $antsand-radius-full;
+    opacity: 0;
+    animation: antsand-spinner-grow 0.75s linear infinite;
+}
+
+@keyframes antsand-spinner-grow {
+    0% { transform: scale(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+// Size variants
+.antsand-spinner-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.15em;
+}
+
+.antsand-spinner-lg {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.25em;
+}
+
+// Centered spinner (for section loading states)
+.antsand-spinner-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $antsand-space-6 0;
+}

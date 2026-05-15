@@ -1,0 +1,176 @@
+// ============================================
+// ANTSAND Styles v2 - Offcanvas / Drawer
+// Slide-in panel from any edge
+// ============================================
+//
+// FOR AGENTS: Used for mobile nav, cart drawer, filter sidebar.
+//
+// Structure:
+//   .antsand-offcanvas-backdrop          (semi-transparent overlay)
+//   .antsand-offcanvas.antsand-offcanvas-start  (panel — start=left)
+//     ├── .antsand-offcanvas-header
+//     │   ├── .antsand-offcanvas-title
+//     │   └── .antsand-offcanvas-close
+//     └── .antsand-offcanvas-body
+//
+// Positions: start (left), end (right), top, bottom
+// State: add .show to .antsand-offcanvas + .antsand-offcanvas-backdrop
+//
+// ============================================
+
+.antsand-offcanvas-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $antsand-z-offcanvas - 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($antsand-gray-900, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.antsand-offcanvas {
+    position: fixed;
+    z-index: $antsand-z-offcanvas;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--antsand-surface, #fff);
+    background-clip: padding-box;
+    border: 1px solid var(--antsand-border-color, rgba($antsand-gray-900, 0.1));
+    outline: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0.3s ease;
+}
+
+// --- Position variants ---
+
+.antsand-offcanvas-start {
+    top: 0;
+    left: 0;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    transform: translateX(-100%);
+
+    &.show { transform: translateX(0); visibility: visible; }
+}
+
+.antsand-offcanvas-end {
+    top: 0;
+    right: 0;
+    width: 320px;
+    max-width: 85vw;
+    height: 100vh;
+    transform: translateX(100%);
+
+    &.show { transform: translateX(0); visibility: visible; }
+}
+
+.antsand-offcanvas-top {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    max-height: 80vh;
+    transform: translateY(-100%);
+
+    &.show { transform: translateY(0); visibility: visible; }
+}
+
+.antsand-offcanvas-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    max-height: 80vh;
+    transform: translateY(100%);
+
+    &.show { transform: translateY(0); visibility: visible; }
+}
+
+// --- Inner parts ---
+
+.antsand-offcanvas-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $antsand-space-3 $antsand-space-4;
+    border-bottom: 1px solid var(--antsand-border-color, #{$antsand-gray-200});
+}
+
+.antsand-offcanvas-title {
+    margin: 0;
+    font-size: $antsand-font-size-lg;
+    font-weight: $antsand-font-weight-bold;
+    line-height: 1.3;
+}
+
+.antsand-offcanvas-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    border-radius: $antsand-radius-sm;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--antsand-muted-color, #{$antsand-gray-500});
+    cursor: pointer;
+    transition: background-color $antsand-transition-fast, color $antsand-transition-fast;
+
+    &:hover {
+        background-color: $antsand-gray-100;
+        color: var(--antsand-body-color, #{$antsand-gray-900});
+    }
+}
+
+.antsand-offcanvas-body {
+    flex: 1 1 auto;
+    padding: $antsand-space-4;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+// --- Body scroll lock when offcanvas is open ---
+body.antsand-offcanvas-open {
+    overflow: hidden;
+}
+
+// --- Responsive: auto-show on desktop ---
+// Use .antsand-offcanvas-lg to hide drawer on lg+ and show content inline
+@media (min-width: $antsand-breakpoint-lg) {
+    .antsand-offcanvas-responsive {
+        position: static;
+        transform: none;
+        visibility: visible;
+        border: none;
+        background: transparent;
+        width: auto;
+        height: auto;
+    }
+
+    .antsand-offcanvas-responsive + .antsand-offcanvas-backdrop {
+        display: none;
+    }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+    .antsand-offcanvas {
+        transition: none;
+    }
+    .antsand-offcanvas-backdrop {
+        transition: none;
+    }
+}

@@ -1,0 +1,137 @@
+// ============================================
+// ANTSAND Styles v2 - Toast / Notification
+// Auto-dismissible feedback notifications
+// ============================================
+//
+// FOR AGENTS: Toasts stack in a fixed corner container.
+//
+// Structure:
+//   .antsand-toast-container.antsand-toast-top-right  (position)
+//     └── .antsand-toast.antsand-toast-success          (variant)
+//         ├── .antsand-toast-header
+//         │   ├── .antsand-toast-title
+//         │   └── .antsand-toast-close
+//         └── .antsand-toast-body
+//
+// Variants: success, danger, warning, info, dark
+// Positions: top-right (default), top-left, top-center,
+//            bottom-right, bottom-left, bottom-center
+//
+// ============================================
+
+.antsand-toast-container {
+    position: fixed;
+    z-index: $antsand-z-toast;
+    display: flex;
+    flex-direction: column;
+    gap: $antsand-space-2;
+    padding: $antsand-space-3;
+    pointer-events: none;
+    max-width: 380px;
+    width: 100%;
+
+    // Position variants
+    &.antsand-toast-top-right    { top: 0; right: 0; }
+    &.antsand-toast-top-left     { top: 0; left: 0; }
+    &.antsand-toast-top-center   { top: 0; left: 50%; transform: translateX(-50%); }
+    &.antsand-toast-bottom-right { bottom: 0; right: 0; }
+    &.antsand-toast-bottom-left  { bottom: 0; left: 0; }
+    &.antsand-toast-bottom-center { bottom: 0; left: 50%; transform: translateX(-50%); }
+}
+
+.antsand-toast {
+    pointer-events: auto;
+    background: var(--antsand-surface, #fff);
+    border: 1px solid var(--antsand-border-color, #{$antsand-gray-200});
+    border-radius: $antsand-radius-md;
+    box-shadow: $antsand-shadow-lg;
+    overflow: hidden;
+    animation: antsand-fade-in-up 0.3s ease both;
+
+    &.antsand-toast-hiding {
+        animation: antsand-fade-in-up 0.2s ease reverse both;
+    }
+}
+
+.antsand-toast-header {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-2;
+    padding: $antsand-space-2 $antsand-space-3;
+    border-bottom: 1px solid var(--antsand-border-color, #{$antsand-gray-200});
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-semibold;
+}
+
+.antsand-toast-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.antsand-toast-title {
+    flex: 1;
+}
+
+.antsand-toast-close {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    opacity: 0.5;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+
+    &:hover { opacity: 0.8; }
+}
+
+.antsand-toast-body {
+    padding: $antsand-space-3;
+    font-size: $antsand-font-size-sm;
+    color: var(--antsand-muted-color, #{$antsand-gray-600});
+}
+
+// --- Color variants ---
+.antsand-toast-success .antsand-toast-header {
+    background: rgba($antsand-success, 0.08);
+    color: darken($antsand-success, 10%);
+    border-bottom-color: rgba($antsand-success, 0.15);
+}
+
+.antsand-toast-danger .antsand-toast-header {
+    background: rgba($antsand-danger, 0.08);
+    color: darken($antsand-danger, 10%);
+    border-bottom-color: rgba($antsand-danger, 0.15);
+}
+
+.antsand-toast-warning .antsand-toast-header {
+    background: rgba($antsand-warning, 0.08);
+    color: darken($antsand-warning, 15%);
+    border-bottom-color: rgba($antsand-warning, 0.15);
+}
+
+.antsand-toast-info .antsand-toast-header {
+    background: rgba($antsand-info, 0.08);
+    color: darken($antsand-info, 10%);
+    border-bottom-color: rgba($antsand-info, 0.15);
+}
+
+.antsand-toast-dark {
+    background: $antsand-gray-800;
+    border-color: $antsand-gray-700;
+    color: $antsand-gray-100;
+
+    .antsand-toast-header {
+        background: rgba(#fff, 0.04);
+        color: #fff;
+        border-bottom-color: $antsand-gray-700;
+    }
+
+    .antsand-toast-body {
+        color: $antsand-gray-300;
+    }
+}

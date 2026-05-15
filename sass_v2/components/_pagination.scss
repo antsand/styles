@@ -1,0 +1,131 @@
+// ============================================
+// ANTSAND Styles v2 - Pagination
+// Page navigation for lists, tables, grids
+// ============================================
+//
+// FOR AGENTS: Pagination renders in the Footer (F) of H/B/F sections.
+//
+// Structure:
+//   nav[aria-label="Pagination"]
+//     └── .antsand-pagination                   (container <ul>)
+//         ├── .antsand-page-item                 (each <li>)
+//         │   └── .antsand-page-link              (the <a> or <button>)
+//         └── .antsand-page-item.active
+//             └── .antsand-page-link
+//
+// Modifiers:
+//   .antsand-pagination-sm / .antsand-pagination-lg — size
+//   .antsand-pagination-centered — center-aligned
+//   .antsand-pagination-pill — pill-shaped items
+//
+// ============================================
+
+.antsand-pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    gap: $antsand-space-1;
+    flex-wrap: wrap;
+}
+
+.antsand-page-item {
+    &:first-child .antsand-page-link {
+        border-radius: $antsand-radius-md 0 0 $antsand-radius-md;
+    }
+
+    &:last-child .antsand-page-link {
+        border-radius: 0 $antsand-radius-md $antsand-radius-md 0;
+    }
+}
+
+.antsand-page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: $antsand-space-1 $antsand-space-2;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-medium;
+    color: var(--antsand-body-color, #{$antsand-gray-700});
+    background-color: var(--antsand-surface, #fff);
+    border: 1px solid var(--antsand-border-color, #{$antsand-gray-300});
+    text-decoration: none;
+    cursor: pointer;
+    transition: color $antsand-transition-fast,
+                background-color $antsand-transition-fast,
+                border-color $antsand-transition-fast;
+
+    &:hover {
+        color: $antsand-primary;
+        background-color: $antsand-gray-50;
+        border-color: $antsand-gray-300;
+    }
+}
+
+// Active state
+.antsand-page-item.active .antsand-page-link {
+    color: #fff;
+    background-color: $antsand-primary;
+    border-color: $antsand-primary;
+    pointer-events: none;
+}
+
+// Disabled state
+.antsand-page-item.disabled .antsand-page-link {
+    color: $antsand-gray-400;
+    pointer-events: none;
+    background-color: var(--antsand-surface, #fff);
+    border-color: var(--antsand-border-color, #{$antsand-gray-200});
+    opacity: 0.6;
+}
+
+// Size variants
+.antsand-pagination-sm .antsand-page-link {
+    min-width: 2rem;
+    min-height: 2rem;
+    padding: 0.15rem $antsand-space-1;
+    font-size: 0.78rem;
+}
+
+.antsand-pagination-lg .antsand-page-link {
+    min-width: 3rem;
+    min-height: 3rem;
+    padding: $antsand-space-2 $antsand-space-3;
+    font-size: $antsand-font-size-base;
+}
+
+// Centered
+.antsand-pagination-centered {
+    justify-content: center;
+}
+
+// Pill variant (no joined borders)
+.antsand-pagination-pill {
+    gap: $antsand-space-1;
+
+    .antsand-page-link {
+        border-radius: $antsand-radius-full;
+    }
+
+    .antsand-page-item:first-child .antsand-page-link,
+    .antsand-page-item:last-child .antsand-page-link {
+        border-radius: $antsand-radius-full;
+    }
+}
+
+// Simple prev/next (no numbers)
+.antsand-pagination-simple {
+    gap: $antsand-space-2;
+
+    .antsand-page-link {
+        border-radius: $antsand-radius-md;
+        border: none;
+        background: transparent;
+        font-weight: $antsand-font-weight-semibold;
+
+        &:hover {
+            background-color: $antsand-gray-100;
+        }
+    }
+}

@@ -57,12 +57,14 @@
 }
 
 // Fixed columns
-.antsand-grid-1 { grid-template-columns: repeat(1, 1fr); }
-.antsand-grid-2 { grid-template-columns: repeat(2, 1fr); }
-.antsand-grid-3 { grid-template-columns: repeat(3, 1fr); }
-.antsand-grid-4 { grid-template-columns: repeat(4, 1fr); }
-.antsand-grid-5 { grid-template-columns: repeat(5, 1fr); }
-.antsand-grid-6 { grid-template-columns: repeat(6, 1fr); }
+// Use minmax(0, 1fr) so long generated content (code blocks, URLs, titles)
+// shrinks inside the grid instead of forcing the whole page wider.
+.antsand-grid-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.antsand-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.antsand-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.antsand-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.antsand-grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.antsand-grid-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 
 // Responsive grid (collapse on mobile)
 @media (max-width: $antsand-breakpoint-md) {
@@ -70,7 +72,7 @@
     .antsand-grid-4,
     .antsand-grid-5,
     .antsand-grid-6 {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 

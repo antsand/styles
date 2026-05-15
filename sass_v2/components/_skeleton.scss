@@ -1,0 +1,128 @@
+// ============================================
+// ANTSAND Styles v2 - Skeleton Loader
+// Shimmer placeholders for loading states
+// ============================================
+//
+// FOR AGENTS: Use skeleton classes as pre-render placeholders in any
+// data-driven section. When data loads, replace with real content.
+//
+// Classes:
+//   antsand-skeleton         → base shimmer (apply to any element)
+//   antsand-skeleton-text    → text line (full width, 1em height)
+//   antsand-skeleton-title   → heading line (60% width, 1.5em height)
+//   antsand-skeleton-avatar  → circular placeholder
+//   antsand-skeleton-image   → rectangular media placeholder
+//   antsand-skeleton-card    → full card placeholder (image + text lines)
+//   antsand-skeleton-btn     → button placeholder
+//
+// ============================================
+
+.antsand-skeleton {
+    background: linear-gradient(
+        90deg,
+        $antsand-gray-200 25%,
+        $antsand-gray-100 37%,
+        $antsand-gray-200 63%
+    );
+    background-size: 400% 100%;
+    animation: antsand-shimmer 1.4s ease infinite;
+    border-radius: $antsand-radius-sm;
+    color: transparent !important;
+    pointer-events: none;
+    user-select: none;
+
+    // Hide any child content
+    * { visibility: hidden; }
+}
+
+.antsand-skeleton-text {
+    @extend .antsand-skeleton;
+    height: 1em;
+    margin-bottom: $antsand-space-2;
+    width: 100%;
+
+    &:last-child { width: 80%; }
+    &:nth-child(even) { width: 90%; }
+}
+
+.antsand-skeleton-title {
+    @extend .antsand-skeleton;
+    height: 1.5em;
+    width: 60%;
+    margin-bottom: $antsand-space-3;
+}
+
+.antsand-skeleton-avatar {
+    @extend .antsand-skeleton;
+    width: 3rem;
+    height: 3rem;
+    border-radius: $antsand-radius-full;
+    flex-shrink: 0;
+}
+
+.antsand-skeleton-avatar-sm {
+    @extend .antsand-skeleton-avatar;
+    width: 2rem;
+    height: 2rem;
+}
+
+.antsand-skeleton-avatar-lg {
+    @extend .antsand-skeleton-avatar;
+    width: 4rem;
+    height: 4rem;
+}
+
+.antsand-skeleton-image {
+    @extend .antsand-skeleton;
+    width: 100%;
+    height: 200px;
+    border-radius: $antsand-radius-md;
+    margin-bottom: $antsand-space-3;
+}
+
+.antsand-skeleton-btn {
+    @extend .antsand-skeleton;
+    display: inline-block;
+    width: 120px;
+    height: 2.4rem;
+    border-radius: $antsand-radius-md;
+}
+
+// Card placeholder — combines image + text lines
+.antsand-skeleton-card {
+    background: var(--antsand-surface, #fff);
+    border: 1px solid var(--antsand-border-color, #{$antsand-gray-200});
+    border-radius: $antsand-radius-md;
+    padding: $antsand-space-4;
+    display: flex;
+    flex-direction: column;
+    gap: $antsand-space-2;
+}
+
+// Wave variant (alternative to shimmer)
+.antsand-skeleton-wave {
+    background: $antsand-gray-200;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.5),
+            transparent
+        );
+        animation: antsand-skeleton-wave 1.6s ease infinite;
+    }
+}
+
+@keyframes antsand-skeleton-wave {
+    100% { transform: translateX(100%); }
+}

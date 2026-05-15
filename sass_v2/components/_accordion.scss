@@ -1,11 +1,33 @@
 // ============================================
 // ANTSAND Styles v2 - Accordion
-// Collapsible content panels
+// Collapsible content panels — Tier 1 semantic class
+// ============================================
+//
+// FOR AGENTS — Accordion classes are Tier 1 (identity):
+//   antsand-accordion            → bordered container
+//   antsand-accordion-flush      → no outer border (embedded use)
+//   antsand-accordion-dark       → dark background variant
+//   antsand-accordion-separated  → gap between items (card-style)
+//   antsand-accordion-faq        → FAQ pattern (question/answer)
+//
+// Databoard H/B/F mapping:
+//   body[].accordian_title = clickable tab label
+//   body[].title           = panel heading (h3 inside panel)
+//   body[].description     = panel content
+//   body[].cta             = optional CTA in panel
+//
+// CSS slots:
+//   css.body.accordion_container  → outer wrapper
+//   css.body.accordion_header     → tab button
+//   css.body.accordion_body       → panel wrapper
+//
 // ============================================
 
+// ── Base Accordion ─────────────────────────────
 .antsand-accordion {
     border: 1px solid $antsand-gray-200;
     border-radius: $antsand-radius-md;
+    overflow: hidden;
 }
 
 .antsand-accordion-item {
@@ -23,31 +45,43 @@
     width: 100%;
     padding: $antsand-space-4;
     font-weight: $antsand-font-weight-semibold;
+    font-size: $antsand-font-size-base;
     text-align: left;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    transition: background-color $antsand-transition-base;
+    transition: background-color $antsand-transition-base, color $antsand-transition-base;
 
     &:hover {
-        background-color: $antsand-gray-100;
+        background-color: $antsand-gray-50;
     }
 
     &.active {
-        background-color: $antsand-gray-100;
+        background-color: $antsand-gray-50;
         color: $antsand-primary;
+    }
+
+    &:focus-visible {
+        outline: $antsand-focus-ring-width solid $antsand-focus-ring-color;
+        outline-offset: -$antsand-focus-ring-width;
     }
 }
 
+// ── Icon: Plus/Minus (default) ─────────────────
 .antsand-accordion-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 1.25rem;
     height: 1.25rem;
+    flex-shrink: 0;
     transition: transform $antsand-transition-base;
 
     &::before {
         content: '+';
         font-size: 1.5rem;
         line-height: 1;
+        font-weight: 300;
     }
 
     &.active::before {
@@ -55,13 +89,36 @@
     }
 }
 
+// ── Icon: Chevron variant ──────────────────────
+// Use on parent: .antsand-accordion-chevron
+.antsand-accordion-chevron {
+    .antsand-accordion-icon {
+        &::before {
+            content: '';
+            width: 0.75rem;
+            height: 0.75rem;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(-45deg);
+            transition: transform 0.25s ease;
+        }
+
+        &.active::before {
+            content: '';
+            transform: rotate(45deg);
+        }
+    }
+}
+
+// ── Panel body ─────────────────────────────────
 .antsand-accordion-body {
     max-height: 0;
     overflow: hidden;
-    transition: max-height $antsand-transition-slow ease-in-out;
+    transition: max-height 0.3s ease-in-out;
 
     &.active {
-        max-height: 1000px; // Adjust based on content
+        // JS sets precise maxHeight; CSS fallback for no-JS
+        max-height: 2000px;
     }
 }
 
@@ -69,4 +126,188 @@
     padding: 0 $antsand-space-4 $antsand-space-4 $antsand-space-4;
     color: $antsand-gray-700;
     line-height: $antsand-line-height-relaxed;
+
+    p {
+        margin-bottom: $antsand-space-3;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul, ol {
+        padding-left: $antsand-space-5;
+        margin-bottom: $antsand-space-3;
+    }
+
+    code {
+        font-size: $antsand-font-size-sm;
+        padding: 0.15em 0.4em;
+        background: $antsand-gray-100;
+        border-radius: $antsand-radius-sm;
+    }
+}
+
+// ── Variant: Flush (no outer border) ───────────
+// Use for embedding accordion inside a card or section.
+.antsand-accordion-flush {
+    border: none;
+    border-radius: 0;
+
+    .antsand-accordion-item {
+        border-left: none;
+        border-right: none;
+
+        &:first-child {
+            border-top: 1px solid $antsand-gray-200;
+        }
+    }
+}
+
+// ── Variant: Separated (card-per-item) ─────────
+// Each item is its own card with gap between.
+.antsand-accordion-separated {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: $antsand-space-3;
+
+    .antsand-accordion-item {
+        border: 1px solid $antsand-gray-200;
+        border-radius: $antsand-radius-md;
+        border-bottom: 1px solid $antsand-gray-200;
+        overflow: hidden;
+    }
+}
+
+// ── Variant: Dark ──────────────────────────────
+.antsand-accordion-dark {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    border-color: rgba(255, 255, 255, 0.1);
+
+    .antsand-accordion-item {
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .antsand-accordion-header {
+        color: #f1f5f9;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        &.active {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #60a5fa;
+        }
+    }
+
+    .antsand-accordion-content {
+        color: #cbd5e1;
+
+        code {
+            background: rgba(255, 255, 255, 0.08);
+            color: #93c5fd;
+        }
+    }
+}
+
+// ── Variant: FAQ ───────────────────────────────
+// Question/answer pattern with Q prefix and answer indentation.
+.antsand-accordion-faq {
+    .antsand-accordion-header {
+        padding-left: $antsand-space-5;
+        position: relative;
+
+        &::before {
+            content: 'Q';
+            position: absolute;
+            left: $antsand-space-4;
+            font-weight: $antsand-font-weight-bold;
+            color: $antsand-primary;
+            font-size: $antsand-font-size-sm;
+        }
+    }
+
+    .antsand-accordion-content {
+        padding-left: $antsand-space-5;
+        position: relative;
+
+        &::before {
+            content: 'A';
+            position: absolute;
+            left: $antsand-space-4;
+            top: 0;
+            font-weight: $antsand-font-weight-bold;
+            color: $antsand-success;
+            font-size: $antsand-font-size-sm;
+        }
+    }
+}
+
+// ── Variant: Bordered-left accent ──────────────
+// Active item gets a left border accent.
+.antsand-accordion-accent {
+    .antsand-accordion-item {
+        border-left: 3px solid transparent;
+        transition: border-color $antsand-transition-base;
+    }
+
+    .antsand-accordion-header.active {
+        background-color: rgba($antsand-primary, 0.04);
+    }
+
+    .antsand-accordion-item:has(.antsand-accordion-header.active) {
+        border-left-color: $antsand-primary;
+    }
+}
+
+// ── Sizes ──────────────────────────────────────
+.antsand-accordion-sm {
+    .antsand-accordion-header {
+        padding: $antsand-space-2 $antsand-space-3;
+        font-size: $antsand-font-size-sm;
+    }
+
+    .antsand-accordion-content {
+        padding: 0 $antsand-space-3 $antsand-space-3;
+        font-size: $antsand-font-size-sm;
+    }
+}
+
+.antsand-accordion-lg {
+    .antsand-accordion-header {
+        padding: $antsand-space-5 $antsand-space-5;
+        font-size: $antsand-font-size-lg;
+    }
+
+    .antsand-accordion-content {
+        padding: 0 $antsand-space-5 $antsand-space-5;
+        font-size: $antsand-font-size-lg;
+    }
+}
+
+// ── Accessibility ──────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+    .antsand-accordion-body {
+        transition: none;
+    }
+
+    .antsand-accordion-icon {
+        transition: none;
+    }
+}
+
+@media (prefers-contrast: more) {
+    .antsand-accordion {
+        border-width: 2px;
+    }
+
+    .antsand-accordion-item {
+        border-bottom-width: 2px;
+    }
+
+    .antsand-accordion-header.active {
+        text-decoration: underline;
+    }
 }

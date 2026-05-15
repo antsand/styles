@@ -1,0 +1,102 @@
+// ============================================
+// ANTSAND Styles v2 - CSS Custom Properties
+// Runtime-themeable tokens emitted on :root
+// ============================================
+//
+// FOR AGENTS: These CSS custom properties mirror $antsand-* Sass variables
+// but are available at runtime. Use var(--antsand-*) in components that
+// need runtime theming (dark mode toggle, Databoard theme switching).
+//
+// Dark mode: Override these vars inside [data-theme="dark"] or
+// @media (prefers-color-scheme: dark) — no SCSS recompilation needed.
+//
+// ============================================
+
+:root {
+    // --- Colors ---
+    --antsand-primary: #{$antsand-primary};
+    --antsand-secondary: #{$antsand-secondary};
+    --antsand-success: #{$antsand-success};
+    --antsand-danger: #{$antsand-danger};
+    --antsand-warning: #{$antsand-warning};
+    --antsand-info: #{$antsand-info};
+    --antsand-light: #{$antsand-light};
+    --antsand-dark: #{$antsand-dark};
+
+    // --- Gray scale ---
+    --antsand-gray-50: #{$antsand-gray-50};
+    --antsand-gray-100: #{$antsand-gray-100};
+    --antsand-gray-200: #{$antsand-gray-200};
+    --antsand-gray-300: #{$antsand-gray-300};
+    --antsand-gray-400: #{$antsand-gray-400};
+    --antsand-gray-500: #{$antsand-gray-500};
+    --antsand-gray-600: #{$antsand-gray-600};
+    --antsand-gray-700: #{$antsand-gray-700};
+    --antsand-gray-800: #{$antsand-gray-800};
+    --antsand-gray-900: #{$antsand-gray-900};
+
+    // --- Semantic surface/text (theme-switchable) ---
+    --antsand-body-bg: #{$antsand-gray-50};
+    --antsand-body-color: #{$antsand-gray-900};
+    --antsand-heading-color: #{$antsand-gray-900};
+    --antsand-muted-color: #{$antsand-gray-600};
+    --antsand-border-color: #{$antsand-gray-200};
+    --antsand-surface: #fff;
+    --antsand-surface-elevated: #fff;
+
+    // --- Spacing ---
+    --antsand-space-1: #{$antsand-space-1};
+    --antsand-space-2: #{$antsand-space-2};
+    --antsand-space-3: #{$antsand-space-3};
+    --antsand-space-4: #{$antsand-space-4};
+    --antsand-space-5: #{$antsand-space-5};
+    --antsand-space-6: #{$antsand-space-6};
+
+    // --- Typography ---
+    --antsand-font-family: #{$antsand-font-family};
+    --antsand-font-family-mono: #{$antsand-font-family-mono};
+    --antsand-font-size-sm: #{$antsand-font-size-sm};
+    --antsand-font-size-base: #{$antsand-font-size-base};
+    --antsand-font-size-lg: #{$antsand-font-size-lg};
+
+    // --- Radius ---
+    --antsand-radius-sm: #{$antsand-radius-sm};
+    --antsand-radius-md: #{$antsand-radius-md};
+    --antsand-radius-lg: #{$antsand-radius-lg};
+
+    // --- Shadows ---
+    --antsand-shadow-sm: #{$antsand-shadow-sm};
+    --antsand-shadow-md: #{$antsand-shadow-md};
+    --antsand-shadow-lg: #{$antsand-shadow-lg};
+
+    // --- Focus ---
+    --antsand-focus-ring-color: #{$antsand-focus-ring-color};
+    --antsand-focus-ring-width: #{$antsand-focus-ring-width};
+}
+
+// ============================================
+// Dark mode overrides
+// Activated by [data-theme="dark"] on <html> or prefers-color-scheme
+// ============================================
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --antsand-body-bg: #{$antsand-gray-900};
+        --antsand-body-color: #{$antsand-gray-100};
+        --antsand-heading-color: #fff;
+        --antsand-muted-color: #{$antsand-gray-400};
+        --antsand-border-color: #{$antsand-gray-700};
+        --antsand-surface: #{$antsand-gray-800};
+        --antsand-surface-elevated: #{$antsand-gray-700};
+    }
+}
+
+[data-theme="dark"] {
+    --antsand-body-bg: #{$antsand-gray-900};
+    --antsand-body-color: #{$antsand-gray-100};
+    --antsand-heading-color: #fff;
+    --antsand-muted-color: #{$antsand-gray-400};
+    --antsand-border-color: #{$antsand-gray-700};
+    --antsand-surface: #{$antsand-gray-800};
+    --antsand-surface-elevated: #{$antsand-gray-700};
+}

@@ -1,0 +1,170 @@
+{
+  "template_id": "code-block-dark",
+  "template_name": "Code Block - Dark (Default)",
+  "category": "code",
+  "description": "Dark-themed code block with macOS window chrome, syntax highlighting, and copy button. Auto-sizes to content height with max-height scroll.",
+  "tags": ["code", "syntax", "dark", "developer", "documentation"],
+  "version": "1.0",
+  "author": "ANTSAND",
+  "created": "2025-05-14",
+
+  "css_classes": {
+    "container": "antsand-code-block",
+    "container_alt": "antsand-code-preview",
+    "header": "antsand-code-header",
+    "label": "antsand-code-label",
+    "language": "antsand-code-language",
+    "pre": "antsand-code-pre",
+    "copy_btn": "antsand-code-copy"
+  },
+
+  "variants": [
+    {
+      "id": "dark-default",
+      "name": "Dark (Default)",
+      "css_class": "antsand-code-block",
+      "description": "Standard dark code block with traffic light chrome"
+    },
+    {
+      "id": "dark-preview",
+      "name": "Dark Preview (Larger)",
+      "css_class": "antsand-code-block antsand-code-preview",
+      "description": "Premium dark style for hero/documentation code showcases"
+    },
+    {
+      "id": "dark-compact",
+      "name": "Dark Compact",
+      "css_class": "antsand-code-block antsand-code-preview antsand-code-preview-compact",
+      "description": "Smaller variant for inline documentation"
+    },
+    {
+      "id": "light",
+      "name": "Light",
+      "css_class": "antsand-code-block antsand-code-block-light",
+      "description": "Light theme — white background, GitHub-style syntax colors"
+    },
+    {
+      "id": "terminal",
+      "name": "Terminal",
+      "css_class": "antsand-code-block antsand-code-block-terminal",
+      "description": "CLI/terminal green-on-black style"
+    }
+  ],
+
+  "syntax_tokens": {
+    "description": "Wrap code tokens in <span class='syn-*'> for coloring",
+    "tokens": [
+      { "class": "syn-tag",  "purpose": "HTML/XML tags",       "dark_color": "#f15b2a", "light_color": "#22863a" },
+      { "class": "syn-attr", "purpose": "Attributes",          "dark_color": "#94a3b8", "light_color": "#6f42c1" },
+      { "class": "syn-str",  "purpose": "Strings / values",    "dark_color": "#ffd93d", "light_color": "#032f62" },
+      { "class": "syn-cmt",  "purpose": "Comments",            "dark_color": "#64748b", "light_color": "#6a737d" },
+      { "class": "syn-kw",   "purpose": "Keywords",            "dark_color": "#c792ea", "light_color": "#d73a49" },
+      { "class": "syn-fn",   "purpose": "Functions",           "dark_color": "#82aaff", "light_color": "#6f42c1" },
+      { "class": "syn-num",  "purpose": "Numbers",             "dark_color": "#f78c6c", "light_color": "#005cc5" },
+      { "class": "syn-var",  "purpose": "Variables/properties", "dark_color": "#e2e8f0", "light_color": "#24292e" },
+      { "class": "syn-op",   "purpose": "Operators",           "dark_color": "#89ddff", "light_color": "#d73a49" },
+      { "class": "syn-sel",  "purpose": "CSS selectors",       "dark_color": "#c3e88d", "light_color": "#22863a" }
+    ]
+  },
+
+  "schema": {
+    "description": "Data structure for code block component",
+    "body": {
+      "label": {
+        "type": "string",
+        "description": "Filename or title shown in header (e.g. 'section.volt')"
+      },
+      "language": {
+        "type": "string",
+        "description": "Language badge (e.g. 'HTML', 'CSS', 'JS', 'PHP')"
+      },
+      "code": {
+        "type": "string",
+        "description": "The code content (HTML-escaped, with <span class='syn-*'> tokens for coloring)"
+      },
+      "theme": {
+        "type": "string",
+        "enum": ["dark", "preview", "compact", "light", "terminal"],
+        "description": "Theme variant (default: dark)",
+        "default": "dark"
+      },
+      "copy": {
+        "type": "boolean",
+        "description": "Show copy-to-clipboard button",
+        "default": true
+      },
+      "description": {
+        "type": "string",
+        "description": "Optional description text above the code block"
+      }
+    },
+    "body_css": {
+      "container": {
+        "type": "string",
+        "description": "Variant class (see variants array)"
+      }
+    }
+  },
+
+  "databoard_usage": {
+    "description": "To use the code preview renderer in a databoard section, use type=codepreview or include code_preview objects in body array",
+    "detection": "Auto-detected when body items have a 'code_preview' key, or when body has 'code_blocks' array",
+    "example_section": {
+      "header": {
+        "h2": "Code Block Themes",
+        "p": "Available styling variants for code blocks",
+        "show_reference": true
+      },
+      "body": [
+        {
+          "code_preview": {
+            "label": "hero-section.volt",
+            "language": "HTML",
+            "theme": "dark",
+            "description": "Dark theme (default)",
+            "code": "<span class='syn-tag'>&lt;div</span> <span class='syn-attr'>class</span>=<span class='syn-str'>\"antsand-hero\"</span><span class='syn-tag'>&gt;</span>"
+          }
+        },
+        {
+          "code_preview": {
+            "label": "styles.css",
+            "language": "CSS",
+            "theme": "light",
+            "description": "Light theme — GitHub-style",
+            "code": "<span class='syn-sel'>.antsand-hero</span> { <span class='syn-kw'>display</span>: <span class='syn-str'>flex</span>; }"
+          }
+        },
+        {
+          "code_preview": {
+            "label": "$ terminal",
+            "language": "bash",
+            "theme": "terminal",
+            "description": "Terminal theme — green on black",
+            "code": "<span class='syn-fn'>make</span> <span class='syn-var'>master</span> && <span class='syn-fn'>make</span> <span class='syn-var'>sync-all</span>"
+          }
+        }
+      ]
+    }
+  },
+
+  "html_template": "<div class=\"{container_class}\">\n  <div class=\"antsand-code-header\">\n    <span class=\"antsand-code-label\">{label}</span>\n    <span class=\"antsand-code-language\">{language}</span>\n  </div>\n  <pre class=\"antsand-code-pre\"><code>{code}</code></pre>\n</div>",
+
+  "accessibility": {
+    "aria_label": "Code example",
+    "role": "region",
+    "notes": [
+      "All syntax token colors pass WCAG AA contrast on #111827 background",
+      "Copy button has :focus-visible outline",
+      "Respects prefers-reduced-motion",
+      "prefers-contrast: more increases token visibility",
+      "Print stylesheet removes decorations and uses black text"
+    ]
+  },
+
+  "responsive": {
+    "breakpoints": {
+      "768px": "Smaller font (0.78rem), reduced padding, max-height 60vh",
+      "480px": "Tiny font (0.72rem), negative margins for full-bleed, max-height 50vh"
+    }
+  }
+}

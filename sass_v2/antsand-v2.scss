@@ -57,6 +57,9 @@
 @import 'foundation/variables';
 @import 'foundation/reset';
 @import 'foundation/mixins';
+@import 'foundation/custom-properties';
+@import 'foundation/animations';
+@import 'foundation/a11y';
 @import 'foundation/utilities';
 
 // Layout
@@ -83,11 +86,19 @@
 @import 'components/breadcrumb';
 @import 'components/typography';
 @import 'components/callout';
+@import 'components/code';
 @import 'components/tables';
 @import 'components/post-detail';
 @import 'components/resume';
 @import 'components/ecommerce-store';
 @import 'components/payment-checkout';
+@import 'components/spinner';
+@import 'components/toast';
+@import 'components/progress';
+@import 'components/skeleton';
+@import 'components/pagination';
+@import 'components/offcanvas';
+@import 'components/gallery';
 
 // Patterns
 @import 'patterns/hero';
