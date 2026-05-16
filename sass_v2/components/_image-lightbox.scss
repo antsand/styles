@@ -1,0 +1,201 @@
+// ============================================
+// ANTSAND Image Lightbox
+// ============================================
+// Reusable click-to-expand image preview for blog/article content.
+// JS auto-binds to .antsand-article, blog detail layouts, and [data-image-lightbox].
+
+.antsand-image-lightbox-trigger {
+    cursor: zoom-in;
+    transition: filter 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+
+    &:hover,
+    &:focus-visible {
+        filter: brightness(0.96);
+        box-shadow: 0 18px 38px rgba(15, 23, 42, 0.16);
+    }
+
+    &:focus-visible {
+        outline: 3px solid rgba(241, 91, 42, 0.55);
+        outline-offset: 4px;
+    }
+}
+
+.antsand-image-lightbox-open {
+    overflow: hidden;
+}
+
+.antsand-image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: $antsand-z-modal;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1rem, 3vw, 2rem);
+    color: white;
+
+    &.active {
+        display: flex;
+    }
+}
+
+.antsand-image-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(241, 91, 42, 0.12), transparent 35%),
+        rgba(2, 6, 23, 0.86);
+    backdrop-filter: blur(14px);
+    cursor: zoom-out;
+}
+
+.antsand-image-lightbox__dialog {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    width: unquote("min(100%, 1180px)");
+    max-height: calc(100vh - 2rem);
+}
+
+.antsand-image-lightbox__image {
+    grid-column: 2;
+    grid-row: 1;
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 8rem);
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 1rem;
+    object-fit: contain;
+    background: rgba(15, 23, 42, 0.75);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
+}
+
+.antsand-image-lightbox__close,
+.antsand-image-lightbox__nav {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(15, 23, 42, 0.72);
+    color: white;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+    transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+
+    &:hover,
+    &:focus-visible {
+        background: rgba(241, 91, 42, 0.92);
+        border-color: rgba(241, 91, 42, 0.95);
+        transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+        outline: 3px solid rgba(255, 255, 255, 0.35);
+        outline-offset: 3px;
+    }
+}
+
+.antsand-image-lightbox__close {
+    position: absolute;
+    top: -0.5rem;
+    right: 0;
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.antsand-image-lightbox__nav {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    font-size: 2.4rem;
+    line-height: 1;
+}
+
+.antsand-image-lightbox__prev {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.antsand-image-lightbox__next {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.antsand-image-lightbox__meta {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.95rem;
+}
+
+.antsand-image-lightbox__caption {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.antsand-image-lightbox__counter {
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.54);
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: $antsand-breakpoint-sm) {
+    .antsand-image-lightbox {
+        padding: 0.75rem;
+    }
+
+    .antsand-image-lightbox__dialog {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .antsand-image-lightbox__image,
+    .antsand-image-lightbox__meta {
+        grid-column: 1;
+    }
+
+    .antsand-image-lightbox__image {
+        max-height: calc(100vh - 7rem);
+        border-radius: 0.75rem;
+    }
+
+    .antsand-image-lightbox__nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .antsand-image-lightbox__prev {
+        left: 0.5rem;
+    }
+
+    .antsand-image-lightbox__next {
+        right: 0.5rem;
+    }
+
+    .antsand-image-lightbox__meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .antsand-image-lightbox-trigger,
+    .antsand-image-lightbox__close,
+    .antsand-image-lightbox__nav {
+        transition: none;
+    }
+}

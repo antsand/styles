@@ -9,6 +9,8 @@
  * - Tables (sortable, searchable, pagination)
  * - Carousel (slide, fade, cards, cover variants)
  * - Accordion, dropdown, topnav, modal, alert progressive enhancement
+ * - Image Lightbox (click-to-expand blog/article images)
+ * - AI Bar (Copy for AI/LLM, View as Markdown)
  * - Forms validation (coming soon)
  *
  * ANTSAND Universal Structure:
@@ -33,6 +35,8 @@ import { AntsandTopnav, initAllTopnavs } from './modules/topnav.js';
 import { AntsandModal, initAllModals, openModal, closeModal } from './modules/modal.js';
 import { AntsandAlert, initAllAlerts } from './modules/alert.js';
 import { AntsandGallery, initAllGalleries } from './modules/gallery.js';
+import { AntsandAiBar, initAllAiBars } from './modules/ai-bar.js';
+import { AntsandImageLightbox, initAllImageLightboxes } from './modules/image-lightbox.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
@@ -52,7 +56,9 @@ function initAll() {
         topnavs: initAllTopnavs(),
         modals: initAllModals(),
         alerts: initAllAlerts(),
-        galleries: initAllGalleries()
+        galleries: initAllGalleries(),
+        aiBars: initAllAiBars(),
+        imageLightboxes: initAllImageLightboxes()
     };
 
     // Log initialization summary (development only)
@@ -67,7 +73,9 @@ function initAll() {
             topnavs: initialized.topnavs.length,
             modals: initialized.modals.length,
             alerts: initialized.alerts.length,
-            galleries: initialized.galleries.length
+            galleries: initialized.galleries.length,
+            aiBars: initialized.aiBars.length,
+            imageLightboxes: initialized.imageLightboxes.length
         });
     }
 
@@ -134,6 +142,8 @@ const ANTSAND = {
     Modal: AntsandModal,
     Alert: AntsandAlert,
     Gallery: AntsandGallery,
+    AiBar: AntsandAiBar,
+    ImageLightbox: AntsandImageLightbox,
 
     // Initialization functions
     initTabs: initAllTabs,
@@ -146,6 +156,8 @@ const ANTSAND = {
     initModals: initAllModals,
     initAlerts: initAllAlerts,
     initGalleries: initAllGalleries,
+    initAiBars: initAllAiBars,
+    initImageLightboxes: initAllImageLightboxes,
     openModal,
     closeModal,
     initAll: initAll,
@@ -187,6 +199,8 @@ export {
     AntsandModal,
     AntsandAlert,
     AntsandGallery,
+    AntsandAiBar,
+    AntsandImageLightbox,
     initAllTabs,
     initAllTables,
     initAllCarousels,
@@ -197,6 +211,8 @@ export {
     initAllModals,
     initAllAlerts,
     initAllGalleries,
+    initAllAiBars,
+    initAllImageLightboxes,
     openModal,
     closeModal,
     initAll

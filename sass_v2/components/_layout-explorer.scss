@@ -1,0 +1,359 @@
+// ANTSAND Layout Explorer
+// Template documentation component: vertical tabs + SVG contract previews.
+
+.antsand-layout-explorer {
+  background: linear-gradient(180deg, #151515 0%, #111827 100%);
+  color: #f8fafc;
+  padding: 5rem 1.5rem 6rem;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  // service_3_modern owns the header shell. The explorer styles the stable
+  // direct header slot instead of requiring a custom nested hero wrapper.
+  > .antsand-layout-explorer__inner > div:not(.antsand-layout-explorer__body) {
+    margin: 0 auto 2.25rem;
+    max-width: 900px;
+    order: 1;
+    text-align: center;
+    width: 100%;
+
+    > div {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    span {
+      color: #ff6b35;
+      display: inline-flex;
+      font-size: 0.78rem;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.9rem;
+      order: -1;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: clamp(2.35rem, 5vw, 4.2rem);
+      font-weight: 900;
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+      margin: 0 0 1rem;
+    }
+
+    p {
+      color: rgba(226, 232, 240, 0.72);
+      font-size: 1.04rem;
+      line-height: 1.72;
+      margin: 0.3rem auto 0;
+      max-width: 780px;
+    }
+  }
+
+  &__body {
+    margin: 0 auto;
+    max-width: 1280px;
+    order: 2;
+    width: 100%;
+  }
+
+  &__hero {
+    text-align: center;
+    margin: 0 auto 2rem;
+  }
+
+  &__hero-inner {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  &__kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.9rem;
+    color: #ff6b35;
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: #ffffff;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 1.05;
+    margin: 0 0 1rem;
+  }
+
+  &__lede {
+    color: rgba(226, 232, 240, 0.72);
+    font-size: 1.08rem;
+    line-height: 1.75;
+    margin: 0.35rem auto 0;
+  }
+
+  &__callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 1.5rem auto 0;
+    padding: 0.85rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.065);
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.92rem;
+  }
+
+  &__tabs {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: start;
+    margin: 2.25rem auto 0;
+    max-width: 1220px;
+    width: 100%;
+  }
+
+  &__rail {
+    position: sticky;
+    top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+    padding: 1rem 0.9rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  &__tab {
+    align-items: center;
+    display: inline-flex;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.7rem;
+    min-height: 2.75rem;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 650;
+    text-align: left;
+
+    &.active {
+      background: rgba(255, 107, 53, 0.16);
+      box-shadow: inset 3px 0 0 #ff6b35;
+      color: #ffffff;
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+    }
+  }
+
+  &__tab-icon {
+    color: #ff6b35;
+    font-size: 0.75rem;
+  }
+
+  &__panels {
+    min-width: 0;
+    width: 100%;
+  }
+
+  &__panel {
+    color: #f8fafc;
+    min-width: 0;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+    width: 100%;
+  }
+
+  &__panel-kicker {
+    color: #ff6b35;
+    font-size: 0.8rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    margin: 0 0 0.65rem;
+    text-transform: uppercase;
+  }
+
+  &__panel-title {
+    color: #ffffff;
+    font-size: clamp(1.4rem, 3vw, 2.15rem);
+    font-weight: 850;
+    letter-spacing: -0.035em;
+    margin: 0 0 0.7rem;
+  }
+
+  &__panel-copy {
+    color: rgba(226, 232, 240, 0.68);
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+
+  &__preview {
+    margin: 1.5rem 0;
+    padding: 1.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  &__field-card {
+    border-left: 4px solid #ff6b35;
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.58);
+    min-width: 0;
+    padding: 1rem;
+  }
+
+  &__field-name {
+    color: #ff6b35;
+    font-family: "JetBrains Mono", "SF Mono", monospace;
+    font-size: 0.82rem;
+    margin: 0 0 0.4rem;
+    overflow-wrap: anywhere;
+  }
+
+  &__field-type {
+    color: rgba(255, 255, 255, 0.58);
+    font-size: 0.8rem;
+    margin: 0 0 0.45rem;
+  }
+
+  &__field-note {
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 0.82rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  &__code,
+  &__panel-footer {
+    margin-top: 1.5rem;
+  }
+
+  &__code .antsand-codepreview-section,
+  &__panel-footer .antsand-codepreview-section {
+    margin: 0;
+  }
+
+  // Override generic tabs defaults from antsand-v2.css. This component uses the
+  // same JS contract, but owns its visual treatment.
+  .antsand-layout-explorer__tabs.antsand-tabs-vertical {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .antsand-layout-explorer__tabs.antsand-tabs-vertical .antsand-layout-explorer__rail.tabs-header {
+    flex-direction: column;
+    min-width: 0;
+    padding-right: 0.9rem;
+  }
+
+  .antsand-layout-explorer__tabs.antsand-tabs-vertical .antsand-layout-explorer__tab.tabs-item {
+    background: transparent;
+    border: 0;
+    color: rgba(255, 255, 255, 0.56);
+    padding: 0.75rem 0.85rem;
+  }
+
+  .antsand-layout-explorer__tabs.antsand-tabs-vertical .antsand-layout-explorer__tab.tabs-item:hover,
+  .antsand-layout-explorer__tabs.antsand-tabs-vertical .antsand-layout-explorer__tab.tabs-item:focus-visible {
+    background: rgba(255, 255, 255, 0.075);
+    color: #ffffff;
+  }
+
+  .antsand-layout-explorer__tabs.antsand-tabs-vertical .antsand-layout-explorer__tab.tabs-item.active {
+    background: rgba(255, 107, 53, 0.16);
+    box-shadow: inset 3px 0 0 #ff6b35;
+    color: #ffffff;
+  }
+
+  .antsand-layout-explorer__tabs.antsand-tabs-vertical .antsand-layout-explorer__tab.tabs-item.active:hover,
+  .antsand-layout-explorer__tabs.antsand-tabs-vertical .antsand-layout-explorer__tab.tabs-item.active:focus-visible {
+    background: rgba(255, 107, 53, 0.22);
+    color: #ffffff;
+  }
+
+  .antsand-layout-explorer__panel.tabs-content {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+    display: none;
+    min-height: 0;
+  }
+
+  .antsand-layout-explorer__panel.tabs-content.active {
+    display: block;
+  }
+
+  .antsand-code-block,
+  .antsand-code-preview {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .antsand-code-pre {
+    max-height: 340px;
+    overflow: auto;
+    white-space: pre;
+  }
+}
+
+@media (max-width: 900px) {
+  .antsand-layout-explorer {
+    &__tabs {
+      grid-template-columns: 1fr;
+    }
+
+    &__rail {
+      position: static;
+      flex-direction: row;
+      overflow-x: auto;
+      border-right: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    &__tab {
+      width: auto;
+      white-space: nowrap;
+    }
+
+    &__fields {
+      grid-template-columns: 1fr;
+    }
+  }
+}

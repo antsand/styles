@@ -1,0 +1,526 @@
+// ============================================
+// ANTSAND Styles v2 - AI Action Bar
+// Stripe-inspired LLM/AI actions for content
+// Copy for LLM, View as Markdown, Ask AI
+//
+// Variants:
+//   --compact    Small inline use (cards, code blocks)
+//   --pill       Pill-shaped button actions
+//   --bordered   Outlined button style
+//   --filled     Solid background actions
+//   --floating   Fixed bottom bar (page-level)
+//   --vertical   Stacked sidebar layout
+//   --minimal    Icon-only, labels on hover
+//   --gradient   Gradient accent bar
+//   --dark       For dark backgrounds
+//   --glass      Frosted glass effect
+//   --toolbar    IDE-style toolbar
+// ============================================
+
+// --- Base ---
+.antsand-ai-bar {
+    display: flex;
+    align-items: center;
+    gap: $antsand-space-1;
+    padding: $antsand-space-2 0;
+    margin: $antsand-space-2 0 $antsand-space-4;
+    border-bottom: 1px solid $antsand-gray-200;
+    flex-wrap: wrap;
+}
+
+.antsand-ai-bar__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-medium;
+    color: $antsand-gray-600;
+    background: none;
+    border: none;
+    border-radius: $antsand-radius-sm;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color $antsand-transition-fast, background $antsand-transition-fast;
+    line-height: 1.4;
+
+    &:hover {
+        color: $antsand-gray-900;
+        background: $antsand-gray-100;
+    }
+
+    &--active {
+        color: $antsand-primary;
+        background: rgba($antsand-primary, 0.06);
+    }
+
+    &-icon {
+        font-size: 0.9rem;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    &-label {
+        display: inline;
+    }
+
+    &-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 1.1rem;
+        height: 1.1rem;
+        padding: 0 0.3rem;
+        font-size: 0.65rem;
+        font-weight: $antsand-font-weight-bold;
+        background: $antsand-primary;
+        color: white;
+        border-radius: $antsand-radius-full;
+        margin-left: 0.25rem;
+    }
+}
+
+.antsand-ai-bar__divider {
+    width: 1px;
+    height: 1rem;
+    background: $antsand-gray-300;
+    margin: 0 $antsand-space-1;
+}
+
+// --- Toast ---
+.antsand-ai-bar__toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    padding: 0.6rem 1.25rem;
+    background: $antsand-gray-900;
+    color: white;
+    font-size: $antsand-font-size-sm;
+    font-weight: $antsand-font-weight-medium;
+    border-radius: $antsand-radius-full;
+    box-shadow: $antsand-shadow-lg;
+    opacity: 0;
+    pointer-events: none;
+    z-index: $antsand-z-tooltip;
+    transition: opacity 200ms ease, transform 200ms ease;
+
+    &--visible {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+// --- Markdown overlay ---
+.antsand-ai-bar__md-view {
+    display: none;
+    background: $antsand-gray-50;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-md;
+    padding: $antsand-space-4 $antsand-space-5;
+    margin: $antsand-space-3 0;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: $antsand-gray-800;
+    max-height: 70vh;
+    overflow-y: auto;
+    position: relative;
+
+    &--visible { display: block; }
+
+    &-actions {
+        position: absolute;
+        top: $antsand-space-2;
+        right: $antsand-space-2;
+        display: flex;
+        gap: $antsand-space-2;
+    }
+
+    &-copy,
+    &-close {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+        background: white;
+        border: 1px solid $antsand-gray-300;
+        border-radius: $antsand-radius-sm;
+        cursor: pointer;
+        color: $antsand-gray-600;
+
+        &:hover {
+            background: $antsand-gray-100;
+            color: $antsand-gray-900;
+        }
+    }
+}
+
+// ============================================
+// VARIANTS
+// ============================================
+
+// --- Compact: small inline use ---
+.antsand-ai-bar--compact {
+    padding: $antsand-space-1 0;
+    margin: $antsand-space-1 0;
+    border-bottom: none;
+    gap: 0.25rem;
+
+    .antsand-ai-bar__action {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
+
+// --- Pill: rounded pill buttons ---
+.antsand-ai-bar--pill {
+    gap: $antsand-space-2;
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        border-radius: $antsand-radius-full;
+        padding: 0.35rem 0.9rem;
+        background: $antsand-gray-100;
+        border: 1px solid transparent;
+
+        &:hover {
+            background: $antsand-gray-200;
+        }
+
+        &--active {
+            background: rgba($antsand-primary, 0.1);
+            color: $antsand-primary;
+            border-color: rgba($antsand-primary, 0.2);
+        }
+    }
+
+    .antsand-ai-bar__divider { display: none; }
+}
+
+// --- Bordered: outlined button style ---
+.antsand-ai-bar--bordered {
+    gap: $antsand-space-2;
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        border: 1px solid $antsand-gray-300;
+        border-radius: $antsand-radius-md;
+        padding: 0.4rem 0.85rem;
+
+        &:hover {
+            border-color: $antsand-primary;
+            color: $antsand-primary;
+            background: rgba($antsand-primary, 0.03);
+        }
+
+        &--active {
+            border-color: $antsand-primary;
+            color: $antsand-primary;
+            background: rgba($antsand-primary, 0.06);
+        }
+    }
+
+    .antsand-ai-bar__divider { display: none; }
+}
+
+// --- Filled: solid background ---
+.antsand-ai-bar--filled {
+    gap: $antsand-space-2;
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        background: $antsand-gray-900;
+        color: white;
+        border-radius: $antsand-radius-sm;
+        padding: 0.4rem 0.85rem;
+
+        &:hover {
+            background: $antsand-primary;
+        }
+
+        &--active {
+            background: $antsand-primary;
+        }
+    }
+
+    .antsand-ai-bar__divider { display: none; }
+}
+
+// --- Floating: fixed bottom bar ---
+.antsand-ai-bar--floating {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: $antsand-z-sticky;
+    background: white;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-full;
+    padding: $antsand-space-2 $antsand-space-4;
+    box-shadow: $antsand-shadow-lg;
+    margin: 0;
+    gap: $antsand-space-2;
+
+    .antsand-ai-bar__action {
+        border-radius: $antsand-radius-full;
+        padding: 0.35rem 0.85rem;
+    }
+}
+
+// --- Vertical: sidebar stacked ---
+.antsand-ai-bar--vertical {
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: none;
+    border-right: 2px solid $antsand-gray-200;
+    padding: $antsand-space-2 $antsand-space-3;
+    gap: $antsand-space-1;
+
+    .antsand-ai-bar__action {
+        justify-content: flex-start;
+        padding: 0.5rem 0.75rem;
+        border-radius: $antsand-radius-sm;
+
+        &:hover {
+            background: $antsand-gray-100;
+        }
+
+        &--active {
+            border-left: 2px solid $antsand-primary;
+            color: $antsand-primary;
+            background: rgba($antsand-primary, 0.04);
+            margin-left: -2px;
+        }
+    }
+
+    .antsand-ai-bar__divider {
+        width: 100%;
+        height: 1px;
+        margin: $antsand-space-1 0;
+    }
+}
+
+// --- Minimal: icon only, label on hover ---
+.antsand-ai-bar--minimal {
+    gap: 0.15rem;
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        padding: 0.4rem;
+        border-radius: $antsand-radius-sm;
+        position: relative;
+
+        &-label {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: $antsand-gray-900;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: $antsand-radius-sm;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        &:hover &-label {
+            display: block;
+        }
+
+        &-icon {
+            font-size: 1.1rem;
+        }
+    }
+
+    .antsand-ai-bar__divider {
+        height: 0.8rem;
+        margin: 0 0.1rem;
+    }
+}
+
+// --- Gradient: accent gradient bar ---
+.antsand-ai-bar--gradient {
+    background: linear-gradient(135deg, rgba($antsand-primary, 0.05), rgba(#9b59b6, 0.05));
+    border: 1px solid rgba($antsand-primary, 0.12);
+    border-radius: $antsand-radius-md;
+    padding: $antsand-space-2 $antsand-space-3;
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        color: $antsand-gray-700;
+
+        &:hover {
+            color: $antsand-primary;
+            background: rgba($antsand-primary, 0.08);
+        }
+
+        &--active {
+            color: $antsand-primary;
+            background: rgba($antsand-primary, 0.1);
+        }
+    }
+}
+
+// --- Dark: for dark backgrounds ---
+.antsand-ai-bar--dark {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+
+    .antsand-ai-bar__action {
+        color: rgba(255, 255, 255, 0.6);
+
+        &:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        &--active {
+            color: #60a5fa;
+            background: rgba(96, 165, 250, 0.1);
+        }
+    }
+
+    .antsand-ai-bar__divider {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+// --- Glass: frosted glass effect ---
+.antsand-ai-bar--glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: $antsand-radius-md;
+    padding: $antsand-space-2 $antsand-space-3;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        &:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    }
+}
+
+// --- Glass Dark ---
+.antsand-ai-bar--glass-dark {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: $antsand-radius-md;
+    padding: $antsand-space-2 $antsand-space-3;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        color: rgba(255, 255, 255, 0.7);
+
+        &:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        &--active {
+            color: #818cf8;
+            background: rgba(129, 140, 248, 0.12);
+        }
+    }
+
+    .antsand-ai-bar__divider {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+// --- Toolbar: IDE-style flat toolbar ---
+.antsand-ai-bar--toolbar {
+    background: $antsand-gray-100;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-md;
+    padding: 0.3rem 0.5rem;
+    gap: 0.15rem;
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.78rem;
+        border-radius: $antsand-radius-sm;
+
+        &:hover {
+            background: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+        }
+
+        &--active {
+            background: white;
+            color: $antsand-primary;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .antsand-ai-bar__divider {
+        height: 0.9rem;
+    }
+}
+
+// --- Card: contained card style ---
+.antsand-ai-bar--card {
+    background: white;
+    border: 1px solid $antsand-gray-200;
+    border-radius: $antsand-radius-lg;
+    padding: $antsand-space-3 $antsand-space-4;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    gap: $antsand-space-3;
+    border-bottom: none;
+
+    .antsand-ai-bar__action {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: $antsand-space-2 $antsand-space-3;
+        border-radius: $antsand-radius-md;
+        text-align: center;
+
+        &-icon {
+            font-size: 1.25rem;
+        }
+
+        &:hover {
+            background: $antsand-gray-50;
+        }
+    }
+
+    .antsand-ai-bar__divider {
+        height: 2rem;
+    }
+}
+
+// --- Inline: blends into text flow ---
+.antsand-ai-bar--inline {
+    display: inline-flex;
+    margin: 0 0.25rem;
+    padding: 0;
+    border: none;
+    gap: 0.15rem;
+    vertical-align: middle;
+
+    .antsand-ai-bar__action {
+        padding: 0.15rem 0.4rem;
+        font-size: 0.78rem;
+        color: $antsand-primary;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
+            background: rgba($antsand-primary, 0.06);
+        }
+    }
+
+    .antsand-ai-bar__divider {
+        height: 0.7rem;
+    }
+}
