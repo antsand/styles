@@ -21,7 +21,7 @@ class AntsandTopnav {
         if (this.toggle.tagName === 'BUTTON' && !this.toggle.hasAttribute('type')) {
             this.toggle.setAttribute('type', 'button');
         }
-        this.toggle.setAttribute('aria-expanded', this.menu.classList.contains('active') ? 'true' : 'false');
+        this.toggle.setAttribute('aria-expanded', this._isOpen() ? 'true' : 'false');
         this.toggle.setAttribute('aria-controls', this.menu.id || `${this.nav.id || 'antsand-nav'}-menu`);
         this.menu.id = this.menu.id || this.toggle.getAttribute('aria-controls');
 
@@ -35,13 +35,13 @@ class AntsandTopnav {
         });
 
         document.addEventListener('click', (e) => {
-            if (this.menu.classList.contains('active') && !this.nav.contains(e.target)) {
+            if (this._isOpen() && !this.nav.contains(e.target)) {
                 this._close();
             }
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && this.menu.classList.contains('active')) {
+            if (e.key === 'Escape' && this._isOpen()) {
                 this._close();
                 this.toggle.focus();
             }
@@ -49,12 +49,17 @@ class AntsandTopnav {
     }
 
     _toggle() {
-        this.menu.classList.contains('active') ? this._close() : this._open();
+        this._isOpen() ? this._close() : this._open();
+    }
+
+    _isOpen() {
+        return this.menu.classList.contains('active') || this.menu.classList.contains('nav-open');
     }
 
     _open() {
         this.toggle.classList.add('active');
         this.menu.classList.add('active');
+        this.menu.classList.add('nav-open');
         this.toggle.querySelector('.antsand-navbar-toggle-icon')?.classList.add('active');
         this.toggle.setAttribute('aria-expanded', 'true');
     }
@@ -62,6 +67,7 @@ class AntsandTopnav {
     _close() {
         this.toggle.classList.remove('active');
         this.menu.classList.remove('active');
+        this.menu.classList.remove('nav-open');
         this.toggle.querySelector('.antsand-navbar-toggle-icon')?.classList.remove('active');
         this.toggle.setAttribute('aria-expanded', 'false');
     }

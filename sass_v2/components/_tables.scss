@@ -51,15 +51,38 @@ $_dark-accent: #60a5fa;
 // =============================================================================
 .ant-table {
     width: 100%;
-    overflow: hidden;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     background: $_light-bg;
     border-radius: $_table-radius;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;
+        height: 100%;
+        pointer-events: none;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0));
+        opacity: 0;
+        transition: $_table-transition;
+    }
+
+    &:hover::after,
+    &:focus-within::after {
+        opacity: 1;
+    }
 
     // Inner table
     table {
         width: 100%;
+        min-width: 100%;
         border-collapse: collapse;
         font-size: 14px;
         color: $_light-text;
@@ -716,6 +739,10 @@ $_dark-accent: #60a5fa;
         color: $_dark-text;
     }
 
+    &::after {
+        background: linear-gradient(to left, rgba(30, 30, 30, 0.92), rgba(30, 30, 30, 0));
+    }
+
     th {
         background: $_dark-header-bg;
         color: $_dark-text-muted;
@@ -936,9 +963,60 @@ $_dark-accent: #60a5fa;
 @media (max-width: 768px) {
     .ant-table {
         border-radius: 8px;
+        margin-left: -4px;
+        margin-right: -4px;
+        padding-bottom: 2px;
+
+        table {
+            min-width: 100%;
+            font-size: 13px;
+        }
+
+        th,
+        td {
+            padding: 11px 12px;
+            white-space: nowrap;
+        }
+
+        td {
+            max-width: 220px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        th {
+            font-size: 11px;
+            letter-spacing: 0.35px;
+        }
+
+        th.sortable {
+            padding-right: 26px;
+        }
+
+        &.compact-mobile,
+        &.wide,
+        &.ant-table--wide,
+        &.ant-table--scroll {
+            table {
+                min-width: 820px;
+            }
+
+            th,
+            td {
+                padding: 10px 10px;
+            }
+        }
 
         // Stack to cards on mobile
         &.responsive {
+            margin-left: 0;
+            margin-right: 0;
+            overflow: visible;
+
+            table {
+                min-width: 0;
+            }
+
             table, thead, tbody, tr, th, td {
                 display: block;
             }
@@ -960,9 +1038,15 @@ $_dark-accent: #60a5fa;
                 align-items: center;
                 padding: 12px 16px;
                 border-bottom: 1px solid $_light-border;
+                max-width: none;
+                white-space: normal;
+                overflow: visible;
+                text-overflow: clip;
+                gap: 16px;
 
                 &::before {
                     content: attr(data-label);
+                    flex: 0 0 42%;
                     font-weight: 600;
                     color: $_light-text-muted;
                     font-size: 12px;
@@ -994,10 +1078,27 @@ $_dark-accent: #60a5fa;
     .ant-table__controls {
         flex-direction: column;
         align-items: stretch;
+        padding: 12px;
     }
 
     .ant-table__search {
         max-width: none;
+
+        input {
+            width: 100%;
+            min-width: 0;
+        }
+    }
+
+    .ant-table__pagination {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .ant-table__pagination-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
     }
 }
 

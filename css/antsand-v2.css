@@ -6125,15 +6125,18 @@ section:has(.antsand-topnav-dark) {
       gap: 0.5rem;
       min-height: 0;
       padding: 1rem; }
-  .antsand-topnav-menu {
-    display: none;
+  .antsand-topnav-shell .antsand-topnav-menu,
+  section:has(.antsand-topnav-menu) .antsand-topnav-menu {
+    display: none !important;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
     padding: 0.5rem 0 0;
     border-top: 1px solid rgba(33, 37, 41, 0.08); }
-    .antsand-topnav-menu.active, .antsand-topnav-menu.nav-open {
-      display: flex; }
+    .antsand-topnav-shell .antsand-topnav-menu.active, .antsand-topnav-shell .antsand-topnav-menu.nav-open,
+    section:has(.antsand-topnav-menu) .antsand-topnav-menu.active,
+    section:has(.antsand-topnav-menu) .antsand-topnav-menu.nav-open {
+      display: flex !important; }
   .antsand-topnav-shell {
     flex-wrap: wrap; }
   .antsand-topnav-brand {
@@ -9302,13 +9305,31 @@ section:has(.antsand-topnav-dark) {
 
 .ant-table, .ant-datatable {
   width: 100%;
-  overflow: hidden;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative; }
+  .ant-table::after, .ant-datatable::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  .ant-table:hover::after, .ant-datatable:hover::after, .ant-table:focus-within::after, .ant-datatable:focus-within::after {
+    opacity: 1; }
   .ant-table table, .ant-table .ant-datatable__table, .ant-datatable table, .ant-datatable .ant-datatable__table {
     width: 100%;
+    min-width: 100%;
     border-collapse: collapse;
     font-size: 14px;
     color: #1e293b; }
@@ -9749,6 +9770,8 @@ section:has(.antsand-topnav-dark) {
   border-color: #333333; }
   .ant-table.dark table, .ant-table.dark .ant-datatable__table, .dark.ant-datatable table, .dark.ant-datatable .ant-datatable__table {
     color: #e5e5e5; }
+  .ant-table.dark::after, .dark.ant-datatable::after {
+    background: linear-gradient(to left, rgba(30, 30, 30, 0.92), rgba(30, 30, 30, 0)); }
   .ant-table.dark th, .dark.ant-datatable th {
     background: #2a2a2a;
     color: #a0a0a0;
@@ -9881,31 +9904,75 @@ section:has(.antsand-topnav-dark) {
 
 @media (max-width: 768px) {
   .ant-table, .ant-datatable {
-    border-radius: 8px; }
-    .ant-table.responsive table, .ant-table.responsive .ant-datatable__table, .responsive.ant-datatable table, .responsive.ant-datatable .ant-datatable__table, .ant-table.responsive thead, .responsive.ant-datatable thead, .ant-table.responsive tbody, .responsive.ant-datatable tbody, .ant-table.responsive tr, .responsive.ant-datatable tr, .ant-table.responsive th, .responsive.ant-datatable th, .ant-table.responsive td, .responsive.ant-datatable td {
-      display: block; }
-    .ant-table.responsive thead, .responsive.ant-datatable thead {
-      display: none; }
-    .ant-table.responsive tbody tr, .responsive.ant-datatable tbody tr {
-      margin-bottom: 16px;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      overflow: hidden; }
-    .ant-table.responsive td, .responsive.ant-datatable td {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      border-bottom: 1px solid #e2e8f0; }
-      .ant-table.responsive td::before, .responsive.ant-datatable td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: #64748b;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px; }
-      .ant-table.responsive td:last-child, .responsive.ant-datatable td:last-child {
-        border-bottom: none; }
+    border-radius: 8px;
+    margin-left: -4px;
+    margin-right: -4px;
+    padding-bottom: 2px; }
+    .ant-table table, .ant-table .ant-datatable__table, .ant-datatable table, .ant-datatable .ant-datatable__table {
+      min-width: 100%;
+      font-size: 13px; }
+    .ant-table th, .ant-datatable th,
+    .ant-table td,
+    .ant-datatable td {
+      padding: 11px 12px;
+      white-space: nowrap; }
+    .ant-table td, .ant-datatable td {
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .ant-table th, .ant-datatable th {
+      font-size: 11px;
+      letter-spacing: 0.35px; }
+    .ant-table th.sortable, .ant-datatable th.sortable {
+      padding-right: 26px; }
+    .ant-table.compact-mobile table, .ant-table.compact-mobile .ant-datatable__table, .compact-mobile.ant-datatable table, .compact-mobile.ant-datatable .ant-datatable__table, .ant-table.wide table, .ant-table.wide .ant-datatable__table, .wide.ant-datatable table, .wide.ant-datatable .ant-datatable__table, .ant-table.ant-table--wide table, .ant-table.ant-table--wide .ant-datatable__table, .ant-table--wide.ant-datatable table, .ant-table--wide.ant-datatable .ant-datatable__table, .ant-table.ant-table--scroll table, .ant-table.ant-table--scroll .ant-datatable__table, .ant-table--scroll.ant-datatable table, .ant-table--scroll.ant-datatable .ant-datatable__table {
+      min-width: 820px; }
+    .ant-table.compact-mobile th, .compact-mobile.ant-datatable th,
+    .ant-table.compact-mobile td,
+    .compact-mobile.ant-datatable td, .ant-table.wide th, .wide.ant-datatable th,
+    .ant-table.wide td,
+    .wide.ant-datatable td, .ant-table.ant-table--wide th, .ant-table--wide.ant-datatable th,
+    .ant-table.ant-table--wide td,
+    .ant-table--wide.ant-datatable td, .ant-table.ant-table--scroll th, .ant-table--scroll.ant-datatable th,
+    .ant-table.ant-table--scroll td,
+    .ant-table--scroll.ant-datatable td {
+      padding: 10px 10px; }
+    .ant-table.responsive, .responsive.ant-datatable {
+      margin-left: 0;
+      margin-right: 0;
+      overflow: visible; }
+      .ant-table.responsive table, .ant-table.responsive .ant-datatable__table, .responsive.ant-datatable table, .responsive.ant-datatable .ant-datatable__table {
+        min-width: 0; }
+      .ant-table.responsive table, .ant-table.responsive .ant-datatable__table, .responsive.ant-datatable table, .responsive.ant-datatable .ant-datatable__table, .ant-table.responsive thead, .responsive.ant-datatable thead, .ant-table.responsive tbody, .responsive.ant-datatable tbody, .ant-table.responsive tr, .responsive.ant-datatable tr, .ant-table.responsive th, .responsive.ant-datatable th, .ant-table.responsive td, .responsive.ant-datatable td {
+        display: block; }
+      .ant-table.responsive thead, .responsive.ant-datatable thead {
+        display: none; }
+      .ant-table.responsive tbody tr, .responsive.ant-datatable tbody tr {
+        margin-bottom: 16px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden; }
+      .ant-table.responsive td, .responsive.ant-datatable td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 16px;
+        border-bottom: 1px solid #e2e8f0;
+        max-width: none;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+        gap: 16px; }
+        .ant-table.responsive td::before, .responsive.ant-datatable td::before {
+          content: attr(data-label);
+          flex: 0 0 42%;
+          font-weight: 600;
+          color: #64748b;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px; }
+        .ant-table.responsive td:last-child, .responsive.ant-datatable td:last-child {
+          border-bottom: none; }
     .ant-table.dark.responsive tbody tr, .dark.responsive.ant-datatable tbody tr {
       border-color: #333333; }
     .ant-table.dark.responsive td, .dark.responsive.ant-datatable td {
@@ -9914,9 +9981,20 @@ section:has(.antsand-topnav-dark) {
         color: #a0a0a0; }
   .ant-table__controls, .ant-datatable__controls {
     flex-direction: column;
-    align-items: stretch; }
+    align-items: stretch;
+    padding: 12px; }
   .ant-table__search, .ant-datatable__search {
-    max-width: none; } }
+    max-width: none; }
+    .ant-table__search input, .ant-datatable__search input {
+      width: 100%;
+      min-width: 0; }
+  .ant-table__pagination, .ant-datatable__pagination {
+    align-items: stretch;
+    flex-direction: column; }
+  .ant-table__pagination-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; } }
 
 .post-detail-section {
   max-width: 600px;

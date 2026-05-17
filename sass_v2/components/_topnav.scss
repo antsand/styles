@@ -235,8 +235,9 @@ section:has(.antsand-topnav-dark) {
         }
     }
 
-    .antsand-topnav-menu {
-        display: none;
+    .antsand-topnav-shell .antsand-topnav-menu,
+    section:has(.antsand-topnav-menu) .antsand-topnav-menu {
+        display: none !important;
         flex-direction: column;
         align-items: stretch;
         width: 100%;
@@ -245,7 +246,7 @@ section:has(.antsand-topnav-dark) {
 
         &.active,
         &.nav-open {
-            display: flex;
+            display: flex !important;
         }
     }
 
