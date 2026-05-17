@@ -1513,6 +1513,64 @@
 }
 
 // ============================================
+// H/B/F LAYOUT CONTRACT UTILITIES
+// FOR AGENTS: service_3_modern emits these from UI column_count params.
+// Set flip/image_inline in the data/CSS contract; do not invent extra wrappers.
+// ============================================
+
+.layout-image-inline {
+    > .data-sub-container,
+    > .sub-container {
+        display: flex;
+        align-items: center;
+        gap: var(--antsand-layout-gap, 3rem);
+    }
+
+    .data-img-container,
+    .img-container {
+        flex: 0 0 unquote("min(42%, 460px)");
+    }
+
+    .data-content-wrapper,
+    .content-wrapper {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+}
+
+.layout-flip,
+.layout-media-right {
+    > .data-sub-container,
+    > .sub-container {
+        flex-direction: row-reverse;
+    }
+}
+
+.layout-flip-alternate {
+    > .data-sub-container:nth-child(even),
+    > .sub-container:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+@media (max-width: 767px) {
+    .layout-image-inline {
+        > .data-sub-container,
+        > .sub-container {
+            flex-direction: column;
+            align-items: stretch;
+            gap: var(--antsand-layout-gap-mobile, 1.5rem);
+        }
+
+        .data-img-container,
+        .img-container {
+            flex-basis: auto;
+            width: 100%;
+        }
+    }
+}
+
+// ============================================
 // PRINT STYLESHEET
 // FOR AGENTS: @media print rules auto-apply on Ctrl+P / Cmd+P.
 // Use .no-print to hide elements. Use .print-only for print-exclusive content.

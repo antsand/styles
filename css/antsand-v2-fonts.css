@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Raleway:wght@300;400;600;700;800&display=swap");
 @font-face {
   font-family: 'Boing';
   src: url("/fonts/boing/webfont/Boing-Thin.woff2") format("woff2"), url("/fonts/boing/webfont/Boing-Thin.woff") format("woff");
@@ -966,6 +966,9 @@
 
 .font-Inter {
   font-family: 'Inter'; }
+
+.font-Raleway {
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .font-Futura {
   font-family: 'Futura PT'; }

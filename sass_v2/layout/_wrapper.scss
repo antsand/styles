@@ -148,6 +148,47 @@ $wrapper-padding-desktop: $antsand-space-5 !default; // 32px on desktop
     max-width: none;
 }
 
+// Classic percentage wrapper from the original ANTSAND grid rhythm.
+// Use the namespaced class in new H/B/F pages; keep `.wrapper` stable for
+// existing Sass v2 layouts that rely on max-width behavior.
+.antsand-wrapper-classic {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $wrapper-padding-mobile;
+    padding-right: $wrapper-padding-mobile;
+
+    @include antsand-md {
+        width: 93.18182%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    @include antsand-lg {
+        width: 81.81818%;
+    }
+}
+
+.antsand-inner-wrapper-classic {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $wrapper-padding-mobile;
+    padding-right: $wrapper-padding-mobile;
+
+    @include antsand-md {
+        width: 94.51872%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    @include antsand-lg {
+        width: 61.76471%;
+    }
+}
+
 // ============================================
 // Responsive Width Utilities
 // ============================================
