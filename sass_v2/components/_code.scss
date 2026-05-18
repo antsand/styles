@@ -290,6 +290,114 @@
     .syn-sel    { color: #50fa7b; }
 }
 
+// ── Multi-language / Multi-code panel ──
+.antsand-code-block-multilang {
+    position: relative;
+
+    .antsand-code-pre[hidden] {
+        display: none;
+    }
+
+    .antsand-code-copy {
+        position: absolute;
+        right: $antsand-space-4;
+        top: $antsand-space-4;
+        z-index: 2;
+    }
+}
+
+.antsand-code-block-multi-code {
+    background:
+        radial-gradient(circle at 12% 8%, rgba(139, 92, 246, 0.24), transparent 26%),
+        linear-gradient(120deg, rgba(91, 33, 182, 0.42), rgba(15, 23, 42, 0.82)),
+        #151734;
+    border: 1px solid rgba(167, 139, 250, 0.24);
+    border-radius: 0;
+    box-shadow: 0 32px 110px rgba(30, 27, 75, 0.36);
+    min-height: 34rem;
+
+    &::before {
+        background-image:
+            linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+            linear-gradient(115deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+        background-size: 100% 4.65rem, 9rem 9rem;
+        content: "";
+        inset: 0;
+        opacity: 0.75;
+        pointer-events: none;
+        position: absolute;
+    }
+
+    .antsand-code-header {
+        background: transparent;
+        border: 0;
+        min-height: 3.75rem;
+        padding-right: 4.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .antsand-code-label,
+    .antsand-code-language {
+        display: none;
+    }
+
+    .antsand-code-panels,
+    .antsand-code-pre,
+    .antsand-code-language-tabs {
+        position: relative;
+        z-index: 1;
+    }
+
+    .antsand-code-pre {
+        background: transparent;
+        color: #dbeafe;
+        font-size: clamp(0.82rem, 1.1vw, 1rem);
+        line-height: 1.72;
+        max-height: none;
+        min-height: 26rem;
+        padding: 0 $antsand-space-5 $antsand-space-5;
+    }
+
+    .antsand-code-language-tabs {
+        align-items: stretch;
+        background: rgba(11, 16, 32, 0.7);
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+        display: flex;
+        gap: $antsand-space-3;
+        min-height: 4.2rem;
+        overflow-x: auto;
+        padding: 0 $antsand-space-4;
+    }
+
+    .antsand-code-language-tab {
+        background: transparent;
+        border: 0;
+        border-bottom: 3px solid transparent;
+        color: #c7d2fe;
+        cursor: pointer;
+        flex: 0 0 auto;
+        font-family: $antsand-font-family-mono;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+        padding: 0 $antsand-space-2;
+        text-transform: uppercase;
+        transition: color 160ms ease, border-color 160ms ease;
+
+        &:hover,
+        &:focus-visible,
+        &.is-active {
+            border-bottom-color: #34d399;
+            color: #ffffff;
+        }
+
+        &:focus-visible {
+            outline: 2px solid rgba(52, 211, 153, 0.8);
+            outline-offset: -4px;
+        }
+    }
+}
+
 // ── Copy button ──
 .antsand-code-copy {
     background: transparent;
@@ -353,6 +461,32 @@
             max-height: 60vh;
         }
     }
+
+    .antsand-code-block-multi-code {
+        min-height: 0;
+
+        .antsand-code-header {
+            min-height: 3rem;
+            padding-left: $antsand-space-5;
+            padding-right: 4rem;
+        }
+
+        .antsand-code-pre {
+            max-height: none;
+            min-height: 18rem;
+            padding: 0 $antsand-space-3 $antsand-space-4;
+        }
+
+        .antsand-code-language-tabs {
+            gap: $antsand-space-2;
+            min-height: 3.4rem;
+            padding: 0 $antsand-space-3;
+        }
+
+        .antsand-code-language-tab {
+            font-size: 0.78rem;
+        }
+    }
 }
 
 @media (max-width: 480px) {
@@ -366,6 +500,17 @@
             font-size: 0.72rem;
             padding: $antsand-space-2;
             max-height: 50vh;
+        }
+    }
+
+    .antsand-code-block-multi-code {
+        margin-left: 0;
+        margin-right: 0;
+
+        .antsand-code-pre {
+            font-size: 0.72rem;
+            min-height: 16rem;
+            padding: 0 $antsand-space-2 $antsand-space-3;
         }
     }
 }

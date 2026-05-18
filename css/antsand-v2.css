@@ -9287,6 +9287,82 @@ section:has(.antsand-topnav-dark) {
   .antsand-code-block-terminal .syn-sel {
     color: #50fa7b; }
 
+.antsand-code-block-multilang {
+  position: relative; }
+  .antsand-code-block-multilang .antsand-code-pre[hidden] {
+    display: none; }
+  .antsand-code-block-multilang .antsand-code-copy {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    z-index: 2; }
+
+.antsand-code-block-multi-code {
+  background: radial-gradient(circle at 12% 8%, rgba(139, 92, 246, 0.24), transparent 26%), linear-gradient(120deg, rgba(91, 33, 182, 0.42), rgba(15, 23, 42, 0.82)), #151734;
+  border: 1px solid rgba(167, 139, 250, 0.24);
+  border-radius: 0;
+  box-shadow: 0 32px 110px rgba(30, 27, 75, 0.36);
+  min-height: 34rem; }
+  .antsand-code-block-multi-code::before {
+    background-image: linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px), linear-gradient(115deg, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+    background-size: 100% 4.65rem, 9rem 9rem;
+    content: "";
+    inset: 0;
+    opacity: 0.75;
+    pointer-events: none;
+    position: absolute; }
+  .antsand-code-block-multi-code .antsand-code-header {
+    background: transparent;
+    border: 0;
+    min-height: 3.75rem;
+    padding-right: 4.5rem;
+    position: relative;
+    z-index: 1; }
+  .antsand-code-block-multi-code .antsand-code-label,
+  .antsand-code-block-multi-code .antsand-code-language {
+    display: none; }
+  .antsand-code-block-multi-code .antsand-code-panels,
+  .antsand-code-block-multi-code .antsand-code-pre,
+  .antsand-code-block-multi-code .antsand-code-language-tabs {
+    position: relative;
+    z-index: 1; }
+  .antsand-code-block-multi-code .antsand-code-pre {
+    background: transparent;
+    color: #dbeafe;
+    font-size: clamp(0.82rem, 1.1vw, 1rem);
+    line-height: 1.72;
+    max-height: none;
+    min-height: 26rem;
+    padding: 0 2rem 2rem; }
+  .antsand-code-block-multi-code .antsand-code-language-tabs {
+    align-items: stretch;
+    background: rgba(11, 16, 32, 0.7);
+    border-top: 1px solid rgba(148, 163, 184, 0.18);
+    display: flex;
+    gap: 1rem;
+    min-height: 4.2rem;
+    overflow-x: auto;
+    padding: 0 1.5rem; }
+  .antsand-code-block-multi-code .antsand-code-language-tab {
+    background: transparent;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    color: #c7d2fe;
+    cursor: pointer;
+    flex: 0 0 auto;
+    font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 0 0.5rem;
+    text-transform: uppercase;
+    transition: color 160ms ease, border-color 160ms ease; }
+    .antsand-code-block-multi-code .antsand-code-language-tab:hover, .antsand-code-block-multi-code .antsand-code-language-tab:focus-visible, .antsand-code-block-multi-code .antsand-code-language-tab.is-active {
+      border-bottom-color: #34d399;
+      color: #ffffff; }
+    .antsand-code-block-multi-code .antsand-code-language-tab:focus-visible {
+      outline: 2px solid rgba(52, 211, 153, 0.8);
+      outline-offset: -4px; }
+
 .antsand-code-copy {
   background: transparent;
   border: 1px solid rgba(148, 163, 184, 0.18);
@@ -9334,7 +9410,23 @@ section:has(.antsand-topnav-dark) {
     .antsand-code-preview .antsand-code-pre {
       font-size: 0.78rem;
       padding: 1rem;
-      max-height: 60vh; } }
+      max-height: 60vh; }
+  .antsand-code-block-multi-code {
+    min-height: 0; }
+    .antsand-code-block-multi-code .antsand-code-header {
+      min-height: 3rem;
+      padding-left: 2rem;
+      padding-right: 4rem; }
+    .antsand-code-block-multi-code .antsand-code-pre {
+      max-height: none;
+      min-height: 18rem;
+      padding: 0 1rem 1.5rem; }
+    .antsand-code-block-multi-code .antsand-code-language-tabs {
+      gap: 0.5rem;
+      min-height: 3.4rem;
+      padding: 0 1rem; }
+    .antsand-code-block-multi-code .antsand-code-language-tab {
+      font-size: 0.78rem; } }
 
 @media (max-width: 480px) {
   .antsand-code-block,
@@ -9346,7 +9438,14 @@ section:has(.antsand-topnav-dark) {
     .antsand-code-preview .antsand-code-pre {
       font-size: 0.72rem;
       padding: 0.5rem;
-      max-height: 50vh; } }
+      max-height: 50vh; }
+  .antsand-code-block-multi-code {
+    margin-left: 0;
+    margin-right: 0; }
+    .antsand-code-block-multi-code .antsand-code-pre {
+      font-size: 0.72rem;
+      min-height: 16rem;
+      padding: 0 0.5rem 1rem; } }
 
 @media (prefers-reduced-motion: reduce) {
   .antsand-code-copy {
