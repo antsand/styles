@@ -18,9 +18,12 @@
     background: #111827;
     border: 1px solid rgba(148, 163, 184, 0.18);
     border-radius: $antsand-radius-lg;
+    box-sizing: border-box;
     box-shadow: 0 20px 60px rgba(15, 23, 42, 0.22);
     color: #e5e7eb;
     margin: $antsand-space-4 0;
+    max-width: 100%;
+    min-width: 0;
     overflow: hidden;
     width: 100%;
 }
@@ -72,6 +75,7 @@
 
 .antsand-code-pre {
     background: transparent;
+    box-sizing: border-box;
     color: #dbeafe;
     font-family: $antsand-font-family-mono;
     font-size: 0.9rem;
@@ -85,16 +89,24 @@
     white-space: pre;
     overflow-wrap: normal;
     height: auto;
+    max-width: 100%;
     min-height: 0;
+    min-width: 0;
     max-height: 70vh;
     -webkit-overflow-scrolling: touch;
 
     code {
         background: transparent;
+        box-sizing: border-box;
         color: inherit;
+        display: block;
         font: inherit;
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: inherit;
         padding: 0;
         text-align: inherit;
+        white-space: inherit;
     }
 }
 
@@ -149,10 +161,12 @@
     background: #1b1b2f;
     border: 0;
     border-radius: 16px;
+    box-sizing: border-box;
     box-shadow: 0 18px 45px rgba(15, 23, 42, 0.2);
     color: #d8dee9;
     margin: $antsand-space-5 auto;
     max-width: 1200px;
+    min-width: 0;
     overflow: hidden;
     width: 100%;
 

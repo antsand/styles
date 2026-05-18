@@ -54,6 +54,9 @@
  * - antsand-carousel-fade   : Crossfade transitions
  * - antsand-carousel-cards  : Multiple visible cards
  * - antsand-carousel-cover  : Full-screen hero style
+ * - antsand-carousel-spotlight : Large center story card with side peeks
+ * - antsand-carousel-story-cards : Two-up story cards with image + copy
+ * - antsand-carousel-editorial-strip : Light editorial/news carousel with previews
  * - feature-carousel-{n}    : Universal carousel on any template
  */
 
@@ -150,8 +153,21 @@ class AntsandCarousel {
      */
     isCardsVariant() {
         return this.container.classList.contains('antsand-carousel-cards') ||
+               this.container.classList.contains('antsand-carousel-story-cards') ||
                this.container.classList.contains('layout-carousel-cards') ||
-               this.variant === 'cards';
+               this.variant === 'cards' ||
+               this.variant === 'story-cards' ||
+               this.variant === 'story_cards';
+    }
+
+    /**
+     * Variable-width variants cannot use itemWidth * index because inactive
+     * previews intentionally have a different width than the active slide.
+     */
+    isVariableWidthVariant() {
+        return this.container.classList.contains('antsand-carousel-editorial-strip') ||
+               this.variant === 'editorial-strip' ||
+               this.variant === 'editorial_strip';
     }
 
     /**
@@ -175,7 +191,11 @@ class AntsandCarousel {
         }
 
         if (!count) {
-            count = this.isCardsVariant() ? 3 : 1;
+            count = (
+                this.container.classList.contains('antsand-carousel-story-cards') ||
+                this.variant === 'story-cards' ||
+                this.variant === 'story_cards'
+            ) ? 2 : (this.isCardsVariant() ? 3 : 1);
         }
 
         if (window.innerWidth <= 768) {
@@ -489,8 +509,11 @@ class AntsandCarousel {
                               this.container.classList.contains('layout-carousel-fade') ||
                               this.variant === 'fade';
         const isCardsVariant = this.container.classList.contains('antsand-carousel-cards') ||
+                               this.container.classList.contains('antsand-carousel-story-cards') ||
                                this.container.classList.contains('layout-carousel-cards') ||
-                               this.variant === 'cards';
+                               this.variant === 'cards' ||
+                               this.variant === 'story-cards' ||
+                               this.variant === 'story_cards';
         const isCoverVariant = this.container.classList.contains('antsand-carousel-cover') ||
                                this.container.classList.contains('layout-carousel-cover') ||
                                this.variant === 'cover';
@@ -513,13 +536,11 @@ class AntsandCarousel {
             // Get gap from data attribute first, then CSS, then default
             const gap = this.getTrackGap();
 
-            // Get the actual rendered width of the first item
-            // This works for both full-width slides AND partial-width cards
             const itemWidth = this.items[0]?.offsetWidth || 0;
-
-            // Calculate slide step: item width + gap
             const slideStep = itemWidth + gap;
-            const offset = this.state.currentIndex * slideStep;
+            const offset = this.isVariableWidthVariant()
+                ? (this.items[this.state.currentIndex]?.offsetLeft || 0)
+                : this.state.currentIndex * slideStep;
 
             // Debug logging
             if (window.ANTSAND_DEBUG) {
@@ -529,6 +550,7 @@ class AntsandCarousel {
                     slideStep,
                     currentIndex: this.state.currentIndex,
                     offset,
+                    isVariableWidthVariant: this.isVariableWidthVariant(),
                     isCardsVariant,
                     container: this.container.className
                 });
@@ -629,7 +651,10 @@ function initAllCarousels() {
         '.antsand-carousel-slide',
         '.antsand-carousel-fade',
         '.antsand-carousel-cards',
-        '.antsand-carousel-cover'
+        '.antsand-carousel-cover',
+        '.antsand-carousel-spotlight',
+        '.antsand-carousel-story-cards',
+        '.antsand-carousel-editorial-strip'
     ];
 
     const containers = new Set();
