@@ -57,6 +57,245 @@ $blog-transition: all 0.3s ease;
     }
 }
 
+// Blog detail comments. This supports the legacy `comments` table as a flat,
+// one-depth discussion renderer and the public AJAX comment form.
+.antsand-blog-comments {
+    --antsand-comment-accent: #b90000;
+    --antsand-comment-ink: #111827;
+    --antsand-comment-muted: #6b7280;
+    --antsand-comment-border: #e5e7eb;
+    --antsand-comment-paper: #fff;
+    --antsand-comment-soft: #f9fafb;
+
+    padding: clamp(3rem, 7vw, 5rem) 1rem;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(185, 0, 0, 0.07), transparent 28%),
+        linear-gradient(180deg, #fff 0%, #f9fafb 100%);
+
+    .antsand-blog-comments-wrap {
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto;
+    }
+
+    .antsand-blog-comments-header {
+        margin-bottom: 2rem;
+        text-align: center;
+
+        .antsand-blog-comments-kicker {
+            display: inline-flex;
+            margin-bottom: 0.6rem;
+            color: var(--antsand-comment-accent);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin: 0 0 0.65rem;
+            color: var(--antsand-comment-ink);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            letter-spacing: -0.045em;
+            line-height: 1;
+        }
+
+        p {
+            max-width: 560px;
+            margin: 0 auto;
+            color: var(--antsand-comment-muted);
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+    }
+
+    .antsand-blog-comments-list {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .antsand-blog-comment {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--antsand-comment-border);
+        border-radius: 1rem;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 12px 34px rgba(15, 23, 42, 0.06);
+    }
+
+    .antsand-blog-comment-avatar {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--antsand-comment-accent), #111827);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+    }
+
+    .antsand-blog-comment-body {
+        min-width: 0;
+
+        p {
+            margin: 0.45rem 0 0;
+            color: #1f2937;
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+    }
+
+    .antsand-blog-comment-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        strong {
+            color: var(--antsand-comment-ink);
+            font-size: 0.95rem;
+        }
+
+        time {
+            color: var(--antsand-comment-muted);
+            font-size: 0.82rem;
+        }
+    }
+
+    .antsand-blog-comment-subject {
+        margin-top: 0.2rem;
+        color: var(--antsand-comment-accent);
+        font-size: 0.86rem;
+        font-weight: 800;
+    }
+
+    .antsand-blog-comments-empty {
+        padding: 1.1rem;
+        border: 1px dashed var(--antsand-comment-border);
+        border-radius: 1rem;
+        color: var(--antsand-comment-muted);
+        text-align: center;
+        background: rgba(255, 255, 255, 0.62);
+    }
+
+    .antsand-blog-comment-form {
+        display: grid;
+        gap: 1rem;
+        padding: clamp(1rem, 3vw, 1.5rem);
+        border: 1px solid var(--antsand-comment-border);
+        border-radius: 1.25rem;
+        background: var(--antsand-comment-paper);
+        box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+
+        label {
+            display: grid;
+            gap: 0.45rem;
+            color: var(--antsand-comment-ink);
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+
+        em {
+            color: var(--antsand-comment-muted);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            border: 1px solid var(--antsand-comment-border);
+            border-radius: 0.8rem;
+            padding: 0.85rem 0.95rem;
+            background: var(--antsand-comment-soft);
+            color: var(--antsand-comment-ink);
+            font: inherit;
+            font-weight: 500;
+            outline: none;
+            transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+
+            &:focus {
+                border-color: rgba(185, 0, 0, 0.5);
+                background: #fff;
+                box-shadow: 0 0 0 4px rgba(185, 0, 0, 0.08);
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    }
+
+    .antsand-blog-comment-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .antsand-blog-comment-hp {
+        position: absolute;
+        left: -10000px;
+        width: 1px !important;
+        height: 1px !important;
+        opacity: 0;
+    }
+
+    .antsand-blog-comment-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        button {
+            border: 0;
+            border-radius: 999px;
+            padding: 0.85rem 1.35rem;
+            background: var(--antsand-comment-accent);
+            color: #fff;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+
+            &:hover {
+                transform: translateY(-1px);
+                background: #8a0000;
+                box-shadow: 0 10px 24px rgba(185, 0, 0, 0.2);
+            }
+        }
+    }
+
+    .antsand-blog-comment-status {
+        color: var(--antsand-comment-muted);
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
+}
+
+@media (max-width: 640px) {
+    .antsand-blog-comments {
+        .antsand-blog-comment-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .antsand-blog-comment {
+            grid-template-columns: 36px 1fr;
+            padding: 0.9rem;
+        }
+
+        .antsand-blog-comment-avatar {
+            width: 36px;
+            height: 36px;
+        }
+    }
+}
+
 // ============================================
 // BLOG-1: Cards Grid (Default)
 // 3-column responsive grid with image cards

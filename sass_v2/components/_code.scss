@@ -28,6 +28,35 @@
     width: 100%;
 }
 
+// Notes-safe semantic tags. The Notes renderer intentionally converts generic
+// divs into paragraphs, so blog-authored code examples can use:
+// <code-section><code-header><code-label>...</code-label></code-header>
+// <pre class="antsand-code-pre"><code>...</code></pre></code-section>
+code-section,
+code-header,
+code-label,
+code-language,
+code-body,
+code-line {
+    box-sizing: border-box;
+}
+
+code-section,
+code-header,
+code-body,
+code-line {
+    display: block;
+}
+
+code-label,
+code-language {
+    display: inline-flex;
+}
+
+code-section {
+    @extend .antsand-code-block;
+}
+
 .antsand-code-header {
     align-items: center;
     background: #0b1020;
@@ -57,10 +86,18 @@
     }
 }
 
+code-header {
+    @extend .antsand-code-header;
+}
+
 .antsand-code-label {
     color: #f8fafc;
     font-weight: $antsand-font-weight-semibold;
     margin-left: 3.6rem;
+}
+
+code-label {
+    @extend .antsand-code-label;
 }
 
 .antsand-code-language {
@@ -71,6 +108,10 @@
     font-size: 0.72rem;
     padding: 0.15rem 0.55rem;
     text-transform: uppercase;
+}
+
+code-language {
+    @extend .antsand-code-language;
 }
 
 .antsand-code-pre {
@@ -108,6 +149,21 @@
         text-align: inherit;
         white-space: inherit;
     }
+}
+
+code-body {
+    @extend .antsand-code-pre;
+}
+
+code-line {
+    color: inherit;
+    font: inherit;
+    min-width: max-content;
+    white-space: pre;
+}
+
+code-line:empty::before {
+    content: " ";
 }
 
 // Wrap long examples instead of forcing horizontal overflow. Use this on the
@@ -224,6 +280,10 @@
     code {
         color: inherit;
     }
+}
+
+code-section.antsand-code-preview {
+    @extend .antsand-code-preview;
 }
 
 .antsand-code-preview-compact {

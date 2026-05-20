@@ -1389,6 +1389,201 @@
 }
 
 // ============================================
+// Social / YouTube Carousel Post Utility
+// ============================================
+// Use this when a blog/profile post embeds a generated social carousel.
+// It intentionally works with the existing data-carousel contract:
+//
+// <div class="antsand-carousel-post" data-carousel>
+//   <div class="carousel-body">
+//     <div class="carousel-track-wrapper">
+//       <div class="carousel-track" data-track>
+//         <div class="carousel-item">
+//           <img class="antsand-carousel-post-image" src="slide-01.jpg" alt="">
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+//
+// The same classes also support a non-JS horizontal scroll strip by adding
+// .antsand-carousel-post-scroll to the root.
+.antsand-carousel-post {
+  --antsand-carousel-post-bg: #0f1115;
+  --antsand-carousel-post-surface: #171a21;
+  --antsand-carousel-post-border: rgba(255, 255, 255, 0.1);
+  --antsand-carousel-post-text: #f8fafc;
+  --antsand-carousel-post-muted: #94a3b8;
+  --antsand-carousel-post-accent: var(--antsand-carousel-accent, #f15b2a);
+  --antsand-carousel-post-radius: 1.25rem;
+  --antsand-carousel-post-max: 42rem;
+
+  max-width: var(--antsand-carousel-post-max);
+  margin: 2rem auto;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--antsand-carousel-post-border);
+  border-radius: calc(var(--antsand-carousel-post-radius) + 0.5rem);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(241, 91, 42, 0.16), transparent 32%),
+    linear-gradient(145deg, var(--antsand-carousel-post-bg), var(--antsand-carousel-post-surface));
+  color: var(--antsand-carousel-post-text);
+  box-shadow: 0 1.5rem 4rem rgba(15, 23, 42, 0.28);
+
+  .carousel-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .carousel-title {
+      color: var(--antsand-carousel-post-text);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    .carousel-description {
+      color: var(--antsand-carousel-post-muted);
+      font-size: 0.925rem;
+      margin: 0.25rem 0 0;
+    }
+  }
+
+  .carousel-track-wrapper {
+    border-radius: var(--antsand-carousel-post-radius);
+    background: #05070a;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+
+  .carousel-item {
+    display: grid;
+    place-items: center;
+    background: #05070a;
+  }
+
+  .antsand-carousel-post-image,
+  .carousel-item-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: block;
+    object-fit: contain;
+    background: #05070a;
+  }
+
+  .carousel-footer {
+    margin-top: 1rem;
+    justify-content: space-between;
+
+    .carousel-controls {
+      order: 2;
+    }
+
+    .carousel-indicators {
+      order: 1;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 2.6rem !important;
+    height: 2.6rem !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background: var(--antsand-carousel-post-accent) !important;
+    }
+  }
+
+  .carousel-indicator {
+    background: rgba(255, 255, 255, 0.22) !important;
+
+    &.active {
+      background: var(--antsand-carousel-post-accent) !important;
+    }
+  }
+}
+
+.antsand-carousel-post-youtube {
+  --antsand-carousel-post-max: 40rem;
+}
+
+.antsand-carousel-post-instagram {
+  --antsand-carousel-post-max: 34rem;
+}
+
+.antsand-carousel-post-light {
+  --antsand-carousel-post-bg: #f8fafc;
+  --antsand-carousel-post-surface: #ffffff;
+  --antsand-carousel-post-border: rgba(15, 23, 42, 0.12);
+  --antsand-carousel-post-text: #111827;
+  --antsand-carousel-post-muted: #64748b;
+
+  background:
+    radial-gradient(circle at 10% 0%, rgba(241, 91, 42, 0.12), transparent 30%),
+    linear-gradient(145deg, #ffffff, #f1f5f9);
+}
+
+.antsand-carousel-post-scroll {
+  width: 100%;
+  max-width: 72rem;
+
+  .carousel-track-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--antsand-carousel-post-accent) rgba(255, 255, 255, 0.16);
+  }
+
+  .carousel-track {
+    gap: 1rem;
+    padding: 1rem;
+    transform: none !important;
+  }
+
+  .carousel-item {
+    min-width: 26rem;
+    flex: 0 0 26rem;
+    max-width: 80vw;
+    scroll-snap-align: center;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .carousel-footer {
+    display: none;
+  }
+}
+
+.antsand-carousel-post-grid {
+  width: 100%;
+  max-width: 72rem;
+
+  .carousel-track-wrapper {
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .carousel-track {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+  }
+
+  .carousel-item {
+    min-width: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .carousel-footer {
+    display: none;
+  }
+}
+
+// ============================================
 // Mobile Responsive
 // ============================================
 @media (max-width: 640px) {
@@ -1407,6 +1602,21 @@
     .carousel-indicators {
       margin-top: 0.5rem;
       padding: 0.5rem 0;
+    }
+  }
+
+  .antsand-carousel-post {
+    margin: 1.25rem auto;
+    padding: 0.75rem;
+
+    .carousel-header,
+    .carousel-footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .carousel-footer {
+      gap: 0.75rem;
     }
   }
 }
