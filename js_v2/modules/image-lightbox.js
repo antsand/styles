@@ -56,9 +56,6 @@ function isContentImage(img) {
     if (img.closest(SKIP_SELECTOR)) return false;
     if (!getImageSource(img)) return false;
 
-    const src = getImageSource(img).toLowerCase();
-    if (src.endsWith('.svg') || src.startsWith('data:image/svg')) return false;
-
     const width = img.naturalWidth || img.width || 0;
     const height = img.naturalHeight || img.height || 0;
     if (width && height && (width < 120 || height < 80)) return false;
@@ -132,7 +129,7 @@ class AntsandImageLightbox {
 
             img.addEventListener('click', (event) => {
                 if (event.defaultPrevented) return;
-                if (event.target.closest('a') && !img.closest('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".webp"]')) {
+                if (event.target.closest('a') && !img.closest('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".webp"], a[href$=".svg"]')) {
                     return;
                 }
                 event.preventDefault();
