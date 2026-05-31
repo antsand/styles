@@ -16989,12 +16989,25 @@ a.blog-side-note:hover {
 
 .blog-table-scroll table, .blog-table-scroll .ant-datatable__table {
   min-width: 720px;
+  table-layout: auto;
   margin: 0; }
 
 .blog-table-scroll table th, .blog-table-scroll .ant-datatable__table th,
 .blog-table-scroll table td,
 .blog-table-scroll .ant-datatable__table td {
   vertical-align: top; }
+
+.blog-table-scroll table th:first-child, .blog-table-scroll .ant-datatable__table th:first-child,
+.blog-table-scroll table td:first-child,
+.blog-table-scroll .ant-datatable__table td:first-child {
+  min-width: 12rem;
+  width: 16rem; }
+
+.blog-table-scroll table th:first-child code, .blog-table-scroll .ant-datatable__table th:first-child code,
+.blog-table-scroll table td:first-child code,
+.blog-table-scroll .ant-datatable__table td:first-child code {
+  overflow-wrap: break-word;
+  word-break: normal; }
 
 .blog-table-scroll code {
   overflow-wrap: anywhere;
@@ -17114,7 +17127,7 @@ article[data-blog-layout="research"] .ant-datatable__table:not(.research-runtime
     max-width: calc(100% + min(1.5rem, 6vw));
     border-radius: 12px; }
   .blog-table-scroll table, .blog-table-scroll .ant-datatable__table {
-    min-width: 760px; } }
+    min-width: 860px; } }
 
 @media (min-width: 1180px) {
   .blog-annotated-block > .blog-side-note,

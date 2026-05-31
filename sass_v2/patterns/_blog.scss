@@ -329,12 +329,25 @@ a.blog-side-note:hover {
 
 .blog-table-scroll table {
     min-width: 720px;
+    table-layout: auto;
     margin: 0;
 }
 
 .blog-table-scroll table th,
 .blog-table-scroll table td {
     vertical-align: top;
+}
+
+.blog-table-scroll table th:first-child,
+.blog-table-scroll table td:first-child {
+    min-width: 12rem;
+    width: 16rem;
+}
+
+.blog-table-scroll table th:first-child code,
+.blog-table-scroll table td:first-child code {
+    overflow-wrap: break-word;
+    word-break: normal;
 }
 
 .blog-table-scroll code {
@@ -458,7 +471,7 @@ article[data-blog-layout="research"] table:not(.research-runtime-table) code {
     }
 
     .blog-table-scroll table {
-        min-width: 760px;
+        min-width: 860px;
     }
 
 }
