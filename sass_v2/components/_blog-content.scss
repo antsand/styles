@@ -125,13 +125,18 @@
     }
 
     code:not(pre code) {
+        display: inline;
+        max-width: 100%;
         background: #fff7ed;
         border: 1px solid #fed7aa;
         border-radius: 0.35rem;
         color: #9a3412;
         font-family: $antsand-font-family-mono;
         font-size: 0.86em;
+        overflow-wrap: anywhere;
         padding: 0.12rem 0.34rem;
+        white-space: normal;
+        word-break: break-word;
     }
 
     pre:not(.antsand-code-pre) {
