@@ -37,6 +37,7 @@ import { AntsandAlert, initAllAlerts } from './modules/alert.js';
 import { AntsandGallery, initAllGalleries } from './modules/gallery.js';
 import { AntsandAiBar, initAllAiBars } from './modules/ai-bar.js';
 import { AntsandImageLightbox, initAllImageLightboxes } from './modules/image-lightbox.js';
+import { AntsandTableFullscreen, initAllTableFullscreen } from './modules/table-fullscreen.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
@@ -58,7 +59,8 @@ function initAll() {
         alerts: initAllAlerts(),
         galleries: initAllGalleries(),
         aiBars: initAllAiBars(),
-        imageLightboxes: initAllImageLightboxes()
+        imageLightboxes: initAllImageLightboxes(),
+        tableFullscreen: initAllTableFullscreen()
     };
 
     // Log initialization summary (development only)
@@ -75,7 +77,8 @@ function initAll() {
             alerts: initialized.alerts.length,
             galleries: initialized.galleries.length,
             aiBars: initialized.aiBars.length,
-            imageLightboxes: initialized.imageLightboxes.length
+            imageLightboxes: initialized.imageLightboxes.length,
+            tableFullscreen: initialized.tableFullscreen.length
         });
     }
 
@@ -144,6 +147,7 @@ const ANTSAND = {
     Gallery: AntsandGallery,
     AiBar: AntsandAiBar,
     ImageLightbox: AntsandImageLightbox,
+    TableFullscreen: AntsandTableFullscreen,
 
     // Initialization functions
     initTabs: initAllTabs,
@@ -158,6 +162,7 @@ const ANTSAND = {
     initGalleries: initAllGalleries,
     initAiBars: initAllAiBars,
     initImageLightboxes: initAllImageLightboxes,
+    initTableFullscreen: initAllTableFullscreen,
     openModal,
     closeModal,
     initAll: initAll,
@@ -201,6 +206,7 @@ export {
     AntsandGallery,
     AntsandAiBar,
     AntsandImageLightbox,
+    AntsandTableFullscreen,
     initAllTabs,
     initAllTables,
     initAllCarousels,
@@ -213,6 +219,7 @@ export {
     initAllGalleries,
     initAllAiBars,
     initAllImageLightboxes,
+    initAllTableFullscreen,
     openModal,
     closeModal,
     initAll

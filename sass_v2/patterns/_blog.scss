@@ -279,6 +279,7 @@ a.blog-side-note:hover {
 }
 
 .blog-table-scroll {
+    position: relative;
     display: block;
     width: 100%;
     max-width: 100%;
@@ -292,6 +293,38 @@ a.blog-side-note:hover {
         linear-gradient(90deg, rgba(255, 255, 255, 0), #fff 28px) left center / 44px 100% no-repeat,
         linear-gradient(270deg, rgba(255, 255, 255, 0), #fff 28px) right center / 44px 100% no-repeat,
         #fff;
+}
+
+.blog-table-scroll__controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.65rem;
+    padding: 0.75rem 0.75rem 0;
+}
+
+.blog-table-scroll__fullscreen-button {
+    appearance: none;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    border-radius: 999px;
+    background: #fff;
+    color: #111827;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    padding: 0.58rem 0.82rem;
+    text-transform: uppercase;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.blog-table-scroll__fullscreen-button:hover,
+.blog-table-scroll__fullscreen-button:focus-visible {
+    border-color: rgba(185, 0, 0, 0.32);
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+    outline: none;
+    transform: translateY(-1px);
 }
 
 .blog-table-scroll table {
@@ -344,6 +377,50 @@ article[data-blog-layout="research"] li > code:only-child {
 .antsand-article-wide li,
 article[data-blog-layout="research"] li {
     min-width: 0;
+}
+
+.blog-table-fullscreen-open {
+    overflow: hidden;
+}
+
+.blog-table-fullscreen-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    border: 0;
+    background: rgba(15, 23, 42, 0.58);
+    cursor: zoom-out;
+}
+
+.blog-table-scroll.is-fullscreen {
+    position: fixed;
+    inset: clamp(0.75rem, 3vw, 2rem);
+    z-index: 9999;
+    width: auto;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding-bottom: 1rem;
+    overflow: auto;
+    background: #fff;
+    border-color: rgba(15, 23, 42, 0.16);
+    border-radius: 18px;
+    box-shadow: 0 32px 110px rgba(15, 23, 42, 0.38);
+}
+
+.blog-table-scroll.is-fullscreen .blog-table-scroll__controls {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    padding: 0.9rem;
+    background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.blog-table-scroll.is-fullscreen table {
+    min-width: max-content;
+    width: max-content;
 }
 
 .blog-post-content table:not(.research-runtime-table),
