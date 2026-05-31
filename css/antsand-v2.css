@@ -17059,8 +17059,8 @@ article[data-blog-layout="research"] .ant-datatable__table:not(.research-runtime
     transform: translateY(-50%); }
   .blog-annotated-block > .blog-side-note--left,
   .blog-side-note-anchor > .blog-side-note--left {
-    right: auto;
-    left: -340px; } }
+    right: -340px;
+    left: auto; } }
 
 .article-category {
   display: inline-block;

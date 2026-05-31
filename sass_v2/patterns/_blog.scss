@@ -400,8 +400,8 @@ article[data-blog-layout="research"] table:not(.research-runtime-table) code {
 
     .blog-annotated-block > .blog-side-note--left,
     .blog-side-note-anchor > .blog-side-note--left {
-        right: auto;
-        left: -340px;
+        right: -340px;
+        left: auto;
     }
 }
 
