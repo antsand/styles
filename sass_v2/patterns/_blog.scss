@@ -314,13 +314,13 @@ a.blog-side-note:hover {
     .blog-side-note__text {
         position: relative;
         z-index: 1;
-        color: #0f172a !important;
-        font-family: Georgia, "Times New Roman", serif !important;
-        font-size: 1.2rem !important;
+        color: #0f172a;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.2rem;
         font-style: italic;
         font-weight: 400;
         letter-spacing: -0.01em;
-        line-height: 1.6 !important;
+        line-height: 1.6;
         margin: 0;
     }
 
@@ -332,9 +332,9 @@ a.blog-side-note:hover {
         margin-top: 1rem;
         padding-top: 0.8rem;
         border-top: 1px solid rgba(15, 23, 42, 0.1);
-        color: #475569 !important;
+        color: #475569;
         font-family: inherit;
-        font-size: 0.82rem !important;
+        font-size: 0.82rem;
         font-style: normal;
         font-weight: 600;
         letter-spacing: 0.04em;
@@ -359,8 +359,8 @@ a.blog-side-note:hover {
     }
 
     .blog-side-note__stat-number {
-        color: #0f172a !important;
-        font-size: clamp(2.8rem, 6vw, 4.2rem) !important;
+        color: #0f172a;
+        font-size: clamp(2.8rem, 6vw, 4.2rem);
         font-weight: 900;
         letter-spacing: -0.04em;
         line-height: 1;
@@ -369,9 +369,9 @@ a.blog-side-note:hover {
 
     p,
     .blog-side-note__text {
-        color: #334155 !important;
-        font-size: 1rem !important;
-        line-height: 1.55 !important;
+        color: #334155;
+        font-size: 1rem;
+        line-height: 1.55;
         margin: 0;
     }
 }
@@ -395,7 +395,7 @@ a.blog-side-note:hover {
     }
 
     .blog-side-note__stat-number {
-        color: #1d4ed8 !important;
+        color: #1d4ed8;
     }
 }
 
@@ -414,7 +414,7 @@ a.blog-side-note:hover {
     }
 
     .blog-side-note__stat-number {
-        color: #be123c !important;
+        color: #be123c;
     }
 }
 
@@ -433,7 +433,7 @@ a.blog-side-note:hover {
     }
 
     .blog-side-note__stat-number {
-        color: #059669 !important;
+        color: #059669;
     }
 }
 
@@ -452,7 +452,7 @@ a.blog-side-note:hover {
     }
 
     .blog-side-note__stat-number {
-        color: #b45309 !important;
+        color: #b45309;
     }
 }
 
@@ -471,7 +471,7 @@ a.blog-side-note:hover {
     }
 
     .blog-side-note__stat-number {
-        color: #6d28d9 !important;
+        color: #6d28d9;
     }
 }
 
@@ -486,11 +486,11 @@ a.blog-side-note:hover {
     .blog-side-note--wide.blog-side-note,
     .blog-annotated-block > .blog-side-note--wide,
     .blog-side-note-anchor > .blog-side-note--wide {
-        position: relative !important;
-        top: auto !important;
-        right: auto !important;
-        width: 100% !important;
-        transform: none !important;
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        transform: none;
     }
 }
 
@@ -504,6 +504,52 @@ a.blog-side-note:hover {
     .blog-side-note {
         margin: 0;
     }
+}
+
+// ── Side-note specificity overrides ───────────────────────
+// .article-body p sets font-size: 19px and color: #1a1a1a at specificity 0,1,1.
+// These scoped rules reach 0,2,1+ to properly override without !important.
+.article-body,
+.blog-post-content,
+.antsand-article,
+.antsand-research,
+.antsand-article-wide {
+    .blog-side-note--quote p,
+    .blog-side-note--quote .blog-side-note__text {
+        color: #0f172a;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.2rem;
+        font-style: italic;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+    .blog-side-note--quote cite,
+    .blog-side-note--quote .blog-side-note__source {
+        color: #475569;
+        font-size: 0.82rem;
+        font-style: normal;
+    }
+
+    .blog-side-note--stat p,
+    .blog-side-note--stat .blog-side-note__text {
+        color: #334155;
+        font-size: 1rem;
+        line-height: 1.55;
+        margin-bottom: 0;
+    }
+
+    .blog-side-note--stat .blog-side-note__stat-number {
+        color: #0f172a;
+        font-size: clamp(2.8rem, 6vw, 4.2rem);
+    }
+
+    // Tint-specific stat number colors
+    .blog-side-note--tint-blue .blog-side-note__stat-number { color: #1d4ed8; }
+    .blog-side-note--tint-rose .blog-side-note__stat-number { color: #be123c; }
+    .blog-side-note--tint-mint .blog-side-note__stat-number { color: #059669; }
+    .blog-side-note--tint-amber .blog-side-note__stat-number { color: #b45309; }
+    .blog-side-note--tint-violet .blog-side-note__stat-number { color: #6d28d9; }
 }
 
 .blog-table-scroll {

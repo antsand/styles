@@ -38,6 +38,7 @@ import { AntsandGallery, initAllGalleries } from './modules/gallery.js';
 import { AntsandAiBar, initAllAiBars } from './modules/ai-bar.js';
 import { AntsandImageLightbox, initAllImageLightboxes } from './modules/image-lightbox.js';
 import { AntsandTableFullscreen, initAllTableFullscreen } from './modules/table-fullscreen.js';
+import { initAllCodeCopy, highlightPython } from './modules/code-copy.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
@@ -60,7 +61,8 @@ function initAll() {
         galleries: initAllGalleries(),
         aiBars: initAllAiBars(),
         imageLightboxes: initAllImageLightboxes(),
-        tableFullscreen: initAllTableFullscreen()
+        tableFullscreen: initAllTableFullscreen(),
+        codeCopy: initAllCodeCopy()
     };
 
     // Log initialization summary (development only)
@@ -78,7 +80,8 @@ function initAll() {
             galleries: initialized.galleries.length,
             aiBars: initialized.aiBars.length,
             imageLightboxes: initialized.imageLightboxes.length,
-            tableFullscreen: initialized.tableFullscreen.length
+            tableFullscreen: initialized.tableFullscreen.length,
+            codeCopy: initialized.codeCopy.length
         });
     }
 
@@ -163,6 +166,8 @@ const ANTSAND = {
     initAiBars: initAllAiBars,
     initImageLightboxes: initAllImageLightboxes,
     initTableFullscreen: initAllTableFullscreen,
+    initCodeCopy: initAllCodeCopy,
+    highlightPython,
     openModal,
     closeModal,
     initAll: initAll,

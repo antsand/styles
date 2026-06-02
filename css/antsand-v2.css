@@ -16977,13 +16977,13 @@ a.blog-side-note:hover {
 .blog-side-note--quote .blog-side-note__text {
   position: relative;
   z-index: 1;
-  color: #0f172a !important;
-  font-family: Georgia, "Times New Roman", serif !important;
-  font-size: 1.2rem !important;
+  color: #0f172a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
   font-style: italic;
   font-weight: 400;
   letter-spacing: -0.01em;
-  line-height: 1.6 !important;
+  line-height: 1.6;
   margin: 0; }
 
 .blog-side-note--quote cite,
@@ -16994,9 +16994,9 @@ a.blog-side-note:hover {
   margin-top: 1rem;
   padding-top: 0.8rem;
   border-top: 1px solid rgba(15, 23, 42, 0.1);
-  color: #475569 !important;
+  color: #475569;
   font-family: inherit;
-  font-size: 0.82rem !important;
+  font-size: 0.82rem;
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -17012,8 +17012,8 @@ a.blog-side-note:hover {
   padding: 0; }
 
 .blog-side-note--stat .blog-side-note__stat-number {
-  color: #0f172a !important;
-  font-size: clamp(2.8rem, 6vw, 4.2rem) !important;
+  color: #0f172a;
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -17021,9 +17021,9 @@ a.blog-side-note:hover {
 
 .blog-side-note--stat p,
 .blog-side-note--stat .blog-side-note__text {
-  color: #334155 !important;
-  font-size: 1rem !important;
-  line-height: 1.55 !important;
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.55;
   margin: 0; }
 
 .blog-side-note--tint-blue .blog-side-note__card,
@@ -17036,7 +17036,7 @@ a.blog-side-note:hover {
   color: rgba(59, 130, 246, 0.22); }
 
 .blog-side-note--tint-blue .blog-side-note__stat-number {
-  color: #1d4ed8 !important; }
+  color: #1d4ed8; }
 
 .blog-side-note--tint-rose .blog-side-note__card,
 .blog-side-note--tint-rose > a, .blog-side-note--tint-rose.blog-side-note__card {
@@ -17048,7 +17048,7 @@ a.blog-side-note:hover {
   color: rgba(225, 29, 72, 0.18); }
 
 .blog-side-note--tint-rose .blog-side-note__stat-number {
-  color: #be123c !important; }
+  color: #be123c; }
 
 .blog-side-note--tint-mint .blog-side-note__card,
 .blog-side-note--tint-mint > a, .blog-side-note--tint-mint.blog-side-note__card {
@@ -17060,7 +17060,7 @@ a.blog-side-note:hover {
   color: rgba(16, 185, 129, 0.2); }
 
 .blog-side-note--tint-mint .blog-side-note__stat-number {
-  color: #059669 !important; }
+  color: #059669; }
 
 .blog-side-note--tint-amber .blog-side-note__card,
 .blog-side-note--tint-amber > a, .blog-side-note--tint-amber.blog-side-note__card {
@@ -17072,7 +17072,7 @@ a.blog-side-note:hover {
   color: rgba(245, 158, 11, 0.2); }
 
 .blog-side-note--tint-amber .blog-side-note__stat-number {
-  color: #b45309 !important; }
+  color: #b45309; }
 
 .blog-side-note--tint-violet .blog-side-note__card,
 .blog-side-note--tint-violet > a, .blog-side-note--tint-violet.blog-side-note__card {
@@ -17084,7 +17084,7 @@ a.blog-side-note:hover {
   color: rgba(124, 58, 237, 0.2); }
 
 .blog-side-note--tint-violet .blog-side-note__stat-number {
-  color: #6d28d9 !important; }
+  color: #6d28d9; }
 
 .blog-side-note--wide {
   margin: 2rem 0; }
@@ -17093,11 +17093,11 @@ a.blog-side-note:hover {
   .blog-side-note--wide.blog-side-note,
   .blog-annotated-block > .blog-side-note--wide,
   .blog-side-note-anchor > .blog-side-note--wide {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    width: 100% !important;
-    transform: none !important; } }
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    transform: none; } }
 
 .blog-side-note-grid {
   display: grid;
@@ -17106,6 +17106,95 @@ a.blog-side-note:hover {
   margin: 2rem 0; }
   .blog-side-note-grid .blog-side-note {
     margin: 0; }
+
+.article-body .blog-side-note--quote p,
+.article-body .blog-side-note--quote .blog-side-note__text,
+.blog-post-content .blog-side-note--quote p,
+.blog-post-content .blog-side-note--quote .blog-side-note__text,
+.antsand-article .blog-side-note--quote p,
+.antsand-article .blog-side-note--quote .blog-side-note__text,
+.antsand-research .blog-side-note--quote p,
+.antsand-research .blog-side-note--quote .blog-side-note__text,
+.antsand-article-wide .blog-side-note--quote p,
+.antsand-article-wide .blog-side-note--quote .blog-side-note__text {
+  color: #0f172a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0; }
+
+.article-body .blog-side-note--quote cite,
+.article-body .blog-side-note--quote .blog-side-note__source,
+.blog-post-content .blog-side-note--quote cite,
+.blog-post-content .blog-side-note--quote .blog-side-note__source,
+.antsand-article .blog-side-note--quote cite,
+.antsand-article .blog-side-note--quote .blog-side-note__source,
+.antsand-research .blog-side-note--quote cite,
+.antsand-research .blog-side-note--quote .blog-side-note__source,
+.antsand-article-wide .blog-side-note--quote cite,
+.antsand-article-wide .blog-side-note--quote .blog-side-note__source {
+  color: #475569;
+  font-size: 0.82rem;
+  font-style: normal; }
+
+.article-body .blog-side-note--stat p,
+.article-body .blog-side-note--stat .blog-side-note__text,
+.blog-post-content .blog-side-note--stat p,
+.blog-post-content .blog-side-note--stat .blog-side-note__text,
+.antsand-article .blog-side-note--stat p,
+.antsand-article .blog-side-note--stat .blog-side-note__text,
+.antsand-research .blog-side-note--stat p,
+.antsand-research .blog-side-note--stat .blog-side-note__text,
+.antsand-article-wide .blog-side-note--stat p,
+.antsand-article-wide .blog-side-note--stat .blog-side-note__text {
+  color: #334155;
+  font-size: 1rem;
+  line-height: 1.55;
+  margin-bottom: 0; }
+
+.article-body .blog-side-note--stat .blog-side-note__stat-number,
+.blog-post-content .blog-side-note--stat .blog-side-note__stat-number,
+.antsand-article .blog-side-note--stat .blog-side-note__stat-number,
+.antsand-research .blog-side-note--stat .blog-side-note__stat-number,
+.antsand-article-wide .blog-side-note--stat .blog-side-note__stat-number {
+  color: #0f172a;
+  font-size: clamp(2.8rem, 6vw, 4.2rem); }
+
+.article-body .blog-side-note--tint-blue .blog-side-note__stat-number,
+.blog-post-content .blog-side-note--tint-blue .blog-side-note__stat-number,
+.antsand-article .blog-side-note--tint-blue .blog-side-note__stat-number,
+.antsand-research .blog-side-note--tint-blue .blog-side-note__stat-number,
+.antsand-article-wide .blog-side-note--tint-blue .blog-side-note__stat-number {
+  color: #1d4ed8; }
+
+.article-body .blog-side-note--tint-rose .blog-side-note__stat-number,
+.blog-post-content .blog-side-note--tint-rose .blog-side-note__stat-number,
+.antsand-article .blog-side-note--tint-rose .blog-side-note__stat-number,
+.antsand-research .blog-side-note--tint-rose .blog-side-note__stat-number,
+.antsand-article-wide .blog-side-note--tint-rose .blog-side-note__stat-number {
+  color: #be123c; }
+
+.article-body .blog-side-note--tint-mint .blog-side-note__stat-number,
+.blog-post-content .blog-side-note--tint-mint .blog-side-note__stat-number,
+.antsand-article .blog-side-note--tint-mint .blog-side-note__stat-number,
+.antsand-research .blog-side-note--tint-mint .blog-side-note__stat-number,
+.antsand-article-wide .blog-side-note--tint-mint .blog-side-note__stat-number {
+  color: #059669; }
+
+.article-body .blog-side-note--tint-amber .blog-side-note__stat-number,
+.blog-post-content .blog-side-note--tint-amber .blog-side-note__stat-number,
+.antsand-article .blog-side-note--tint-amber .blog-side-note__stat-number,
+.antsand-research .blog-side-note--tint-amber .blog-side-note__stat-number,
+.antsand-article-wide .blog-side-note--tint-amber .blog-side-note__stat-number {
+  color: #b45309; }
+
+.article-body .blog-side-note--tint-violet .blog-side-note__stat-number,
+.blog-post-content .blog-side-note--tint-violet .blog-side-note__stat-number,
+.antsand-article .blog-side-note--tint-violet .blog-side-note__stat-number,
+.antsand-research .blog-side-note--tint-violet .blog-side-note__stat-number,
+.antsand-article-wide .blog-side-note--tint-violet .blog-side-note__stat-number {
+  color: #6d28d9; }
 
 .blog-table-scroll {
   position: relative;
