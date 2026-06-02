@@ -278,6 +278,226 @@ a.blog-side-note:hover {
     }
 }
 
+// ── Side note: quote variant ──────────────────────────────
+// Oversized decorative quotation mark, larger serif text, cite attribution.
+// Usage: <aside class="blog-side-note blog-side-note--quote blog-side-note--tint-blue">
+.blog-side-note--quote {
+    .blog-side-note__card,
+    > a,
+    &.blog-side-note__card {
+        padding: 1.6rem 1.5rem 1.4rem;
+    }
+
+    .blog-side-note__body,
+    figcaption {
+        position: relative;
+        padding: 0;
+    }
+
+    // Decorative quotation mark
+    .blog-side-note__body::before,
+    figcaption::before {
+        content: "\201C";
+        position: absolute;
+        top: -0.35rem;
+        right: -0.15rem;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 6.5rem;
+        font-weight: 700;
+        line-height: 1;
+        color: rgba(15, 23, 42, 0.07);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    p {
+        position: relative;
+        z-index: 1;
+        color: #1e293b;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.15rem;
+        font-style: italic;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    cite {
+        display: block;
+        position: relative;
+        z-index: 1;
+        margin-top: 0.9rem;
+        padding-top: 0.7rem;
+        border-top: 1px solid rgba(15, 23, 42, 0.08);
+        color: #64748b;
+        font-family: inherit;
+        font-size: 0.78rem;
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+}
+
+// ── Side note: stat variant ───────────────────────────────
+// Giant bold number with description. For inline impact metrics.
+// Usage: <aside class="blog-side-note blog-side-note--stat blog-side-note--wide">
+.blog-side-note--stat {
+    .blog-side-note__card,
+    > a,
+    &.blog-side-note__card {
+        padding: 1.6rem 1.5rem 1.4rem;
+        text-align: center;
+    }
+
+    .blog-side-note__body,
+    figcaption {
+        padding: 0;
+    }
+
+    .blog-side-note__stat-number {
+        color: #0f172a;
+        font-size: clamp(2.8rem, 6vw, 4.2rem);
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        margin-bottom: 0.55rem;
+    }
+
+    p {
+        color: #475569;
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+// ── Side note: color tints ────────────────────────────────
+// Soft pastel backgrounds inspired by YouTube Blog editorial cards.
+// Compose with --quote or --stat: blog-side-note--quote blog-side-note--tint-blue
+
+.blog-side-note--tint-blue {
+    .blog-side-note__card,
+    > a,
+    &.blog-side-note__card {
+        background: linear-gradient(135deg, #e8f4fd 0%, #dbeafe 100%);
+        border-color: rgba(59, 130, 246, 0.18);
+    }
+
+    &.blog-side-note--quote .blog-side-note__body::before,
+    &.blog-side-note--quote figcaption::before {
+        color: rgba(59, 130, 246, 0.12);
+    }
+
+    .blog-side-note__stat-number {
+        color: #1d4ed8;
+    }
+}
+
+.blog-side-note--tint-rose {
+    .blog-side-note__card,
+    > a,
+    &.blog-side-note__card {
+        background: linear-gradient(135deg, #fce8ec 0%, #fecdd3 100%);
+        border-color: rgba(225, 29, 72, 0.16);
+    }
+
+    &.blog-side-note--quote .blog-side-note__body::before,
+    &.blog-side-note--quote figcaption::before {
+        color: rgba(225, 29, 72, 0.10);
+    }
+
+    .blog-side-note__stat-number {
+        color: #be123c;
+    }
+}
+
+.blog-side-note--tint-mint {
+    .blog-side-note__card,
+    > a,
+    &.blog-side-note__card {
+        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        border-color: rgba(16, 185, 129, 0.18);
+    }
+
+    &.blog-side-note--quote .blog-side-note__body::before,
+    &.blog-side-note--quote figcaption::before {
+        color: rgba(16, 185, 129, 0.12);
+    }
+
+    .blog-side-note__stat-number {
+        color: #059669;
+    }
+}
+
+.blog-side-note--tint-amber {
+    .blog-side-note__card,
+    > a,
+    &.blog-side-note__card {
+        background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+        border-color: rgba(245, 158, 11, 0.18);
+    }
+
+    &.blog-side-note--quote .blog-side-note__body::before,
+    &.blog-side-note--quote figcaption::before {
+        color: rgba(245, 158, 11, 0.12);
+    }
+
+    .blog-side-note__stat-number {
+        color: #b45309;
+    }
+}
+
+.blog-side-note--tint-violet {
+    .blog-side-note__card,
+    > a,
+    &.blog-side-note__card {
+        background: linear-gradient(135deg, #f5f0ff 0%, #ede9fe 100%);
+        border-color: rgba(124, 58, 237, 0.16);
+    }
+
+    &.blog-side-note--quote .blog-side-note__body::before,
+    &.blog-side-note--quote figcaption::before {
+        color: rgba(124, 58, 237, 0.12);
+    }
+
+    .blog-side-note__stat-number {
+        color: #6d28d9;
+    }
+}
+
+// ── Side note: wide inline ────────────────────────────────
+// Forces the note to stay inline at full content width, even on desktop.
+// Overrides the absolute positioning from the @media (min-width: 1180px) rule.
+.blog-side-note--wide {
+    margin: 2rem 0;
+}
+
+@media (min-width: 1180px) {
+    .blog-side-note--wide.blog-side-note,
+    .blog-annotated-block > .blog-side-note--wide,
+    .blog-side-note-anchor > .blog-side-note--wide {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        transform: none !important;
+    }
+}
+
+// ── Side note: stat grid (two stats side by side) ─────────
+.blog-side-note-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(#{'min(100%, 14rem)'}, 1fr));
+    margin: 2rem 0;
+
+    .blog-side-note {
+        margin: 0;
+    }
+}
+
 .blog-table-scroll {
     position: relative;
     display: block;
