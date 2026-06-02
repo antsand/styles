@@ -242,7 +242,7 @@ a.blog-side-note:hover {
 }
 
 .blog-side-note__text,
-.blog-side-note span:not(.blog-side-note__label):not(.blog-side-note__title):not(.blog-side-note__body) {
+.blog-side-note span:not(.blog-side-note__label):not(.blog-side-note__title):not(.blog-side-note__body):not(.blog-side-note__text):not(.blog-side-note__source):not(.blog-side-note__stat-number) {
     display: block;
     margin-top: 0.45rem;
     color: #64748b;
@@ -285,7 +285,7 @@ a.blog-side-note:hover {
     .blog-side-note__card,
     > a,
     &.blog-side-note__card {
-        padding: 1.6rem 1.5rem 1.4rem;
+        padding: 2rem 2rem 1.6rem;
     }
 
     .blog-side-note__body,
@@ -310,32 +310,34 @@ a.blog-side-note:hover {
         z-index: 0;
     }
 
-    p {
+    p,
+    .blog-side-note__text {
         position: relative;
         z-index: 1;
-        color: #1e293b;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 1.15rem;
+        color: #0f172a !important;
+        font-family: Georgia, "Times New Roman", serif !important;
+        font-size: 1.2rem !important;
         font-style: italic;
         font-weight: 400;
         letter-spacing: -0.01em;
-        line-height: 1.55;
+        line-height: 1.6 !important;
         margin: 0;
     }
 
-    cite {
+    cite,
+    .blog-side-note__source {
         display: block;
         position: relative;
         z-index: 1;
-        margin-top: 0.9rem;
-        padding-top: 0.7rem;
-        border-top: 1px solid rgba(15, 23, 42, 0.08);
-        color: #64748b;
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+        border-top: 1px solid rgba(15, 23, 42, 0.1);
+        color: #475569 !important;
         font-family: inherit;
-        font-size: 0.78rem;
+        font-size: 0.82rem !important;
         font-style: normal;
         font-weight: 600;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.04em;
         text-transform: uppercase;
     }
 }
@@ -347,7 +349,7 @@ a.blog-side-note:hover {
     .blog-side-note__card,
     > a,
     &.blog-side-note__card {
-        padding: 1.6rem 1.5rem 1.4rem;
+        padding: 2rem 1.5rem 1.6rem;
         text-align: center;
     }
 
@@ -357,18 +359,19 @@ a.blog-side-note:hover {
     }
 
     .blog-side-note__stat-number {
-        color: #0f172a;
-        font-size: clamp(2.8rem, 6vw, 4.2rem);
+        color: #0f172a !important;
+        font-size: clamp(2.8rem, 6vw, 4.2rem) !important;
         font-weight: 900;
         letter-spacing: -0.04em;
         line-height: 1;
-        margin-bottom: 0.55rem;
+        margin-bottom: 0.65rem;
     }
 
-    p {
-        color: #475569;
-        font-size: 0.92rem;
-        line-height: 1.5;
+    p,
+    .blog-side-note__text {
+        color: #334155 !important;
+        font-size: 1rem !important;
+        line-height: 1.55 !important;
         margin: 0;
     }
 }
@@ -381,17 +384,18 @@ a.blog-side-note:hover {
     .blog-side-note__card,
     > a,
     &.blog-side-note__card {
-        background: linear-gradient(135deg, #e8f4fd 0%, #dbeafe 100%);
-        border-color: rgba(59, 130, 246, 0.18);
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        border-color: rgba(59, 130, 246, 0.25);
+        box-shadow: 0 8px 28px rgba(59, 130, 246, 0.10);
     }
 
     &.blog-side-note--quote .blog-side-note__body::before,
     &.blog-side-note--quote figcaption::before {
-        color: rgba(59, 130, 246, 0.12);
+        color: rgba(59, 130, 246, 0.22);
     }
 
     .blog-side-note__stat-number {
-        color: #1d4ed8;
+        color: #1d4ed8 !important;
     }
 }
 
@@ -399,17 +403,18 @@ a.blog-side-note:hover {
     .blog-side-note__card,
     > a,
     &.blog-side-note__card {
-        background: linear-gradient(135deg, #fce8ec 0%, #fecdd3 100%);
-        border-color: rgba(225, 29, 72, 0.16);
+        background: linear-gradient(135deg, #fecdd3 0%, #fda4af 100%);
+        border-color: rgba(225, 29, 72, 0.22);
+        box-shadow: 0 8px 28px rgba(225, 29, 72, 0.08);
     }
 
     &.blog-side-note--quote .blog-side-note__body::before,
     &.blog-side-note--quote figcaption::before {
-        color: rgba(225, 29, 72, 0.10);
+        color: rgba(225, 29, 72, 0.18);
     }
 
     .blog-side-note__stat-number {
-        color: #be123c;
+        color: #be123c !important;
     }
 }
 
@@ -417,17 +422,18 @@ a.blog-side-note:hover {
     .blog-side-note__card,
     > a,
     &.blog-side-note__card {
-        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-        border-color: rgba(16, 185, 129, 0.18);
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        border-color: rgba(16, 185, 129, 0.25);
+        box-shadow: 0 8px 28px rgba(16, 185, 129, 0.08);
     }
 
     &.blog-side-note--quote .blog-side-note__body::before,
     &.blog-side-note--quote figcaption::before {
-        color: rgba(16, 185, 129, 0.12);
+        color: rgba(16, 185, 129, 0.20);
     }
 
     .blog-side-note__stat-number {
-        color: #059669;
+        color: #059669 !important;
     }
 }
 
@@ -435,17 +441,18 @@ a.blog-side-note:hover {
     .blog-side-note__card,
     > a,
     &.blog-side-note__card {
-        background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-        border-color: rgba(245, 158, 11, 0.18);
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        border-color: rgba(245, 158, 11, 0.25);
+        box-shadow: 0 8px 28px rgba(245, 158, 11, 0.08);
     }
 
     &.blog-side-note--quote .blog-side-note__body::before,
     &.blog-side-note--quote figcaption::before {
-        color: rgba(245, 158, 11, 0.12);
+        color: rgba(245, 158, 11, 0.20);
     }
 
     .blog-side-note__stat-number {
-        color: #b45309;
+        color: #b45309 !important;
     }
 }
 
@@ -453,17 +460,18 @@ a.blog-side-note:hover {
     .blog-side-note__card,
     > a,
     &.blog-side-note__card {
-        background: linear-gradient(135deg, #f5f0ff 0%, #ede9fe 100%);
-        border-color: rgba(124, 58, 237, 0.16);
+        background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+        border-color: rgba(124, 58, 237, 0.22);
+        box-shadow: 0 8px 28px rgba(124, 58, 237, 0.08);
     }
 
     &.blog-side-note--quote .blog-side-note__body::before,
     &.blog-side-note--quote figcaption::before {
-        color: rgba(124, 58, 237, 0.12);
+        color: rgba(124, 58, 237, 0.20);
     }
 
     .blog-side-note__stat-number {
-        color: #6d28d9;
+        color: #6d28d9 !important;
     }
 }
 
