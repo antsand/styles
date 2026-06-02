@@ -262,6 +262,15 @@ code-line:empty::before {
         text-transform: uppercase;
     }
 
+    .antsand-code-copy {
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .antsand-code-language + .antsand-code-copy {
+        margin-left: 0;
+    }
+
     .antsand-code-pre {
         background: #1b1b2f;
         color: #d8dee9;

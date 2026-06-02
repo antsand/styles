@@ -9652,6 +9652,11 @@ code-line:empty::before {
     margin-left: auto;
     padding: 0;
     text-transform: uppercase; }
+  .antsand-code-preview .antsand-code-copy {
+    margin-left: auto;
+    flex-shrink: 0; }
+  .antsand-code-preview .antsand-code-language + .antsand-code-copy, .antsand-code-preview code-language + .antsand-code-copy {
+    margin-left: 0; }
   .antsand-code-preview .antsand-code-pre, .antsand-code-preview code-body {
     background: #1b1b2f;
     color: #d8dee9;
