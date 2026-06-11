@@ -197,13 +197,32 @@
 // DISPLAY UTILITIES
 // ============================================
 
+.display-none,
+.display-none-all,
 .antsand-d-none { display: none; }
+
+.display-block,
+.display-block-important,
 .antsand-d-block { display: block; }
+
+.display-inline,
 .antsand-d-inline { display: inline; }
+
+.inline-block,
+.display-inline-block,
 .antsand-d-inline-block { display: inline-block; }
+
+.display-flex,
 .antsand-d-flex { display: flex; }
+
+.display-inline-flex,
 .antsand-d-inline-flex { display: inline-flex; }
+
+.display-grid,
 .antsand-d-grid { display: grid; }
+
+.display-transparent,
+.color-transparent { color: transparent; }
 
 // WIDTH & HEIGHT UTILITIES
 // ============================================
