@@ -39,6 +39,7 @@ import { AntsandAiBar, initAllAiBars } from './modules/ai-bar.js';
 import { AntsandImageLightbox, initAllImageLightboxes } from './modules/image-lightbox.js';
 import { AntsandTableFullscreen, initAllTableFullscreen } from './modules/table-fullscreen.js';
 import { initAllCodeCopy, highlightPython } from './modules/code-copy.js';
+import { initAllSideNoteLayout } from './modules/side-note-layout.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
@@ -62,7 +63,8 @@ function initAll() {
         aiBars: initAllAiBars(),
         imageLightboxes: initAllImageLightboxes(),
         tableFullscreen: initAllTableFullscreen(),
-        codeCopy: initAllCodeCopy()
+        codeCopy: initAllCodeCopy(),
+        sideNoteLayout: initAllSideNoteLayout()
     };
 
     // Log initialization summary (development only)
@@ -81,7 +83,8 @@ function initAll() {
             aiBars: initialized.aiBars.length,
             imageLightboxes: initialized.imageLightboxes.length,
             tableFullscreen: initialized.tableFullscreen.length,
-            codeCopy: initialized.codeCopy.length
+            codeCopy: initialized.codeCopy.length,
+            sideNoteLayout: initialized.sideNoteLayout.length
         });
     }
 
@@ -167,6 +170,7 @@ const ANTSAND = {
     initImageLightboxes: initAllImageLightboxes,
     initTableFullscreen: initAllTableFullscreen,
     initCodeCopy: initAllCodeCopy,
+    initSideNoteLayout: initAllSideNoteLayout,
     highlightPython,
     openModal,
     closeModal,

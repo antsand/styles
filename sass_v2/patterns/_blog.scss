@@ -359,12 +359,15 @@ a.blog-side-note:hover {
     }
 
     .blog-side-note__stat-number {
+        display: block;
         color: #0f172a;
-        font-size: clamp(2.8rem, 6vw, 4.2rem);
+        font-size: clamp(2.1rem, 4.8vw, 4.2rem);
         font-weight: 900;
         letter-spacing: -0.04em;
-        line-height: 1;
+        line-height: 0.98;
         margin-bottom: 0.65rem;
+        overflow-wrap: anywhere;
+        text-wrap: balance;
     }
 
     p,
@@ -823,13 +826,23 @@ article[data-blog-layout="research"] table:not(.research-runtime-table) code {
         z-index: 2;
         width: 280px;
         margin: 0;
-        transform: translateY(-50%);
+        transform: translateY(calc(-50% + var(--blog-side-note-offset, 0px)));
     }
 
     .blog-annotated-block > .blog-side-note--left,
     .blog-side-note-anchor > .blog-side-note--left {
         right: -340px;
         left: auto;
+    }
+
+    .blog-side-note--wide.blog-side-note,
+    .blog-annotated-block > .blog-side-note--wide,
+    .blog-side-note-anchor > .blog-side-note--wide {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        transform: none;
     }
 }
 
