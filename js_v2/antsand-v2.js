@@ -40,6 +40,7 @@ import { AntsandImageLightbox, initAllImageLightboxes } from './modules/image-li
 import { AntsandTableFullscreen, initAllTableFullscreen } from './modules/table-fullscreen.js';
 import { initAllCodeCopy, highlightPython } from './modules/code-copy.js';
 import { initAllSideNoteLayout } from './modules/side-note-layout.js';
+import { AntsandSvgInteractive, initAllSvgInteractive } from './modules/svg-interactive.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
@@ -64,7 +65,8 @@ function initAll() {
         imageLightboxes: initAllImageLightboxes(),
         tableFullscreen: initAllTableFullscreen(),
         codeCopy: initAllCodeCopy(),
-        sideNoteLayout: initAllSideNoteLayout()
+        sideNoteLayout: initAllSideNoteLayout(),
+        svgInteractive: initAllSvgInteractive()
     };
 
     // Log initialization summary (development only)
@@ -84,7 +86,8 @@ function initAll() {
             imageLightboxes: initialized.imageLightboxes.length,
             tableFullscreen: initialized.tableFullscreen.length,
             codeCopy: initialized.codeCopy.length,
-            sideNoteLayout: initialized.sideNoteLayout.length
+            sideNoteLayout: initialized.sideNoteLayout.length,
+            svgInteractive: initialized.svgInteractive.length
         });
     }
 
@@ -154,6 +157,7 @@ const ANTSAND = {
     AiBar: AntsandAiBar,
     ImageLightbox: AntsandImageLightbox,
     TableFullscreen: AntsandTableFullscreen,
+    SvgInteractive: AntsandSvgInteractive,
 
     // Initialization functions
     initTabs: initAllTabs,
@@ -171,6 +175,7 @@ const ANTSAND = {
     initTableFullscreen: initAllTableFullscreen,
     initCodeCopy: initAllCodeCopy,
     initSideNoteLayout: initAllSideNoteLayout,
+    initSvgInteractive: initAllSvgInteractive,
     highlightPython,
     openModal,
     closeModal,
@@ -216,6 +221,7 @@ export {
     AntsandAiBar,
     AntsandImageLightbox,
     AntsandTableFullscreen,
+    AntsandSvgInteractive,
     initAllTabs,
     initAllTables,
     initAllCarousels,
@@ -229,6 +235,7 @@ export {
     initAllAiBars,
     initAllImageLightboxes,
     initAllTableFullscreen,
+    initAllSvgInteractive,
     openModal,
     closeModal,
     initAll
