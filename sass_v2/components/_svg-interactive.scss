@@ -240,6 +240,18 @@ svg-interactive-static {
   margin-right: unquote("calc(50% - min(var(--asi-half-width, 590px), calc(50vw - 1rem)))");
 }
 
+svg-interactive-static.display-mobile {
+  display: block;
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  border: 1px solid rgba(94, 234, 212, 0.22);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(94, 234, 212, 0.16), transparent 34%),
+    radial-gradient(circle at 82% 10%, rgba(167, 139, 250, 0.12), transparent 38%),
+    linear-gradient(135deg, #050b12, #08121d 56%, #050816);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+}
+
 svg-interactive-static img {
   display: block;
   width: 100%;
@@ -561,13 +573,10 @@ svg-interactive-tooltip.is-visible {
   }
 
   svg-interactive-static.display-mobile {
-    display: block;
     width: unquote("min(100%, calc(100vw - 0.75rem))");
     margin: 1.6rem auto;
-  }
-
-  [data-antsand-svg-interactive].display-desktop {
-    display: none;
+    padding: 0.55rem;
+    border-radius: 18px;
   }
 
   svg-interactive-static.display-mobile img {
