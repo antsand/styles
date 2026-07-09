@@ -232,16 +232,23 @@ svg-interactive-body {
 
 svg-interactive-static {
   display: none;
-  padding: 0 1.5rem 1.5rem;
+  box-sizing: border-box;
+  width: unquote("min(var(--asi-max-width, 1180px), calc(100vw - 2rem))");
+  max-width: none;
+  margin: 2.8rem auto;
+  margin-left: unquote("calc(50% - min(var(--asi-half-width, 590px), calc(50vw - 1rem)))");
+  margin-right: unquote("calc(50% - min(var(--asi-half-width, 590px), calc(50vw - 1rem)))");
 }
 
 svg-interactive-static img {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid rgba(241, 245, 249, 0.10);
+  margin: 0;
+  border: 1px solid rgba(241, 245, 249, 0.14);
   border-radius: 20px;
   background: rgba(4, 10, 18, 0.52);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
 }
 
 svg-interactive-canvas {
@@ -553,29 +560,18 @@ svg-interactive-tooltip.is-visible {
     padding: 0.75rem 1rem 1rem;
   }
 
-  [data-antsand-svg-interactive].has-svg-static-fallback svg-interactive-static,
-  [data-antsand-svg-interactive]:has(svg-interactive-static) svg-interactive-static {
+  svg-interactive-static.display-mobile {
     display: block;
-    padding: 0.75rem 1rem 1rem;
+    width: unquote("min(100%, calc(100vw - 0.75rem))");
+    margin: 1.6rem auto;
   }
 
-  [data-antsand-svg-interactive].has-svg-static-fallback svg-interactive-body,
-  [data-antsand-svg-interactive]:has(svg-interactive-static) svg-interactive-body {
+  [data-antsand-svg-interactive].display-desktop {
     display: none;
   }
 
-  [data-antsand-svg-interactive].has-svg-static-fallback.is-fullscreen svg-interactive-static,
-  [data-antsand-svg-interactive].has-svg-static-fallback:fullscreen svg-interactive-static,
-  [data-antsand-svg-interactive]:has(svg-interactive-static).is-fullscreen svg-interactive-static,
-  [data-antsand-svg-interactive]:has(svg-interactive-static):fullscreen svg-interactive-static {
-    display: none;
-  }
-
-  [data-antsand-svg-interactive].has-svg-static-fallback.is-fullscreen svg-interactive-body,
-  [data-antsand-svg-interactive].has-svg-static-fallback:fullscreen svg-interactive-body,
-  [data-antsand-svg-interactive]:has(svg-interactive-static).is-fullscreen svg-interactive-body,
-  [data-antsand-svg-interactive]:has(svg-interactive-static):fullscreen svg-interactive-body {
-    display: grid;
+  svg-interactive-static.display-mobile img {
+    border-radius: 16px;
   }
 
   svg-interactive-canvas {
