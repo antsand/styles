@@ -16,7 +16,12 @@ class AntsandSvgInteractive {
         this.dots = root.querySelectorAll('[data-svg-dot]');
         this.bumpElements = root.querySelectorAll('[data-svg-bump]');
         this.canvas = root.querySelector('svg-interactive-canvas') || root;
+        this.staticFallback = root.querySelector('svg-interactive-static');
         this.tooltip = this.ensureTooltip();
+
+        if (this.staticFallback) {
+            this.root.classList.add('has-svg-static-fallback');
+        }
 
         if (!this.steps.length) {
             this.steps = this.stepsFromNodes();

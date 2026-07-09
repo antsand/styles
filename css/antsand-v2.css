@@ -14503,6 +14503,7 @@ svg-interactive-title,
 svg-interactive-eyebrow,
 svg-interactive-controls,
 svg-interactive-body,
+svg-interactive-static,
 svg-interactive-canvas,
 svg-interactive-panel,
 svg-interactive-card,
@@ -14691,6 +14692,18 @@ svg-interactive-body {
   grid-template-columns: minmax(640px, 1.55fr) minmax(300px, 0.85fr);
   gap: 1.15rem;
   padding: 1rem 1.5rem 1.5rem; }
+
+svg-interactive-static {
+  display: none;
+  padding: 0 1.5rem 1.5rem; }
+
+svg-interactive-static img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid rgba(241, 245, 249, 0.1);
+  border-radius: 20px;
+  background: rgba(4, 10, 18, 0.52); }
 
 svg-interactive-canvas {
   position: relative;
@@ -14943,6 +14956,23 @@ svg-interactive-tooltip.is-visible {
     padding-block: 0.7rem; }
   svg-interactive-body {
     padding: 0.75rem 1rem 1rem; }
+  [data-antsand-svg-interactive].has-svg-static-fallback svg-interactive-static,
+  [data-antsand-svg-interactive]:has(svg-interactive-static) svg-interactive-static {
+    display: block;
+    padding: 0.75rem 1rem 1rem; }
+  [data-antsand-svg-interactive].has-svg-static-fallback svg-interactive-body,
+  [data-antsand-svg-interactive]:has(svg-interactive-static) svg-interactive-body {
+    display: none; }
+  [data-antsand-svg-interactive].has-svg-static-fallback.is-fullscreen svg-interactive-static,
+  [data-antsand-svg-interactive].has-svg-static-fallback:fullscreen svg-interactive-static,
+  [data-antsand-svg-interactive]:has(svg-interactive-static).is-fullscreen svg-interactive-static,
+  [data-antsand-svg-interactive]:has(svg-interactive-static):fullscreen svg-interactive-static {
+    display: none; }
+  [data-antsand-svg-interactive].has-svg-static-fallback.is-fullscreen svg-interactive-body,
+  [data-antsand-svg-interactive].has-svg-static-fallback:fullscreen svg-interactive-body,
+  [data-antsand-svg-interactive]:has(svg-interactive-static).is-fullscreen svg-interactive-body,
+  [data-antsand-svg-interactive]:has(svg-interactive-static):fullscreen svg-interactive-body {
+    display: grid; }
   svg-interactive-canvas {
     align-items: start;
     min-height: auto;
