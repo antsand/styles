@@ -14533,6 +14533,7 @@ svg-interactive-section,
   --asi-canvas-min-height: 500px;
   --asi-max-width: 1180px;
   --asi-half-width: 590px;
+  --asi-mobile-svg-min-width: 560px;
   box-sizing: border-box;
   width: min(var(--asi-max-width), calc(100vw - 2rem));
   max-width: none;
@@ -14650,14 +14651,14 @@ svg-interactive-title h3,
 [data-antsand-svg-interactive] h3 {
   margin: 0;
   color: var(--asi-text);
-  font-size: clamp(1.3rem, 3vw, 1.85rem);
+  font-size: clamp(1.22rem, 2.4vw, 1.65rem);
   line-height: 1.1; }
 
 svg-interactive-title p {
   max-width: 52rem;
   margin: 0.65rem 0 0;
   color: var(--asi-muted);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.55; }
 
 svg-interactive-controls {
@@ -14736,14 +14737,14 @@ svg-interactive-code {
 [data-svg-headline] {
   margin: 0.25rem 0 0.55rem;
   color: var(--asi-heading-text) !important;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 850;
   line-height: 1.25; }
 
 [data-svg-copy] {
   margin: 0;
   color: var(--asi-body-text) !important;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   line-height: 1.55; }
 
 svg-interactive-stats {
@@ -14760,7 +14761,7 @@ svg-interactive-stat {
 svg-interactive-stat strong {
   display: block;
   color: var(--asi-stat-text) !important;
-  font-size: 1.2rem;
+  font-size: 1.08rem;
   line-height: 1; }
 
 svg-interactive-stat span {
@@ -14774,7 +14775,7 @@ svg-interactive-code pre {
   white-space: pre-wrap;
   color: var(--asi-code-text) !important;
   font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   line-height: 1.48; }
 
 [data-antsand-svg-interactive] svg text {
@@ -14916,13 +14917,76 @@ svg-interactive-tooltip.is-visible {
     grid-template-columns: 1fr; } }
 
 @media (max-width: 760px) {
+  [data-antsand-svg-interactive] {
+    width: min(100%, calc(100vw - 0.75rem));
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    border-radius: 18px; }
   svg-interactive-header,
   svg-interactive-body {
     grid-template-columns: 1fr; }
+  svg-interactive-header {
+    padding: 1rem 1rem 0.5rem; }
+  svg-interactive-title h3,
+  [data-antsand-svg-interactive] h3 {
+    font-size: clamp(1.05rem, 6vw, 1.35rem); }
+  svg-interactive-title p {
+    font-size: 0.82rem;
+    line-height: 1.45; }
   svg-interactive-controls {
     justify-content: flex-start; }
+  svg-interactive-controls button:not([data-svg-action="fullscreen"]) {
+    display: none; }
+  svg-interactive-controls button[data-svg-action="fullscreen"] {
+    width: 100%;
+    justify-content: center;
+    padding-block: 0.7rem; }
+  svg-interactive-body {
+    padding: 0.75rem 1rem 1rem; }
   svg-interactive-canvas {
-    min-height: auto; } }
+    align-items: start;
+    min-height: auto;
+    max-height: 62vh;
+    -webkit-overflow-scrolling: touch; }
+  svg-interactive-canvas::before {
+    content: "Static mobile view. Tap Fullscreen for the interactive walkthrough.";
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: block;
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--asi-border-soft);
+    background: rgba(8, 16, 28, 0.92);
+    color: var(--asi-muted);
+    font-size: 0.72rem;
+    font-weight: 750;
+    letter-spacing: 0.02em; }
+  [data-svg-theme="light"] svg-interactive-canvas::before {
+    background: rgba(248, 250, 252, 0.94); }
+  svg-interactive-canvas svg {
+    width: max(100%, var(--asi-mobile-svg-min-width));
+    min-height: 0; }
+  svg-interactive-panel {
+    display: none; }
+  [data-svg-node],
+  [data-svg-block],
+  [data-svg-zone],
+  [data-svg-connector],
+  [data-svg-arrow] {
+    opacity: 1; }
+  [data-antsand-svg-interactive].is-fullscreen svg-interactive-controls button,
+  [data-antsand-svg-interactive]:fullscreen svg-interactive-controls button {
+    display: inline-flex;
+    width: auto; }
+  [data-antsand-svg-interactive].is-fullscreen svg-interactive-panel,
+  [data-antsand-svg-interactive]:fullscreen svg-interactive-panel {
+    display: grid; }
+  [data-antsand-svg-interactive].is-fullscreen svg-interactive-canvas,
+  [data-antsand-svg-interactive]:fullscreen svg-interactive-canvas {
+    max-height: none; }
+  [data-antsand-svg-interactive].is-fullscreen svg-interactive-canvas::before,
+  [data-antsand-svg-interactive]:fullscreen svg-interactive-canvas::before {
+    display: none; } }
 
 .hero-1, .antsand-hero-gradient {
   position: relative;
