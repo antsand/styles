@@ -37,10 +37,10 @@ import { AntsandAlert, initAllAlerts } from './modules/alert.js';
 import { AntsandGallery, initAllGalleries } from './modules/gallery.js';
 import { AntsandAiBar, initAllAiBars } from './modules/ai-bar.js';
 import { AntsandImageLightbox, initAllImageLightboxes } from './modules/image-lightbox.js';
-import { AntsandTableFullscreen, initAllTableFullscreen } from './modules/table-fullscreen.js?v=20260721-1';
+import { AntsandTableFullscreen, initAllTableFullscreen } from './modules/table-fullscreen.js';
 import { initAllCodeCopy, highlightPython } from './modules/code-copy.js';
 import { initAllSideNoteLayout } from './modules/side-note-layout.js';
-import { AntsandSvgInteractive, initAllSvgInteractive } from './modules/svg-interactive.js?v=20260721-2';
+import { AntsandSvgInteractive, initAllSvgInteractive } from './modules/svg-interactive.js';
 
 // =============================================================================
 // AUTO-INITIALIZATION
