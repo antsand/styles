@@ -18,6 +18,7 @@ class AntsandSvgInteractive {
         this.canvas = root.querySelector('svg-interactive-canvas') || root;
         this.staticFallback = root.querySelector('svg-interactive-static');
         this.tooltip = this.ensureTooltip();
+        this.fullscreenPlaceholder = null;
 
         if (this.staticFallback) {
             this.root.classList.add('has-svg-static-fallback');
@@ -89,7 +90,9 @@ class AntsandSvgInteractive {
         });
 
         document.addEventListener('fullscreenchange', () => {
-            this.root.classList.toggle('is-fullscreen', document.fullscreenElement === this.root);
+            const active = document.fullscreenElement === this.root;
+            this.root.classList.toggle('is-fullscreen', active);
+            this.updateFullscreenControl(active);
         });
     }
 
@@ -141,11 +144,56 @@ class AntsandSvgInteractive {
             return;
         }
 
-        if (this.root.requestFullscreen) {
-            this.root.requestFullscreen();
-        } else {
-            this.root.classList.toggle('is-fullscreen');
+        if (this.root.classList.contains('is-fullscreen')) {
+            this.toggleCssFullscreen();
+            return;
         }
+
+        if (this.root.requestFullscreen) {
+            const request = this.root.requestFullscreen();
+            if (request && typeof request.catch === 'function') {
+                request.catch(() => this.toggleCssFullscreen());
+            }
+        } else {
+            this.toggleCssFullscreen();
+        }
+    }
+
+    toggleCssFullscreen() {
+        const active = !this.root.classList.contains('is-fullscreen');
+        if (active) {
+            this.mountFullscreenPortal();
+            this.root.classList.add('is-fullscreen');
+        } else {
+            this.root.classList.remove('is-fullscreen');
+            this.restoreFullscreenPortal();
+        }
+        this.updateFullscreenControl(active);
+    }
+
+    mountFullscreenPortal() {
+        if (this.fullscreenPlaceholder || !this.root.parentNode) return;
+
+        this.fullscreenPlaceholder = document.createComment('antsand-svg-interactive-position');
+        this.root.parentNode.insertBefore(this.fullscreenPlaceholder, this.root);
+        document.body.appendChild(this.root);
+    }
+
+    restoreFullscreenPortal() {
+        if (!this.fullscreenPlaceholder || !this.fullscreenPlaceholder.parentNode) return;
+
+        this.fullscreenPlaceholder.parentNode.insertBefore(this.root, this.fullscreenPlaceholder);
+        this.fullscreenPlaceholder.remove();
+        this.fullscreenPlaceholder = null;
+    }
+
+    updateFullscreenControl(active) {
+        const button = this.root.querySelector('[data-svg-action="fullscreen"]');
+        document.body.classList.toggle('svg-interactive-fullscreen-open', active);
+        if (!button) return;
+
+        button.setAttribute('aria-expanded', active ? 'true' : 'false');
+        button.textContent = active ? 'Exit fullscreen' : 'Fullscreen';
     }
 
     nodeIndex(node, fallback) {

@@ -117,6 +117,20 @@ svg-interactive-section,
   --asi-canvas-min-height: 540px;
 }
 
+// Portrait circuit maps keep the shared hierarchy while avoiding the wide
+// minimum used by architecture diagrams.
+[data-antsand-svg-interactive][data-svg-layout="portrait"] {
+  --asi-svg-min-width: 400px;
+  --asi-mobile-svg-min-width: 400px;
+  --asi-canvas-min-height: 580px;
+}
+
+[data-antsand-svg-interactive][data-svg-layout="portrait"] svg-interactive-canvas svg {
+  width: unquote("min(100%, 480px)");
+  min-height: 0;
+  margin-inline: auto;
+}
+
 [data-antsand-svg-interactive] *,
 [data-antsand-svg-interactive] *::before,
 [data-antsand-svg-interactive] *::after {
@@ -307,7 +321,7 @@ svg-interactive-code {
     var(--asi-panel-soft);
 }
 
-[data-svg-stage] {
+[data-antsand-svg-interactive] [data-svg-stage] {
   margin: 0;
   color: var(--asi-accent) !important;
   font-size: 0.82rem;
@@ -316,7 +330,7 @@ svg-interactive-code {
   text-transform: uppercase;
 }
 
-[data-svg-headline] {
+[data-antsand-svg-interactive] [data-svg-headline] {
   margin: 0.25rem 0 0.55rem;
   color: var(--asi-heading-text) !important;
   font-size: 1.05rem;
@@ -324,7 +338,7 @@ svg-interactive-code {
   line-height: 1.25;
 }
 
-[data-svg-copy] {
+[data-antsand-svg-interactive] [data-svg-copy] {
   margin: 0;
   color: var(--asi-body-text) !important;
   font-size: 0.84rem;
@@ -491,6 +505,16 @@ svg-interactive-tooltip.is-visible {
   padding: 1.2rem;
 }
 
+[data-antsand-svg-interactive].is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+}
+
+body.svg-interactive-fullscreen-open {
+  overflow: hidden;
+}
+
 [data-antsand-svg-interactive].is-fullscreen svg-interactive-header,
 [data-antsand-svg-interactive].is-fullscreen svg-interactive-body,
 [data-antsand-svg-interactive]:fullscreen svg-interactive-header,
@@ -513,6 +537,13 @@ svg-interactive-tooltip.is-visible {
 [data-antsand-svg-interactive]:fullscreen svg-interactive-canvas svg {
   width: 100%;
   min-height: 68vh;
+}
+
+[data-antsand-svg-interactive][data-svg-layout="portrait"].is-fullscreen svg-interactive-canvas svg,
+[data-antsand-svg-interactive][data-svg-layout="portrait"]:fullscreen svg-interactive-canvas svg {
+  width: unquote("min(100%, 480px)");
+  min-height: 0;
+  margin-inline: auto;
 }
 
 @media (max-width: 1100px) {
