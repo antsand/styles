@@ -440,6 +440,25 @@ a.blog-side-note:hover {
     }
 }
 
+.blog-side-note--tint-green {
+    .blog-side-note__card,
+    > a,
+    &.blog-side-note__card {
+        background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
+        border-color: rgba(22, 101, 52, 0.25);
+        box-shadow: 0 8px 28px rgba(22, 101, 52, 0.08);
+    }
+
+    &.blog-side-note--quote .blog-side-note__body::before,
+    &.blog-side-note--quote figcaption::before {
+        color: rgba(22, 101, 52, 0.2);
+    }
+
+    .blog-side-note__stat-number {
+        color: #166534;
+    }
+}
+
 .blog-side-note--tint-amber {
     .blog-side-note__card,
     > a,
@@ -551,6 +570,7 @@ a.blog-side-note:hover {
     .blog-side-note--tint-blue .blog-side-note__stat-number { color: #1d4ed8; }
     .blog-side-note--tint-rose .blog-side-note__stat-number { color: #be123c; }
     .blog-side-note--tint-mint .blog-side-note__stat-number { color: #059669; }
+    .blog-side-note--tint-green .blog-side-note__stat-number { color: #166534; }
     .blog-side-note--tint-amber .blog-side-note__stat-number { color: #b45309; }
     .blog-side-note--tint-violet .blog-side-note__stat-number { color: #6d28d9; }
 }
@@ -817,7 +837,7 @@ article[data-blog-layout="research"] table:not(.research-runtime-table) code {
 
 }
 
-@media (min-width: 1180px) {
+@media (min-width: 1440px) {
     .blog-annotated-block > .blog-side-note,
     .blog-side-note-anchor > .blog-side-note {
         position: absolute;

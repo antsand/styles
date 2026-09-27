@@ -60,6 +60,72 @@ For centering specific content without full container:
 
 ## 📝 Article/Blog Components
 
+### Reference snapshots for long-form Notes
+
+Use a reference snapshot where a reader may want to follow a related article or
+source and then return. It is an ordinary labeled list, not a JavaScript widget:
+screen readers and reading agents can identify the group, announce each link's
+purpose, open it, and return using browser history. Keep link text unique and
+explain why each reference matters. Do not replace citations in the prose.
+
+```html
+<aside class="antsand-reference-snapshot" aria-labelledby="audio-reading">
+    <h3 id="audio-reading">Follow the audio work</h3>
+    <p>Earlier work that explains this result.</p>
+    <ul>
+        <li>
+            <a href="/blog/123/audio-test">The audio test that found a bug</a>
+            <p>Shows the original workload and the regression it exposed.</p>
+        </li>
+    </ul>
+</aside>
+```
+
+Use a unique heading ID per snapshot. Put the snapshot near the argument it
+supports, with a short end-of-article group only if a next-reading path is
+useful. Use `.antsand-blog-callout` for an evidence boundary or warning, not
+for a list of unexplained URLs. If styling is unavailable, both still read in
+document order. Avoid opening references in a new tab by default so the
+reader's Back action returns to the article.
+
+For a future voice-reading agent, the heading and each link/summary are the
+navigation contract: announce that related references are available, read the
+title and purpose, and ask before opening one. Remember the source URL and
+reading position so "go back" returns to the original article. Do not silently
+follow every link or claim this workflow is already automated; the HTML makes
+it possible to implement reliably.
+
+Source of truth: `sass_v2/components/_blog-content.scss`. After review,
+compile `sass_v2/antsand-v2.scss`, verify the generated CSS against pending
+changes, sync to Antsand and styles_doc, test the local Notes rendering and
+keyboard focus, then deploy the same tested stylesheet with the article. Do
+not overwrite a dirty generated stylesheet without checking its diff.
+
+### Side notes and pull quotes
+
+Use a side note for one short observation that helps the current paragraph,
+not for a second copy of the article. The shared variants are `--tint-blue`,
+`--tint-rose`, `--tint-mint`, `--tint-green`, `--tint-amber`, and
+`--tint-violet`; `--quote` and `--stat` select the content treatment.
+`--tint-green` is a distinct, lighter green used by the Linux systems article.
+Keep the content in document order and use an `<aside>` after the paragraph it
+explains. The side rail starts at 1440px; below that it remains inline.
+
+```html
+<div class="blog-side-note-anchor">
+    <p>The related article paragraph.</p>
+    <aside class="blog-side-note blog-side-note--quote blog-side-note--tint-green"
+           aria-label="Key idea">
+        <div class="blog-side-note__card">
+            <div class="blog-side-note__body">
+                <span class="blog-side-note__label">Key idea</span>
+                <p class="blog-side-note__text">One concise observation.</p>
+            </div>
+        </div>
+    </aside>
+</div>
+```
+
 ### 1. Simple Article
 
 ```html

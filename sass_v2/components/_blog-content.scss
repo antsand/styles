@@ -297,6 +297,69 @@
     }
 }
 
+// Related reading stays a semantic list even when CSS or scripting is absent.
+.antsand-reference-snapshot {
+    background: linear-gradient(145deg, #f7faf9, #fffaf2);
+    border: 1px solid #d8e3e0;
+    border-radius: 1.2rem;
+    margin: 2.25rem 0;
+    padding: clamp(1.2rem, 3vw, 2rem);
+
+    h2,
+    h3 {
+        color: #123431;
+        font-size: clamp(1.25rem, 2vw, 1.75rem);
+        line-height: 1.2;
+        margin: 0 0 0.5rem;
+    }
+
+    > p {
+        color: #425b59;
+        font-size: 1rem;
+        line-height: 1.55;
+        margin: 0 0 1.25rem;
+    }
+
+    ul {
+        display: grid;
+        gap: 0.8rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        background: #fff;
+        border: 1px solid #dbe6e2;
+        border-left: 0.25rem solid #d37a41;
+        border-radius: 0.7rem;
+        margin: 0;
+        padding: 0.9rem 1rem;
+    }
+
+    a {
+        color: #14534a;
+        display: inline-block;
+        font-weight: 800;
+        line-height: 1.35;
+        text-decoration-thickness: 0.1em;
+        text-underline-offset: 0.2em;
+
+        &:focus-visible {
+            border-radius: 0.15rem;
+            outline: 3px solid #b45522;
+            outline-offset: 3px;
+        }
+    }
+
+    li p {
+        color: #405550;
+        font-size: 0.94rem;
+        line-height: 1.5;
+        margin: 0.35rem 0 0;
+    }
+}
+
 .antsand-blog-figure {
     background:
         linear-gradient(180deg, #fffaf2, #ffffff),
