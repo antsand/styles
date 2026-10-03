@@ -60,6 +60,38 @@ For centering specific content without full container:
 
 ## 📝 Article/Blog Components
 
+### Git PR and commit register
+
+Use `.antsand-git-history` for an end-of-article, evidence-linked change
+register. Keep the analysis in the prose; this is a navigable source appendix,
+not a replacement for explaining results. Its children use
+`.antsand-git-history__*` classes, native `<details>`/`<summary>` disclosure,
+descriptive group names, and ordinary PR and commit links. Source of truth:
+`sass_v2/components/_git-history.scss`.
+
+For a Git-backed article, optionally put one
+`<!-- ANTSAND_GIT_HISTORY_APPENDIX -->` marker in the source HTML and run
+`node scripts/build_git_history_appendix.mjs --repo /path/to/repo --from
+2026-09-01T00:00:00-07:00 --through 2026-09-30T23:59:59-07:00
+--repository-url https://github.com/owner/repo --article source.html
+--output rendered.html --register merged-prs.json --label 'September 2026'`.
+Use `node scripts/build_git_history_appendix.mjs --help` for all options.
+Without a marker, the generator appends the register; on a later run it
+replaces the existing register rather than duplicating it. It never overwrites
+the source file. Use the relevant dates and repository for your article. The
+generator fails on unlinked or duplicate PRs, HTML-escapes titles, and writes
+a JSON register for review. Check the title-based categories and claims
+against the PRs before publishing. Do not infer model quality from a merge
+title.
+
+Build shared styles with `make build-antsand-v2` from the Antsand root. The
+generated site must first exist through Databoard deployment; subsequent
+`/antsand/saveallblog` or `/antsand/index` requests can checksum-sync the
+compiled CSS. Verify `X-Antsand-Styles-Sync` and the served CSS instead of
+copying files into the federated site. Once this shared component is deployed,
+adding its HTML to another article is a content-only Notes update and data
+refresh; there is no Sass rebuild or Databoard redeployment for each post.
+
 ### Reference snapshots for long-form Notes
 
 Use a reference snapshot where a reader may want to follow a related article or
