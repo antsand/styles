@@ -1,5 +1,28 @@
 # ANTSAND Styles v2 - Navigation Component
 
+## Shared CSS to Federated Sites
+
+For reusable components such as `components/_git-history.scss`, edit Sass here and
+import the component from `antsand-v2.scss`. Do not edit generated CSS or copy it
+directly into a deployed website.
+
+From the Antsand repository root, run `make build-antsand-v2`. That target runs
+`make all` in `styles_antsand`, producing `styles_antsand/css/antsand-v2.css`,
+then syncs the compiled CSS to Antsand's `public/css/antsand-v2.css` (along with
+the other v2 assets). The equivalent CSS-only steps are
+`make -C styles_antsand master` and `make -C styles_antsand sync-css-antsand`.
+
+The federated site is a separate deployment boundary. Initial Databoard website
+deployment calls `WebsiteDeployed::deploySharedFrontendAssets()`, which copies
+the newest compiled `antsand-v2*.css` from the shared Antsand sources into the
+generated site's `public/css/`. The site's `styles_list.json` must include
+`antsand-v2` for its pages to load that file. Once deployed, the generated
+`Antsand.php` runtime also checks the shared CSS SHA-256 during
+`/antsand/index` and `/antsand/saveallblog` and refreshes its CSS when changed;
+inspect the `X-Antsand-Styles-Sync` response header and compare the served CSS.
+The Notes API save alone is not a generated-site refresh. Do not manually copy
+files into the generated site or restart Docker for a Sass edit.
+
 ## Overview
 This folder contains the ANTSAND v2 navigation component built with modern CSS Grid/Flexbox, replacing the old Susy/Breakpoint-based system.
 

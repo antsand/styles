@@ -10381,6 +10381,193 @@ code-line:empty::before {
     border-radius: 0.9rem;
     margin: 1.5rem 0; } }
 
+.antsand-git-history {
+  --git-history-ink: #17263a;
+  --git-history-muted: #54687a;
+  --git-history-blue: #154e7a;
+  --git-history-line: #d4e1e4;
+  --git-history-paper: #f3f0e9;
+  width: 100%;
+  max-width: 100%;
+  margin: clamp(2rem, 5vw, 4rem) auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--git-history-line);
+  border-top: 6px solid var(--git-history-blue);
+  border-radius: 18px;
+  background: var(--git-history-paper);
+  color: var(--git-history-ink);
+  box-shadow: 0 18px 44px rgba(20, 51, 74, 0.08); }
+  .antsand-git-history * {
+    box-sizing: border-box; }
+  .antsand-git-history__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.5rem; }
+  .antsand-git-history__eyebrow {
+    grid-column: 1 / -1;
+    margin: 0 0 0.3rem;
+    color: var(--git-history-blue);
+    font: 700 0.72rem/1.3 'JetBrains Mono', monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase; }
+  .antsand-git-history__title {
+    margin: 0;
+    color: var(--git-history-ink);
+    font: 800 clamp(1.45rem, 3vw, 2.2rem)/1.08 "Merriweather", Georgia, serif;
+    letter-spacing: -0.04em; }
+  .antsand-git-history__total {
+    align-self: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    background: var(--git-history-blue);
+    color: #fff;
+    font: 700 0.75rem/1.2 'JetBrains Mono', monospace;
+    white-space: nowrap; }
+  .antsand-git-history__intro, .antsand-git-history__source {
+    margin: 0 0 1.2rem;
+    color: var(--git-history-muted);
+    font-size: 0.92rem;
+    line-height: 1.6; }
+  .antsand-git-history__source {
+    margin: 1.2rem 0 0; }
+  .antsand-git-history__group {
+    margin: 0.65rem 0;
+    border: 1px solid var(--git-history-line);
+    border-radius: 12px;
+    background: #fff;
+    overflow: hidden; }
+    .antsand-git-history__group[open] {
+      border-color: #a8c4d0; }
+  .antsand-git-history__summary {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-height: 3.8rem;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    list-style: none; }
+    .antsand-git-history__summary::-webkit-details-marker {
+      display: none; }
+    .antsand-git-history__summary:focus-visible {
+      outline: 3px solid #3284aa;
+      outline-offset: -3px; }
+    .antsand-git-history__summary:hover {
+      background: #f7fafb; }
+    .antsand-git-history__summary::after {
+      content: '+';
+      flex: 0 0 auto;
+      margin-left: auto;
+      color: var(--git-history-blue);
+      font: 700 1.35rem/1 'JetBrains Mono', monospace; }
+  .antsand-git-history__group[open] > .antsand-git-history__summary {
+    border-bottom: 1px solid var(--git-history-line);
+    background: #f8fbfb; }
+    .antsand-git-history__group[open] > .antsand-git-history__summary::after {
+      content: '-'; }
+  .antsand-git-history__icon {
+    display: inline-flex;
+    flex: 0 0 2.25rem;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9px;
+    background: #e9f2f5;
+    color: var(--git-history-blue); }
+    .antsand-git-history__icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.8; }
+  .antsand-git-history__group-copy {
+    display: grid;
+    gap: 0.1rem;
+    min-width: 0; }
+  .antsand-git-history__group-subtitle {
+    color: var(--git-history-muted);
+    font-size: 0.76rem;
+    line-height: 1.35; }
+  .antsand-git-history__group-name {
+    min-width: 0;
+    color: var(--git-history-ink);
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.3; }
+  .antsand-git-history__group-count {
+    flex: 0 0 auto;
+    border: 1px solid #c8dbe2;
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+    color: var(--git-history-blue);
+    font: 700 0.74rem/1.3 'JetBrains Mono', monospace; }
+  .antsand-git-history__list {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  .antsand-git-history__entry {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.45rem 0.85rem;
+    margin: 0;
+    padding: 0.78rem 1rem; }
+    .antsand-git-history__entry + .antsand-git-history__entry {
+      border-top: 1px solid #edf1f1; }
+    .antsand-git-history__entry:nth-child(even) {
+      background: #fbfcfc; }
+  .antsand-git-history__pr {
+    display: inline-block;
+    margin: 0;
+    padding: 0.25rem 0.45rem;
+    border: 1px solid #bed5df;
+    border-radius: 5px;
+    background: #eaf3f5;
+    color: var(--git-history-blue);
+    font: 800 0.76rem/1.2 'JetBrains Mono', monospace;
+    text-decoration: none;
+    white-space: nowrap; }
+  .antsand-git-history__entry-title {
+    min-width: 0;
+    color: var(--git-history-ink);
+    font-size: 0.86rem;
+    font-weight: 650;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    text-decoration: none; }
+    .antsand-git-history__entry-title:hover {
+      color: var(--git-history-blue);
+      text-decoration: underline; }
+  .antsand-git-history__date {
+    color: var(--git-history-muted);
+    font: 600 0.72rem/1.5 'JetBrains Mono', monospace;
+    white-space: nowrap; }
+  .antsand-git-history__commit {
+    grid-column: 3;
+    color: var(--git-history-muted);
+    font: 600 0.7rem/1.2 'JetBrains Mono', monospace;
+    text-decoration: none; }
+    .antsand-git-history__commit:hover {
+      color: var(--git-history-blue);
+      text-decoration: underline; }
+  .antsand-git-history__pr:focus-visible, .antsand-git-history__entry-title:focus-visible, .antsand-git-history__commit:focus-visible, .antsand-git-history__source a:focus-visible {
+    outline: 3px solid #3284aa;
+    outline-offset: 3px; }
+  @media (max-width: 680px) {
+    .antsand-git-history__header {
+      grid-template-columns: 1fr; }
+    .antsand-git-history__total {
+      justify-self: start; }
+    .antsand-git-history__entry {
+      grid-template-columns: auto minmax(0, 1fr); }
+    .antsand-git-history__date {
+      grid-column: 2; }
+    .antsand-git-history__commit {
+      grid-column: 2; } }
 .blog-toc {
   --toc-teal: #5eead4;
   --toc-muted: #94a3b8;
