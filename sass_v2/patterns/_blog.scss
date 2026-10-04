@@ -1034,6 +1034,12 @@ article[data-blog-layout="research"] table:not(.research-runtime-table) code {
 }
 
 article[data-blog-layout="research"] {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    padding-right: 0;
+    padding-left: 0;
+    overflow-x: clip;
     background: #fff;
 
     > .header-section {
@@ -1087,6 +1093,8 @@ article[data-blog-layout="research"] {
     > .header-section .article-header-inner {
         position: relative;
         z-index: 2;
+        width: 100%;
+        min-width: 0;
         max-width: 900px;
         margin: 0 auto;
         padding: 0;
@@ -1111,6 +1119,10 @@ article[data-blog-layout="research"] {
         letter-spacing: 0.08em;
         text-shadow: none;
         text-transform: uppercase;
+        max-width: 100%;
+        justify-content: center;
+        overflow-wrap: anywhere;
+        white-space: normal;
     }
 
     > .header-section .antsand-blog-detail-title,
@@ -1151,6 +1163,8 @@ article[data-blog-layout="research"] {
 
     > .data-container,
     .research-shell > .data-container {
+        width: calc(100% - 2rem);
+        min-width: 0;
         max-width: 860px;
         margin: 0 auto 90px;
     }
@@ -1618,6 +1632,7 @@ article[data-blog-layout="research"] {
     .research-shell {
         display: block;
         width: 100%;
+        min-width: 0;
         margin: 0 auto 96px;
     }
 
@@ -1831,6 +1846,30 @@ article[data-blog-layout="research"] {
 
 @media (max-width: 620px) {
     article[data-blog-layout="research"] {
+        > .header-section {
+            width: calc(100% - 2rem);
+            margin-top: 20px;
+            margin-bottom: 44px;
+            padding: 3rem 1rem;
+        }
+
+        > .header-section .antsand-blog-detail-title,
+        > .header-section .header-h1,
+        > .header-section .title {
+            font-size: clamp(2.15rem, 11vw, 3.1rem);
+            line-height: 0.96;
+        }
+
+        > .header-section .article-meta {
+            flex-wrap: wrap;
+            gap: 8px 12px;
+        }
+
+        > .data-container,
+        .research-shell > .data-container {
+            width: calc(100% - 2rem);
+        }
+
         .research-sequence-list {
             grid-template-columns: 1fr;
         }

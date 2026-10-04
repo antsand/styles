@@ -1,0 +1,175 @@
+// Corporate records module. Scoped so application styles do not affect generated sites.
+.corporate-body {
+    margin: 0;
+    background: #f4f3ef;
+    color: #171a20;
+}
+
+.corporate-app {
+    --corporate-ink: #171a20;
+    --corporate-navy: #202842;
+    --corporate-blue: #236f8f;
+    --corporate-cyan: #33b5d7;
+    --corporate-paper: #f4f3ef;
+    --corporate-surface: #fff;
+    --corporate-line: #dce1e7;
+    --corporate-muted: #697180;
+    min-height: 100vh;
+    font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+.corporate-app *,
+.corporate-app *::before,
+.corporate-app *::after { box-sizing: border-box; }
+
+.corporate-app__body { display: flex; min-height: calc(100vh - 58px); }
+
+.corporate-sidebar {
+    width: 224px;
+    min-width: 224px;
+    margin-left: 70px;
+    padding: 28px 0 20px;
+    background: var(--corporate-navy);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.corporate-sidebar__brand { padding: 0 24px 24px; border-bottom: 1px solid rgba(255, 255, 255, .11); }
+.corporate-sidebar__brand strong { display: block; margin-top: 5px; font-family: "Oswald", "Arial Narrow", sans-serif; font-size: 24px; letter-spacing: .02em; }
+.corporate-sidebar .corporate-eyebrow { color: #8fdcf0; }
+.corporate-sidebar__links { padding: 18px 0; }
+.corporate-sidebar__links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 10px 24px;
+    border-left: 3px solid transparent;
+    color: #c9d0df;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background .16s ease, color .16s ease, border-color .16s ease;
+}
+.corporate-sidebar__links a:hover { color: #fff; background: rgba(255, 255, 255, .07); }
+.corporate-sidebar__links a.is-active { color: #fff; background: rgba(51, 181, 215, .14); border-left-color: var(--corporate-cyan); }
+.corporate-sidebar__icon { width: 22px; font: 600 10px/1 "IBM Plex Mono", monospace; color: #8fdcf0; letter-spacing: .08em; }
+.corporate-sidebar__footer { margin-top: auto; padding: 18px 24px 0; border-top: 1px solid rgba(255, 255, 255, .11); }
+.corporate-sidebar__footer a { color: #aeb8cb; text-decoration: none; font-size: 13px; }
+
+.corporate-main { flex: 1; min-width: 0; padding: 34px clamp(24px, 4vw, 64px) 64px; overflow: auto; }
+.corporate-page-header { max-width: 1320px; margin: 0 auto 28px; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+.corporate-page-header h1 { margin: 5px 0 5px; font: 700 clamp(30px, 4vw, 48px)/1 "Oswald", "Arial Narrow", sans-serif; letter-spacing: -.02em; color: var(--corporate-ink); }
+.corporate-page-header p { margin: 0; color: var(--corporate-muted); }
+.corporate-page-header__actions { display: flex; align-items: flex-end; gap: 12px; }
+.corporate-eyebrow { font: 600 11px/1.3 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .12em; color: var(--corporate-blue); }
+.corporate-company-switcher { display: grid; gap: 5px; }
+.corporate-company-switcher label { font: 600 10px/1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .08em; color: var(--corporate-muted); }
+.corporate-company-switcher select { min-width: 220px; height: 42px; padding: 0 36px 0 12px; border: 1px solid var(--corporate-line); border-radius: 5px; background: #fff; color: var(--corporate-ink); }
+
+.corporate-button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 10px 17px; border: 1px solid transparent; border-radius: 4px; font-weight: 700; font-size: 13px; text-decoration: none; cursor: pointer; }
+.corporate-button--primary { background: var(--corporate-blue); color: #fff; }
+.corporate-button--primary:hover { background: #195b76; }
+.corporate-button--secondary { background: #fff; color: var(--corporate-ink); border-color: var(--corporate-line); }
+.corporate-text-link { color: var(--corporate-blue); font-weight: 700; text-decoration: none; }
+
+.corporate-preview-badge { display: inline-flex; align-items: center; min-height: 42px; padding: 0 14px; border: 1px solid #d7a13a; background: #fff8e9; color: #76500d; border-radius: 4px; font: 600 11px/1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .06em; }
+.corporate-callout { max-width: 1320px; margin: 0 auto 22px; padding: 16px 18px; display: flex; justify-content: space-between; gap: 20px; align-items: center; background: #edf8fb; border: 1px solid #b7dce6; border-left: 4px solid var(--corporate-cyan); }
+.corporate-callout > div { display: grid; grid-template-columns: 12px auto; column-gap: 10px; }
+.corporate-callout__signal { width: 10px; height: 10px; margin-top: 5px; border-radius: 50%; background: #71808c; }
+.corporate-callout strong, .corporate-callout p { grid-column: 2; }
+.corporate-callout p { margin: 2px 0 0; color: var(--corporate-muted); font-size: 13px; }
+
+.corporate-metrics { max-width: 1320px; margin: 0 auto 22px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--corporate-ink); }
+.corporate-metrics article { min-height: 135px; padding: 22px; border-right: 1px solid rgba(255, 255, 255, .15); color: #fff; display: flex; flex-direction: column; }
+.corporate-metrics article:last-child { border-right: 0; }
+.corporate-metrics span { color: #9fd9e8; font: 600 10px/1.2 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .09em; }
+.corporate-metrics strong { margin: 9px 0 2px; font: 700 38px/1 "Oswald", "Arial Narrow", sans-serif; }
+.corporate-metrics small { margin-top: auto; color: #b7bec9; }
+
+.corporate-dashboard-grid { max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: 1.35fr .85fr; gap: 22px; align-items: start; }
+.corporate-panel { background: var(--corporate-surface); border: 1px solid var(--corporate-line); box-shadow: 0 10px 28px rgba(31, 40, 66, .05); }
+.corporate-panel--wide { grid-column: 1 / -1; }
+.corporate-panel__header { min-height: 76px; padding: 18px 22px; border-bottom: 1px solid var(--corporate-line); display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.corporate-panel__header h2 { margin: 4px 0 0; font: 700 21px/1.2 "Oswald", "Arial Narrow", sans-serif; color: var(--corporate-ink); }
+.corporate-panel__header > a { color: var(--corporate-blue); text-decoration: none; font-weight: 700; font-size: 13px; }
+.corporate-table-wrap { overflow-x: auto; }
+.corporate-table { width: 100%; border-collapse: collapse; }
+.corporate-table th { padding: 11px 20px; background: #f1f4f7; color: var(--corporate-muted); font: 600 10px/1.2 "IBM Plex Mono", monospace; text-align: left; text-transform: uppercase; letter-spacing: .07em; }
+.corporate-table td { padding: 17px 20px; border-top: 1px solid #edf0f2; font-size: 14px; }
+.corporate-status { display: inline-flex; padding: 5px 9px; border-radius: 999px; background: #e9eef2; color: #4a5661; font: 600 10px/1 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.corporate-status--attention { background: #fff1d6; color: #795006; }
+.corporate-status--neutral { background: #dfe7eb; }
+
+.corporate-document-list article { min-height: 76px; padding: 14px 18px; border-bottom: 1px solid #edf0f2; display: grid; grid-template-columns: 38px 1fr auto; gap: 12px; align-items: center; }
+.corporate-document-list article:last-child { border-bottom: 0; }
+.corporate-document-list__icon { width: 36px; height: 42px; border: 1px solid #a9cdd8; background: #edf8fb; color: var(--corporate-blue); display: grid; place-items: center; font: 700 9px/1 "IBM Plex Mono", monospace; }
+.corporate-document-list strong, .corporate-document-list small { display: block; }
+.corporate-document-list strong { font-size: 13px; }
+.corporate-document-list small { margin-top: 4px; color: var(--corporate-muted); }
+
+.corporate-activity-list { padding: 8px 20px 16px; }
+.corporate-activity-list article { display: grid; grid-template-columns: 10px 1fr; gap: 13px; padding: 15px 0; border-bottom: 1px solid #edf0f2; }
+.corporate-activity-list article > span { width: 9px; height: 9px; margin-top: 4px; border: 2px solid var(--corporate-cyan); border-radius: 50%; }
+.corporate-activity-list strong { font: 600 10px/1.2 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .05em; }
+.corporate-activity-list p { margin: 5px 0 4px; font-size: 13px; }
+.corporate-activity-list small { color: var(--corporate-muted); }
+.corporate-empty { padding: 30px 22px; }
+.corporate-empty p { max-width: 560px; margin: 5px 0 0; color: var(--corporate-muted); font-size: 14px; }
+
+.corporate-onboarding { max-width: 880px; margin: 70px auto; padding: clamp(32px, 6vw, 72px); background: var(--corporate-navy); color: #fff; position: relative; overflow: hidden; }
+.corporate-onboarding::after { content: ""; position: absolute; width: 280px; height: 280px; right: -120px; top: -130px; border: 40px solid rgba(51, 181, 215, .13); border-radius: 50%; }
+.corporate-onboarding .corporate-eyebrow { color: #8fdcf0; }
+.corporate-onboarding h2 { max-width: 620px; margin: 12px 0; font: 700 clamp(34px, 5vw, 58px)/1 "Oswald", "Arial Narrow", sans-serif; }
+.corporate-onboarding p { max-width: 640px; color: #c7cedb; font-size: 16px; line-height: 1.65; }
+.corporate-onboarding__actions { margin-top: 24px; display: flex; gap: 18px; align-items: center; }
+.corporate-onboarding .corporate-text-link { color: #8fdcf0; }
+.corporate-onboarding--compact { margin-top: 48px; }
+
+.corporate-form-panel { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: .8fr 1.2fr; border: 1px solid var(--corporate-line); background: #fff; }
+.corporate-form-panel__intro { padding: 36px; background: var(--corporate-navy); color: #fff; }
+.corporate-form-panel__intro .corporate-eyebrow { color: #8fdcf0; }
+.corporate-form-panel__intro h2 { margin: 12px 0; font: 700 32px/1.08 "Oswald", "Arial Narrow", sans-serif; }
+.corporate-form-panel__intro p { color: #c7cedb; line-height: 1.65; }
+.corporate-form { padding: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.corporate-field { display: grid; gap: 7px; }
+.corporate-field--wide { grid-column: 1 / -1; }
+.corporate-field > span { font-weight: 700; font-size: 13px; }
+.corporate-field input, .corporate-field select { width: 100%; height: 45px; padding: 0 12px; border: 1px solid #cdd4dc; border-radius: 3px; background: #fff; color: var(--corporate-ink); }
+.corporate-field input:focus, .corporate-field select:focus { outline: 3px solid rgba(51, 181, 215, .22); border-color: var(--corporate-blue); }
+.corporate-field small { color: var(--corporate-muted); }
+.corporate-form__actions { grid-column: 1 / -1; padding-top: 8px; display: flex; gap: 10px; }
+
+@media (max-width: 1050px) {
+    .corporate-sidebar { width: 190px; min-width: 190px; }
+    .corporate-metrics { grid-template-columns: 1fr 1fr; }
+    .corporate-metrics article:nth-child(2) { border-right: 0; }
+    .corporate-metrics article:nth-child(-n + 2) { border-bottom: 1px solid rgba(255, 255, 255, .15); }
+    .corporate-dashboard-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 780px) {
+    .corporate-app__body { display: block; }
+    .corporate-sidebar { width: auto; min-width: 0; margin-left: 70px; padding: 14px 0 0; }
+    .corporate-sidebar__brand, .corporate-sidebar__footer { display: none; }
+    .corporate-sidebar__links { display: flex; overflow-x: auto; padding: 0; }
+    .corporate-sidebar__links a { flex: 0 0 auto; border-left: 0; border-bottom: 3px solid transparent; padding: 11px 14px; }
+    .corporate-sidebar__links a.is-active { border-left: 0; border-bottom-color: var(--corporate-cyan); }
+    .corporate-main { margin-left: 70px; padding: 24px 16px 48px; }
+    .corporate-page-header { align-items: flex-start; flex-direction: column; }
+    .corporate-page-header__actions { width: 100%; flex-wrap: wrap; }
+    .corporate-company-switcher { flex: 1; }
+    .corporate-company-switcher select { width: 100%; min-width: 180px; }
+    .corporate-dashboard-grid { display: block; }
+    .corporate-panel { margin-bottom: 18px; }
+    .corporate-form-panel { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+    .corporate-metrics { grid-template-columns: 1fr; }
+    .corporate-metrics article { min-height: 112px; border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, .15); }
+    .corporate-metrics article:last-child { border-bottom: 0; }
+    .corporate-form { grid-template-columns: 1fr; padding: 24px; }
+    .corporate-field { grid-column: 1; }
+    .corporate-onboarding__actions, .corporate-form__actions { align-items: stretch; flex-direction: column; }
+}
