@@ -23,6 +23,12 @@ inspect the `X-Antsand-Styles-Sync` response header and compare the served CSS.
 The Notes API save alone is not a generated-site refresh. Do not manually copy
 files into the generated site or restart Docker for a Sass edit.
 
+When changing a reusable component, run `make sass-v2-doc-check` from the
+Antsand repository root. It reports the matching generated StylesDoc route and
+whether a reviewed Databoard documentation patch is present. See
+`docs/databoard/SASS_V2_DOC_SYNC.md` in the Antsand repository for the release
+and verification steps.
+
 ## Overview
 This folder contains the ANTSAND v2 navigation component built with modern CSS Grid/Flexbox, replacing the old Susy/Breakpoint-based system.
 
