@@ -416,6 +416,9 @@ class AntsandTable {
                 </td>
             `;
             tbody.appendChild(emptyRow);
+            if (this.options.paginate) {
+                this.renderPagination();
+            }
             return;
         }
 
