@@ -97,7 +97,10 @@ class AntsandTable {
         // Initialize features
         if (this.options.sortable) this.initSorting();
         if (this.options.searchable) this.initSearch();
-        if (this.options.paginate) this.initPagination();
+        if (this.options.paginate) {
+            this.initPagination();
+            this.renderRows();
+        }
 
         // Mark as initialized
         this.container.dataset.tableInit = 'true';
@@ -212,7 +215,9 @@ class AntsandTable {
     // SEARCH
     // =========================================================================
     initSearch() {
-        let searchInput = this.container.querySelector('.table-search input');
+        const wrapper = this.container.closest('.ant-datatable-wrapper');
+        let searchInput = wrapper?.querySelector('[data-table-search]')
+            || this.container.querySelector('.table-search input');
 
         if (!searchInput) {
             // Create search in table-header
@@ -279,6 +284,16 @@ class AntsandTable {
     // PAGINATION
     // =========================================================================
     initPagination() {
+        const wrapper = this.container.closest('.ant-datatable-wrapper');
+        const perPageSelect = wrapper?.querySelector('[data-table-perpage]');
+        if (perPageSelect) {
+            perPageSelect.value = String(this.options.perPage);
+            perPageSelect.addEventListener('change', () => {
+                this.options.perPage = parseInt(perPageSelect.value, 10) || 10;
+                this.state.currentPage = 1;
+                this.renderRows();
+            });
+        }
         this.renderPagination();
     }
 
