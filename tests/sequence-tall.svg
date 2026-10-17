@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1800" viewBox="0 0 1000 1800">
+  <rect width="1000" height="1800" fill="#f8fafc"/>
+  <path d="M200 100v1600M500 100v1600M800 100v1600" stroke="#0f766e" stroke-dasharray="8 8"/>
+  <g font-family="sans-serif" font-size="34" fill="#0f172a">
+    <text x="130" y="70">Harness</text><text x="455" y="70">Server</text><text x="760" y="70">Model</text>
+    <text x="280" y="350">Turn 1: request</text><text x="520" y="800">Tool call</text>
+    <text x="270" y="1250">Turn 2: observation</text><text x="520" y="1600">Answer</text>
+  </g>
+  <path d="M200 400h300m300 450H200m0 450h300m300 350H200" stroke="#0f766e" stroke-width="4"/>
+</svg>
