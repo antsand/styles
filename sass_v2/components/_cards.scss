@@ -126,6 +126,71 @@
         }
     }
 
+    // Opt-in halo for a featured card. Databoard selects this on the card
+    // container; sites can change the two colors without changing markup.
+    &-glow {
+        --antsand-card-glow-primary: var(--antsand-primary, #{$antsand-primary});
+        --antsand-card-glow-secondary: var(--antsand-info, #{$antsand-info});
+        --antsand-card-glow-width: 2px;
+        --antsand-card-glow-border-opacity: 0.8;
+        --antsand-card-glow-shadow-opacity: 0.8;
+        position: relative;
+        isolation: isolate;
+        transition: transform 0.25s ease;
+
+        &--subtle {
+            --antsand-card-glow-width: 1px;
+            --antsand-card-glow-border-opacity: 0.55;
+            --antsand-card-glow-shadow-opacity: 0.4;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            padding: var(--antsand-card-glow-width);
+            border-radius: inherit;
+            background: linear-gradient(125deg, var(--antsand-card-glow-primary), var(--antsand-card-glow-secondary));
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            box-shadow: 0 18px 38px -14px rgba(20, 30, 40, 0.3),
+                        0 0 22px -6px var(--antsand-card-glow-primary);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        &:hover,
+        &:focus-within {
+            &::before {
+                opacity: var(--antsand-card-glow-border-opacity);
+            }
+
+            &::after {
+                opacity: var(--antsand-card-glow-shadow-opacity);
+            }
+        }
+
+        &:focus-within {
+            outline: 2px solid var(--antsand-card-glow-primary);
+            outline-offset: 4px;
+        }
+    }
+
     // ── Sub-elements for rich cards ──────────
 
     // Icon container (rounded bg for emoji/svg icon)
@@ -588,6 +653,12 @@
     .antsand-card-hover:hover,
     .data-sub-container:hover {
         transform: none;
+        transition: none;
+    }
+
+    .antsand-card-glow,
+    .antsand-card-glow::before,
+    .antsand-card-glow::after {
         transition: none;
     }
 }

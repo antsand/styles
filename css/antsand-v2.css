@@ -3732,6 +3732,51 @@ select:focus-visible {
       transform: translateY(-4px);
       border-color: #3498db;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+  .antsand-card-glow {
+    --antsand-card-glow-primary: var(--antsand-primary, #3498db);
+    --antsand-card-glow-secondary: var(--antsand-info, #16a085);
+    --antsand-card-glow-width: 2px;
+    --antsand-card-glow-border-opacity: 0.8;
+    --antsand-card-glow-shadow-opacity: 0.8;
+    position: relative;
+    isolation: isolate;
+    transition: transform 0.25s ease; }
+    .antsand-card-glow--subtle {
+      --antsand-card-glow-width: 1px;
+      --antsand-card-glow-border-opacity: 0.55;
+      --antsand-card-glow-shadow-opacity: 0.4; }
+    .antsand-card-glow::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      padding: var(--antsand-card-glow-width);
+      border-radius: inherit;
+      background: linear-gradient(125deg, var(--antsand-card-glow-primary), var(--antsand-card-glow-secondary));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease; }
+    .antsand-card-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      box-shadow: 0 18px 38px -14px rgba(20, 30, 40, 0.3), 0 0 22px -6px var(--antsand-card-glow-primary);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease; }
+    .antsand-card-glow:hover::before, .antsand-card-glow:focus-within::before {
+      opacity: var(--antsand-card-glow-border-opacity); }
+    .antsand-card-glow:hover::after, .antsand-card-glow:focus-within::after {
+      opacity: var(--antsand-card-glow-shadow-opacity); }
+    .antsand-card-glow:focus-within {
+      outline: 2px solid var(--antsand-card-glow-primary);
+      outline-offset: 4px; }
   .antsand-card-icon {
     width: 3rem;
     height: 3rem;
@@ -4081,6 +4126,10 @@ select:focus-visible {
   .antsand-card-hover:hover,
   .data-sub-container:hover {
     transform: none;
+    transition: none; }
+  .antsand-card-glow,
+  .antsand-card-glow::before,
+  .antsand-card-glow::after {
     transition: none; } }
 
 @media (prefers-contrast: more) {
