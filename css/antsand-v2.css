@@ -10014,6 +10014,92 @@ code-line:empty::before {
     .antsand-code-preview code-header::before {
       display: none; } }
 
+.antsand-math-panel {
+  --antsand-math-ink: #223841;
+  --antsand-math-accent: #b64a35;
+  --antsand-math-muted: #5f6f74;
+  background: linear-gradient(145deg, #fffdf8 0%, #f2f6f5 100%);
+  border: 1px solid #d9e2df;
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 38px rgba(34, 56, 65, 0.09);
+  box-sizing: border-box;
+  color: var(--antsand-math-ink);
+  margin: 2rem auto;
+  max-width: 100%;
+  overflow: hidden;
+  padding: clamp(1rem, 3vw, 1.7rem); }
+  .antsand-math-panel figcaption {
+    border-bottom: 1px solid #d9e2df;
+    color: var(--antsand-math-ink);
+    font-size: 0.9rem;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+    margin: 0 0 1.25rem;
+    padding: 0 0 0.85rem;
+    text-align: left; }
+  .antsand-math-panel__flow {
+    align-items: center;
+    display: flex;
+    gap: clamp(0.45rem, 1.5vw, 1rem);
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0.25rem 0 0.8rem;
+    scrollbar-color: #b8c9c4 transparent; }
+  .antsand-math-panel__term {
+    align-items: center;
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    gap: 0.7rem;
+    min-width: 0; }
+  .antsand-math-panel__term--result {
+    background: #fff1e9;
+    border: 1px solid #edcbbd;
+    border-radius: 0.9rem;
+    padding: 0.6rem 0.85rem; }
+  .antsand-math-panel__label {
+    color: var(--antsand-math-muted);
+    font-size: 0.75rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap; }
+  .antsand-math-panel__shape {
+    background: #e6efed;
+    border: 1px solid #cadbd6;
+    border-radius: 999px;
+    color: #36544e;
+    font-family: "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.73rem;
+    line-height: 1;
+    padding: 0.36rem 0.65rem;
+    white-space: nowrap; }
+  .antsand-math-panel__matrix {
+    align-items: center;
+    display: flex;
+    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+    justify-content: center;
+    line-height: 1.2;
+    min-height: 4.4rem;
+    white-space: nowrap; }
+    .antsand-math-panel__matrix mjx-container {
+      margin: 0 !important;
+      max-width: none; }
+  .antsand-math-panel__operator {
+    color: var(--antsand-math-accent);
+    flex: 0 0 auto;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 600;
+    padding-top: 1.8rem; }
+  .antsand-math-panel__note {
+    border-top: 1px solid #d9e2df;
+    color: var(--antsand-math-muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 0.8rem 0 0;
+    padding-top: 0.85rem; }
+
 .antsand-blog-content {
   --antsand-blog-text: #1f2933;
   --antsand-blog-muted: #64748b;
