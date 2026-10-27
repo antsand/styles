@@ -1967,7 +1967,8 @@ article[data-blog-layout="research"] {
     .antsand-blog-share-status { font-size: 0.85rem; font-weight: 600; }
     .antsand-blog-share-status:empty { display: none; }
     .antsand-blog-share-link {
-        width: min(100%, 34rem);
+        width: 100%;
+        max-width: 34rem;
         padding: 0.55rem;
         border: 1px solid #7695a8;
         border-radius: 0.4rem;
