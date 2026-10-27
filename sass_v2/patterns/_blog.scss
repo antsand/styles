@@ -1862,6 +1862,119 @@ article[data-blog-layout="research"] {
     }
 }
 
+.antsand-blog-share {
+    --share-ink: #17334d;
+    display: grid;
+    gap: 1.1rem;
+    box-sizing: border-box;
+    width: calc(100% - 2rem);
+    max-width: 860px;
+    margin: 2rem auto 2.5rem;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border: 1px solid #dce5e6;
+    border-radius: 20px;
+    background: linear-gradient(120deg, #f5f8f6 0%, #fffaf1 100%);
+    box-shadow: 0 14px 35px rgba(23, 51, 77, 0.08);
+    color: var(--share-ink);
+
+    .antsand-blog-share-heading {
+        span {
+            color: #a4502e;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin: 0.3rem 0 0;
+            color: var(--share-ink);
+            font: 700 clamp(1.35rem, 2vw, 1.7rem)/1.2 Merriweather, Georgia, serif;
+        }
+    }
+
+    .antsand-blog-share-actions {
+        min-width: 0;
+    }
+
+    .antsand-blog-share-button {
+        min-height: 44px;
+        width: 100%;
+        padding: 0.7rem 1.1rem;
+        border: 1px solid var(--share-ink);
+        border-radius: 11px;
+        background: var(--share-ink);
+        color: #fff;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover { background: #285573; }
+        &:focus-visible { outline: 3px solid #08799e; outline-offset: 3px; }
+        &:disabled { opacity: 0.55; cursor: not-allowed; }
+    }
+
+    .antsand-blog-share-networks[hidden] { display: none; }
+    .antsand-blog-share-networks {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.5rem;
+
+        .antsand-blog-share-network {
+            --share-mark: #245c7c;
+            --share-mark-bg: #e7f2f7;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-height: 44px;
+            padding: 0.45rem 0.65rem;
+            border: 1px solid #d9e2e5;
+            border-radius: 11px;
+            background: #fff;
+            color: var(--share-ink);
+            font-size: 0.87rem;
+            font-weight: 600;
+            text-decoration: none;
+
+            &:hover { border-color: var(--share-mark); background: #f9fcfd; }
+            &:focus-visible { outline: 3px solid #08799e; outline-offset: 2px; }
+        }
+
+        .antsand-blog-share-network--linkedin { --share-mark: #0a66c2; --share-mark-bg: #e8f2fc; }
+        .antsand-blog-share-network--x { --share-mark: #20272f; --share-mark-bg: #eaecef; }
+        .antsand-blog-share-network--facebook { --share-mark: #1877f2; --share-mark-bg: #e8f2ff; }
+        .antsand-blog-share-network--bluesky { --share-mark: #1185fe; --share-mark-bg: #e8f4ff; }
+        .antsand-blog-share-network--email { --share-mark: #9d5339; --share-mark-bg: #faeee8; }
+    }
+
+    @media (max-width: 600px) {
+        .antsand-blog-share-networks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .antsand-blog-share-icon {
+        display: grid;
+        flex: 0 0 30px;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--share-mark-bg);
+        color: var(--share-mark);
+
+        svg { display: block; width: 17px; height: 17px; fill: currentColor; }
+    }
+
+    .antsand-blog-share-status { font-size: 0.85rem; font-weight: 600; }
+    .antsand-blog-share-status:empty { display: none; }
+    .antsand-blog-share-link {
+        width: min(100%, 34rem);
+        padding: 0.55rem;
+        border: 1px solid #7695a8;
+        border-radius: 0.4rem;
+        font: inherit;
+    }
+}
+
 // Blog detail comments. This supports the legacy `comments` table as a flat,
 // one-depth discussion renderer and the public AJAX comment form.
 .antsand-blog-comments {
