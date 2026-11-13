@@ -2,75 +2,37 @@
  * ANTSAND Code Copy & Syntax Highlight
  *
  * - Auto-injects a copy button into every .antsand-code-preview header.
- * - Auto-highlights Python code blocks using syn-* token classes.
+ * - Auto-highlights explicitly labelled Python, C, Bash and PHP code blocks using syn-* token classes.
  * - Uses the Clipboard API with a graceful fallback for older browsers.
  *
  * CSS classes `.antsand-code-copy`, `.copied`, and `.syn-*` tokens are
  * defined in sass_v2/components/_code.scss.
  *
- * @version 1.1.0
+ * @version 1.2.0
  */
 
 const COPY_LABEL = 'Copy';
 const COPIED_LABEL = 'Copied!';
 const COPIED_MS = 2000;
 
-const PY_KEYWORDS = new Set([
-    'False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break',
-    'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally',
-    'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal',
-    'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield'
-]);
-
-const PY_BUILTINS = new Set([
-    'abs', 'all', 'any', 'bin', 'bool', 'bytes', 'callable', 'chr', 'dict',
-    'dir', 'divmod', 'enumerate', 'eval', 'filter', 'float', 'format',
-    'frozenset', 'getattr', 'globals', 'hasattr', 'hash', 'hex', 'id', 'input',
-    'int', 'isinstance', 'issubclass', 'iter', 'len', 'list', 'locals', 'map',
-    'max', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow', 'print',
-    'property', 'range', 'repr', 'reversed', 'round', 'set', 'setattr',
-    'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super', 'tuple',
-    'type', 'vars', 'zip'
-]);
-
-function escHtml(s) {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-function highlightPython(code) {
-    const rx = /("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')|(\#[^\n]*)|(\b\d+(?:\.\d+)?(?:e[+-]?\d+)?\b)|(\b[A-Za-z_]\w*(?=\s*\())|(\b[A-Za-z_]\w*\b)|([ \t]+)|([^\s\w"'#]+)|(\n)/g;
-
-    let out = '';
-    let m;
-    while ((m = rx.exec(code)) !== null) {
-        const [full, str, cmt, num, fnCall, word, ws, op, nl] = m;
-        if (str) out += `<span class="syn-str">${escHtml(str)}</span>`;
-        else if (cmt) out += `<span class="syn-cmt">${escHtml(cmt)}</span>`;
-        else if (num) out += `<span class="syn-num">${escHtml(num)}</span>`;
-        else if (fnCall) out += `<span class="syn-fn">${escHtml(fnCall)}</span>`;
-        else if (word) {
-            if (PY_KEYWORDS.has(word)) out += `<span class="syn-kw">${escHtml(word)}</span>`;
-            else if (PY_BUILTINS.has(word)) out += `<span class="syn-fn">${escHtml(word)}</span>`;
-            else if (word === 'self') out += `<span class="syn-kw">${escHtml(word)}</span>`;
-            else out += `<span class="syn-var">${escHtml(word)}</span>`;
-        } else if (ws) out += ws;
-        else if (op) out += `<span class="syn-op">${escHtml(op)}</span>`;
-        else if (nl) out += '\n';
-        else out += escHtml(full);
-    }
-    return out;
-}
+import { highlightCode, highlightPython, normalizeCodeLanguage } from './syntax-highlight.js';
 
 function detectLang(block) {
-    const langEl = block.querySelector('code-language, .antsand-code-language');
-    if (langEl) {
-        const t = langEl.textContent.trim().toLowerCase();
-        if (t === 'python' || t === 'py') return 'python';
-    }
-
+    const code = block.querySelector('.antsand-code-pre code');
     const pre = block.querySelector('.antsand-code-pre');
-    if (pre && pre.classList.contains('language-python')) return 'python';
-    return null;
+    for (const el of [code, pre, block]) {
+        if (!el) continue;
+        // Explicit plaintext or unsupported languages must not be guessed.
+        if (el.hasAttribute('data-language')) return normalizeCodeLanguage(el.dataset.language);
+        for (const cls of el.classList) {
+            if (cls.startsWith('language-')) return normalizeCodeLanguage(cls.slice(9));
+        }
+    }
+    const label = block.querySelector('code-language, .antsand-code-language');
+    if (label) return normalizeCodeLanguage(label.textContent);
+    // Compatibility for older article headers: "Python · example title".
+    const title = block.querySelector('code-label, .antsand-code-label');
+    return normalizeCodeLanguage(title?.textContent.split(/[·:—]/)[0] || '');
 }
 
 function highlightBlock(block) {
@@ -84,9 +46,8 @@ function highlightBlock(block) {
     codeEl.dataset.plainText = codeEl.textContent;
     codeEl.dataset.synHighlighted = '1';
 
-    if (lang === 'python') {
-        codeEl.innerHTML = highlightPython(codeEl.textContent);
-    }
+    codeEl.innerHTML = highlightCode(codeEl.textContent, lang);
+    codeEl.dataset.syntaxLanguage = lang;
     return true;
 }
 
@@ -101,8 +62,9 @@ async function copyText(text) {
     ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px;opacity:0';
     document.body.appendChild(ta);
     ta.select();
-    document.execCommand('copy');
+    const copied = document.execCommand('copy');
     document.body.removeChild(ta);
+    if (!copied) throw new Error('Copy was denied');
 }
 
 function createCopyButton() {
@@ -111,6 +73,7 @@ function createCopyButton() {
     btn.type = 'button';
     btn.textContent = COPY_LABEL;
     btn.setAttribute('aria-label', 'Copy code to clipboard');
+    btn.setAttribute('aria-live', 'polite');
     return btn;
 }
 
@@ -136,12 +99,16 @@ async function handleCopy(e) {
             btn.classList.remove('copied');
         }, COPIED_MS);
     } catch (err) {
-        console.warn('ANTSAND code-copy: clipboard write failed', err);
+        const range = document.createRange(); range.selectNodeContents(codeEl);
+        const selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);
+        btn.textContent = 'Select to copy';
+        clearTimeout(btn._copyTimer);
+        btn._copyTimer = setTimeout(() => { btn.textContent = COPY_LABEL; }, COPIED_MS);
     }
 }
 
-function initAllCodeCopy() {
-    const blocks = document.querySelectorAll(
+function initAllCodeCopy(scope = document) {
+    const blocks = scope.querySelectorAll(
         '.antsand-code-preview, .antsand-code-block, code-section.antsand-code-preview'
     );
     const results = [];
@@ -163,4 +130,4 @@ function initAllCodeCopy() {
     return results;
 }
 
-export { initAllCodeCopy, highlightPython };
+export { initAllCodeCopy, highlightPython, highlightCode };

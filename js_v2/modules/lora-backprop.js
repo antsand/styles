@@ -1,0 +1,37 @@
+/** Deterministic teaching projection, not a full transformer or training backend. */
+const base=[[.63,-.47],[.28,.91]];
+export function backpropExample({quantized=false,optimizer='sgd',iteration=0}={}) {
+ if(!['sgd','adamw'].includes(optimizer)||![0,1].includes(iteration))throw new RangeError('Unsupported teaching configuration');
+ const W=base.map(row=>row.map(w=>quantized?Math.round(w/.2)*.2:w)),X=[1,2];
+ let A=[.1,-.2],B=[0,0],mom=[0,0,0,0],vel=[0,0,0,0];
+ function forward(a,b,x=X){const z=x.reduce((t,v,i)=>t+v*a[i],0),y=[0,1].map(j=>x.reduce((t,v,i)=>t+v*W[i][j],0)+z*b[j]),max=Math.max(...y),e=y.map(v=>Math.exp(v-max)),p=e.map(v=>v/(e[0]+e[1]));return {z,y,p,loss:-Math.log(p[1])};}
+ let result;
+ for(let step=0;step<=iteration;step++){
+  const f=forward(A,B),D=[f.p[0],f.p[1]-1],dB=D.map(v=>f.z*v),dZ=D.reduce((t,v,j)=>t+v*B[j],0),dA=X.map(v=>v*dZ),dX=X.map((_,i)=>D.reduce((t,v,j)=>t+v*W[i][j],0)+dZ*A[i]);
+  const theta=[...A,...B],g=[...dA,...dB];const next=theta.map((v,i)=>{if(optimizer==='sgd')return v-.1*g[i];mom[i]=.9*mom[i]+.1*g[i];vel[i]=.999*vel[i]+.001*g[i]*g[i];return v-.01*(mom[i]/(1-.9**(step+1)))/(Math.sqrt(vel[i]/(1-.999**(step+1)))+1e-8);});
+  result={W,X,A:[...A],B:[...B],...f,D,dB,dZ,dA,dX,nextA:next.slice(0,2),nextB:next.slice(2),nextLoss:forward(next.slice(0,2),next.slice(2)).loss,optimizer,iteration:step,quantized};A=next.slice(0,2);B=next.slice(2);
+ }
+ return result;
+}
+const f=n=>Math.abs(n)<1e-10?'0':Number(n.toFixed(6)).toString();const vec=a=>'[ '+a.map(f).join(', ')+' ]';
+const stages=['Loss','Logit gradient','Gradient for B','Through B','Gradient for A','Gradient for X','Optimizer update','Check the result'];
+function diagram(step){const labels=['Loss','D = ∂L/∂Y','∇B','dZ = DBᵀ','∇A','∇X','Update A/B','New loss'];return `<svg viewBox="0 0 680 164" role="img" aria-label="Backward walkthrough, current operation ${stages[step]}">${labels.map((t,i)=>{const col=i%4,row=Math.floor(i/4),x=12+col*168,y=12+row*82;return `<g class="bp-node ${i===step?'is-current':''}"><rect x="${x}" y="${y}" width="148" height="50" rx="7"/><text x="${x+74}" y="${y+30}" text-anchor="middle">${i+1}. ${t}</text></g>${col<3?`<path d="M${x+150} ${y+25} h15"/>`:''}`;}).join('')}</svg>`;}
+export function initLoraBackprop(root=document){
+ root.querySelectorAll('[data-lora-backprop]').forEach(panel=>{
+  if(panel.dataset.backpropReady)return;const host=panel.querySelector('[data-bp-host]');if(!host)return;let step=0;
+  host.innerHTML=`<div class="bp-controls"><label>Frozen base<select data-bp-base><option value="dense">Unquantized reference</option><option value="int4">Toy INT4 · scale 0.2</option></select></label><label>Optimizer<select data-bp-optimizer><option value="sgd">SGD · learning rate 0.1</option><option value="adamw">AdamW · learning rate 0.01</option></select></label><label>Training step<select data-bp-iteration><option value="0">First · B starts at zero</option><option value="1">Second · after one update</option></select></label></div><p class="bp-scope">One rank-1 linear projection; two-class teaching loss. Not a full transformer. INT4 is illustrative—not NF4 or a GGUF quantizer. AdamW uses β₁=0.9, β₂=0.999, ε=10⁻⁸, weight decay=0.</p><div class="bp-nav"><button type="button" data-bp-prev>← Previous</button><span data-bp-position></span><button type="button" data-bp-next>Next →</button><button type="button" data-bp-reset>Reset</button></div><div class="bp-graph" tabindex="0" aria-label="Step graph; scroll sideways on small screens" data-bp-graph></div><div class="bp-step" aria-live="polite" aria-atomic="true" data-bp-step></div><details><summary>Inputs, weights and adapter shapes</summary><div data-bp-inputs></div></details>`;
+  const render=()=>{const r=backpropExample({quantized:host.querySelector('[data-bp-base]').value==='int4',optimizer:host.querySelector('[data-bp-optimizer]').value,iteration:Number(host.querySelector('[data-bp-iteration]').value)});
+   const entries=[
+    ['Loss: what are we asking the model to predict?',`Y = ${vec(r.y)}\np = softmax(Y) = ${vec(r.p)}\ntarget = class 1 (second output)\nL = −log(p₁) = ${f(r.loss)}`,'The target is a label, not a target weight matrix. For this teaching projection only, its two outputs are the logits. In a real transformer, the remaining layers and LM head come between this projection and the loss.'],
+    ['Loss → logits',`D = p − one_hot(target)\nD = ${vec(r.D)}`,'The positive first component asks gradient descent to lower the wrong logit; the negative second component asks it to raise the correct logit. This is cross-entropy for one position.'],
+    ['The gradient for B',`Z = XA = ${f(r.z)}\n∇B = ZᵀD = ${vec(r.dB)}`,'B receives a gradient even when B itself is zero, provided Z and D are nonzero. The scalar scale s is 1 in this example.'],
+    ['Back through B',`dZ = DBᵀ = ${f(r.dZ)}`,'To move backward into A, multiply by the current B, not the B that the optimizer will produce later. With B = 0 on the first step, this path is zero.'],
+    ['The gradient for A',`∇A = XᵀdZ\n∇A = ${vec(r.dA)}ᵀ`,r.iteration===0?'A starts with a zero loss gradient. B gets its first update; on the next forward/backward pass A can receive a gradient. Zeroing both A and B would stall both factor gradients.':'After the first update, B is nonzero and A now receives a gradient. This changes the input direction the rank-one adapter extracts.'],
+    ['The gradient for the local input X',`∇X = DWᵀ + dZAᵀ\n∇X = ${vec(r.dX)}`,'The frozen base still contributes DWᵀ. This is how an earlier trainable adapter can receive a signal through later frozen layers. We do not update W; no optimizer state is allocated to it here.'],
+    ['Apply the optimizer once',`A → ${vec(r.nextA)}ᵀ\nB → ${vec(r.nextB)}\nW stays unchanged`,r.optimizer==='sgd'?'SGD uses θ ← θ − 0.1∇θ. All gradients were computed from the same pre-update parameters.':'AdamW uses bias-corrected first and second moments, learning rate 0.01 and zero decay here. The second-step option carries forward the first step’s moments. This is a numerical example, not an optimizer benchmark.'],
+    ['Run the forward pass again',`loss before = ${f(r.loss)}\nloss after  = ${f(r.nextLoss)}`,'This is the same example, not held-out evaluation. A lower training loss here does not establish generalization. Change “Training step” to see the next backward pass.']
+   ];const [title,eq,explain]=entries[step];host.querySelector('[data-bp-step]').innerHTML=`<h4>${title}</h4><pre tabindex="0">${eq}</pre><p>${explain}</p>`;host.querySelector('[data-bp-position]').textContent=`${step+1} / 8`;host.querySelector('[data-bp-prev]').disabled=step===0;host.querySelector('[data-bp-next]').disabled=step===7;host.querySelector('[data-bp-graph]').innerHTML=diagram(step);host.querySelector('[data-bp-inputs]').innerHTML=`<pre tabindex="0">X [1 × 2] = ${vec(r.X)}\nW [2 × 2] = ${r.W.map(vec).join('\n              ')}\nA [2 × 1] = ${vec(r.A)}ᵀ\nB [1 × 2] = ${vec(r.B)}\nr = 1; α = 1; s = 1</pre>`;
+  };
+  host.addEventListener('click',e=>{if(e.target.matches('[data-bp-next]'))step=Math.min(7,step+1);else if(e.target.matches('[data-bp-prev]'))step=Math.max(0,step-1);else if(e.target.matches('[data-bp-reset]')){step=0;host.querySelectorAll('select').forEach(s=>s.selectedIndex=0);}else return;render();});host.addEventListener('change',()=>render());render();panel.dataset.backpropReady='true';panel.querySelector('[data-bp-fallback]')?.setAttribute('hidden','');
+ });
+}

@@ -312,7 +312,7 @@ code-section.antsand-code-preview {
     .syn-tag    { color: #f15b2a; }
     .syn-attr   { color: #94a3b8; }
     .syn-str    { color: #ffd93d; }
-    .syn-cmt    { color: #64748b; font-style: italic; }
+    .syn-cmt    { color: #9aabc0; font-style: italic; }
     .syn-kw     { color: #c792ea; }
     .syn-fn     { color: #82aaff; }
     .syn-num    { color: #f78c6c; }
@@ -634,4 +634,48 @@ code-section.antsand-code-preview {
         .antsand-code-copy { display: none; }
         .antsand-code-header::before { display: none; }
     }
+}
+
+// Opt-in token theme. Existing code themes retain their current appearance.
+.antsand-code-block-themed {
+    background: var(--antsand-code-bg, #f6f8fa);
+    color: var(--antsand-code-ink, #243647);
+    border-color: var(--antsand-code-border, #dce3e9);
+    box-shadow: none;
+    .antsand-code-header {
+        background: var(--antsand-code-header-bg, #eef2f5);
+        color: var(--antsand-code-muted, #536578);
+        border-color: var(--antsand-code-border, #dce3e9);
+        padding: 10px 16px; min-height: 42px;
+        &::before { display: none; }
+    }
+    .antsand-code-label { margin: 0; color: inherit; }
+    .antsand-code-language { margin-left: auto; color: inherit; background: transparent; border: 0; }
+    .antsand-code-pre {
+        background: transparent; color: inherit; border: 0; border-radius: 0;
+        margin: 0; padding: 18px 20px; font-size: 13px; line-height: 1.65;
+        white-space: pre; overflow: auto; max-height: 65vh;
+    }
+    .antsand-code-pre code { color: inherit; background: transparent; padding: 0; font: inherit; }
+    .antsand-code-header .antsand-code-copy { color: var(--antsand-code-ink, #243647); background: transparent; opacity: 1; border: 1px solid var(--antsand-code-border, #dce3e9); }
+}
+.antsand-theme-toggle {
+    color: inherit; background: transparent; border: 1px solid currentColor;
+    border-radius: 6px; padding: 8px 12px; font: inherit; cursor: pointer; white-space: nowrap;
+    &[hidden] { display: none; }
+    &:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+}
+
+// Shared semantic colours for opt-in light/dark code surfaces.
+.antsand-code-block-themed {
+    .syn-kw { color: var(--antsand-syntax-keyword, #9b2367); }
+    .syn-str { color: var(--antsand-syntax-string, #23623d); }
+    .syn-cmt { color: var(--antsand-syntax-comment, #586675); }
+    .syn-fn { color: var(--antsand-syntax-function, #235ca5); }
+    .syn-num { color: var(--antsand-syntax-number, #984b17); }
+    .syn-op, .syn-attr { color: var(--antsand-syntax-operator, #6b43a1); }
+    .syn-var { color: inherit; }
+}
+@media print {
+    .antsand-code-pre [class^="syn-"] { color: #243647 !important; }
 }

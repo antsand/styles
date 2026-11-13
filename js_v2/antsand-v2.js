@@ -1,3 +1,4 @@
+import { initLoraBackprop } from './modules/lora-backprop.js';
 /**
  * ANTSAND v2 - Main JavaScript Entry Point (ES6)
  *
@@ -50,6 +51,7 @@ import { AntsandSvgInteractive, initAllSvgInteractive } from './modules/svg-inte
  * Initialize all ANTSAND components on the page
  */
 function initAll() {
+    initLoraBackprop();
     const initialized = {
         tabs: initAllTabs(),
         tables: initAllTables(),
