@@ -72,6 +72,17 @@ export function whisperNote(container, op) {
 }
 
 export function nodeReference(container,graph,node) {
+    renderNodeReference(container,graph,node);
+    const insertBefore = container.children[1] || null;
+    for (const [kind, entry] of [['Semantic role',node.semanticRole],['Operation',node.operationDefinition]]) {
+        if (typeof entry?.name !== 'string' || typeof entry.definition !== 'string') continue;
+        const section=element('section','');
+        section.append(element('h4',kind+': '+entry.name),element('p',entry.definition));
+        container.insertBefore(section,insertBefore);
+    }
+}
+
+function renderNodeReference(container,graph,node) {
     if(graph.id==='whisper-stage-1' && Object.hasOwn(frontendNotes,node.semanticOp)){
         container.classList.add('operator-detail');
         container.replaceChildren(element('h3',node.label));
