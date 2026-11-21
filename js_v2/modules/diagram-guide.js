@@ -1,3 +1,4 @@
+import {optimizerLab} from './diagram-optimizer.js';
 import {signalLab} from './diagram-signal.js';
 import {projectionExample} from './diagram-projection-example.js';
 import {addReading} from './diagram-reading.js';
@@ -73,6 +74,7 @@ export function whisperNote(container, op) {
 
 export function nodeReference(container,graph,node) {
     renderNodeReference(container,graph,node);
+    if(graph.id==="optimizer-step")optimizerLab(container);
     const insertBefore = container.children[1] || null;
     for (const [kind, entry] of [['Semantic role',node.semanticRole],['Operation',node.operationDefinition]]) {
         if (typeof entry?.name !== 'string' || typeof entry.definition !== 'string') continue;
@@ -114,6 +116,7 @@ export function graphReference(container,graph) {
     reference(container,graph.id,graph.title);
     graphSummary(container,graph);
     if(graph.id==='signal')signalLab(container,'window');
+    if(graph.id==='optimizer-step')optimizerLab(container);
     if (['prefill','decode'].includes(graph.id)) projectionExample(container,graph.id==='decode');
     addReading(container,graph.id);
 }

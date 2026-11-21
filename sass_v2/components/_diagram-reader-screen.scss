@@ -22,3 +22,16 @@
   main { max-width: 92rem; padding: clamp(.75rem, 2vw, 2rem); }
   header { position: sticky; top: 0; z-index: 1; background: white; }
 }
+.optimizer-lab {
+  .optimizer-controls,.optimizer-grid { display: flex; gap: .75rem; flex-wrap: wrap; }
+  .optimizer-controls { align-items: center; margin-bottom: 1rem; }
+  .optimizer-controls label { font-weight: 600; }
+  input[type=range] { display: block; accent-color: #286b62; }
+  .optimizer-card { flex: 1 1 9rem; padding: .75rem; border: 1px solid #cddbd8; border-radius: .5rem; }
+  .optimizer-card h4 { margin: 0; }
+  .optimizer-matrix { margin-top: .75rem; font-size: .82rem; }
+  .optimizer-cells { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; margin-top: .25rem; }
+  .optimizer-cells span { padding: .25rem; text-align: center; background: #f3f5f4; color: #293d3a; font-variant-numeric: tabular-nums; }
+  [data-sign=plus] { background: #d8eae5 !important; }
+  [data-sign=minus] { background: #f5e1db !important; }
+}
