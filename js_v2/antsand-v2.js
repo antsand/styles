@@ -1,3 +1,4 @@
+import { initDiagramAssets } from './modules/diagram-asset.js';
 /**
  * ANTSAND v2 - Main JavaScript Entry Point (ES6)
  *
@@ -50,6 +51,7 @@ import { AntsandSvgInteractive, initAllSvgInteractive } from './modules/svg-inte
  * Initialize all ANTSAND components on the page
  */
 function initAll() {
+    initDiagramAssets();
     const initialized = {
         tabs: initAllTabs(),
         tables: initAllTables(),

@@ -1,0 +1,24 @@
+.diagram-reader header .diagram-screen {
+  margin-inline-start: auto;
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  gap: .4rem;
+  min-height: 36px;
+  padding: .35rem .65rem;
+  border: 1px solid #acbfbb;
+  border-radius: .45rem;
+  color: #224b44;
+  background: #fff;
+  font: 600 .85rem/1.2 system-ui, sans-serif;
+  cursor: pointer;
+  &:hover { background: #eef5f3; }
+  &:focus-visible { outline: 2px solid #287767; outline-offset: 2px; }
+  svg { width: 1rem; height: 1rem; background: transparent; }
+}
+:fullscreen .diagram-reader {
+  height: 100vh;
+  overflow: auto;
+  main { max-width: 92rem; padding: clamp(.75rem, 2vw, 2rem); }
+  header { position: sticky; top: 0; z-index: 1; background: white; }
+}
